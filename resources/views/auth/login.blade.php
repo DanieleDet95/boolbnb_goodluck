@@ -19,7 +19,7 @@
           <h4>{{ __('Login') }}</h4>
         </div>
         <div class="sub_title">
-          <h4>Enter Recipient Info</h4>
+          <h3>Enter Recipient Info</h3>
         </div>
       <div>
 

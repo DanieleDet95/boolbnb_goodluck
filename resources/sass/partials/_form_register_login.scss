@@ -6,7 +6,21 @@ main {
     padding: $main_padding 0;
 
     // Form title
-    
+    .form_title {
+      .top_title > h4 {
+        font-family: $primary_font;
+        color: $quinternary_text_color;
+        font-size: $small_text_size;
+        @include form_top_title;
+      }
+
+      .sub_title > h3 {
+        font-family: $secondary_font;
+        color: $quinternary_text_color;
+        font-size: $h3_text_size;
+        @include form_sub_title;
+      }
+    }
 
     // Input Forms
     .form-group > .input_box > input.form-control {
@@ -69,8 +83,7 @@ main {
         font-family: $primary_font;
         color: $primary_text_color;
         font-size: $paragraph_text_size;
-        font-weight: bold;
-        padding: 20px 50px;
+        @include form_btn_submit;
 
         &:hover {
           background-color: $quinternary_background;

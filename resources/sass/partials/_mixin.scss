@@ -6,12 +6,31 @@
   text-transform: bold;
 }
 
-// CheckBox
+// Form Title Typography
+@mixin form_top_title {
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding-bottom: 20px;
+}
 
+@mixin form_sub_title {
+  text-transform: capitalize;
+  padding-bottom: 40px;
+}
+
+// Form Button
+@mixin form_btn_submit {
+  font-weight: bold;
+  padding: 20px 50px;
+  margin-bottom: 20px;
+}
+
+// CheckBox
 /* Text checkbox */
 @mixin text_checkbox {
   font-weight: normal;
   text-align: left;
+  padding-bottom: 20px;
 }
 
 /* Customize the label (the container) */

@@ -178,6 +178,23 @@ main .login_register_wrapper {
   padding: 100px 0;
 }
 
+main .login_register_wrapper .form_title .top_title > h4 {
+  font-family: "Poppins", sans-serif;
+  color: #272728;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  padding-bottom: 20px;
+}
+
+main .login_register_wrapper .form_title .sub_title > h3 {
+  font-family: "Quando", serif;
+  color: #272728;
+  font-size: 32px;
+  text-transform: capitalize;
+  padding-bottom: 40px;
+}
+
 main .login_register_wrapper .form-group > .input_box > input.form-control:focus {
   border-color: #272728;
   box-shadow: 0 0 0;
@@ -187,6 +204,7 @@ main .login_register_wrapper .form-group > .input_box > input.form-control:focus
 main .login_register_wrapper .login_remember > .checkbox {
   font-weight: normal;
   text-align: left;
+  padding-bottom: 20px;
   font-family: "Poppins", sans-serif;
   color: #272728;
   font-size: 16px;
@@ -259,6 +277,7 @@ main .login_register_wrapper .login_submit .button_login > .custom_button {
   font-size: 16px;
   font-weight: bold;
   padding: 20px 50px;
+  margin-bottom: 20px;
 }
 
 main .login_register_wrapper .login_submit .button_login > .custom_button:hover {

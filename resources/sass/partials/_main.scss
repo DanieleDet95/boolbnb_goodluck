@@ -1,0 +1,44 @@
+
+
+main {
+  padding-top: 60px;
+  .section_jumbo {
+    .img_jumbo {
+      position: relative;
+      height: 680px;
+      background-image: url("/img/sfondo-jumbo-1081.jpg");
+      // object-fit: cover;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      filter: grayscale(40%);
+      .title_jumbo {
+        width: 350px;
+        position: absolute;
+        // left: 200px;
+        top: 150px;
+        h2 {
+          font-size: $h2_text_size;
+          color: #EAE2D2;
+        }
+        p {
+          font-size: $paragraph_text_size;
+          color: #EAE2D2;
+        }
+      }
+
+    }
+  }
+
+  .section_suites_cards {
+    background-color: red;
+
+    .example-row {
+      background-color: white;
+      height: 400px;
+      .example-content-main {
+        height: 300px;
+      }
+    }
+  }
+}

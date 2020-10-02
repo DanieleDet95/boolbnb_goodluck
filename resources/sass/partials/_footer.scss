@@ -1,0 +1,35 @@
+// partials/_footer.scss
+
+footer {
+  background-color: $qaternary_background;
+  hr {
+    background-color: $tertiary_text_color;
+  }
+  .footer_list {
+    a {
+      font-family: $primary_font;
+      color: $tertiary_text_color;
+      font-size: $small_text_size;
+      text-transform: capitalize;
+      font-weight: bold;
+
+      &:hover {
+        color:$secondary_text_color;
+        cursor: pointer;
+      }
+    }
+  }
+  .social_list {
+    a {
+      font-family: $primary_font;
+      color: $tertiary_text_color;
+      font-size: $small_text_size;
+      font-size: 30px;
+
+      &:hover {
+        color:$secondary_text_color;
+        cursor: pointer;
+      }
+    }
+  }
+}

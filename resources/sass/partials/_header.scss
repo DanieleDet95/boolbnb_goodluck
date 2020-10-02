@@ -1,0 +1,94 @@
+// partials/_header.scss
+
+// Nav
+header {
+
+  // Navbar
+  .navbar {
+    padding: 0;
+    height: 60px;
+  }
+
+  .navbar-custom {
+    background-color: $primary_background;
+  }
+
+  .navbar-custom .bg-custom {
+    background-color: $primary_background;
+  }
+
+  // Logo
+  .navbar-brand {
+    padding: 0;
+  }
+
+  .nav_logo {
+    width: 100px;
+  }
+
+  // Inline navigation menu
+  .nav-item {
+    line-height: 60px;
+    margin-left: 30px;
+
+    & > span {
+      font-family: $primary_font;
+      color: $quinternary_text_color;
+      font-size: $small_text_size;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+  }
+
+  .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+    padding: 0;
+
+    & > span {
+      font-family: $primary_font;
+      color: $quinternary_text_color;
+      font-size: $small_text_size;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+
+    &:hover {
+      color:$secondary_text_color;
+    }
+  }
+
+  .navbar .navbar-collapse .navbar-nav .nav-item.nav_before_login {
+    margin-right: 30px;
+  }
+
+  // Login
+  .navbar .navbar-collapse .navbar-nav .nav-item.nav_login {
+    background-color: $secondary_text_color;
+    padding:0 30px;
+    margin: 0;
+
+    &:hover {
+      background-color: $quinternary_background;
+    }
+
+    & .nav-link > span {
+      color: $primary_text_color;
+    }
+  }
+
+  // Hamburger menu
+  .navbar button.custom-toggler.navbar-toggler {
+    background-color: $secondary_text_color;
+    padding:0 50px;
+    height: 60px;
+    border-radius: 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    & .hamburger_icon i {
+      font-size: $hamburger_icon;
+      color: $primary_text_color;
+    }
+  }
+}

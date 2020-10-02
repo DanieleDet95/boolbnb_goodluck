@@ -1,0 +1,90 @@
+// partials/_form_register_login.scss
+
+// Form page main
+main {
+  .login_register_wrapper {
+    padding: $main_padding 0;
+
+    // Form title
+    
+
+    // Input Forms
+    .form-group > .input_box > input.form-control {
+
+      &:focus {
+        border-color: $secondary_background;
+        box-shadow: 0 0 0;
+        outline: 0 none;
+      }
+    }
+
+    // Remember Checkbox
+    .login_remember > .checkbox {
+      @include text_checkbox;
+      font-family: $primary_font;
+      color: $quinternary_text_color;
+      font-size: $paragraph_text_size;
+
+      /* Customize the label (the container) */
+      .container_checkbox {
+         @include container_checkbox;
+
+      }
+
+      /* Hide the browser's default radio button */
+      .container_checkbox input {
+         @include default_radio_button;
+      }
+
+      /* Create a custom radio button */
+      .checkmark {
+         @include custom_radio_button;
+      }
+
+      /* When the radio button is checked, add a background */
+      .container_checkbox input:checked ~ .checkmark {
+        background-color: $secondary_text_color;
+      }
+
+      /* Create the indicator (the dot/circle - hidden when not checked) */
+      .checkmark:after {
+         @include checkmark_after;
+      }
+
+      /* Show the indicator (dot/circle) when checked */
+      .container_checkbox input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the indicator */
+      .container_checkbox .checkmark:after {
+        @include style_indicator;
+      }
+    }
+
+    // Button submit Login
+    .login_submit .button_login {
+      & > .custom_button {
+        background-color: $secondary_text_color;
+        font-family: $primary_font;
+        color: $primary_text_color;
+        font-size: $paragraph_text_size;
+        font-weight: bold;
+        padding: 20px 50px;
+
+        &:hover {
+          background-color: $quinternary_background;
+        }
+      }
+    }
+
+    // Forgot Password link
+    .forgot_password {
+      .custom-form-link {
+        color: $quinternary_text_color;
+        font-family: $primary_font;
+        font-size: $paragraph_text_size;
+      }
+    }
+  }
+}

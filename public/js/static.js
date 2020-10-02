@@ -1,6 +1,3 @@
-// include Bootstrap
-require('./bootstrap');
-
 // include JQuery
 var $ = require( "jquery" );
 
@@ -9,42 +6,46 @@ $( document ).ready(function() {
   printStatics();
 
   function printStatics(){
+    console.log($('#suite').text());
     $.ajax({
         url: 'http://127.0.0.1:8000/api/statics',
         data: {
-            suite: $('#suite').text(),
+            apartment: $('#suite').text(),
         },
         method: 'GET',
         success: function(dataResponse) {
-
-            $('#vis_totali').html(dataResponse.v_totale);
-            $('#mess_totali').html(dataResponse.m_totale);
-
-            var m_gennaio = dataResponse.m_gennaio;
-            var m_febbraio = dataResponse.m_febbraio;
-            var m_marzo = dataResponse.m_marzo;
-            var m_aprile = dataResponse.m_aprile;
-            var m_maggio = dataResponse.m_maggio;
-            var m_giugno = dataResponse.m_giugno;
-            var m_luglio = dataResponse.m_luglio;
-            var m_agosto = dataResponse.m_agosto;
-            var m_settembre = dataResponse.m_settembre;
-            var m_ottobre = dataResponse.m_ottobre;
-            var m_novembre = dataResponse.m_novembre;
-            var m_dicembre = dataResponse.m_dicembre;
-
-            var v_gennaio = dataResponse.v_gennaio;
-            var v_febbraio = dataResponse.v_febbraio;
-            var v_marzo = dataResponse.v_marzo;
-            var v_aprile = dataResponse.v_aprile;
-            var v_maggio = dataResponse.v_maggio;
-            var v_giugno = dataResponse.v_giugno;
-            var v_luglio = dataResponse.v_luglio;
-            var v_agosto = dataResponse.v_agosto;
-            var v_settembre = dataResponse.v_settembre;
-            var v_ottobre = dataResponse.v_ottobre;
-            var v_novembre = dataResponse.v_novembre;
-            var v_dicembre = dataResponse.v_dicembrev
+            dd(dataResponse);
+            // var gennaio = dataResponse.gennaio.length;
+            // var febbraio = dataResponse.febbraio.length;
+            // var marzo = dataResponse.marzo.length;
+            // var aprile = dataResponse.aprile.length;
+            // var maggio = dataResponse.maggio.length;
+            // var giugno = dataResponse.giugno.length;
+            // var luglio = dataResponse.luglio.length;
+            // var agosto = dataResponse.agosto.length;
+            // var settembre = dataResponse.settembre.length;
+            // var ottobre = dataResponse.ottobre.length;
+            // var novembre = dataResponse.novembre.length;
+            // var dicembre = dataResponse.dicembre.length;
+            //
+            //
+            // var monthsStats = [gennaio, febbraio, marzo, aprile, maggio, giugno, luglio, agosto, settembre, ottobre, novembre, dicembre];
+            // var months = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+            //
+            // var today = new Date();
+            // var aMonth = today.getMonth();
+            // var arrayMesiDaPassare =[];
+            // var arrayValoriDaPassare =[];
+            //
+            //
+            // for (var i = 0; i < numeroMesiDaVisualizzare; i++) {
+            //   arrayMesiDaPassare.push(months[aMonth]);
+            //   arrayValoriDaPassare.push(monthsStats[aMonth]);
+            //   aMonth = aMonth - 1;
+            //   if (aMonth == -1) {
+            //     aMonth = 11;
+            //   }
+            // }
 
             var ctx = document.getElementById('bar_visual').getContext('2d');
             var myChart = new Chart(ctx, {
@@ -53,7 +54,7 @@ $( document ).ready(function() {
                     labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno','Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
                     datasets: [{
                         label: '# Visualizzazioni',
-                        data: [v_gennaio, v_febbraio, v_marzo, v_aprile, v_maggio, v_giugno, v_luglio, v_agosto, v_settembre, v_ottobre, v_novembre, v_dicembre],
+                        data: [12, 19, 3, 5, 2, 3],
                         backgroundColor: [
                             'rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)',
                         ],
@@ -78,7 +79,7 @@ $( document ).ready(function() {
                     labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno','Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
                     datasets: [{
                         label: '# Messaggi',
-                        data: [m_gennaio, m_febbraio, m_marzo, m_aprile, m_maggio, m_giugno, m_luglio, m_agosto, m_settembre, m_ottobre, m_novembre, m_dicembre],
+                        data: [12, 19, 3, 5, 2, 3],
                         backgroundColor: [
                             'rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)',
                         ],

@@ -47780,6 +47780,11 @@ $(document).ready(function () {
   });
   $('#submit').on('click', function () {
     var params = {
+      // beds: $('#beds').val(),
+      // rooms: $('#rooms').val(),
+      // baths: $('#baths').val(),
+      // square_m: $('#square_m').val(),
+      // price: $('#price').val(),
       pool: $('#pool').val(),
       wifi: $('#wifi').val(),
       pet: $('#pet').val(),
@@ -47806,6 +47811,11 @@ function callAjax(params) {
     url: "http://boolbnb_goodluck.loc/api/search",
     method: "GET",
     data: {
+      // beds: params.beds,
+      // rooms: params.rooms,
+      // baths: params.baths,
+      // square_m: params.square_m,
+      // price: params.price,
       pool: params.pool,
       wifi: params.wifi,
       pet: params.pet,

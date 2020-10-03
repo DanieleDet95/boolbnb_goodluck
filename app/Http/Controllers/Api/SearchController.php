@@ -11,9 +11,15 @@ use DB;
 class SearchController extends Controller
 {
     public function index(Request $request) {
+
       $R = 6371; // raggio della Terra in km
       $rad = 2000;
 
+      $rooms = $request->get('rooms');
+      $beds = $request->get('beds');
+      $baths = $request->get('baths');
+      $square_m = $request->get('square_m');
+      $price = $request->get('price');
       $pool = $request->get('pool');
       $wifi = $request->get('wifi');
       $pet = $request->get('pet');
@@ -23,7 +29,6 @@ class SearchController extends Controller
       $lat = floatval($request->get('latitude'));
       $lng = floatval($request->get('longitude'));
 
-
       $params = [
             "maxLat" => $lat + rad2deg($rad/$R),
             "minLat" => $lat - rad2deg($rad/$R),
@@ -31,54 +36,70 @@ class SearchController extends Controller
             "minLng" => $lng - rad2deg(asin($rad/$R) / cos(deg2rad($lat))),
         ];
 
+
       $querySuite = Suite::query();
-
-      if ($pool == 'true') {
-           $querySuite->whereHas('services', function (Builder $query) {
-               $query->where('service_id', '=', '1');
-           });
-       }
-
-       if ($wifi == 'true') {
-            $querySuite->whereHas('services', function (Builder $query) {
-                $query->where('service_id', '=', '2');
-            });
-        }
-
-      if ($pet == 'true') {
-           $querySuite->whereHas('services', function (Builder $query) {
-               $query->where('service_id', '=', '3');
-           });
-       }
-
-     if ($parking == 'true') {
-          $querySuite->whereHas('services', function (Builder $query) {
-              $query->where('service_id', '=', '4');
-          });
-      }
-
-      if ($piano == 'true') {
-           $querySuite->whereHas('services', function (Builder $query) {
-               $query->where('service_id', '=', '5');
-           });
-       }
-
-       if ($sauna == 'true') {
-            $querySuite->whereHas('services', function (Builder $query) {
-                $query->where('service_id', '=', '6');
-            });
-        }
-
 
       $querySuite->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
       $querySuite->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
 
-      return $querySuite->get();
+        if ($pool == 'true') {
+          $querySuite->whereHas('services', function (Builder $query) {
+            $query->where('service_id', '=', '1');
+           });
+        }
 
-      // $querySuite = DB::table('suites')->join('service_suite', function($join)
-      // {
-      //   $join->on('service_suite.service_id', '=', 'suites.id');
-      // })->get();
+        if ($wifi == 'true') {
+          $querySuite->whereHas('services', function (Builder $query) {
+            $query->where('service_id', '=', '2');
+            });
+        }
+
+        if ($pet == 'true') {
+          $querySuite->whereHas('services', function (Builder $query) {
+            $query->where('service_id', '=', '3');
+           });
+        }
+
+        if ($parking == 'true') {
+          $querySuite->whereHas('services', function (Builder $query) {
+            $query->where('service_id', '=', '4');
+          });
+        }
+
+        if ($piano == 'true') {
+          $querySuite->whereHas('services', function (Builder $query) {
+            $query->where('service_id', '=', '5');
+           });
+        }
+
+        if ($sauna == 'true') {
+          $querySuite->whereHas('services', function (Builder $query) {
+            $query->where('service_id', '=', '6');
+            });
+        }
+
+        if ($rooms) {
+          $querySuite->where('rooms', ">=", $rooms);
+        }
+
+        if ($beds) {
+          $querySuite->where('beds', ">=", $beds);
+        }
+
+        if ($baths) {
+          $querySuite->where('baths', ">=", $baths);
+        }
+
+        if ($square_m) {
+          $querySuite->where('square_m', ">=", $parking);
+        }
+
+        if ($price) {
+          $querySuite->where('price', "<=", $price);
+        }
+
+
+      return $querySuite->get();
 
     }
 }

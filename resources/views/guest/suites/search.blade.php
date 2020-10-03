@@ -20,17 +20,17 @@
       <input id="latitude" type="text" name="latitude" value="" placeholder="Latitudine">
       <input id="longitude" type="text" name="longitude" value="" placeholder="Longitudine">
 
-      <input  type="number" name="rooms" value="" placeholder="Stanze">
-      <input  type="number" name="beds" value="" placeholder="Letti">
-      <input  type="number" name="baths" value="" placeholder="Bagni">
-      <input  type="number" name="square_m" value="" placeholder="Metri quadri">
+      <input  id="rooms" type="number" name="rooms" value="" placeholder="Stanze">
+      <input  id="beds" type="number" name="beds" value="" placeholder="Letti">
+      <input  id="baths" type="number" name="baths" value="" placeholder="Bagni">
+      <input  id="square_m" type="number" name="square_m" value="" placeholder="Metri quadri">
 
       <label>Prezzo</label>
-      <select name="price">
-        <option value=""> <30 </option>
-        <option value=""> <60 </option>
-        <option value=""> <90 </option>
-        <option value=""> <120 </option>
+      <select id="price" name="price">
+        <option value="30"> < 30€ </option>
+        <option value="60"> < 60€ </option>
+        <option value="90"> < 90€ </option>
+        <option value="120"> < 120€ </option>
       </select>
 
 

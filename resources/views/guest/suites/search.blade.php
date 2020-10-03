@@ -5,21 +5,18 @@
 @section("content")
   <h1>Pagina ricerca</h1>
 
-  {{-- è consigliato non utilizzare il tag form
-  per evitare che la pagina venga refreshata --}}
+
   <div class="main-content">
 
+    {{-- è consigliato non utilizzare il tag form
+    per evitare che la pagina venga refreshata --}}
+    <div class="search-wrapper">
       {{-- l'input search deve contenere l'id address-input
-      per renderlo disponibile a places.js --}}
-    {{-- <form action="{{route('api.search')}}" method="get"> --}}
+      per renderlo disponibile a places.js
+      i data-att sono contengono le informazioni sulla latitudine e longitudine--}}
+      <input type="search" id="address-input" data-lat="" data-lng="{{old('searchbar')}}" placeholder="Where are we going?" />
 
-
-      <input type="search" id="address-input" placeholder="Where are we going?" />
-
-      {{-- gli input latitude & longitude non devono risultare visibili/modificabili --}}
-      <input id="latitude" type="text" name="latitude" value="" placeholder="Latitudine">
-      <input id="longitude" type="text" name="longitude" value="" placeholder="Longitudine">
-
+      <input id="range" type="number" name="range" value="" placeholder="Range in Km">
       <input  id="rooms" type="number" name="rooms" value="" placeholder="Stanze">
       <input  id="beds" type="number" name="beds" value="" placeholder="Letti">
       <input  id="baths" type="number" name="baths" value="" placeholder="Bagni">
@@ -27,6 +24,7 @@
 
       <label>Prezzo</label>
       <select id="price" name="price">
+        <option value="0" selected="selected"> --- </option>
         <option value="30"> < 30€ </option>
         <option value="60"> < 60€ </option>
         <option value="90"> < 90€ </option>
@@ -52,7 +50,7 @@
 
       {{-- non è importante il tipo di tag scelto ma deve contenere l'id #submit --}}
       <input id="submit" type="submit" value="Ricerca">
-    {{-- </form> --}}
+    </div>
   </div>
 
 @endsection

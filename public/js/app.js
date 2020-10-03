@@ -47763,10 +47763,14 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // includ
 var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  $('input[type="checkbox"]').prop('checked', false);
+  // erase all values from all inputs in .search-wrapper except for #submit
+  $(".search-wrapper input:not('#submit')").val(''); // set all checkboxes value as false
+
+  $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
+
   $('input[type="checkbox"]').on('click', function (event) {
     checked($(this));
-  }); // search-bar algolia
+  }); // set algolia search-bar autocomplete
 
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
@@ -47774,29 +47778,33 @@ $(document).ready(function () {
     appId: 'pl4XRMWU2BCA',
     apiKey: '0c0d759444ce91afdb966e427ac5e837',
     container: document.querySelector('#address-input')
-  });
+  }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
+
   placesAutocomplete.on('change', function (e) {
-    return $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
-  });
+    return $('#address-input').attr('data-lat', e.suggestion['latlng']['lat']), $('#address-input').attr('data-lng', e.suggestion['latlng']['lng']);
+  }); // on click take all values from the form and store them into params object
+
   $('#submit').on('click', function () {
     var params = {
-      // beds: $('#beds').val(),
-      // rooms: $('#rooms').val(),
-      // baths: $('#baths').val(),
-      // square_m: $('#square_m').val(),
-      // price: $('#price').val(),
+      range: $('#range').val(),
+      beds: $('#beds').val(),
+      rooms: $('#rooms').val(),
+      baths: $('#baths').val(),
+      square_m: $('#square_m').val(),
+      price: $('#price').val(),
       pool: $('#pool').val(),
       wifi: $('#wifi').val(),
       pet: $('#pet').val(),
       parking: $('#parking').val(),
       piano: $('#piano').val(),
       sauna: $('#sauna').val(),
-      latitude: $('#latitude').val(),
-      longitude: $('#longitude').val()
-    };
-    callAjax(params);
+      latitude: $('#address-input').attr('data-lat'),
+      longitude: $('#address-input').attr('data-lng')
+    }; // send params to API in Api/SearchController
+
+    ajaxCall(params);
   });
-}); // definition
+}); // DEFINITIONs
 
 function checked(event) {
   if ($(event).prop('checked')) {
@@ -47806,16 +47814,17 @@ function checked(event) {
   }
 }
 
-function callAjax(params) {
+function ajaxCall(params) {
   $.ajax({
     url: "http://boolbnb_goodluck.loc/api/search",
     method: "GET",
     data: {
-      // beds: params.beds,
-      // rooms: params.rooms,
-      // baths: params.baths,
-      // square_m: params.square_m,
-      // price: params.price,
+      range: params.range,
+      beds: params.beds,
+      rooms: params.rooms,
+      baths: params.baths,
+      square_m: params.square_m,
+      price: params.price,
       pool: params.pool,
       wifi: params.wifi,
       pet: params.pet,
@@ -47832,114 +47841,7 @@ function callAjax(params) {
       console.log(_error);
     }
   });
-} // var ctx = document.getElementById('bar_visual').getContext('2d');
-// var myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno','Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-//         datasets: [{
-//             label: '# Visualizzazioni',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)',
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true,
-//                 }
-//             }]
-//         }
-//     }
-// });
-//
-//
-// var ctx = document.getElementById('line_visual');
-// var myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno','Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-//         datasets: [{
-//             label: '# Visualizzazioni',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255,255,255, 0.3)',
-//             ],
-//             borderColor: [
-//                 'rgba(255, 0, 0, 1)',
-//             ],
-//             borderWidth: 1,
-//             lineTension: 0
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
-//
-// var ctx = document.getElementById('line_message');
-// var myChart = new Chart(ctx, {
-//     type: 'line',
-//     data: {
-//         labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno','Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-//         datasets: [{
-//             label: '# Messaggi',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255,255,255, 0.3)',
-//             ],
-//             borderColor: [
-//                 'rgba(255, 0, 0, 1)',
-//             ],
-//             borderWidth: 1,
-//             lineTension: 0
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
-//
-// var ctx = document.getElementById('bar_message').getContext('2d');
-// var myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno','Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
-//         datasets: [{
-//             label: '# Messaggi',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)','rgba(255, 0, 0, 1)',
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             yAxes: [{
-//                 ticks: {
-//                     beginAtZero: true
-//                 }
-//             }]
-//         }
-//     }
-// });
+}
 
 /***/ }),
 

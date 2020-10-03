@@ -6,20 +6,24 @@ use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Suite;
-use DB;
+use Carbon\Carbon;
+// use Illuminate\Http\Response;
+// use DB;
 
 class SearchController extends Controller
 {
     public function index(Request $request) {
 
-      $R = 6371; // raggio della Terra in km
-      $rad = 2000;
+      $now = Carbon::now();
 
+      $R = 6371; // raggio della Terra in km
+
+      $rad = $request->get('range');
       $rooms = $request->get('rooms');
       $beds = $request->get('beds');
       $baths = $request->get('baths');
       $square_m = $request->get('square_m');
-      $price = $request->get('price');
+      $price = floatval($request->get('price'));
       $pool = $request->get('pool');
       $wifi = $request->get('wifi');
       $pet = $request->get('pet');
@@ -38,6 +42,9 @@ class SearchController extends Controller
 
 
       $querySuite = Suite::query();
+      // $querySuite->whereHas('highlight_suite', function(Builder $query) {
+      //   $querySuite->where('end', '>', )
+      // })
 
       $querySuite->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
       $querySuite->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
@@ -94,12 +101,16 @@ class SearchController extends Controller
           $querySuite->where('square_m', ">=", $parking);
         }
 
-        if ($price) {
+        if ($price != 0) {
           $querySuite->where('price', "<=", $price);
         }
 
+        return $querySuite->get();
 
-      return $querySuite->get();
+      // return response()->json([
+      //   'nopromo' => $querySuite,
+      //   'promo' => 'ciao'
+      // ]);
 
     }
 }

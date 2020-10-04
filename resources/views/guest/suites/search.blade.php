@@ -32,8 +32,6 @@
       </select>
 
 
-
-
       <label>Piscina</label>
       <input id="pool" type="checkbox" name="pool" value="false">
       <label>wifi</label>
@@ -51,6 +49,26 @@
       {{-- non è importante il tipo di tag scelto ma deve contenere l'id #submit --}}
       <input id="submit" type="submit" value="Ricerca">
     </div>
+
+    {{-- la classe del div serve ad identificare il punto di aggancio in cui riprodurre il template Handlebars
+    se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
+    <div class="suites-cards">
+
+    </div>
+
+    {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
+    se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
+    <script id="suite-cards-template" type="text/x-handlebars-template">
+      <div class="entry">
+        <img src="@{{main_image}}" alt="@{{title}}">
+        <div class="body">
+          <h1>@{{title}}</h1>
+          <h1>@{{address}}</h1>
+          <h1>@{{price}}€</h1>
+        </div>
+      </div>
+    </script>
+
   </div>
 
 @endsection

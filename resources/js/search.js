@@ -1,4 +1,4 @@
-
+const Handlebars = require("handlebars");
 
 $(document).ready(function() {
   // erase all values from all inputs in .search-wrapper except for #submit
@@ -90,8 +90,15 @@ function ajaxCall(params) {
             longitude: params.longitude,
           },
 
-    success: function(dataResponse){
-      console.log(dataResponse);
+    success: function(suites){
+      var source = $('#suite-cards-template').html();
+      var template = Handlebars.compile(source);
+
+      for (var i = 0; i < suites.length; i++) {
+        var suite = suites[i];
+        var html = template(suite);
+        $('.suites-cards').append(html);
+      }
     },
 
     error: function(error) {

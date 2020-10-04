@@ -105,12 +105,9 @@ class SearchController extends Controller
           $querySuite->where('price', "<=", $price);
         }
 
-        return $querySuite->get();
+       return $querySuite->get();
 
-      // return response()->json([
-      //   'nopromo' => $querySuite,
-      //   'promo' => 'ciao'
-      // ]);
+      // return response()->json(['querySuite' => $querySuite]);
 
     }
 }

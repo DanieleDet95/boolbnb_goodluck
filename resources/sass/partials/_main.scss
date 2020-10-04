@@ -3,13 +3,12 @@
 main {
   padding-top: 60px;
   .my_jumbotron {
-    background-repeat: no-repeat;
-    filter: grayscale(40%);
     position: relative;
     .title_jumbo {
       width: 350px;
       position: absolute;
-      top: 425px;
+      top: 40%;
+      left: 5%;
       h2 {
         font-size: $h2_text_size;
         color: #EAE2D2;
@@ -17,6 +16,15 @@ main {
       p {
         font-size: $paragraph_text_size;
         color: #EAE2D2;
+      }
+    }
+    .input_jumbo {
+      width: 350px;
+      position: absolute;
+      top: 60%;
+      left: 5%;
+      button {
+        background-color: #F6F4F2;
       }
     }
   }

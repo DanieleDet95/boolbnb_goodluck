@@ -104,15 +104,14 @@ main {
 }
 
 main .my_jumbotron {
-  background-repeat: no-repeat;
-  filter: grayscale(40%);
   position: relative;
 }
 
 main .my_jumbotron .title_jumbo {
   width: 350px;
   position: absolute;
-  top: 425px;
+  top: 40%;
+  left: 5%;
 }
 
 main .my_jumbotron .title_jumbo h2 {
@@ -123,6 +122,17 @@ main .my_jumbotron .title_jumbo h2 {
 main .my_jumbotron .title_jumbo p {
   font-size: 16px;
   color: #EAE2D2;
+}
+
+main .my_jumbotron .input_jumbo {
+  width: 350px;
+  position: absolute;
+  top: 60%;
+  left: 5%;
+}
+
+main .my_jumbotron .input_jumbo button {
+  background-color: #F6F4F2;
 }
 
 main .section_suites_cards {

@@ -8,12 +8,18 @@
 
   {{-- Jumbotron --}}
   <section class="jumbotron jumbotron-fluid my_jumbotron py-0 mb-0">
-    <img src="{{asset('img/sfondo-jumbo-1082.jpg')}}" alt="">
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
+      <img src="{{asset('img/sfondo-jumbo-1082.jpg')}}" alt="">
       <div class="row">
         <div class="col-12 col-lg-5 col-md-8 d-none d-lg-block d-xl-block title_jumbo">
           <h2>Riscopri l'Italia</h2>
           <p>Cambia quadro. Scopri alloggi nelle vicinanze tutti da vivere, per lavoro o svago.</p>
+        </div>
+        <div class="input-group input-group-lg input_jumbo">
+          <input type="search" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Dove vuoi andare?">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search-location"></i></button>
+          </div>
         </div>
       </div>
     </div>

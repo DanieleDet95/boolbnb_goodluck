@@ -62,9 +62,9 @@
       <div class="entry">
         <img src="@{{main_image}}" alt="@{{title}}">
         <div class="body">
-          <h1>@{{title}}</h1>
-          <h1>@{{address}}</h1>
-          <h1>@{{price}}€</h1>
+          <h2>@{{title}}</h2>
+          <h3>@{{address}}</h3>
+          <h3>@{{price}}€</h3>
         </div>
       </div>
     </script>

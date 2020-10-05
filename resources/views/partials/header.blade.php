@@ -13,7 +13,7 @@
         {{-- Logo --}}
         <a class="navbar-brand" href="#">
           <div class="nav_logo">
-            <img src="{{ asset("img/airbnb-lato.png") }}" alt="Logo">
+            <img src="{{ asset("img/airbnb_black.png") }}" alt="Logo">
           </div>
         </a>
         {{-- end Logo --}}

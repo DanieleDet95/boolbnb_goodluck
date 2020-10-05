@@ -20,7 +20,6 @@
 
       {{-- Footer --}}
       @include("partials.footer")
-
     </div>
   </body>
 </html>

@@ -247,6 +247,79 @@ main .section_suites_cards .link_card .item:hover .polaroid:before {
   transition: all 0.35s;
 }
 
+main .checkbox {
+  font-weight: normal;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #272728;
+  font-size: 15px;
+  /* Customize the label (the container) */
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* When the radio button is checked, add a background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator */
+}
+
+main .checkbox .container_checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0 30px 0;
+}
+
+main .checkbox .container_checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+main .checkbox .checkmark {
+  position: absolute;
+  top: 3.5px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 1px solid #cf4532;
+}
+
+main .checkbox .container_checkbox input:checked ~ .checkmark {
+  background-color: #cf4532;
+}
+
+main .checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+main .checkbox .container_checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+main .checkbox .container_checkbox .checkmark:after {
+  left: 6px;
+  top: 2.5px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 1.2px 1.2px 0;
+  transform: rotate(45deg);
+}
+
+main .entry {
+  border: 1px solid black;
+}
+
 footer {
   background-color: #2d3f53;
 }

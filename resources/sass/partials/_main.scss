@@ -102,8 +102,54 @@ main {
     }
   }
   // FINE HOME
-
-  //SHOW
   
-  //FINE SHOW
+  // SEARCH
+  // Common checkbox
+  .checkbox {
+    @include text_checkbox;
+    font-family: $primary_font;
+    color: $quinternary_text_color;
+    font-size: $paragraph_text_size;
+
+
+    /* Customize the label (the container) */
+    .container_checkbox {
+       @include container_checkbox;
+       margin: 10px 0 30px 0;
+    }
+
+    /* Hide the browser's default radio button */
+    .container_checkbox input {
+       @include default_radio_button;
+    }
+
+    /* Create a custom radio button */
+    .checkmark {
+       @include custom_radio_button;
+    }
+
+    /* When the radio button is checked, add a background */
+    .container_checkbox input:checked ~ .checkmark {
+      background-color: $secondary_text_color;
+    }
+
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+       @include checkmark_after;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    .container_checkbox input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    /* Style the indicator */
+    .container_checkbox .checkmark:after {
+      @include style_indicator;
+    }
+  }
+  .entry {
+    border: 1px solid black;
+  }
+  // FINE SEARCH
 }

@@ -53110,6 +53110,7 @@ $(document).ready(function () {
 /***/ (function(module, exports, __webpack_require__) {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
 =======
@@ -53127,6 +53128,10 @@ module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/b
 /*! no static exports found */
 /***/ (function(module, exports) {
 >>>>>>> master
+=======
+__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> BranchIvan
 
 /* (ignored) */
 

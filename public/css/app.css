@@ -103,43 +103,115 @@ main {
   padding-top: 60px;
 }
 
-main .section_jumbo .img_jumbo {
+main .my_jumbotron {
   position: relative;
-  height: 680px;
-  background-image: url("/img/sfondo-jumbo-1081.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  filter: grayscale(40%);
 }
 
-main .section_jumbo .img_jumbo .title_jumbo {
+main .my_jumbotron .title_jumbo {
   width: 350px;
   position: absolute;
-  top: 150px;
+  top: 40%;
+  left: 5%;
 }
 
-main .section_jumbo .img_jumbo .title_jumbo h2 {
+main .my_jumbotron .title_jumbo h2 {
   font-size: 40px;
   color: #EAE2D2;
 }
 
-main .section_jumbo .img_jumbo .title_jumbo p {
+main .my_jumbotron .title_jumbo p {
   font-size: 16px;
   color: #EAE2D2;
 }
 
+main .my_jumbotron .input_jumbo {
+  width: 350px;
+  position: absolute;
+  top: 60%;
+  left: 5%;
+}
+
+main .my_jumbotron .input_jumbo button {
+  background-color: #F6F4F2;
+}
+
 main .section_suites_cards {
-  background-color: red;
+  padding-bottom: 40px;
 }
 
-main .section_suites_cards .example-row {
-  background-color: white;
-  height: 400px;
+main .section_suites_cards .link_card {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 }
 
-main .section_suites_cards .example-row .example-content-main {
-  height: 300px;
+main .section_suites_cards .link_card .item {
+  display: inline-block;
+  margin-top: 2rem;
+  filter: grayscale(100%);
+  transform: scale(0.8, 0.8) rotate(5deg);
+  transition: all 0.35s;
+}
+
+main .section_suites_cards .link_card .item .polaroid {
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.2);
+}
+
+main .section_suites_cards .link_card .item .polaroid img {
+  max-width: 100%;
+  height: auto;
+}
+
+main .section_suites_cards .link_card .item .polaroid .caption {
+  text-align: center;
+}
+
+main .section_suites_cards .link_card .item .polaroid .caption h5 {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+
+main .section_suites_cards .link_card .item .polaroid .caption p {
+  font-size: 15px;
+  margin-top: 60px;
+}
+
+main .section_suites_cards .link_card .item .polaroid:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transition: all 0.35s;
+}
+
+main .section_suites_cards .link_card .item .item .polaroid:before {
+  transform: rotate(6deg);
+  height: 20%;
+  width: 47%;
+  bottom: 30px;
+  right: 70px;
+  box-shadow: 0 2.1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+main .section_suites_cards .link_card .item:hover {
+  filter: none;
+  transform: scale(1, 1) rotate(0deg) !important;
+  transition: all 0.35s;
+}
+
+main .section_suites_cards .link_card .item:hover .polaroid:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  transform: rotate(0deg);
+  height: 90%;
+  width: 90%;
+  bottom: 0%;
+  right: 5%;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+  transition: all 0.35s;
 }
 
 footer {

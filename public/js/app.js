@@ -52958,6 +52958,7 @@ function checked(event) {
 function ajaxCall(params) {
   $.ajax({
     url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search" //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -52977,7 +52978,9 @@ function ajaxCall(params) {
     },
     success: function success(suites) {
       var source = $('#suite-cards-template').html();
-      var template = Handlebars.compile(source);
+      var template = Handlebars.compile(source); // refresh html before a new search
+
+      $('.suites-cards').html('');
 
       for (var i = 0; i < suites.length; i++) {
         var suite = suites[i];

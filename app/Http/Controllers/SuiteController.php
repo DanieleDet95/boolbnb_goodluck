@@ -140,10 +140,10 @@ class SuiteController extends Controller
    */
   public function show(Suite $suite)
   {
-    $giorno = Carbon::now();
+    $giorno = Carbon::now('Europe/Rome');
     $new_visit = new Visit();
     $new_visit->data = $giorno;
-    $new_visit->ip = 100;
+    $new_visit->ip = 90;
     $new_visit->suite_id = $suite['id'];
     $new_visit->save();
 

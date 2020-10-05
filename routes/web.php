@@ -25,8 +25,8 @@ Route::prefix('admin')
   Route::post('suites/{suite}', 'SuiteController@store_payment')->name('suites.store_payment');
   Route::get('/messages', 'SuiteController@messages')->name('email.messages.index');
   Route::get('/mysuites', 'SuiteController@mysuites')->name('suites.mysuites');
-  Route::get('/static/{suite}', 'SuiteController@static')->name('suites.static');
   Route::get('/payment/{suite}', 'SuiteController@payment')->name('suites.payment');
+  Route::get('/static/{suite}', 'SuiteController@static')->name('suites.static');
 });
 
 // guest route to index

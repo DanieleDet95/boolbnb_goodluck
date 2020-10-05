@@ -30,6 +30,6 @@ class SendNewMail extends Mailable
     public function build()
     {
         $messages = Message::select('email','body','name')->orderBy('created_at', 'desc')->limit(1)->get();
-        return $this->view('admin.email.messages.index', compact('messages'));
+        return $this->view('admin.email.messages.invio', compact('messages'));
     }
 }

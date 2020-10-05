@@ -53116,14 +53116,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! C:\Users\pc\Desktop\BoolBnB\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! C:\Users\pc\Desktop\BoolBnB\resources\js\search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! C:\Users\pc\Desktop\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> master
 
 
 /***/ }),

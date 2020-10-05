@@ -1,0 +1,113 @@
+// partials/form/_common.scss
+
+main {
+  // Common rules for forms
+  .common_form {
+
+    // Form title
+    .form_title {
+
+      // Top title
+      .top_title > h4 {
+        font-family: $primary_font;
+        color: $quinternary_text_color;
+        font-size: $small_text_size;
+        @include form_top_title;
+      }
+
+      // Sub title
+      .sub_title > h3 {
+        font-family: $secondary_font;
+        color: $quinternary_text_color;
+        font-size: $h3_text_size;
+        @include form_sub_title;
+      }
+    }
+
+    // Input Forms style
+    .form-group .input_box > input.form-control {
+
+      &:focus {
+        border-color: $secondary_background;
+        box-shadow: 0 0 0;
+        outline: 0 none;
+      }
+    }
+
+    // Double input
+    .double_input {
+
+      // Left input
+      & > .left_input {
+        padding-right: 7.5px;
+      }
+
+      // Right input
+      & > .right_input {
+        padding-left: 7.5px;
+      }
+    }
+
+    // Button submit Login
+    .login_submit.form-group {
+      margin: 0;
+
+      .button_login > .custom_button {
+        background-color: $secondary_text_color;
+        font-family: $primary_font;
+        color: $primary_text_color;
+        font-size: $paragraph_text_size;
+        @include form_btn_submit;
+
+        &:hover {
+          background-color: $quinternary_background;
+        }
+      }
+    }
+
+    // Common checkbox
+    .checkbox {
+      @include text_checkbox;
+      font-family: $primary_font;
+      color: $quinternary_text_color;
+      font-size: $paragraph_text_size;
+
+
+      /* Customize the label (the container) */
+      .container_checkbox {
+         @include container_checkbox;
+         margin: 10px 0 30px 0;
+      }
+
+      /* Hide the browser's default radio button */
+      .container_checkbox input {
+         @include default_radio_button;
+      }
+
+      /* Create a custom radio button */
+      .checkmark {
+         @include custom_radio_button;
+      }
+
+      /* When the radio button is checked, add a background */
+      .container_checkbox input:checked ~ .checkmark {
+        background-color: $secondary_text_color;
+      }
+
+      /* Create the indicator (the dot/circle - hidden when not checked) */
+      .checkmark:after {
+         @include checkmark_after;
+      }
+
+      /* Show the indicator (dot/circle) when checked */
+      .container_checkbox input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the indicator */
+      .container_checkbox .checkmark:after {
+        @include style_indicator;
+      }
+    }
+  }
+}

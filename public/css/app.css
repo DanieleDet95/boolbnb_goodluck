@@ -1,9 +1,41 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+/* Text checkbox */
+
+/* Customize the label (the container) */
+
+/* Hide the browser's default radio button */
+
+/* Create a custom radio button */
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+/* Style the indicator */
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+button {
+  border: none;
+}
+
+button:hover {
+  background: transparent;
+  box-shadow: 0px 0px 0px transparent;
+  border: 0px solid transparent;
+  text-shadow: 0px 0px 0px transparent;
+}
+
+button:active {
+  outline: none;
+  border: none;
+}
+
+button:focus {
+  outline: 0;
 }
 
 img {
@@ -65,21 +97,21 @@ header .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
   color: #cf4532;
 }
 
-header .navbar .navbar-collapse .navbar-nav .nav-item.nav_before_login {
+header .navbar .navbar-collapse .navbar-nav .nav-item.nav_before_log {
   margin-right: 30px;
 }
 
-header .navbar .navbar-collapse .navbar-nav .nav-item.nav_login {
+header .navbar .navbar-collapse .navbar-nav .nav-item.nav_login_logout {
   background-color: #cf4532;
   padding: 0 30px;
   margin: 0;
 }
 
-header .navbar .navbar-collapse .navbar-nav .nav-item.nav_login:hover {
+header .navbar .navbar-collapse .navbar-nav .nav-item.nav_login_logout:hover {
   background-color: #a73727;
 }
 
-header .navbar .navbar-collapse .navbar-nav .nav-item.nav_login .nav-link > span {
+header .navbar .navbar-collapse .navbar-nav .nav-item.nav_login_logout .nav-link > span {
   color: #f6f4f2;
 }
 
@@ -120,7 +152,7 @@ main .my_jumbotron .title_jumbo h2 {
 }
 
 main .my_jumbotron .title_jumbo p {
-  font-size: 16px;
+  font-size: 15px;
   color: #EAE2D2;
 }
 
@@ -246,6 +278,160 @@ footer .social_list a {
 footer .social_list a:hover {
   color: #cf4532;
   cursor: pointer;
+}
+
+main .common_form .form_title .top_title > h4 {
+  font-family: "Poppins", sans-serif;
+  color: #272728;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+main .common_form .form_title .sub_title > h3 {
+  font-family: "Quando", serif;
+  color: #272728;
+  font-size: 30px;
+  text-transform: capitalize;
+  margin-bottom: 40px;
+}
+
+main .common_form .form-group .input_box > input.form-control:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .common_form .double_input > .left_input {
+  padding-right: 7.5px;
+}
+
+main .common_form .double_input > .right_input {
+  padding-left: 7.5px;
+}
+
+main .common_form .login_submit.form-group {
+  margin: 0;
+}
+
+main .common_form .login_submit.form-group .button_login > .custom_button {
+  background-color: #cf4532;
+  font-family: "Poppins", sans-serif;
+  color: #f6f4f2;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 20px 50px;
+  margin-bottom: 20px;
+}
+
+main .common_form .login_submit.form-group .button_login > .custom_button:hover {
+  background-color: #a73727;
+}
+
+main .common_form .checkbox {
+  font-weight: normal;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #272728;
+  font-size: 15px;
+  /* Customize the label (the container) */
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* When the radio button is checked, add a background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator */
+}
+
+main .common_form .checkbox .container_checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0 30px 0;
+}
+
+main .common_form .checkbox .container_checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+main .common_form .checkbox .checkmark {
+  position: absolute;
+  top: 3.5px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 1px solid #cf4532;
+}
+
+main .common_form .checkbox .container_checkbox input:checked ~ .checkmark {
+  background-color: #cf4532;
+}
+
+main .common_form .checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+main .common_form .checkbox .container_checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+main .common_form .checkbox .container_checkbox .checkmark:after {
+  left: 6px;
+  top: 2.5px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 1.2px 1.2px 0;
+  transform: rotate(45deg);
+}
+
+main .login_register_wrapper {
+  padding: 100px;
+}
+
+main .login .forgot_password.custom-form-link {
+  color: #272728;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+
+main .register .login_submit.form-group .button_login > .custom_button {
+  margin: 0;
+}
+
+main .register .password_advice {
+  font-family: "Poppins", sans-serif;
+  color: #cf4532;
+  font-size: 18px;
+  display: inline-block;
+  margin: 10px 0 30px 0;
+}
+
+main .register .password_advice .password_message {
+  display: inline-block;
+  color: #272728;
+  font-size: 15px;
+  margin: 0;
+}
+
+main .register .password_advice .icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
 }
 
 /*!

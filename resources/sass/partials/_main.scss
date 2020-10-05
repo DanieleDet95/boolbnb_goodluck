@@ -41,6 +41,7 @@ main {
         transform: scale(0.8, 0.8) rotate(5deg);
         transition: all 0.35s;
         .polaroid {
+          height: 500px;
           background: #fff;
           padding: 1rem;
           box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);

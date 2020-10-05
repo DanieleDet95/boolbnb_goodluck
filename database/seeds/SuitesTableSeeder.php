@@ -15,19 +15,20 @@ class SuitesTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i_suites=0; $i_suites < 23; $i_suites++) {
+
+        for ($i_suites=0; $i_suites < 1500; $i_suites++) {
           $new_suite = new Suite();
 
           $new_suite->user_id = rand(1,12);
-          $new_suite->title = $faker->word;
+          $new_suite->title = $faker->sentence(6);
           $new_suite->address = $faker->address;
-          $new_suite->rooms = rand(1, 5);
-          $new_suite->beds = rand(1, 10);
+          $new_suite->rooms = rand(1, 4);
+          $new_suite->beds = rand(1, 8);
           $new_suite->baths = rand(1, 3);
           $new_suite->square_m = rand(10, 200);
-          $new_suite->latitude = rand(-90, 90);
-          $new_suite->longitude = rand(-180, 180);
-          $new_suite->price = $faker->randomFloat($nbMaxDecimals = 2, $min = 0, $max = 9999.99);
+          $new_suite->latitude = rand(45, 40); //lat min-max approssimative dell'italia
+          $new_suite->longitude = rand(12, 15); //lng min-max approssimative dell'italia
+          $new_suite->price = $faker->randomFloat($nbMaxDecimals = 2, $min = 15, $max = 160.00);
           $new_suite->description = $faker->text(3000);
           $new_suite->main_image = $faker->imageUrl($width = 150, $height = 100);
           $new_suite->save();

@@ -48,8 +48,14 @@
   @endforeach
 
   {{-- l'admin può inviare un messaggio quando NON è proprietario dell'appartamento selezionato  --}}
+  {{-- @php
+    dd(!is_null($user));
+  @endphp --}}
+
   @if (!is_null($user))
+
     @if (!($suite->user_id === $user->id))
+
       @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -59,6 +65,7 @@
           </ul>
         </div>
       @endif
+
       <div>
         <form action="{{route("suites.store_message", $suite)}}" method="post">
           @csrf
@@ -82,7 +89,9 @@
           </div>
         </form>
       </div>
+
     @else
+
       <div>
         <a href="{{ route("admin.suites.edit", $suite)}}"> Modifica appartamento</a>
       </div>
@@ -94,9 +103,46 @@
       </div>
     @endif
 
+  @else
+
+      @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+
+      <div>
+        <form action="{{route("suites.store_message", $suite)}}" method="post">
+          @csrf
+          @method("POST")
+
+          <div class="mail">
+            <label>Inserisci Mail</label>
+            <input type="email" name="email" value="{{ old("email") }}">
+          </div>
+          <div class="name">
+            <label>Inserisci il nome</label>
+            <input type="text" name="name" value="{{ old("name") }}">
+          </div>
+          <div class="body">
+            <label>Inserisci Contenuto</label>
+            <textarea name="body" rows="8" cols="80">{{ old("body") }}</textarea>
+          </div>
+          <div class="mail">
+            <label>Inserisci Mail</label>
+            <input type="submit" value="submit">
+          </div>
+        </form>
+      </div>
+
   @endif
 
   <div>
     <a href="{{ route("suites.index")}}"> Torna a Index</a>
   </div>
+
 @endsection

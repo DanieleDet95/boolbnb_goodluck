@@ -52960,8 +52960,9 @@ function checked(event) {
 
 function ajaxCall(params) {
   $.ajax({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search" //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search",
+    //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,

@@ -20,8 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::namespace('Api')->group(function () {
     Route::get('/statics', 'StaticController@index')->name('apistatics');
-});
-
-Route::namespace('Api')->group(function() {
-  Route::get('search', 'SearchController@index')->name('api.search');
+    Route::get('search', 'SearchController@index')->name('api.search');
 });

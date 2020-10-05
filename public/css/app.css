@@ -172,12 +172,12 @@ main .section_suites_cards .link_card .item .polaroid .caption {
 main .section_suites_cards .link_card .item .polaroid .caption h5 {
   font-size: 20px;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
 main .section_suites_cards .link_card .item .polaroid .caption p {
   font-size: 15px;
-  margin-top: 60px;
+  margin: 0px;
 }
 
 main .section_suites_cards .link_card .item .polaroid:before {

@@ -36,7 +36,7 @@
       @foreach ($highlights_suites_active as $highlight_suite_active)
         <a class="link_card" href={{ route("suites.show", $highlight_suite_active->id)}}>
           <div class="example-row item">
-            <div class="example-content-main mx-3 polaroid">
+            <div class="example-content-main mx-3 polaroid d-flex flex-column justify-content-beetween">
               {{-- cambio path della main_image a seconda dalla provenienza(faker o storage)  --}}
               {{-- Main Image --}}
               @if (isset($highlight_suite_active->main_image))
@@ -47,8 +47,8 @@
                 @endif
               @endif
               {{-- End Main Image --}}
-              <div class="example-content-secondary caption">
-                <h5>{{$highlight_suite_active->title}}</h5>
+              <div class="example-content-secondary caption flex-grow-1 d-flex flex-column">
+                <h5 class="flex-grow-1">{{$highlight_suite_active->title}}</h5>
                 <p>{{$highlight_suite_active->address}}</p>
               </div>
             </div>

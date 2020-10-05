@@ -1,119 +1,229 @@
+{{-- Auth/register.blade.php --}}
+
+{{-- Layouts app --}}
 @extends('layouts.app')
 
+{{-- Yeld Main Content --}}
 @section('content')
-<div class="container">
+
+  {{-- Bootstrap --}}
+  <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+      {{-- Login-register --}}
+      <div class="register login_register_wrapper col-6">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+        {{-- Form title --}}
+        <div class="form_title text-center">
+          <div class="top_title">
+            <h4>{{ __('Register') }}</h4>
+          </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+          <div class="sub_title">
+            <h3>Fill out the fields below</h3>
+          </div>
+        <div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+        {{-- Form Register --}}
+        <form method="POST" action="{{ route('register') }}">
+          @csrf
+          @method('POST')
 
-                        <div class="form-group row">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Lastname') }}</label>
+          {{-- Name & Lastname --}}
+          <div class="register register_name_lastname form-group row">
 
-                            <div class="col-md-6">
-                                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" autofocus>
+            {{-- Input Name --}}
+            <div class="col-6">
+              <div class="input_box">
+                <input
+                id="name"
+                type="text"
+                class="form-control rounded-0
+                @error('name') is-invalid
+                @enderror" name="name"
+                value="{{ old('name') }}"
+                required autocomplete="name"
+                autofocus
+                placeholder="Name">
 
-                                @error('lastname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                {{-- Validate --}}
+                @error('name')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+                {{-- end Validate --}}
 
-                        <div class="form-group row">
-                            <label for="birthday" class="col-md-4 col-form-label text-md-right">{{ __('Birthday') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="birthday" type="date" class="form-control @error('birthday') is-invalid @enderror" name="birthday" value="{{ old('birthday') }}" autofocus>
-
-                                @error('birthday')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" autofocus>
-
-                                @error('phone')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+              </div>
             </div>
-        </div>
+            {{-- end Name --}}
+
+            {{-- Input Lastname --}}
+            <div class="col-6">
+              <div class="input_box">
+                <div class="input_box">
+                  <input id="lastname"
+                     type="text"
+                     class="form-control rounded-0
+                     @error('lastname') is-invalid @enderror"
+                     name="lastname"
+                     value="{{ old('lastname') }}"
+                     autofocus
+                     placeholder="Lastname">
+                </div>
+              </div>
+            </div>
+            {{-- end Lastname --}}
+
+            {{-- Validation --}}
+            @error('lastname')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+            {{-- end Validation --}}
+
+          </div>
+          {{-- end Name & Lastname --}}
+
+          {{-- Input Birthday --}}
+          <div class="register_birthday form-group">
+            <div class="input_box">
+              <input
+                id="birthday"
+                type="text"
+                class="form-control rounded-0
+                @error('birthday') is-invalid
+                @enderror" name="birthday"
+                value="{{ old('birthday') }}"
+                autofocus
+                onfocus="(this.type='date')"
+                onblur="(this.type='text')"
+                placeholder="Date">
+
+                {{-- Validate --}}
+                @error('birthday')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+                {{-- Validate --}}
+            </div>
+          </div>
+          {{-- end Input Birthday --}}
+
+          {{-- Input Email --}}
+          <div class="register_email form-group">
+            <div class="input_box">
+              <input
+              id="email"
+              type="email"
+              class="form-control rounded-0
+              @error('email') is-invalid
+              @enderror" name="email"
+              value="{{ old('email') }}"
+              required autocomplete="email"
+              autofocus
+              placeholder="Email">
+
+              {{-- Validate --}}
+              @error('email')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+              {{-- end Validate --}}
+
+            </div>
+          </div>
+          {{-- end Input Email --}}
+
+          {{-- Input Phone --}}
+          <div class="register_phone form-group">
+            <div class="input_box">
+              <input
+              id="phone"
+              type="text"
+              class="form-control rounded-0
+              @error('phone') is-invalid
+              @enderror" name="phone"
+              value="{{ old('phone') }}"
+              autofocus
+              placeholder="Phone">
+
+              {{-- Validate --}}
+              @error('phone')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+              {{-- end Validate --}}
+
+            </div>
+          </div>
+          {{-- end Input Phone --}}
+
+          {{-- Input Password --}}
+          <div class="register_password form-group">
+            <div class="input_box">
+              <input id="password"
+                type="password"
+                class="form-control rounded-0
+                @error('password') is-invalid
+                @enderror" name="password"
+                required autocomplete="new-password"
+                placeholder="Password">
+
+              {{-- Validate --}}
+              @error('password')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+              {{-- end Validate --}}
+
+            </div>
+          </div>
+          {{-- end Input Password --}}
+
+          {{-- Input Confirm Password --}}
+          <div class="register_confirm form-group">
+            <div class="input_box">
+              <input
+                id="password-confirm"
+                type="password"
+                class="form-control rounded-0"
+                name="password_confirmation"
+                required autocomplete="new-password"
+                placeholder="Confirm Password">
+            </div>
+          </div>
+          {{-- end Input Confirm Password --}}
+
+          {{-- Password advice --}}
+          <div class="password_advice row justify-content-center">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>The password must be at least 8 characters long</p>
+          </div>
+          {{-- end Password advice --}}
+
+          {{-- Submit Login --}}
+          <div class="login_submit form-group row justify-content-center">
+            <div class="button_login">
+              <button type="submit" class="custom_button">
+                {{ __('Register') }}
+              </button>
+            </div>
+          </div>
+
+        </form>
+        {{-- end Form Login --}}
+
+      </div>
+      {{-- end Login-register --}}
+
     </div>
-</div>
+  </div>
+  {{-- end Bootstrap --}}
+
 @endsection

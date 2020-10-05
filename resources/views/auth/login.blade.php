@@ -11,15 +11,16 @@
   <div class="row justify-content-center">
 
     {{-- Login-register --}}
-    <div class="login_register_wrapper col-6">
+    <div class="login login_register_wrapper col-6">
 
       {{-- Form title --}}
       <div class="form_title text-center">
         <div class="top_title">
           <h4>{{ __('Login') }}</h4>
         </div>
+
         <div class="sub_title">
-          <h3>Enter Recipient Info</h3>
+          <h3>Fill out the fields below</h3>
         </div>
       <div>
 

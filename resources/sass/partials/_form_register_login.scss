@@ -2,6 +2,8 @@
 
 // Form page main
 main {
+
+  // Login Register
   .login_register_wrapper {
     padding: $main_padding 0;
 
@@ -23,7 +25,7 @@ main {
     }
 
     // Input Forms
-    .form-group > .input_box > input.form-control {
+    .form-group .input_box > input.form-control {
 
       &:focus {
         border-color: $secondary_background;
@@ -32,7 +34,37 @@ main {
       }
     }
 
-    // Remember Checkbox
+    // Register
+    &.register {
+
+      // Register button
+      & .login_submit.form-group .button_login > .custom_button {
+        margin: 0;
+      }
+
+      // Password advice
+      .password_advice {
+        font-family: $primary_font;
+        color: $secondary_text_color;
+        font-size: $icon_size;
+        display: inline-block;
+        margin: 10px 0 30px 0;
+
+        & > p {
+          display: inline-block;
+          color: $quinternary_text_color;
+          font-size: $paragraph_text_size;
+          margin: 0;
+        }
+
+        & > i {
+          display: inline-block;
+          vertical-align: middle;
+        }
+      }
+    }
+
+    // Login Remember Checkbox
     .login_remember > .checkbox {
       @include text_checkbox;
       font-family: $primary_font;
@@ -42,6 +74,7 @@ main {
       /* Customize the label (the container) */
       .container_checkbox {
          @include container_checkbox;
+         margin: 10px 0 30px 0;
 
       }
 
@@ -77,8 +110,10 @@ main {
     }
 
     // Button submit Login
-    .login_submit .button_login {
-      & > .custom_button {
+    .login_submit.form-group {
+      margin: 0;
+
+      .button_login > .custom_button {
         background-color: $secondary_text_color;
         font-family: $primary_font;
         color: $primary_text_color;
@@ -93,6 +128,10 @@ main {
 
     // Forgot Password link
     .forgot_password {
+      .login_submit .button_login {
+
+        }
+
       .custom-form-link {
         color: $quinternary_text_color;
         font-family: $primary_font;

@@ -8,14 +8,15 @@
 
 // Form Title Typography
 @mixin form_top_title {
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: bolder;
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
 @mixin form_sub_title {
   text-transform: capitalize;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 // Form Button
@@ -30,7 +31,6 @@
 @mixin text_checkbox {
   font-weight: normal;
   text-align: left;
-  padding-bottom: 20px;
 }
 
 /* Customize the label (the container) */

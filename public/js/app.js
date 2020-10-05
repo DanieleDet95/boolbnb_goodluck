@@ -52836,16 +52836,19 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // include Bootstrap
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // include Statistiche
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // include JQuery
 
 
-__webpack_require__(/*! ./static */ "./resources/js/static.js"); // include JQuery
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // include handlebars
 
 
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // include searchbar functions
+var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js"); // include searchbar functions
 
 
-__webpack_require__(/*! ./search */ "./resources/js/search.js");
+__webpack_require__(/*! ./search */ "./resources/js/search.js"); // include Statistiche
+
+
+__webpack_require__(/*! ./static */ "./resources/js/static.js");
 
 /***/ }),
 
@@ -53112,9 +53115,19 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+
+
+/***/ }),
+
+/***/ 1:
+/*!****************************!*\
+  !*** ./nextTick (ignored) ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
 /* (ignored) */
 

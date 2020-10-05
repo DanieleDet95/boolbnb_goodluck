@@ -1,9 +1,10 @@
 // include Bootstrap
 require('./bootstrap');
-// include Statistiche
-require('./static');
 // include JQuery
 var $ = require( "jquery" );
-
+// include handlebars
+const Handlebars = require("handlebars");
 // include searchbar functions
 require('./search');
+// include Statistiche
+require('./static');

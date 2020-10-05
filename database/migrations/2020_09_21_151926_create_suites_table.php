@@ -19,7 +19,8 @@ class CreateSuitesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
 
             $table->string('title');
             $table->string("address");
@@ -45,6 +46,6 @@ class CreateSuitesTable extends Migration
     {
       DB::statement('SET FOREIGN_KEY_CHECKS = 0');
       Schema::dropIfExists('suites');
-      DB::statement('SET FOREIGN_KEY_CHECKS = 1');    
+      DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

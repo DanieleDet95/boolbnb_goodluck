@@ -9,7 +9,7 @@ class CreateMessagesTable extends Migration
     /**
      * Run the migrations.
      *
-     * @return void 
+     * @return void
      */
     public function up()
     {
@@ -22,7 +22,8 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger("suite_id");
             $table->foreign("suite_id")
                 ->references("id")
-                ->on("suites");
+                ->on("suites")
+                ->onDelete('cascade');
 
             $table->timestamps();
         });

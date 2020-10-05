@@ -30,12 +30,12 @@
 /* Text checkbox */
 @mixin text_checkbox {
   font-weight: normal;
-  text-align: left;
+  text-align: center;  
 }
 
 /* Customize the label (the container) */
 @mixin container_checkbox {
-  display: block;
+  display: inline-block;
   position: relative;
   padding-left: 30px;
   cursor: pointer;

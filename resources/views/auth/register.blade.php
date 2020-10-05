@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
 
       {{-- Login-register --}}
-      <div class="register login_register_wrapper col-6">
+      <div class="register common_form login_register_wrapper col-8">
 
         {{-- Form title --}}
         <div class="form_title text-center">
@@ -30,10 +30,10 @@
           @method('POST')
 
           {{-- Name & Lastname --}}
-          <div class="register register_name_lastname form-group row">
+          <div class="register double_input form-group row">
 
             {{-- Input Name --}}
-            <div class="col-6">
+            <div class="register_name left_input col-6">
               <div class="input_box">
                 <input
                 id="name"
@@ -59,7 +59,7 @@
             {{-- end Name --}}
 
             {{-- Input Lastname --}}
-            <div class="col-6">
+            <div class="register_lastname right_input col-6">
               <div class="input_box">
                 <div class="input_box">
                   <input id="lastname"
@@ -87,132 +87,146 @@
           {{-- end Name & Lastname --}}
 
           {{-- Input Birthday --}}
-          <div class="register_birthday form-group">
-            <div class="input_box">
-              <input
-                id="birthday"
-                type="text"
-                class="form-control rounded-0
-                @error('birthday') is-invalid
-                @enderror" name="birthday"
-                value="{{ old('birthday') }}"
-                autofocus
-                onfocus="(this.type='date')"
-                onblur="(this.type='text')"
-                placeholder="Date">
+          <div class="register_birthday form-group row">
+            <div class="col-12">
+              <div class="input_box">
+                <input
+                  id="birthday"
+                  type="text"
+                  class="form-control rounded-0
+                  @error('birthday') is-invalid
+                  @enderror" name="birthday"
+                  value="{{ old('birthday') }}"
+                  autofocus
+                  onfocus="(this.type='date')"
+                  onblur="(this.type='text')"
+                  placeholder="Date">
 
-                {{-- Validate --}}
-                @error('birthday')
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                  </span>
-                @enderror
-                {{-- Validate --}}
+                  {{-- Validate --}}
+                  @error('birthday')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                  {{-- Validate --}}
+              </div>
             </div>
           </div>
           {{-- end Input Birthday --}}
 
           {{-- Input Email --}}
-          <div class="register_email form-group">
-            <div class="input_box">
-              <input
-              id="email"
-              type="email"
-              class="form-control rounded-0
-              @error('email') is-invalid
-              @enderror" name="email"
-              value="{{ old('email') }}"
-              required autocomplete="email"
-              autofocus
-              placeholder="Email">
+          <div class="register_email form-group row">
+            <div class="col-12">
+              <div class="input_box">
+                <input
+                id="email"
+                type="email"
+                class="form-control rounded-0
+                @error('email') is-invalid
+                @enderror" name="email"
+                value="{{ old('email') }}"
+                required autocomplete="email"
+                autofocus
+                placeholder="Email">
 
-              {{-- Validate --}}
-              @error('email')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-              {{-- end Validate --}}
+                {{-- Validate --}}
+                @error('email')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+                {{-- end Validate --}}
 
+              </div>
             </div>
           </div>
           {{-- end Input Email --}}
 
           {{-- Input Phone --}}
-          <div class="register_phone form-group">
-            <div class="input_box">
-              <input
-              id="phone"
-              type="text"
-              class="form-control rounded-0
-              @error('phone') is-invalid
-              @enderror" name="phone"
-              value="{{ old('phone') }}"
-              autofocus
-              placeholder="Phone">
+          <div class="register_phone form-group row">
+            <div class="col-12">
+              <div class="input_box">
+                <input
+                id="phone"
+                type="text"
+                class="form-control rounded-0
+                @error('phone') is-invalid
+                @enderror" name="phone"
+                value="{{ old('phone') }}"
+                autofocus
+                placeholder="Phone">
 
-              {{-- Validate --}}
-              @error('phone')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-                </span>
-              @enderror
-              {{-- end Validate --}}
+                {{-- Validate --}}
+                @error('phone')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+                {{-- end Validate --}}
 
+              </div>
             </div>
           </div>
           {{-- end Input Phone --}}
 
           {{-- Input Password --}}
-          <div class="register_password form-group">
-            <div class="input_box">
-              <input id="password"
-                type="password"
-                class="form-control rounded-0
-                @error('password') is-invalid
-                @enderror" name="password"
-                required autocomplete="new-password"
-                placeholder="Password">
+          <div class="register_password form-group row">
+            <div class="col-12">
+              <div class="input_box">
+                <input id="password"
+                  type="password"
+                  class="form-control rounded-0
+                  @error('password') is-invalid
+                  @enderror" name="password"
+                  required autocomplete="new-password"
+                  placeholder="Password">
 
-              {{-- Validate --}}
-              @error('password')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-              {{-- end Validate --}}
+                {{-- Validate --}}
+                @error('password')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+                {{-- end Validate --}}
 
+              </div>
             </div>
           </div>
           {{-- end Input Password --}}
 
           {{-- Input Confirm Password --}}
-          <div class="register_confirm form-group">
-            <div class="input_box">
-              <input
-                id="password-confirm"
-                type="password"
-                class="form-control rounded-0"
-                name="password_confirmation"
-                required autocomplete="new-password"
-                placeholder="Confirm Password">
+          <div class="register_confirm form-group row">
+            <div class="col-12">
+              <div class="input_box">
+                <input
+                  id="password-confirm"
+                  type="password"
+                  class="form-control rounded-0"
+                  name="password_confirmation"
+                  required autocomplete="new-password"
+                  placeholder="Confirm Password">
+              </div>
             </div>
           </div>
           {{-- end Input Confirm Password --}}
 
           {{-- Password advice --}}
-          <div class="password_advice row justify-content-center">
-            <i class="fas fa-exclamation-circle"></i>
-            <p>The password must be at least 8 characters long</p>
+          <div class="password_advice justify-content-center row">
+            <div class="col-12">
+              <i class="fas fa-exclamation-circle icon"></i>
+              <p class="password_message">The password must be at least 8 characters long</p>
+            </div>
           </div>
           {{-- end Password advice --}}
 
           {{-- Submit Login --}}
-          <div class="login_submit form-group row justify-content-center">
-            <div class="button_login">
-              <button type="submit" class="custom_button">
-                {{ __('Register') }}
-              </button>
+          <div class="login_submit form-group row justify-content-center row">
+            <div class="col-12">
+              <div class="button_login">
+                <button type="submit" class="custom_button">
+                  {{ __('Register') }}
+                </button>
+              </div>
             </div>
           </div>
 

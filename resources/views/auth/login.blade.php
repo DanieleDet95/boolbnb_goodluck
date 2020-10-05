@@ -11,7 +11,7 @@
   <div class="row justify-content-center">
 
     {{-- Login-register --}}
-    <div class="login login_register_wrapper col-6">
+    <div class="login common_form login_register_wrapper col-8">
 
       {{-- Form title --}}
       <div class="form_title text-center">
@@ -30,55 +30,60 @@
         @method('POST')
 
         {{-- Input email --}}
-        <div class="login_email form-group">
-          <div class="input_box">
-            <input id="email"
-              type="email"
-              class="form-control rounded-0
-              @error('email') is-invalid
-              @enderror" name="email" value="{{ old('email') }}"
-              required autocomplete="email"
-              autofocus
-              placeholder="Email">
+        <div class="login_email form-group row">
+          <div class="col-12">
+            <div class="input_box">
+              <input id="email"
+                type="email"
+                class="form-control rounded-0
+                @error('email') is-invalid
+                @enderror" name="email" value="{{ old('email') }}"
+                required autocomplete="email"
+                autofocus
+                placeholder="Email">
 
-            {{-- Validate --}}
-            @error('email')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-            @enderror
-            {{-- end Validate --}}
+              {{-- Validate --}}
+              @error('email')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+              {{-- end Validate --}}
 
+            </div>
           </div>
         </div>
         {{-- end Input email --}}
 
         {{-- Input password --}}
-        <div class="login_password form-group">
-          <div class="input_box">
-            <input id="password"
-              type="password"
-              class="form-control rounded-0
-              @error('password') is-invalid
-              @enderror" name="password"
-              required
-              autocomplete="current-password"
-              placeholder="Password">
+        <div class="login_password form-group row">
+          <div class="col-12">
+            <div class="input_box">
+              <input id="password"
+                type="password"
+                class="form-control rounded-0
+                @error('password') is-invalid
+                @enderror" name="password"
+                required
+                autocomplete="current-password"
+                placeholder="Password">
 
-            {{-- Validate --}}
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
-            {{-- end Validate --}}
+              {{-- Validate --}}
+              @error('password')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+              @enderror
+              {{-- end Validate --}}
 
             </div>
           </div>
+        </div>
           {{-- end Input password --}}
 
-          {{-- Remember me --}}
-          <div class="login_remember row justify-content-center">
+        {{-- Remember me --}}
+        <div class="login_remember justify-content-center row">
+          <div class="col-12">
             <div class="checkbox">
 
               {{-- Checkbox --}}
@@ -90,10 +95,12 @@
 
             </div>
           </div>
-          {{-- end Remember me --}}
+        </div>
+        {{-- end Remember me --}}
 
-          {{-- Submit Login --}}
-          <div class="login_submit form-group row justify-content-center">
+        {{-- Submit Login --}}
+        <div class="login_submit form-group justify-content-center row">
+          <div class="col-12">
             <div class="button_login">
 
               {{-- Button --}}
@@ -114,7 +121,8 @@
 
             </div>
           </div>
-          {{-- end Submit Login --}}
+        </div>
+        {{-- end Submit Login --}}
 
       </form>
       {{-- end Form Login --}}

@@ -1,14 +1,13 @@
-// partials/_form_register_login.scss
+// partials/form/_common.scss
 
-// Form page main
 main {
-
-  // Login Register
-  .login_register_wrapper {
-    padding: $main_padding 0;
+  // Common rules for forms
+  .common_form {
 
     // Form title
     .form_title {
+
+      // Top title
       .top_title > h4 {
         font-family: $primary_font;
         color: $quinternary_text_color;
@@ -16,6 +15,7 @@ main {
         @include form_top_title;
       }
 
+      // Sub title
       .sub_title > h3 {
         font-family: $secondary_font;
         color: $quinternary_text_color;
@@ -24,7 +24,7 @@ main {
       }
     }
 
-    // Input Forms
+    // Input Forms style
     .form-group .input_box > input.form-control {
 
       &:focus {
@@ -34,48 +34,49 @@ main {
       }
     }
 
-    // Register
-    &.register {
+    // Double input
+    .double_input {
 
-      // Register button
-      & .login_submit.form-group .button_login > .custom_button {
-        margin: 0;
+      // Left input
+      & > .left_input {
+        padding-right: 7.5px;
       }
 
-      // Password advice
-      .password_advice {
+      // Right input
+      & > .right_input {
+        padding-left: 7.5px;
+      }
+    }
+
+    // Button submit Login
+    .login_submit.form-group {
+      margin: 0;
+
+      .button_login > .custom_button {
+        background-color: $secondary_text_color;
         font-family: $primary_font;
-        color: $secondary_text_color;
-        font-size: $icon_size;
-        display: inline-block;
-        margin: 10px 0 30px 0;
+        color: $primary_text_color;
+        font-size: $paragraph_text_size;
+        @include form_btn_submit;
 
-        & > p {
-          display: inline-block;
-          color: $quinternary_text_color;
-          font-size: $paragraph_text_size;
-          margin: 0;
-        }
-
-        & > i {
-          display: inline-block;
-          vertical-align: middle;
+        &:hover {
+          background-color: $quinternary_background;
         }
       }
     }
 
-    // Login Remember Checkbox
-    .login_remember > .checkbox {
+    // Common checkbox
+    .checkbox {
       @include text_checkbox;
       font-family: $primary_font;
       color: $quinternary_text_color;
       font-size: $paragraph_text_size;
 
+
       /* Customize the label (the container) */
       .container_checkbox {
          @include container_checkbox;
          margin: 10px 0 30px 0;
-
       }
 
       /* Hide the browser's default radio button */
@@ -106,36 +107,6 @@ main {
       /* Style the indicator */
       .container_checkbox .checkmark:after {
         @include style_indicator;
-      }
-    }
-
-    // Button submit Login
-    .login_submit.form-group {
-      margin: 0;
-
-      .button_login > .custom_button {
-        background-color: $secondary_text_color;
-        font-family: $primary_font;
-        color: $primary_text_color;
-        font-size: $paragraph_text_size;
-        @include form_btn_submit;
-
-        &:hover {
-          background-color: $quinternary_background;
-        }
-      }
-    }
-
-    // Forgot Password link
-    .forgot_password {
-      .login_submit .button_login {
-
-        }
-
-      .custom-form-link {
-        color: $quinternary_text_color;
-        font-family: $primary_font;
-        font-size: $paragraph_text_size;
       }
     }
   }

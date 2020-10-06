@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-12">
 
-      <h2>Mail arrivate per i tuoi appartamenti:</h2>
+      <h2 class="titolo_mail">Mail arrivate per i tuoi appartamenti:</h2>
       @foreach ($messages as $message)
         @if (!is_null($message->suite))
 
@@ -81,7 +81,10 @@
           @endif
         @endif
       @endforeach
-
+      
+      <div>
+        <a href="{{ route("suites.index")}}"> Torna a Index</a>
+      </div>
 
       </div>
     </div>

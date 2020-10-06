@@ -101,11 +101,21 @@ main {
       }
     }
   }
-  /* Impostazione lista mail */
+  /* VIEW MESSAGES */
+  .titolo_mail{
+    margin-bottom: 30px;
+  }
   .lista_mail{
+    a{
+      color: #cf4532;
+    }
     .mail{
-      background: lightgray;
-      border: 1px solid black;
+      &:hover {
+        background: #95afbf;
+      }
+      margin-top: 1px;
+      background: #F6F4F2;
+      border: 1px solid #000;
       padding: 10px;
       .checkbox{
         float: left;
@@ -123,10 +133,25 @@ main {
         float: left;
       }
       .chiaro{
-        color: gray;
+        color: #000;
       }
     }
 
   }
   /* Fine impostazione lista mail */
+
+  /* VIEW MY SUITES */
+  table{
+    margin: 20px 0;
+    min-width: 500px;
+    max-width: 500px;
+    th{
+      padding: 10px;
+      background: #cf4532;
+      color: #F6F4F2;
+    }
+    td{
+      padding: 10px;
+    }
+  }
 }

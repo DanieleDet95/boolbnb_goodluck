@@ -4,7 +4,6 @@ require('./bootstrap');
 var $ = require( "jquery" );
 // include handlebars
 const Handlebars = require("handlebars");
-
 // include searchbar functions
 require('./search');
 // include Statistiche

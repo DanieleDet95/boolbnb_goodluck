@@ -8,6 +8,7 @@
   - php artisan serve
   - composer require guzzlehttp/guzzle
   - php artisan storage:link
+  - npm install handlebars
 
   Menu Public:
   - Register

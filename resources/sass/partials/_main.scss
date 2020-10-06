@@ -1,7 +1,8 @@
 // partials/_main.scss
 
 main {
-<<<<<<< HEAD
+  // padding-top: $menu_height;
+
   padding-top: 60px;
   min-height: 261px;
   .my_jumbotron {
@@ -30,10 +31,6 @@ main {
       }
     }
   }
-=======
-  padding-top: $menu_height;
-
->>>>>>> master
   .section_suites_cards {
     .link_card {
       display: flex;
@@ -105,7 +102,6 @@ main {
       }
     }
   }
-<<<<<<< HEAD
   /* VIEW MESSAGES */
   .titolo_mail{
     margin-bottom: 30px;
@@ -159,7 +155,6 @@ main {
       padding: 10px;
     }
   }
-=======
   // FINE HOME
 
   // SEARCH
@@ -249,5 +244,4 @@ main {
     border: 1px solid black;
   }
   // FINE SEARCH
->>>>>>> master
 }

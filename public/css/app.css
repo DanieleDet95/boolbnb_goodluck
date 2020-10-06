@@ -44,7 +44,12 @@ img {
 }
 
 .main_wrapper {
-  background-color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  width: 1200px;
 }
 
 header .navbar {
@@ -54,6 +59,8 @@ header .navbar {
 
 header .navbar-custom {
   background-color: #f6f4f2;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 header .navbar-custom .bg-custom {
@@ -152,7 +159,7 @@ main .my_jumbotron .title_jumbo {
 }
 
 main .my_jumbotron .title_jumbo h2 {
-  font-size: 40px;
+  font-size: 44px;
   color: #EAE2D2;
 }
 
@@ -170,10 +177,6 @@ main .my_jumbotron .input_jumbo {
 
 main .my_jumbotron .input_jumbo button {
   background-color: #F6F4F2;
-}
-
-main .section_suites_cards {
-  padding-bottom: 40px;
 }
 
 main .section_suites_cards .link_card {
@@ -209,12 +212,12 @@ main .section_suites_cards .link_card .item .polaroid .caption {
 main .section_suites_cards .link_card .item .polaroid .caption h5 {
   font-size: 20px;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
 main .section_suites_cards .link_card .item .polaroid .caption p {
   font-size: 15px;
-  margin-top: 60px;
+  margin: 0px;
 }
 
 main .section_suites_cards .link_card .item .polaroid:before {
@@ -309,6 +312,115 @@ main table td {
   padding: 10px;
 }
 
+main .search_location input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .input_box > input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .submit_search {
+  line-height: 60px;
+}
+
+main .submit_search .input_search {
+  background-color: #cf4532;
+  border: none;
+  padding: 0 30px;
+  margin-right: 0;
+  color: #f6f4f2;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+main .submit_search .input_search:hover {
+  background-color: #a73727;
+}
+
+main .checkbox {
+  font-weight: normal;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #272728;
+  font-size: 15px;
+  /* Customize the label (the container) */
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* When the radio button is checked, add a background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator */
+}
+
+main .checkbox .container_checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0 30px 0;
+}
+
+main .checkbox .container_checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+main .checkbox .checkmark {
+  position: absolute;
+  top: 3.5px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 1px solid #cf4532;
+}
+
+main .checkbox .container_checkbox input:checked ~ .checkmark {
+  background-color: #cf4532;
+}
+
+main .checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+main .checkbox .container_checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+main .checkbox .container_checkbox .checkmark:after {
+  left: 6px;
+  top: 2.5px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 1.2px 1.2px 0;
+  transform: rotate(45deg);
+}
+
+main .cont_suites_cards {
+  min-height: 600px;
+}
+
+main .entry {
+  border: 1px solid black;
+}
+
 footer {
   margin-top: 30px;
   background-color: #2d3f53;
@@ -343,6 +455,63 @@ footer .social_list a:hover {
   cursor: pointer;
 }
 
+main section.jumbo_custom {
+  background-size: 1200px auto;
+  width: 100%;
+  height: 480px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  color: #f6f4f2;
+  font-size: 20px;
+}
+
+main section.jumbo_custom .carousel {
+  height: 480px;
+  width: 100%;
+  position: absolute;
+}
+
+main section.jumbo_custom .carousel .carousel-inner > .carousel-item > img {
+  height: 480px;
+}
+
+main section.jumbo_custom > .jumbo_container {
+  height: 100%;
+  width: 100%;
+  padding-top: 100px;
+}
+
+main section.jumbo_custom > .jumbo_container .jumbo_title > .jumbo_top_title {
+  font-family: "Quando", serif;
+  font-size: 44px;
+  margin-bottom: 20px;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group {
+  margin-top: 20px;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn {
+  background-color: #cf4532;
+  color: #f6f4f2;
+  padding: 0 15px;
+  border: 0;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn:hover {
+  background-color: #a73727;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group > .form-control {
+  border: 0;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group > .form-control:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
 main .common_form .form_title .top_title > h4 {
   font-family: "Poppins", sans-serif;
   color: #272728;
@@ -361,7 +530,7 @@ main .common_form .form_title .sub_title > h3 {
   margin-bottom: 40px;
 }
 
-main .common_form .form-group .input_box > input.form-control:focus {
+main .common_form .input_box > input.form-control:focus {
   border-color: #272728;
   box-shadow: 0 0 0;
   outline: 0 none;

@@ -52908,7 +52908,7 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 
 $(document).ready(function () {
   // erase all values from all inputs in .search-wrapper except for #submit
-  $(".search-wrapper input:not('#submit')").val(''); // set all checkboxes value as false
+  $(".input_box input:not('#submit')").val(''); // set all checkboxes value as false
 
   $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
 
@@ -53194,9 +53194,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

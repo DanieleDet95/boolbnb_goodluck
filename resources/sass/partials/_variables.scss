@@ -1,6 +1,9 @@
 // Body
 $body-bg: #f8fafc;
 
+// Main
+$menu_height: 60px;
+
 // Typography
 $primary_font: 'Poppins', sans-serif;
 $secondary_font: 'Quando', serif;
@@ -11,10 +14,12 @@ $paragraph_text_size: 15px;
 $hamburger_icon: 20px;
 $icon_size: 18px;
 $small_text_size: 14px;
-$h2_text_size: 40px;
+$h2_text_size: 44px;
 $h3_text_size: 30px;
 $h4_text_size: 24px;
 $h6_text_size: 20px;
+$jumbo_paragraph: 20px;
+$jumbo_h1: 44px;
 
 
 // Colors
@@ -44,7 +49,3 @@ $quinternary_text_color: #272728;
 
 // Register Login Form
 $main_padding: 100px;
-
-// Cards
-// $grid-columns: 12 !default;
-// $grid-gutter-width: 30px !default;

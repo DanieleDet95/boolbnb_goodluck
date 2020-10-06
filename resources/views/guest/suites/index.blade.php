@@ -7,23 +7,33 @@
 @section("content")
 
   {{-- Jumbotron --}}
-  <section class="jumbotron jumbotron-fluid my_jumbotron py-0 mb-0">
-    <div class="container-fluid p-0">
-      <img src="{{asset('img/sfondo-jumbo-1082.jpg')}}" alt="">
+  <section class="jumbotron jumbotron-fluid text-xl-left text-center jumbo_custom">
+    <div class="container jumbo_container">
+
+      {{-- Jumbotron Title --}}
       <div class="row">
-        <div class="col-12 col-lg-5 col-md-8 d-none d-lg-block d-xl-block title_jumbo">
-          <h2>Riscopri l'Italia</h2>
-          <p>Cambia quadro. Scopri alloggi nelle vicinanze tutti da vivere, per lavoro o svago.</p>
-        </div>
-        <div class="input-group input-group-lg input_jumbo">
-          <input type="search" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Dove vuoi andare?">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search-location"></i></button>
+        <div class="col-12 col-xl-6">
+          <div class="jumbo_title">
+            <h1 class="jumbo_top_title">Discover Italy</h1>
+            <p class="jumbo_sub_title">Change the picture. Discover nearby accommodations to enjoy, for work or leisure.</p>
           </div>
         </div>
       </div>
-    </div>
 
+      {{-- Jumbotron Search input --}}
+      <div class="row">
+        <div class="col-12 col-xl-6">
+          <div class="input-group">
+            <input type="text" class="form-control rounded-0" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{-- end Jumbotron Search input --}}
+
+    </div>
   </section>
   {{-- end Jumbotron --}}
 
@@ -32,11 +42,13 @@
   <section class="section_suites_cards">
     <div class="container">
       <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 p-3">
+
       {{-- Foreach suite with a promotion --}}
       @foreach ($highlights_suites_active as $highlight_suite_active)
         <a class="link_card" href={{ route("suites.show", $highlight_suite_active->id)}}>
           <div class="example-row item">
             <div class="example-content-main mx-3 polaroid">
+
               {{-- cambio path della main_image a seconda dalla provenienza(faker o storage)  --}}
               {{-- Main Image --}}
               @if (isset($highlight_suite_active->main_image))
@@ -46,6 +58,7 @@
                  <img src="{{$highlight_suite_active->main_image}}" alt="{{$highlight_suite_active->title}}">
                 @endif
               @endif
+
               {{-- End Main Image --}}
               <div class="example-content-secondary caption">
                 <h5>{{$highlight_suite_active->title}}</h5>

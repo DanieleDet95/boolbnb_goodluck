@@ -6,7 +6,7 @@
   {{-- Include Head --}}
   @include("partials.head")
 
-  <body>
+  <body class="bg-white">
     <div class="main_wrapper">
 
       {{-- Header --}}

@@ -316,6 +316,38 @@ main .checkbox .container_checkbox .checkmark:after {
   transform: rotate(45deg);
 }
 
+main .search_location input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .input_box > input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .submit_search {
+  line-height: 60px;
+}
+
+main .submit_search .input_search {
+  background-color: #cf4532;
+  border: none;
+  padding: 0 30px;
+  margin-right: 0;
+  color: #f6f4f2;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+main .submit_search .input_search:hover {
+  background-color: #a73727;
+}
+
 main .entry {
   border: 1px solid black;
 }

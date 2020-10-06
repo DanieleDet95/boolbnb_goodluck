@@ -52839,10 +52839,16 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // include JQuery
 
 
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // include searchbar functions
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // include handlebars
 
 
-__webpack_require__(/*! ./search */ "./resources/js/search.js");
+var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js"); // include searchbar functions
+
+
+__webpack_require__(/*! ./search */ "./resources/js/search.js"); // include Statistiche
+
+
+__webpack_require__(/*! ./static */ "./resources/js/static.js");
 
 /***/ }),
 
@@ -52908,7 +52914,19 @@ $(document).ready(function () {
 
   $('input[type="checkbox"]').on('click', function (event) {
     checked($(this));
-  }); // set algolia search-bar autocomplete
+  }); // set map
+
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  }); // set methods
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50
+  }).addTo(mymap); // set the view
+
+  mymap.setView([41.90, 12.47], 10); // set algolia search-bar autocomplete
 
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
@@ -52955,6 +52973,7 @@ function checked(event) {
 function ajaxCall(params) {
   $.ajax({
     url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -52973,20 +52992,185 @@ function ajaxCall(params) {
       longitude: params.longitude
     },
     success: function success(suites) {
+      // console.log(suites);
       var source = $('#suite-cards-template').html();
-      var template = Handlebars.compile(source);
+      var template = Handlebars.compile(source); // refresh html before a new search
 
-      for (var i = 0; i < suites.length; i++) {
-        var suite = suites[i];
+      $('.suites-cards-promo').html(''); // console.log(suites.noPromo);
+
+      var maPins = [];
+
+      for (var i = 0; i < suites.promo.length; i++) {
+        var suite = suites.promo[i]; // set an array of pins
+
+        var pin = {}; // set pin
+
+        pin.lat = suite.latitude;
+        pin.lng = suite.longitude;
+        pin.title = suite.title; // push pin into the array
+
+        maPins.push(pin); // set html with handlebars
+
         var html = template(suite);
-        $('.suites-cards').append(html);
+        $('.suites-cards-promo').append(html);
       }
+
+      $('.suites-cards-noPromo').html('');
+
+      for (var i = 0; i < suites.noPromo.length; i++) {
+        // set an array of pins
+        var pin = {};
+        var suite = suites.noPromo[i]; // set pin
+
+        pin.lat = suite.latitude;
+        pin.lng = suite.longitude;
+        pin.title = suite.title; // push pin into the array
+
+        maPins.push(pin); // set html with handlebars
+
+        var html = template(suite);
+        $('.suites-cards-noPromo').append(html);
+      }
+
+      loadMap(maPins);
     },
     error: function error(_error) {
       console.log(_error);
     }
   });
 }
+
+function loadMap(maPins) {
+  // // refresh map
+  $('#map').remove();
+  $('.map-wrapper').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
+
+  var latlng = {
+    lat: $('#address-input').attr('data-lat'),
+    lng: $('#address-input').attr('data-lng')
+  }; // set map
+
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  }); // set methods
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50
+  }).addTo(mymap); // loop all pins and pins to the map
+
+  for (var i = 0; i < maPins.length; i++) {
+    var pin = maPins[i];
+    pinSuiteToMap(pin, mymap);
+  } // set the view
+
+
+  mymap.setView([latlng.lat, latlng.lng], 8);
+}
+
+function pinSuiteToMap(pin, mymap) {
+  L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
+}
+
+/***/ }),
+
+/***/ "./resources/js/static.js":
+/*!********************************!*\
+  !*** ./resources/js/static.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  printStatics();
+
+  function printStatics() {
+    $.ajax({
+      url: "http://boolbnb_goodluck.loc/api/statics",
+      // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
+      data: {
+        suite: $('#suite').text()
+      },
+      method: 'GET',
+      success: function success(dataResponse) {
+        $('#vis_totali').html(dataResponse.v_totale);
+        $('#mess_totali').html(dataResponse.m_totale);
+        var m_gennaio = dataResponse.m_gennaio;
+        var m_febbraio = dataResponse.m_febbraio;
+        var m_marzo = dataResponse.m_marzo;
+        var m_aprile = dataResponse.m_aprile;
+        var m_maggio = dataResponse.m_maggio;
+        var m_giugno = dataResponse.m_giugno;
+        var m_luglio = dataResponse.m_luglio;
+        var m_agosto = dataResponse.m_agosto;
+        var m_settembre = dataResponse.m_settembre;
+        var m_ottobre = dataResponse.m_ottobre;
+        var m_novembre = dataResponse.m_novembre;
+        var m_dicembre = dataResponse.m_dicembre;
+        var v_gennaio = dataResponse.v_gennaio;
+        var v_febbraio = dataResponse.v_febbraio;
+        var v_marzo = dataResponse.v_marzo;
+        var v_aprile = dataResponse.v_aprile;
+        var v_maggio = dataResponse.v_maggio;
+        var v_giugno = dataResponse.v_giugno;
+        var v_luglio = dataResponse.v_luglio;
+        var v_agosto = dataResponse.v_agosto;
+        var v_settembre = dataResponse.v_settembre;
+        var v_ottobre = dataResponse.v_ottobre;
+        var v_novembre = dataResponse.v_novembre;
+        var v_dicembre = dataResponse.v_dicembrev;
+        var ctx = document.getElementById('bar_visual').getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+            datasets: [{
+              label: '# Visualizzazioni',
+              data: [v_gennaio, v_febbraio, v_marzo, v_aprile, v_maggio, v_giugno, v_luglio, v_agosto, v_settembre, v_ottobre, v_novembre, v_dicembre],
+              backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+        var ctx = document.getElementById('bar_message').getContext('2d');
+        var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'],
+            datasets: [{
+              label: '# Messaggi',
+              data: [m_gennaio, m_febbraio, m_marzo, m_aprile, m_maggio, m_giugno, m_luglio, m_agosto, m_settembre, m_ottobre, m_novembre, m_dicembre],
+              backgroundColor: ['rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)', 'rgba(255, 0, 0, 1)'],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }
+        });
+      },
+      error: function error() {
+        alert('error');
+      }
+    });
+  }
+});
 
 /***/ }),
 

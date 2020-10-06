@@ -1,0 +1,14 @@
+// partials/form/_login.scss
+
+main {
+  // Login
+  .login {
+
+    // Forgot Password link
+    .forgot_password.custom-form-link  {
+      color: $quinternary_text_color;
+      font-family: $primary_font;
+      font-size: $paragraph_text_size;
+    }
+  }
+}

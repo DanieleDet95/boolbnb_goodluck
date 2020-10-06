@@ -6,20 +6,21 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use App\Message;
+use App\Suite;
 
-
-class SendNewMail extends Mailable
+class SendNewEliminated extends Mailable
 {
     use Queueable, SerializesModels;
+
+    protected $eliminated = null;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(Suite $suite)
     {
-
+      $this->eliminated = $suite;
     }
 
     /**
@@ -29,7 +30,8 @@ class SendNewMail extends Mailable
      */
     public function build()
     {
-        $messages = Message::select('email','body','name')->orderBy('created_at', 'desc')->limit(1)->get();
-        return $this->view('admin.email.messages.invio', compact('messages'));
+      $eliminated = $this->eliminated;
+
+      return $this->view('admin.email.messages.elimina', compact('eliminated'));
     }
 }

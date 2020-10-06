@@ -4,10 +4,19 @@
 // Variables
 @import 'partials/_mixin';
 @import 'partials/_variables';
+
+// General partials
 @import 'partials/_common';
 @import 'partials/_header';
 @import 'partials/_main';
 @import 'partials/_footer';
+
+// Form partials
+@import 'partials/forms/_common';
+@import 'partials/forms/_register_login';
+@import 'partials/forms/_login';
+@import 'partials/forms/_register';
+
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

@@ -23,7 +23,8 @@ header {
   }
 
   .nav_logo {
-    width: 100px;
+    width: 90px;
+    margin-left: 30px;
   }
 
   // Inline navigation menu
@@ -56,12 +57,12 @@ header {
     }
   }
 
-  .navbar .navbar-collapse .navbar-nav .nav-item.nav_before_login {
+  .navbar .navbar-collapse .navbar-nav .nav-item.nav_before_log {
     margin-right: 30px;
   }
 
   // Login
-  .navbar .navbar-collapse .navbar-nav .nav-item.nav_login {
+  .navbar .navbar-collapse .navbar-nav .nav-item.nav_login_logout {
     background-color: $secondary_text_color;
     padding:0 30px;
     margin: 0;

@@ -13,7 +13,7 @@
         {{-- Logo --}}
         <a class="navbar-brand" href="#">
           <div class="nav_logo">
-            <img src="{{ asset("img/airbnb-lato.png") }}" alt="Logo">
+            <img src="{{ asset("img/airbnb_black.png") }}" alt="Logo">
           </div>
         </a>
         {{-- end Logo --}}
@@ -67,24 +67,24 @@
             {{-- Register & Login --}}
             @guest
               @if (Route::has('register'))
-                <li class="nav-item nav_before_login">
+                <li class="nav-item nav_before_log">
                   <a class="nav-link" href="{{ route('register') }}">
                     <span>{{ __('Register') }}</span>
                   </a>
                 </li>
               @endif
-                <li class="nav-item nav_login">
+                <li class="nav-item nav_login_logout">
                   <a class="nav-link" href="{{ route('login') }}">
                     <span>{{ __('Login')}}</span>
                   </a>
                 </li>
             @else
-              <li class="nav-item">
+              <li class="nav-item nav_before_log">
                 <a class="nav-link" href="#">
                   <span class="user_greeting">Hi </span>
                   <span class="user_name">{{ Auth::user()->name }}</span>
                 </a>
-                <li class="nav-item">
+                <li class="nav-item nav_login_logout">
                   <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                     <span>{{ __('Logout') }}</span>
                   </a>

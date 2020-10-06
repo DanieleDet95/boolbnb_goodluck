@@ -3,6 +3,14 @@
 
 {{-- Yeld Main Content --}}
 @section("content")
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
   <h1>Pagina ricerca</h1>
 
 
@@ -50,9 +58,22 @@
       <input id="submit" type="submit" value="Ricerca">
     </div>
 
+    {{-- map --}}
+    {{-- è essenziale la classe del wrapper e l'id della mappa:
+    assegnare l'altezza desisderata alla mappa (o scompare) ed eliminare lo stile dall'html --}}
+    <div class="map-wrapper">
+        <div id="map" style="height:250px"></div>
+    </div>
+
+
     {{-- la classe del div serve ad identificare il punto di aggancio in cui riprodurre il template Handlebars
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
-    <div class="suites-cards">
+    <div class="suites-cards-promo text-primary">
+
+    </div>
+
+
+    <div class="suites-cards-noPromo">
 
     </div>
 
@@ -61,7 +82,7 @@
     <script id="suite-cards-template" type="text/x-handlebars-template">
       <div class="entry">
         <img src="@{{main_image}}" alt="@{{title}}">
-        <div class="body">
+        <div class="card-info" data-lat="@{{latitude}}" data-lng="@{{longitude}}">
           <h2>@{{title}}</h2>
           <h3>@{{address}}</h3>
           <h3>@{{price}}€</h3>
@@ -70,5 +91,4 @@
     </script>
 
   </div>
-
 @endsection

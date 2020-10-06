@@ -74,14 +74,22 @@
   {{-- Suites cards --}}
   <section class="section_suites_cards">
     <div class="container">
+<<<<<<< HEAD
       <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 p-3">
 
+=======
+      <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 p-3  justify-content-center">
+>>>>>>> master
       {{-- Foreach suite with a promotion --}}
       @foreach ($highlights_suites_active as $highlight_suite_active)
         <a class="link_card" href={{ route("suites.show", $highlight_suite_active->id)}}>
           <div class="example-row item">
+<<<<<<< HEAD
             <div class="example-content-main mx-3 polaroid">
 
+=======
+            <div class="example-content-main mx-3 polaroid d-flex flex-column justify-content-beetween">
+>>>>>>> master
               {{-- cambio path della main_image a seconda dalla provenienza(faker o storage)  --}}
               {{-- Main Image --}}
               @if (isset($highlight_suite_active->main_image))
@@ -93,8 +101,8 @@
               @endif
 
               {{-- End Main Image --}}
-              <div class="example-content-secondary caption">
-                <h5>{{$highlight_suite_active->title}}</h5>
+              <div class="example-content-secondary caption flex-grow-1 d-flex flex-column">
+                <h5 class="flex-grow-1">{{$highlight_suite_active->title}}</h5>
                 <p>{{$highlight_suite_active->address}}</p>
               </div>
             </div>

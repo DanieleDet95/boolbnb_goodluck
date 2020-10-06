@@ -15,6 +15,7 @@ class SearchController extends Controller
     public function index(Request $request) {
 
       $now = Carbon::now();
+      // $tomorrow = $now->add(1, 'day');
 
       $R = 6371; // raggio della Terra in km
 
@@ -40,11 +41,85 @@ class SearchController extends Controller
             "minLng" => $lng - rad2deg(asin($rad/$R) / cos(deg2rad($lat))),
         ];
 
+      $suites = Suite::all();
+
+      foreach ($suites as $suite){
+        foreach ($suite->highlights as $promo) {
+          $end = $promo->pivot->end;
+          if($end < $now){
+            $suite->highlights()->detach($promo);
+          }
+        }
+      }
+      // dd($promoSuite);
+
+
+      $queryPromo = Suite::query();
+
+      $queryPromo->has('highlights')->with('highlights');
+
+      $queryPromo->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
+      $queryPromo->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
+
+      if ($pool == 'true') {
+        $queryPromo->whereHas('services', function (Builder $query) {
+          $query->where('service_id', '=', '1');
+         });
+      }
+
+      if ($wifi == 'true') {
+        $queryPromo->whereHas('services', function (Builder $query) {
+          $query->where('service_id', '=', '2');
+          });
+      }
+
+      if ($pet == 'true') {
+        $queryPromo->whereHas('services', function (Builder $query) {
+          $query->where('service_id', '=', '3');
+         });
+      }
+
+      if ($parking == 'true') {
+        $queryPromo->whereHas('services', function (Builder $query) {
+          $query->where('service_id', '=', '4');
+        });
+      }
+
+      if ($piano == 'true') {
+        $queryPromo->whereHas('services', function (Builder $query) {
+          $query->where('service_id', '=', '5');
+         });
+      }
+
+      if ($sauna == 'true') {
+        $queryPromo->whereHas('services', function (Builder $query) {
+          $query->where('service_id', '=', '6');
+          });
+      }
+
+      if ($rooms) {
+        $queryPromo->where('rooms', ">=", $rooms);
+      }
+
+      if ($beds) {
+        $queryPromo->where('beds', ">=", $beds);
+      }
+
+      if ($baths) {
+        $queryPromo->where('baths', ">=", $baths);
+      }
+
+      if ($square_m) {
+        $queryPromo->where('square_m', ">=", $parking);
+      }
+
+      if ($price != 0) {
+        $queryPromo->where('price', "<=", $price);
+      }
+
+      $promo = $queryPromo->get();
 
       $querySuite = Suite::query();
-      // $querySuite->whereHas('highlight_suite', function(Builder $query) {
-      //   $querySuite->where('end', '>', )
-      // })
 
       $querySuite->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
       $querySuite->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
@@ -105,9 +180,12 @@ class SearchController extends Controller
           $querySuite->where('price', "<=", $price);
         }
 
-       return $querySuite->get();
+      $noPromo = $querySuite->doesnthave('highlights')->get();
 
-      // return response()->json(['querySuite' => $querySuite]);
+      return response()->json([
+        'noPromo' => $noPromo,
+        'promo' => $promo
+      ]);
 
     }
 }

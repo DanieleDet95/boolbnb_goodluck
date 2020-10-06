@@ -20,8 +20,9 @@ class CreateImagesTable extends Migration
             $table->unsignedBigInteger("suite_id");
             $table->foreign("suite_id")
                 ->references("id")
-                ->on("suites");
-                
+                ->on("suites")
+                ->onDelete('cascade');
+
             $table->timestamps();
         });
     }

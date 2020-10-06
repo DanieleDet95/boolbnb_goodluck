@@ -23,7 +23,9 @@
     </div>
     <div>
       <label>Indirizzo:</label>
-      <input type="text" name="address" value="{{old('address')}}">
+      <input type="search" id="address" name="address" value="{{old('address')}}" placeholder="Dove si trova?" />
+      <input class="d-none" id="latitude" type="text" name="latitude" value="{{old('latitude')}}">
+      <input class="d-none" id="longitude" type="text" name="longitude" value="{{old('longitude')}}">
     </div>
     <div>
       <label>Stanze:</label>

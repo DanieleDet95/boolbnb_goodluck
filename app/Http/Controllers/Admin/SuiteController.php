@@ -102,8 +102,8 @@ class SuiteController extends Controller
         'beds'=> 'required|min:1',
         'baths'=> 'required|min:1',
         'square_m'=> 'required|min:1',
-        // 'latitude'=> 'required|min:-90|max:90',
-        // 'longitude'=> 'required|min:-180|max:180',
+        'latitude'=> 'required|min:-90|max:90',
+        'longitude'=> 'required|min:-180|max:180',
         'price'=> 'required|min:1|max:9999,99',
         'description'=> 'required',
         'main_image'=> 'required|image',
@@ -121,8 +121,8 @@ class SuiteController extends Controller
         $new_suite->beds = $request_data['beds'];
         $new_suite->baths = $request_data['baths'];
         $new_suite->square_m = $request_data['square_m'];
-        $new_suite->latitude = 0; //$request_data['latitude'];
-        $new_suite->longitude = 0; //$request_data['longitude'];
+        $new_suite->latitude = $request_data['latitude'];
+        $new_suite->longitude = $request_data['longitude'];
         $new_suite->price = $request_data['price'];
         $new_suite->description = $request_data['description'];
         $new_suite->main_image = $path_image;
@@ -171,8 +171,8 @@ class SuiteController extends Controller
         'beds'=> 'required|min:1',
         'baths'=> 'required|min:1',
         'square_m'=> 'required|min:1',
-        // 'latitude'=> 'required|min:-90|max:90',
-        // 'longitude'=> 'required|min:-180|max:180',
+        'latitude'=> 'required|min:-90|max:90',
+        'longitude'=> 'required|min:-180|max:180',
         'price'=> 'required|min:1|max:9999,99',
         'description'=> 'required',
         'main_image'=> 'required|image',
@@ -185,6 +185,8 @@ class SuiteController extends Controller
       $suite->rooms = $data['rooms'];
       $suite->square_m = $data['square_m'];
       $suite->address = $data['address'];
+      $suite->latitude = $data['latitude'];
+      $suite->longitude = $data['longitude'];
       $suite->price = $data['price'];
       $suite->description = $data['description'];
       $path_image = $request->file('main_image')->store('images', 'public');

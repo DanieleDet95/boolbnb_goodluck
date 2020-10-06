@@ -1,35 +1,10 @@
-
+// partials/_main.scss
 
 main {
-  padding-top: 60px;
-  .my_jumbotron {
-    position: relative;
-    .title_jumbo {
-      width: 350px;
-      position: absolute;
-      top: 40%;
-      left: 5%;
-      h2 {
-        font-size: $h2_text_size;
-        color: #EAE2D2;
-      }
-      p {
-        font-size: $paragraph_text_size;
-        color: #EAE2D2;
-      }
-    }
-    .input_jumbo {
-      width: 350px;
-      position: absolute;
-      top: 60%;
-      left: 5%;
-      button {
-        background-color: #F6F4F2;
-      }
-    }
-  }
+  padding-top: $menu_height;
+
+  // Section suites cards
   .section_suites_cards {
-    padding-bottom: 40px;
     .link_card {
       display: flex;
       justify-content: center;

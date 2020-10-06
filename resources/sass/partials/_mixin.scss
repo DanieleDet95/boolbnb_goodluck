@@ -1,9 +1,22 @@
 // partials/_mixin.scss
 
-// Typography
+// Main wrapper
+@mixin main_wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+// Jumbotron
 @mixin jumbotron_text {
   font-size: 48px;
   text-transform: bold;
+}
+
+@mixin jumbotron_background_image {
+  background-size: 1200px auto;
+  width: 100%;
+  height: 480px;
+  position: relative;
 }
 
 // Form Title Typography
@@ -30,7 +43,7 @@
 /* Text checkbox */
 @mixin text_checkbox {
   font-weight: normal;
-  text-align: center;  
+  text-align: center;
 }
 
 /* Customize the label (the container) */

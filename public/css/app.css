@@ -176,12 +176,12 @@ main .section_suites_cards .link_card .item .polaroid .caption {
 main .section_suites_cards .link_card .item .polaroid .caption h5 {
   font-size: 20px;
   text-transform: uppercase;
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
 main .section_suites_cards .link_card .item .polaroid .caption p {
   font-size: 15px;
-  margin-top: 60px;
+  margin: 0px;
 }
 
 main .section_suites_cards .link_card .item .polaroid:before {
@@ -217,6 +217,115 @@ main .section_suites_cards .link_card .item:hover .polaroid:before {
   right: 5%;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
   transition: all 0.35s;
+}
+
+main .search_location input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .input_box > input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .submit_search {
+  line-height: 60px;
+}
+
+main .submit_search .input_search {
+  background-color: #cf4532;
+  border: none;
+  padding: 0 30px;
+  margin-right: 0;
+  color: #f6f4f2;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+main .submit_search .input_search:hover {
+  background-color: #a73727;
+}
+
+main .checkbox {
+  font-weight: normal;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #272728;
+  font-size: 15px;
+  /* Customize the label (the container) */
+  /* Hide the browser's default radio button */
+  /* Create a custom radio button */
+  /* When the radio button is checked, add a background */
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  /* Show the indicator (dot/circle) when checked */
+  /* Style the indicator */
+}
+
+main .checkbox .container_checkbox {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 10px 0 30px 0;
+}
+
+main .checkbox .container_checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+main .checkbox .checkmark {
+  position: absolute;
+  top: 3.5px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  border: 1px solid #cf4532;
+}
+
+main .checkbox .container_checkbox input:checked ~ .checkmark {
+  background-color: #cf4532;
+}
+
+main .checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+main .checkbox .container_checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+main .checkbox .container_checkbox .checkmark:after {
+  left: 6px;
+  top: 2.5px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 1.2px 1.2px 0;
+  transform: rotate(45deg);
+}
+
+main .cont_suites_cards {
+  min-height: 600px;
+}
+
+main .entry {
+  border: 1px solid black;
 }
 
 footer {

@@ -52914,7 +52914,19 @@ $(document).ready(function () {
 
   $('input[type="checkbox"]').on('click', function (event) {
     checked($(this));
-  }); // set algolia search-bar autocomplete
+  }); // set map
+
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  }); // set methods
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50
+  }).addTo(mymap); // set the view
+
+  mymap.setView([41.90, 12.47], 10); // set algolia search-bar autocomplete
 
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
@@ -52960,9 +52972,8 @@ function checked(event) {
 
 function ajaxCall(params) {
   $.ajax({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search",
-    //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -52981,21 +52992,85 @@ function ajaxCall(params) {
       longitude: params.longitude
     },
     success: function success(suites) {
+      // console.log(suites);
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source); // refresh html before a new search
 
-      $('.suites-cards').html('');
+      $('.suites_cards_promo').html(''); // console.log(suites.noPromo);
 
-      for (var i = 0; i < suites.length; i++) {
-        var suite = suites[i];
+      var maPins = [];
+
+      for (var i = 0; i < suites.promo.length; i++) {
+        var suite = suites.promo[i]; // set an array of pins
+
+        var pin = {}; // set pin
+
+        pin.lat = suite.latitude;
+        pin.lng = suite.longitude;
+        pin.title = suite.title; // push pin into the array
+
+        maPins.push(pin); // set html with handlebars
+
         var html = template(suite);
-        $('.suites-cards').append(html);
+        $('.suites_cards_promo').append(html);
       }
+
+      $('.suites_cards_noPromo').html('');
+
+      for (var i = 0; i < suites.noPromo.length; i++) {
+        // set an array of pins
+        var pin = {};
+        var suite = suites.noPromo[i]; // set pin
+
+        pin.lat = suite.latitude;
+        pin.lng = suite.longitude;
+        pin.title = suite.title; // push pin into the array
+
+        maPins.push(pin); // set html with handlebars
+
+        var html = template(suite);
+        $('.suites_cards_noPromo').append(html);
+      }
+
+      loadMap(maPins);
     },
     error: function error(_error) {
       console.log(_error);
     }
   });
+}
+
+function loadMap(maPins) {
+  // // refresh map
+  $('#map').remove();
+  $('.my_maps').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
+
+  var latlng = {
+    lat: $('#address-input').attr('data-lat'),
+    lng: $('#address-input').attr('data-lng')
+  }; // set map
+
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  }); // set methods
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50
+  }).addTo(mymap); // loop all pins and pins to the map
+
+  for (var i = 0; i < maPins.length; i++) {
+    var pin = maPins[i];
+    pinSuiteToMap(pin, mymap);
+  } // set the view
+
+
+  mymap.setView([latlng.lat, latlng.lng], 8);
+}
+
+function pinSuiteToMap(pin, mymap) {
+  L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
 }
 
 /***/ }),
@@ -53012,7 +53087,8 @@ $(document).ready(function () {
 
   function printStatics() {
     $.ajax({
-      url: 'http://127.0.0.1:8000/api/statics',
+      url: "http://boolbnb_goodluck.loc/api/statics",
+      // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
       data: {
         suite: $('#suite').text()
       },
@@ -53116,9 +53192,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

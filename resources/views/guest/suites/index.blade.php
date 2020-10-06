@@ -7,7 +7,37 @@
 @section("content")
 
   {{-- Jumbotron --}}
-  <section class="jumbotron jumbotron-fluid text-xl-left text-center jumbo_custom">
+  <section class="jumbotron p-0 jumbotron-fluid text-xl-left text-center jumbo_custom">
+
+    {{-- Carousel --}}
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{{ asset("img/florence.jpg") }}" class="d-block w-100" alt="Background image">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ asset("img/tuscany.jpg") }}" class="d-block w-100" alt="Background image">
+        </div>
+        <div class="carousel-item">
+          <img src="{{ asset("img/grand-canal.jpg") }}" class="d-block w-100" alt="Background image">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    {{-- end Carousel --}}
+
     <div class="container jumbo_container">
 
       {{-- Jumbotron Title --}}
@@ -24,7 +54,7 @@
       <div class="row">
         <div class="col-12 col-xl-6">
           <div class="input-group">
-            <input type="text" class="form-control rounded-0" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="text" class="form-control rounded-0" placeholder="Where do you want to go" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
               <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2">Search</button>
             </div>

@@ -9,10 +9,21 @@ main {
     color: $primary_text_color;
     font-size: $jumbo_paragraph;
 
+    .carousel {
+      height: 480px;
+      width: 100%;
+      position: absolute;
+
+      .carousel-inner > .carousel-item > img {
+        height: 480px;
+      }
+    }
+
     // Jumbotron Title & Search-bar
     & > .jumbo_container {
       height: 100%;
       width: 100%;
+      padding-top: 100px;
 
       // Title jumbotron
       .jumbo_title {

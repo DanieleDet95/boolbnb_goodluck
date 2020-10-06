@@ -59,7 +59,7 @@
           <div class="input-group">
             <input type="text" class="form-control rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2">
             <div class="input-group-append">
-              <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2">Search</button>
+              <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
             </div>
           </div>
         </div>

@@ -42,6 +42,7 @@ main {
         .input-group-append > .btn {
           background-color: $secondary_text_color;
           color: $primary_text_color;
+          padding:0 15px;
           border: 0;
 
           &:hover {

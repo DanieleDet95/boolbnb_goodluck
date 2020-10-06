@@ -58,17 +58,19 @@ class SearchController extends Controller
 
       $queryPromo->has('highlights')->with('highlights');
 
-      $queryPromo->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
-      $queryPromo->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
-      // $queryPromo->selectRaw(
-      //   "*,
-      //   ( 6371 * acos( cos( radians(?))
-      //   * cos( radians( latitude ))
-      //   * cos( radians( longitude )
-      //   - radians(?))
-      //   + sin( radians(?))
-      //   * sin( radians( latitude )))) AS distance", [$lat, $lng, $lat]);
-      // $queryPromo->orderBy('distance', 'asc');
+      // $queryPromo->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
+      // $queryPromo->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
+
+
+      $queryPromo->selectRaw(
+        "*,
+        ( 6371 * acos( cos( radians(?))
+        * cos( radians( latitude ))
+        * cos( radians( longitude )
+        - radians(?))
+        + sin( radians(?))
+        * sin( radians( latitude )))) AS distance", [$lat, $lng, $lat]);
+      $queryPromo->orderBy('distance', 'asc');
 
       if ($pool == 'true') {
         $queryPromo->whereHas('services', function (Builder $query) {
@@ -130,17 +132,17 @@ class SearchController extends Controller
 
       $querySuite = Suite::query();
 
-      $querySuite->whereBetween('latitude', [$params['minLat'], $params['maxLat']])->orderBy('latitude', 'asc');
-      $querySuite->whereBetween('longitude', [$params['minLng'], $params['maxLng']])->orderBy('longitude', 'asc');
-      // $querySuite->selectRaw(
-      //   "*,
-      //   ( 6371 * acos( cos( radians(?))
-      //   * cos( radians( latitude ))
-      //   * cos( radians( longitude )
-      //   - radians(?))
-      //   + sin( radians(?))
-      //   * sin( radians( latitude )))) AS distance", [$lat, $lng, $lat]);
-      // $querySuite->orderBy('distance', 'asc');
+      // $querySuite->whereBetween('latitude', [$params['minLat'], $params['maxLat']])->orderBy('latitude', 'asc');
+      // $querySuite->whereBetween('longitude', [$params['minLng'], $params['maxLng']])->orderBy('longitude', 'asc');
+      $querySuite->selectRaw(
+        "*,
+        ( 6371 * acos( cos( radians(?))
+        * cos( radians( latitude ))
+        * cos( radians( longitude )
+        - radians(?))
+        + sin( radians(?))
+        * sin( radians( latitude )))) AS distance", [$lat, $lng, $lat]);
+      $querySuite->orderBy('distance', 'asc');
 
 
         if ($pool == 'true') {

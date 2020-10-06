@@ -104,13 +104,47 @@ main {
   // FINE HOME
 
   // SEARCH
-  // Common checkbox
+  // Stili al form di Ricerca
+  .search_location {
+    input {
+      &:focus {
+        border-color: $secondary_background;
+        box-shadow: 0 0 0;
+        outline: 0 none;
+      }
+    }
+  }
+  .input_box>input {
+    &:focus {
+      border-color: $secondary_background;
+      box-shadow: 0 0 0;
+      outline: 0 none;
+    }
+  }
+  // Tasto Submit di Ricerca
+  .submit_search {
+    line-height: 60px;
+    .input_search {
+      background-color: $secondary_text_color;
+      border: none;
+      padding:0 30px;
+      margin-right: 0;
+      color: $primary_text_color;
+      font-family: $primary_font;
+      font-size: $small_text_size;
+      text-transform: capitalize;
+      font-weight: bold;
+      &:hover {
+        background-color: $quinternary_background;
+      }
+    }
+  }
+  // Stili checkbox
   .checkbox {
     @include text_checkbox;
     font-family: $primary_font;
     color: $quinternary_text_color;
     font-size: $paragraph_text_size;
-
 
     /* Customize the label (the container) */
     .container_checkbox {
@@ -148,40 +182,9 @@ main {
       @include style_indicator;
     }
   }
-  // Stili al form di Ricerca
-  .search_location {
-    input {
-      &:focus {
-        border-color: $secondary_background;
-        box-shadow: 0 0 0;
-        outline: 0 none;
-      }
-    }
-  }
-  .input_box>input {
-    &:focus {
-      border-color: $secondary_background;
-      box-shadow: 0 0 0;
-      outline: 0 none;
-    }
-  }
-  // Tasto Submit di Ricerca
-  .submit_search {
-    line-height: 60px;
-    .input_search {
-      background-color: $secondary_text_color;
-      border: none;
-      padding:0 30px;
-      margin-right: 0;
-      color: $primary_text_color;
-      font-family: $primary_font;
-      font-size: $small_text_size;
-      text-transform: capitalize;
-      font-weight: bold;
-      &:hover {
-        background-color: $quinternary_background;
-      }
-    }
+  // Contenitore card e mappa
+  .cont_suites_cards {
+    min-height: 600px;
   }
   .entry {
     border: 1px solid black;

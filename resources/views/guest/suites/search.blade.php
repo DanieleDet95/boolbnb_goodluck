@@ -4,7 +4,7 @@
 {{-- Yeld Main Content --}}
 @section("content")
   {{-- inizio pagina ricerca --}}
-  <div class="container">
+  <div class="container-fluid container-md">
     <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
@@ -39,29 +39,41 @@
       </div>
 
       <div class="d-flex justify-content-around col-12 form-check my-3">
-        <div class="col-2">
-          <label>Pool</label>
+        <div class="checkbox col-2">
+          <label class="container_checkbox">Pool
           <input id="pool" type="checkbox" name="pool" value="false">
+          <span class="checkmark"></span>
+          </label>
         </div>
-        <div class="col-2">
-          <label>WiFi</label>
+        <div class="checkbox col-2">
+          <label class="container_checkbox">WiFi
           <input id="wifi" type="checkbox" name="wifi" value="false">
+          <span class="checkmark"></span>
+          </label>
         </div>
-        <div class="col-2">
-          <label>Pets</label>
+        <div class="checkbox col-2">
+          <label class="container_checkbox">Pets
           <input id="pet" type="checkbox" name="pet" value="false">
+          <span class="checkmark"></span>
+          </label>
         </div>
-        <div class="col-2">
-          <label>Parking</label>
+        <div class="checkbox col-2">
+          <label class="container_checkbox">Parking
           <input id="parking" type="checkbox" name="parking" value="false">
+          <span class="checkmark"></span>
+          </label>
         </div>
-        <div class="col-2">
-          <label>Piano</label>
+        <div class="checkbox col-2">
+          <label class="container_checkbox">Piano
           <input id="piano" type="checkbox" name="piano" value="false">
+          <span class="checkmark"></span>
+          </label>
         </div>
-        <div class="col-2">
-          <label>Sauna</label>
+        <div class="checkbox col-2">
+          <label class="container_checkbox">Sauna
           <input id="sauna" type="checkbox" name="sauna" value="false">
+          <span class="checkmark"></span>
+          </label>
         </div>
       </div>
 
@@ -95,7 +107,7 @@
 
     {{-- la classe del div serve ad identificare il punto di aggancio in cui riprodurre il template Handlebars
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
-    <div class="container-fluid">
+    <div class="container-fluid cont_suites_cards">
       <div class="row">
         <div class="col-6 suites-cards">
         </div>

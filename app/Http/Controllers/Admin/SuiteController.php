@@ -79,6 +79,7 @@ class SuiteController extends Controller
     public function create()
     {
       $services = Service::all();
+
       return view('admin.suites.create',compact('services'));
     }
 
@@ -114,6 +115,7 @@ class SuiteController extends Controller
 
       if (Auth::check()) {
         $request_data = $request->all();
+
         $path_image = $request->file('main_image')->store('images', 'public');
         // $user = Auth::user();  // da rivedere
         $new_suite = new Suite();
@@ -130,8 +132,9 @@ class SuiteController extends Controller
         $new_suite->description = $request_data['description'];
         $new_suite->main_image = $path_image;
         $new_suite->save();
-        
+
         if (isset($request_data['services'])) {
+            // dd($request_data['services']);
             $new_suite->services()->sync($request_data['services']);
         }
         // aggiunta di più immagini alla suite

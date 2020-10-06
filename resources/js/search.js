@@ -3,13 +3,13 @@ const Handlebars = require("handlebars");
 $(document).ready(function() {
   // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  $(".input_box input:not('#submit')").val('');
-  // set all checkboxes value as false
-  $('input[type="checkbox"]').prop('checked', false);
+  // $(".input_box input:not('#submit')").val('');
+  // // set all checkboxes value as false
+  // $('input[type="checkbox"]').prop('checked', false);
 
   // toggle chechbox values on click
   $('input[type="checkbox"]').on('click', function(event) {
-    checked($(this));
+    checked($(this).val());
   })
 
   // **DEFAULT MAP**
@@ -85,9 +85,9 @@ $(document).ready(function() {
 
 function checked(event) {
   if($(event).prop('checked')) {
-    $(event).val('true');
+    $(event).val();
   }else{
-    $(event).val('false');
+    $(event).val();
   }
 }
 
@@ -97,8 +97,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 

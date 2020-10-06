@@ -4,8 +4,8 @@ $( document ).ready(function() {
 
   function printStatics(){
     $.ajax({
-        url: "http://boolbnb_goodluck.loc/api/statics",
-        // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
+        // url: "http://boolbnb_goodluck.loc/api/statics",
+        url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
         data: {
             suite: $('#suite').text(),
         },

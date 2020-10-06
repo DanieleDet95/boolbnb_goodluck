@@ -42,7 +42,7 @@ class Suite extends Model
     }
 
     public function services() {
-      return $this->belongsToMany("App\Service");
+      return $this->belongsToMany('App\Service');
     }
 
 }

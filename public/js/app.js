@@ -52914,7 +52914,19 @@ $(document).ready(function () {
 
   $('input[type="checkbox"]').on('click', function (event) {
     checked($(this));
-  }); // set algolia search-bar autocomplete
+  }); // set map
+
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  }); // set methods
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50
+  }).addTo(mymap); // set the view
+
+  mymap.setView([41.90, 12.47], 10); // set algolia search-bar autocomplete
 
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
@@ -52989,12 +53001,16 @@ function ajaxCall(params) {
       var maPins = [];
 
       for (var i = 0; i < suites.promo.length; i++) {
-        var pin = {};
-        var suite = suites.promo[i];
+        var suite = suites.promo[i]; // set an array of pins
+
+        var pin = {}; // set pin
+
         pin.lat = suite.latitude;
         pin.lng = suite.longitude;
-        pin.title = suite.title;
-        maPins.push(pin);
+        pin.title = suite.title; // push pin into the array
+
+        maPins.push(pin); // set html with handlebars
+
         var html = template(suite);
         $('.suites-cards-promo').append(html);
       }
@@ -53002,48 +53018,55 @@ function ajaxCall(params) {
       $('.suites-cards-noPromo').html('');
 
       for (var i = 0; i < suites.noPromo.length; i++) {
+        // set an array of pins
         var pin = {};
-        var suite = suites.noPromo[i];
+        var suite = suites.noPromo[i]; // set pin
+
         pin.lat = suite.latitude;
         pin.lng = suite.longitude;
-        pin.title = suite.title;
-        maPins.push(pin);
+        pin.title = suite.title; // push pin into the array
+
+        maPins.push(pin); // set html with handlebars
+
         var html = template(suite);
         $('.suites-cards-noPromo').append(html);
       }
 
-      console.log(maPins);
       loadMap(maPins);
     },
     error: function error(_error) {
       console.log(_error);
     }
   });
-} //
-
+}
 
 function loadMap(maPins) {
-  // take values from searchbar
+  // // refresh map
+  $('#map').remove();
+  $('.map-wrapper').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
+
   var latlng = {
     lat: $('#address-input').attr('data-lat'),
     lng: $('#address-input').attr('data-lng')
-  };
-  var mymap = L.map('map-container', {
+  }; // set map
+
+  var mymap = L.map('map', {
     scrollWheelZoom: true,
     zoomControl: true
-  }); // set method
+  }); // set methods
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     minZoom: 1,
     maxZoom: 50
-  }).addTo(mymap);
+  }).addTo(mymap); // loop all pins and pins to the map
 
   for (var i = 0; i < maPins.length; i++) {
     var pin = maPins[i];
     pinSuiteToMap(pin, mymap);
-  }
+  } // set the view
 
-  mymap.setView(new L.LatLng(latlng.lat, latlng.lng), 6);
+
+  mymap.setView([latlng.lat, latlng.lng], 8);
 }
 
 function pinSuiteToMap(pin, mymap) {

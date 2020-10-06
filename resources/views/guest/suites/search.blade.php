@@ -59,12 +59,11 @@
     </div>
 
     {{-- map --}}
+    {{-- è essenziale la classe del wrapper e l'id della mappa:
+    assegnare l'altezza desisderata alla mappa (o scompare) ed eliminare lo stile dall'html --}}
     <div class="map-wrapper">
-        <div id="map-container" style="height:250px"></div>
+        <div id="map" style="height:250px"></div>
     </div>
-
-
-
 
 
     {{-- la classe del div serve ad identificare il punto di aggancio in cui riprodurre il template Handlebars

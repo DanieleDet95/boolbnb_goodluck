@@ -11,6 +11,22 @@ $(document).ready(function() {
     checked($(this));
   })
 
+  // set map
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  });
+
+  // set methods
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50,
+  }).addTo(mymap);
+
+  // set the view
+  mymap.setView([41.90, 12.47], 10);
+
   // set algolia search-bar autocomplete
   var places = require('places.js');
   var placesAutocomplete = places({
@@ -105,14 +121,19 @@ function ajaxCall(params) {
 
       for (var i = 0; i < suites.promo.length; i++) {
 
-        var pin = {}
         var suite = suites.promo[i];
 
+        // set an array of pins
+        var pin = {}
+
+        // set pin
         pin.lat = suite.latitude;
         pin.lng = suite.longitude;
         pin.title = suite.title;
+        // push pin into the array
         maPins.push(pin);
 
+        // set html with handlebars
         var html = template(suite);
         $('.suites-cards-promo').append(html);
       }
@@ -121,20 +142,23 @@ function ajaxCall(params) {
 
       for (var i = 0; i < suites.noPromo.length; i++) {
 
+        // set an array of pins
         var pin = {}
         var suite = suites.noPromo[i];
 
+        // set pin
         pin.lat = suite.latitude;
         pin.lng = suite.longitude;
         pin.title = suite.title;
+        // push pin into the array
         maPins.push(pin);
 
+        // set html with handlebars
         var html = template(suite);
         $('.suites-cards-noPromo').append(html);
       }
-      console.log(maPins);
-      loadMap(maPins);
 
+        loadMap(maPins);
 
     },
 
@@ -143,36 +167,40 @@ function ajaxCall(params) {
     }
   });
 }
-//
+
 function loadMap(maPins) {
+
+  // // refresh map
+  $('#map').remove();
+  $('.map-wrapper').html('<div id="map" style="height:250px"></div>');
 
   // take values from searchbar
   var latlng = {
-          lat: $('#address-input').attr('data-lat'),
-          lng: $('#address-input').attr('data-lng')
-      };
+    lat: $('#address-input').attr('data-lat'),
+    lng: $('#address-input').attr('data-lng')
+  };
 
+  // set map
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  });
 
-  var mymap = L.map('map-container', {
-         scrollWheelZoom: true,
-         zoomControl: true
-       });
-
-
-  // set method
+  // set methods
   L.tileLayer(
-     'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-       minZoom: 1,
-       maxZoom: 50,
-     }).addTo(mymap);
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50,
+  }).addTo(mymap);
 
+  // loop all pins and pins to the map
+  for (var i = 0; i < maPins.length; i++) {
+    var pin = maPins[i];
+    pinSuiteToMap(pin, mymap);
+  }
 
- for (var i = 0; i < maPins.length; i++) {
-          var pin = maPins[i];
-          pinSuiteToMap(pin, mymap);
-    }
-
-  mymap.setView(new L.LatLng(latlng.lat, latlng.lng), 6);
+  // set the view
+  mymap.setView([latlng.lat, latlng.lng], 8);
 
 }
 

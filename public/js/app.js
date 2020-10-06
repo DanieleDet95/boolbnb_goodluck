@@ -52997,7 +52997,7 @@ function ajaxCall(params) {
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source); // refresh html before a new search
 
-      $('.suites-cards-promo').html(''); // console.log(suites.noPromo);
+      $('.suites_cards_promo').html(''); // console.log(suites.noPromo);
 
       var maPins = [];
 
@@ -53013,10 +53013,10 @@ function ajaxCall(params) {
         maPins.push(pin); // set html with handlebars
 
         var html = template(suite);
-        $('.suites-cards-promo').append(html);
+        $('.suites_cards_promo').append(html);
       }
 
-      $('.suites-cards-noPromo').html('');
+      $('.suites_cards_noPromo').html('');
 
       for (var i = 0; i < suites.noPromo.length; i++) {
         // set an array of pins
@@ -53030,7 +53030,7 @@ function ajaxCall(params) {
         maPins.push(pin); // set html with handlebars
 
         var html = template(suite);
-        $('.suites-cards-noPromo').append(html);
+        $('.suites_cards_noPromo').append(html);
       }
 
       loadMap(maPins);
@@ -53044,7 +53044,7 @@ function ajaxCall(params) {
 function loadMap(maPins) {
   // // refresh map
   $('#map').remove();
-  $('.map-wrapper').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
+  $('.my_maps').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
 
   var latlng = {
     lat: $('#address-input').attr('data-lat'),

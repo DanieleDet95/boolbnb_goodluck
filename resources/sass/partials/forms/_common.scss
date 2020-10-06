@@ -25,7 +25,7 @@ main {
     }
 
     // Input Forms style
-    .form-group .input_box > input.form-control {
+    .input_box > input.form-control {
 
       &:focus {
         border-color: $secondary_background;

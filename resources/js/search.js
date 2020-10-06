@@ -113,7 +113,7 @@ function ajaxCall(params) {
       var template = Handlebars.compile(source);
 
       // refresh html before a new search
-      $('.suites-cards-promo').html('');
+      $('.suites_cards_promo').html('');
 
       // console.log(suites.noPromo);
 
@@ -135,10 +135,10 @@ function ajaxCall(params) {
 
         // set html with handlebars
         var html = template(suite);
-        $('.suites-cards-promo').append(html);
+        $('.suites_cards_promo').append(html);
       }
 
-      $('.suites-cards-noPromo').html('');
+      $('.suites_cards_noPromo').html('');
 
       for (var i = 0; i < suites.noPromo.length; i++) {
 
@@ -155,7 +155,7 @@ function ajaxCall(params) {
 
         // set html with handlebars
         var html = template(suite);
-        $('.suites-cards-noPromo').append(html);
+        $('.suites_cards_noPromo').append(html);
       }
 
         loadMap(maPins);
@@ -172,7 +172,7 @@ function loadMap(maPins) {
 
   // // refresh map
   $('#map').remove();
-  $('.map-wrapper').html('<div id="map" style="height:250px"></div>');
+  $('.my_maps').html('<div id="map" style="height:250px"></div>');
 
   // take values from searchbar
   var latlng = {

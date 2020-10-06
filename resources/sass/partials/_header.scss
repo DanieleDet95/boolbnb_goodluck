@@ -2,15 +2,17 @@
 
 // Nav
 header {
+  width: 1200px;
 
   // Navbar
   .navbar {
     padding: 0;
-    height: 60px;
+    height: $menu_height;
   }
 
   .navbar-custom {
     background-color: $primary_background;
+    @include main_wrapper;
   }
 
   .navbar-custom .bg-custom {

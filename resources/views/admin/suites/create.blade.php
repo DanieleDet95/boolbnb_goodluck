@@ -3,6 +3,8 @@
 
 {{-- Yeld Main Content --}}
 @section("content")
+
+  {{-- Error --}}
   @if ($errors->any())
     <div class="alert alert-danger">
       <ul>
@@ -12,6 +14,8 @@
       </ul>
     </div>
   @endif
+  {{-- Error --}}
+
 
   <form  action="{{route('admin.suites.store')}}" method="post" enctype="multipart/form-data">
     @csrf

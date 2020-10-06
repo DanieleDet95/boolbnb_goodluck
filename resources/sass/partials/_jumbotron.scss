@@ -1,0 +1,66 @@
+// partials/_jumbotron.scss
+
+main {
+
+  // Jumbotron
+  section.jumbo_custom {
+    @include jumbotron_background_image;
+    font-family: $primary_font;
+    color: $primary_text_color;
+    font-size: $jumbo_paragraph;
+
+    .carousel {
+      height: 480px;
+      width: 100%;
+      position: absolute;
+
+      .carousel-inner > .carousel-item > img {
+        height: 480px;
+      }
+    }
+
+    // Jumbotron Title & Search-bar
+    & > .jumbo_container {
+      height: 100%;
+      width: 100%;
+      padding-top: 100px;
+
+      // Title jumbotron
+      .jumbo_title {
+        & > .jumbo_top_title {
+          font-family: $secondary_font;
+          font-size: $jumbo_h1;
+          margin-bottom: 20px;
+        }
+      }
+
+      // Input Forms style
+      .input-group {
+        margin-top: 20px;
+
+        // Button
+        .input-group-append > .btn {
+          background-color: $secondary_text_color;
+          color: $primary_text_color;
+          padding:0 15px;
+          border: 0;
+
+          &:hover {
+            background-color: $quinternary_background;
+          }
+        }
+
+        // Input Style
+        & > .form-control {
+          border: 0;
+
+          &:focus {
+            border-color: $secondary_background;
+            box-shadow: 0 0 0;
+            outline: 0 none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -36,5 +36,5 @@ img {
 
 // Main wrapper
 .main_wrapper {
-  background-color: white;
+  @include main_wrapper;
 }

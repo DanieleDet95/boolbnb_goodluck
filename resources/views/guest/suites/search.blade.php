@@ -92,12 +92,12 @@
       <div class="row">
 
         <div class="col-6 suites-cards">
-          <div class="suites-cards-promo">
+          <div class="suites_cards_promo">
             {{-- div per le card in evidenza --}}
           </div>
 
 
-          <div class="suites-cards-noPromo">
+          <div class="suites_cards_noPromo">
             {{-- div per le card non in evidenza --}}
 
           </div>
@@ -109,14 +109,6 @@
 
       </div>
     </div>
-
-
-
-
-    {{-- la classe del div serve ad identificare il punto di aggancio in cui riprodurre il template Handlebars
-    se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
-
-
 
 
 

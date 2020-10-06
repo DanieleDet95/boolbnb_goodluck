@@ -11,6 +11,22 @@ $(document).ready(function() {
     checked($(this));
   })
 
+  // set map
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  });
+
+  // set methods
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50,
+  }).addTo(mymap);
+
+  // set the view
+  mymap.setView([41.90, 12.47], 10);
+
   // set algolia search-bar autocomplete
   var places = require('places.js');
   var placesAutocomplete = places({
@@ -48,6 +64,7 @@ $(document).ready(function() {
     // send params to API in Api/SearchController
     ajaxCall(params);
 
+
   });
 
 })
@@ -68,8 +85,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -91,21 +108,102 @@ function ajaxCall(params) {
           },
 
     success: function(suites){
+      // console.log(suites);
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source);
 
       // refresh html before a new search
-      $('.suites-cards').html('');
+      $('.suites-cards-promo').html('');
 
-      for (var i = 0; i < suites.length; i++) {
-        var suite = suites[i];
+      // console.log(suites.noPromo);
+
+      var maPins = []
+
+      for (var i = 0; i < suites.promo.length; i++) {
+
+        var suite = suites.promo[i];
+
+        // set an array of pins
+        var pin = {}
+
+        // set pin
+        pin.lat = suite.latitude;
+        pin.lng = suite.longitude;
+        pin.title = suite.title;
+        // push pin into the array
+        maPins.push(pin);
+
+        // set html with handlebars
         var html = template(suite);
-        $('.suites-cards').append(html);
+        $('.suites-cards-promo').append(html);
       }
+
+      $('.suites-cards-noPromo').html('');
+
+      for (var i = 0; i < suites.noPromo.length; i++) {
+
+        // set an array of pins
+        var pin = {}
+        var suite = suites.noPromo[i];
+
+        // set pin
+        pin.lat = suite.latitude;
+        pin.lng = suite.longitude;
+        pin.title = suite.title;
+        // push pin into the array
+        maPins.push(pin);
+
+        // set html with handlebars
+        var html = template(suite);
+        $('.suites-cards-noPromo').append(html);
+      }
+
+        loadMap(maPins);
+
     },
 
     error: function(error) {
       console.log(error);
     }
   });
+}
+
+function loadMap(maPins) {
+
+  // // refresh map
+  $('#map').remove();
+  $('.map-wrapper').html('<div id="map" style="height:250px"></div>');
+
+  // take values from searchbar
+  var latlng = {
+    lat: $('#address-input').attr('data-lat'),
+    lng: $('#address-input').attr('data-lng')
+  };
+
+  // set map
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  });
+
+  // set methods
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50,
+  }).addTo(mymap);
+
+  // loop all pins and pins to the map
+  for (var i = 0; i < maPins.length; i++) {
+    var pin = maPins[i];
+    pinSuiteToMap(pin, mymap);
+  }
+
+  // set the view
+  mymap.setView([latlng.lat, latlng.lng], 8);
+
+}
+
+function pinSuiteToMap(pin, mymap) {
+  L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
 }

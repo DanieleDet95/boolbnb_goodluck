@@ -57,11 +57,11 @@
       <label>Descrizione:</label>
       <textarea name="description" rows="8" cols="80">{{old('description')}}</textarea>
     </div>
-    <div>
+    <div class="chekboxes">
       <h3>Lista servizi</h3>
       @foreach ($services as $service)
-          <input type="radio" name="services[]" value="{{ $service->id }}">
-          <label for="services[]">{{ $service->supplements }}</label>
+          <input type="checkbox" name="services[]" value="{{ $service->id }}">
+          <label>{{ $service->supplements }}</label>
       @endforeach
     </div>
       <input type="submit" value="submit">

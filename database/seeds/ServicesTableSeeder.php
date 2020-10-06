@@ -12,7 +12,7 @@ class ServicesTableSeeder extends Seeder
      */
     public function run()
     {
-      $supplements = [
+      $services = [
         'pool',
         'wifi',
         'pet',
@@ -21,9 +21,9 @@ class ServicesTableSeeder extends Seeder
         'sauna',
       ];
 
-      foreach ($supplements as $supplement) {
+      foreach ($services as $service) {
         $new_service = new Service();
-        $new_service->supplements = $supplement;
+        $new_service->supplements = $service;
         $new_service->save();
       }
     }

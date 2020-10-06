@@ -52907,14 +52907,16 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
+  // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  $(".input_box input:not('#submit')").val(''); // set all checkboxes value as false
-
-  $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
-
+  // $(".input_box input:not('#submit')").val('');
+  // // set all checkboxes value as false
+  // $('input[type="checkbox"]').prop('checked', false);
+  // toggle chechbox values on click
   $('input[type="checkbox"]').on('click', function (event) {
-    checked($(this));
-  }); // set map
+    checked($(this).val());
+  }); // **DEFAULT MAP**
+  // set map
 
   var mymap = L.map('map', {
     scrollWheelZoom: true,
@@ -52926,7 +52928,15 @@ $(document).ready(function () {
     maxZoom: 50
   }).addTo(mymap); // set the view
 
-  mymap.setView([41.90, 12.47], 10); // set algolia search-bar autocomplete
+  mymap.setView([41.90, 12.47], 10); // **ALGOLIA AUTOCOMPLETE**
+  // set algolia search-bar autocomplete in home view
+  // var places = require('places.js');
+  // var placesAutocomplete = places({
+  //   appId: 'pl4XRMWU2BCA',
+  //   apiKey: '0c0d759444ce91afdb966e427ac5e837',
+  //   container: document.querySelector('#search-home')
+  // });
+  // set algolia search-bar autocomplete in search view
 
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
@@ -52938,7 +52948,8 @@ $(document).ready(function () {
 
   placesAutocomplete.on('change', function (e) {
     return $('#address-input').attr('data-lat', e.suggestion['latlng']['lat']), $('#address-input').attr('data-lng', e.suggestion['latlng']['lng']);
-  }); // on click take all values from the form and store them into params object
+  }); // **SEARCH**
+  // on click take all values from the form and store them into params object
 
   $('#submit').on('click', function () {
     var params = {
@@ -52964,9 +52975,9 @@ $(document).ready(function () {
 
 function checked(event) {
   if ($(event).prop('checked')) {
-    $(event).val('true');
+    $(event).val();
   } else {
-    $(event).val('false');
+    $(event).val();
   }
 }
 

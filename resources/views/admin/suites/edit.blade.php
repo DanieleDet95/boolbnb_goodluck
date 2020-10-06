@@ -54,6 +54,15 @@
       <textarea name="description" rows="8" cols="80">{{ old('description') ? old('description') : $suite->description }}</textarea>
     </div>
     <div>
+      <h3>Lista servizi</h3>
+      @foreach ($services as $service)
+        <div>
+          <input type="checkbox" name="services[]" {{ ($suite->services->contains($service)) ? "checked" : '' }} value="{{ $service->id }}">
+          <span>{{ $service->supplements }}</span>
+        </div>
+      @endforeach
+    </div>
+    <div>
       <input type="submit" value="Modifica">
     </div>
   </form>

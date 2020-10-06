@@ -23,6 +23,12 @@
     <li>Longitudine: {{$suite->longitude}}</li>
     <li>Descrizione: {{$suite->description}}</li>
     <li>id: {{$suite->id}}</li>
+    @if (!$suite->services->isEmpty())
+      <h3>Servizi disponibili:</h3>
+      @foreach ($suite->services as $service)
+        <li>{{ $service->supplements }}</li>
+      @endforeach
+    @endif
     <li>
       {{-- cambio path della main_image a seconda dalla provenienza(faker o storage)  --}}
       @if (isset($suite->main_image))
@@ -34,6 +40,7 @@
       @endif
     </li>
   </ul>
+
   {{-- cambio path delle immagini della tabella images a seconda dalla provenienza(faker o storage)  --}}
   @foreach ($suite->images as $image)
     <div>

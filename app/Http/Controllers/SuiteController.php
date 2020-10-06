@@ -66,7 +66,7 @@ class SuiteController extends Controller
     $request->validate([
       'body' => 'required|max:2000',
       'email' => 'required|max:255',
-      'name' => 'max:255',
+      'name' => 'required|max:255',
     ]);
     $data_request = $request->all();
     $new_message = new Message();

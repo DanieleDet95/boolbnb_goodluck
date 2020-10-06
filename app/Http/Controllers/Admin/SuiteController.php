@@ -8,6 +8,7 @@ use App\Suite;
 use App\Message;
 use App\Image;
 use App\Visit;
+use App\Service;
 use App\Highlight;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -77,14 +78,16 @@ class SuiteController extends Controller
      */
     public function create()
     {
-        return view('admin.suites.create');
+      $services = Service::all();
+      return view('admin.suites.create',compact('services'));
     }
 
     public function messages()
     {
         $messages = Message::all();
         $user = Auth::user();
-        return view('admin.email.messages.index',compact('messages','user'));
+        $now = Carbon::now();
+        return view('admin.email.messages.index',compact('messages','user','now'));
     }
 
     /**
@@ -127,6 +130,10 @@ class SuiteController extends Controller
         $new_suite->description = $request_data['description'];
         $new_suite->main_image = $path_image;
         $new_suite->save();
+        
+        if (isset($request_data['services'])) {
+            $new_suite->services()->sync($request_data['services']);
+        }
         // aggiunta di più immagini alla suite
         // $new_image = new Image();
         // $new_image->suite_id = $request_data['suite_id'];
@@ -152,7 +159,8 @@ class SuiteController extends Controller
      */
     public function edit(Suite $suite)
     {
-      return view('admin.suites.edit', compact('suite'));
+      $services = Service::all();
+      return view('admin.suites.edit', compact('suite','services'));
     }
 
     /**
@@ -188,6 +196,11 @@ class SuiteController extends Controller
       $suite->price = $data['price'];
       $suite->description = $data['description'];
       $path_image = $request->file('main_image')->store('images', 'public');
+      if (isset($data['sponsors'])) {
+        $suite->services()->sync($data['sponsors']);
+      }else {
+        $suite->services()->sync([]);
+      }
       $suite->main_image = $path_image;
       $suite->update();
 

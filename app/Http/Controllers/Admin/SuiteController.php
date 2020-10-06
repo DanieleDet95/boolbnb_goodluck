@@ -84,7 +84,8 @@ class SuiteController extends Controller
     {
         $messages = Message::all();
         $user = Auth::user();
-        return view('admin.email.messages.index',compact('messages','user'));
+        $now = Carbon::now();
+        return view('admin.email.messages.index',compact('messages','user','now'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 main {
   padding-top: 60px;
+  min-height: 261px;
   .my_jumbotron {
     position: relative;
     .title_jumbo {
@@ -100,4 +101,32 @@ main {
       }
     }
   }
+  /* Impostazione lista mail */
+  .lista_mail{
+    .mail{
+      background: lightgray;
+      border: 1px solid black;
+      padding: 10px;
+      .checkbox{
+        float: left;
+        margin: 10px;
+      }
+      .nome_mail{
+        min-width: 200px;
+        max-width: 200px;
+        float: left;
+      }
+      .body_mail{
+        padding: 0 10px;
+        min-width: 900px;
+        max-width: 900px;
+        float: left;
+      }
+      .chiaro{
+        color: gray;
+      }
+    }
+
+  }
+  /* Fine impostazione lista mail */
 }

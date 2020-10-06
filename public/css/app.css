@@ -134,6 +134,9 @@ header .navbar button.custom-toggler.navbar-toggler .hamburger_icon i {
 
 main {
   padding-top: 60px;
+  min-height: 261px;
+  /* Impostazione lista mail */
+  /* Fine impostazione lista mail */
 }
 
 main .my_jumbotron {
@@ -248,7 +251,36 @@ main .section_suites_cards .link_card .item:hover .polaroid:before {
   transition: all 0.35s;
 }
 
+main .lista_mail .mail {
+  background: lightgray;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+main .lista_mail .mail .checkbox {
+  float: left;
+  margin: 10px;
+}
+
+main .lista_mail .mail .nome_mail {
+  min-width: 200px;
+  max-width: 200px;
+  float: left;
+}
+
+main .lista_mail .mail .body_mail {
+  padding: 0 10px;
+  min-width: 900px;
+  max-width: 900px;
+  float: left;
+}
+
+main .lista_mail .mail .chiaro {
+  color: gray;
+}
+
 footer {
+  margin-top: 30px;
   background-color: #2d3f53;
 }
 

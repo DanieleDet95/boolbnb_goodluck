@@ -3,6 +3,7 @@
 
 {{-- Yeld Main Content --}}
 @section("content")
+  
   <h1>Pagina ricerca</h1>
 
 

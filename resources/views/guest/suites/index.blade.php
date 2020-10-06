@@ -31,7 +31,7 @@
   {{-- Suites cards --}}
   <section class="section_suites_cards">
     <div class="container">
-      <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 p-3">
+      <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 p-3  justify-content-center">
       {{-- Foreach suite with a promotion --}}
       @foreach ($highlights_suites_active as $highlight_suite_active)
         <a class="link_card" href={{ route("suites.show", $highlight_suite_active->id)}}>

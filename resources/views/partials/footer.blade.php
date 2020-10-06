@@ -2,7 +2,7 @@
 
 {{-- Footer --}}
 <footer>
-  <div class="container-fluid text-center">
+  <div class="container-fluid text-center py-3">
     <div class="row">
       <div class="navbar-collapse footer_list">
         <ul class="navbar-nav">

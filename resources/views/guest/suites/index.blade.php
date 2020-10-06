@@ -16,6 +16,8 @@
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
+
+      {{-- Background Images Carousel--}}
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="{{ asset("img/florence.jpg") }}" class="d-block w-100" alt="Background image">
@@ -27,14 +29,15 @@
           <img src="{{ asset("img/grand-canal.jpg") }}" class="d-block w-100" alt="Background image">
         </div>
       </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
+      {{-- end Background Images Carousel--}}
+
+      {{-- Next --}}
       <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
       </a>
+      {{-- end Next --}}
+
     </div>
     {{-- end Carousel --}}
 

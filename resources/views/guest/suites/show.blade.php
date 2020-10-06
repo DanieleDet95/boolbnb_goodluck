@@ -99,8 +99,13 @@
         <a href="{{ route("admin.suites.static", $suite)}}"> Statistiche appartamento</a>
       </div>
       <div>
-        <a href="{{ route("admin.suites.payment", $suite)}}"> Sponzorizza appartamento</a>
+        <a href="{{ route("admin.promotion", $suite)}}"> Sponzorizza appartamento</a>
       </div>
+      <form class="" action="{{ route('admin.suites.destroy', $suite)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <input class="btn btn-danger left m-1" type="submit" value="Elimina">
+                  </form>
     @endif
 
   @else

@@ -65,7 +65,8 @@ header .navbar-brand {
 }
 
 header .nav_logo {
-  width: 100px;
+  width: 90px;
+  margin-left: 30px;
 }
 
 header .nav-item {

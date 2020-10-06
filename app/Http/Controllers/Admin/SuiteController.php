@@ -12,6 +12,7 @@ use App\Highlight;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendNewMail;
+use App\Mail\SendNewEliminated;
 use Carbon\Carbon;
 
 class SuiteController extends Controller
@@ -136,38 +137,6 @@ class SuiteController extends Controller
 
     }
 
-    public function store_payment(Request $request,Suite $suite)
-    {
-      $start = Carbon::now('Europe/Rome');
-      if ($request->type == '24') {
-        $suite->highlights()->attach(1,
-          [
-            'start' => $start,
-            'end' => $end = Carbon::now()->addHours(24)
-          ]);
-      }elseif ($request->type == '72') {
-        $suite->highlights()->attach(2,
-          [
-            'start' => $start,
-            'end' => $end = Carbon::now()->addHours(72)
-          ]);
-      }else {
-        $suite->highlights()->attach(3,
-          [
-            'start' => $start,
-            'end' => $end = Carbon::now()->addHours(144)
-          ]);
-      }
-
-      return redirect()->route('admin.suites.show', $suite);
-    }
-
-    public function payment(Suite $suite)
-    {
-      $user = Auth::user();
-      return view('admin.suites.payment', compact('suite', 'user'));
-    }
-
     /**
      * Display the specified resource.
      *
@@ -231,16 +200,20 @@ class SuiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Suite $suite)
     {
-        //
+        Mail::to($suite->user->email)->send(new SendNewEliminated($suite));
+
+        $suite->delete();
+
+        return redirect()->route('suites.index');
+
     }
 
     public function static(Suite $suite)
     {
       $user = Auth::user();
       return view('admin.suites.static', compact('suite', 'user'));
-      // 'n_mess_totali','n_vis_totali'
     }
 
 }

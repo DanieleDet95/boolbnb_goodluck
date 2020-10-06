@@ -3,9 +3,21 @@
 
 {{-- Yeld Main Content --}}
 @section("content")
+<<<<<<< HEAD
   {{-- inizio pagina ricerca --}}
   <div class="container-fluid container-md">
     <div class="row flex-column col-12">
+=======
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+  <h1>Pagina ricerca</h1>
+>>>>>>> master
 
       <div class="search_location col-12 mt-5 mb-3">
         <input class="col-12 form-control rounded-0" type="search" id="address-input" data-lat="" data-lng="{{old('searchbar')}}" placeholder="Where are we going?">
@@ -89,6 +101,7 @@
       i data-att sono contengono le informazioni sulla latitudine e longitudine--}}
     </div>
 
+<<<<<<< HEAD
     <div class="row">
       {{-- <div class="text-center"> --}}
 
@@ -112,6 +125,24 @@
         <div class="col-6 suites-cards">
         </div>
         <div class="col-6 my_maps">
+=======
+    {{-- map --}}
+    {{-- è essenziale la classe del wrapper e l'id della mappa:
+    assegnare l'altezza desisderata alla mappa (o scompare) ed eliminare lo stile dall'html --}}
+    <div class="map-wrapper">
+        <div id="map" style="height:250px"></div>
+    </div>
+
+
+    {{-- la classe del div serve ad identificare il punto di aggancio in cui riprodurre il template Handlebars
+    se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
+    <div class="suites-cards-promo text-primary">
+
+    </div>
+
+
+    <div class="suites-cards-noPromo">
+>>>>>>> master
 
         </div>
       </div>
@@ -122,6 +153,7 @@
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
+<<<<<<< HEAD
         <div class="entry col-12 d-flex">
           <div class="col-5">
             <img src="@{{main_image}}" alt="@{{title}}">
@@ -131,6 +163,14 @@
             <h3>@{{address}}</h3>
             <h3>@{{price}}€</h3>
           </div>
+=======
+      <div class="entry">
+        <img src="@{{main_image}}" alt="@{{title}}">
+        <div class="card-info" data-lat="@{{latitude}}" data-lng="@{{longitude}}">
+          <h2>@{{title}}</h2>
+          <h3>@{{address}}</h3>
+          <h3>@{{price}}€</h3>
+>>>>>>> master
         </div>
     </script>
 

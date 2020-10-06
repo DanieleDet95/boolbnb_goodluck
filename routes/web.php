@@ -22,11 +22,13 @@ Route::prefix('admin')
   ->middleware('auth')
   ->group(function () {
   Route::resource('suites', 'SuiteController');
-  Route::post('suites/{suite}', 'SuiteController@store_payment')->name('suites.store_payment');
   Route::get('/messages', 'SuiteController@messages')->name('email.messages.index');
   Route::get('/mysuites', 'SuiteController@mysuites')->name('suites.mysuites');
-  Route::get('/payment/{suite}', 'SuiteController@payment')->name('suites.payment');
   Route::get('/static/{suite}', 'SuiteController@static')->name('suites.static');
+  // PROMO
+  Route::get('/promotion/{suite}', 'PromotionController@index')->name('promotion');
+  Route::post('/promotion/{suite}/checkout', 'PromotionController@checkout')->name('checkout');
+  Route::get('/promotion/{suite}/transaction', 'PromotionController@transaction')->name('transaction');
 });
 
 // guest route to index

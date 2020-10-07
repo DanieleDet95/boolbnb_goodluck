@@ -5,7 +5,7 @@
 @section("content")
 
   {{-- inizio pagina ricerca --}}
-  <div class="container-fluid container-md main_search">
+  <div class="container-fluid container-md main_search" id="search_box">
     <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
@@ -91,7 +91,7 @@
     <div class="container-fluid cont_suites_cards">
       <div class="row">
 
-        <div class="col-6 suites-cards">
+        <div class="col-6">
           <div class="suites_cards_promo" style="color:red">
             {{-- div per le card in evidenza --}}
           </div>

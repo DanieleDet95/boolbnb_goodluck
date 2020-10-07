@@ -194,7 +194,6 @@ class SearchController extends Controller
         }
 
       $noPromo = $querySuite->doesnthave('highlights')->get();
-
       return response()->json([
         'noPromo' => $noPromo,
         'promo' => $promo

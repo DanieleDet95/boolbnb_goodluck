@@ -37,6 +37,8 @@ Route::get('/', 'SuiteController@index')->name('suites.index');
 Route::get('/home', 'SuiteController@index')->name('suites.index');
 // guest route to serch
 Route::get('/search', 'SuiteController@search')->name('suites.search');
+// search with variables
+Route::get('/search/submit', 'SuiteController@homeSearch')->name('suites.search.submit');
 // guest route to show
 Route::get('suites/{suite}', 'SuiteController@show')->name('suites.show');
 // guest route to store

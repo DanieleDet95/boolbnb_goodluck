@@ -1,9 +1,35 @@
 const Handlebars = require("handlebars");
 
 $(document).ready(function() {
+
+  // check if home is on screen
+  if($('#home_search').length){
+      var places = require('places.js');
+      var homeAutocomplete = places({
+        appId: 'pl4XRMWU2BCA',
+        apiKey: '0c0d759444ce91afdb966e427ac5e837',
+        container: document.querySelector('#home_search'),
+      })
+
+      homeAutocomplete.on('change', e => (
+        $('#key').val(e.suggestion.value),
+        $('#latitude').val(e.suggestion['latlng']['lat']),
+        $('#longitude').val(e.suggestion['latlng']['lng'])
+      ))
+    }
+
+  if ($('#address-input').attr('data-lat') && $('#address-input').attr('data-lng')) {
+    var params = {
+      'lat': $('#address-input').attr('data-lat'),
+      'lng': $('#address-input').attr('data-lng')
+    }
+    ajaxCall(params);
+  }
+
+
   // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  $("#search_box input:not('#submit')").val('');
+  // $("#search_box input:not('#submit')").val('');
   // set all checkboxes value as false
   $('input[type="checkbox"]').prop('checked', false);
 
@@ -30,20 +56,12 @@ $(document).ready(function() {
   mymap.setView([41.90, 12.47], 10);
 
   // **ALGOLIA AUTOCOMPLETE**
-  // set algolia search-bar autocomplete in home view
-  // var places = require('places.js');
-  // var placesAutocomplete = places({
-  //   appId: 'pl4XRMWU2BCA',
-  //   apiKey: '0c0d759444ce91afdb966e427ac5e837',
-  //   container: document.querySelector('#search-home')
-  // });
-
   // set algolia search-bar autocomplete in search view
   var places = require('places.js');
   var placesAutocomplete = places({
     appId: 'pl4XRMWU2BCA',
     apiKey: '0c0d759444ce91afdb966e427ac5e837',
-    container: document.querySelector('#address-input')
+    container: document.querySelector('#address-input'),
   });
 
   // take lat/lng value from algolia's response and store them into data-att of #adress-input

@@ -88,13 +88,22 @@ class SuiteController extends Controller
     return redirect()->route('suites.show', $suite);
   }
 
+  public function homesearch(Request $request)
+  {
+    $search = $request->all();
+    $key = $search['key'];
+    $lat = $search['latitude'];
+    $lng = $search['longitude'];
 
+    return view('guest.suites.search', compact('key', 'lat', 'lng'));
+  }
 
   public function search()
   {
+
     $suites = Suite::all();
 
-    return view('guest.suites.search',compact('suites'));
+    return view('guest.suites.search', compact('suites'));
   }
 
 

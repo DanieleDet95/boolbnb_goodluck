@@ -56,12 +56,24 @@
       {{-- Jumbotron Search input --}}
       <div class="row">
         <div class="col-12 col-xl-6">
-          <div class="input-group">
-            <input type="text" class="form-control rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
-            </div>
-          </div>
+          <form class="" action="{{route('suites.search.submit')}}" method="post">
+
+            @csrf
+
+            @method('get')
+
+              <div class="input-group flex-nowrap">
+
+                <input type="search" id="home_search" class="form-control rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2" value="">
+                <input id="key" type="text" name="key" class="d-none" value="">
+                <input id="latitude" type="text" name="latitude" class="d-none" value="">
+                <input id="longitude" type="text" name="longitude" class="d-none" value="">
+                <div class="input-group-append">
+                  <input id="button-addon2" class="search_button btn btn-outline-secondary rounded-0" type="submit" />
+                </div>
+              </div>
+
+          </form>
         </div>
       </div>
       {{-- end Jumbotron Search input --}}

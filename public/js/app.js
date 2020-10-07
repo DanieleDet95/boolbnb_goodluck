@@ -52987,8 +52987,9 @@ function checked(event) {
 
 function ajaxCall(params) {
   $.ajax({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search",
+    //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -53102,8 +53103,9 @@ $(document).ready(function () {
 
   function printStatics() {
     $.ajax({
-      url: "http://boolbnb_goodluck.loc/api/statics",
-      // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
+      // url: "http://boolbnb_goodluck.loc/api/statics",
+      url: 'http://127.0.0.1:8000/api/statics',
+      //per i comuni mortali
       data: {
         suite: $('#suite').text()
       },
@@ -53207,9 +53209,21 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< Updated upstream
 __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< Updated upstream
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 
 /***/ }),

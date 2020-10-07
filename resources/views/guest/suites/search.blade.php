@@ -92,7 +92,7 @@
       <div class="row">
 
         <div class="col-6 suites-cards">
-          <div class="suites_cards_promo">
+          <div class="suites_cards_promo" style="color:red">
             {{-- div per le card in evidenza --}}
           </div>
 

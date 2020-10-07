@@ -3,7 +3,7 @@ const Handlebars = require("handlebars");
 $(document).ready(function() {
   // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  $(".main_search .input_box input:not('#submit')").val('');
+  $("#search_box input:not('#submit')").val('');
   // set all checkboxes value as false
   $('input[type="checkbox"]').prop('checked', false);
 

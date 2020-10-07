@@ -5,7 +5,7 @@
 @section("content")
 
   {{-- inizio pagina ricerca --}}
-  <div class="container-fluid container-md main_search" id="search_box">
+  <div class="container-fluid container-md" id="search_box">
     <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">

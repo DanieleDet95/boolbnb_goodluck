@@ -199,13 +199,13 @@ class SuiteController extends Controller
       $suite->price = $data['price'];
       $suite->description = $data['description'];
       $path_image = $request->file('main_image')->store('images', 'public');
-      if (isset($data['sponsors'])) {
-        $suite->services()->sync($data['sponsors']);
-      }else {
-        $suite->services()->sync([]);
-      }
       $suite->main_image = $path_image;
       $suite->update();
+      if (isset($data['services'])) {
+            $suite->services()->sync($data['services']);
+        } else {
+            $suite->services()->detach();
+        }
 
       return redirect()->route('admin.suites.show', $suite);
     }

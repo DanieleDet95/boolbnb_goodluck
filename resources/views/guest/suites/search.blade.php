@@ -5,7 +5,7 @@
 @section("content")
 
   {{-- inizio pagina ricerca --}}
-  <div class="container-fluid container-md">
+  <div class="container-fluid container-md main_search" id="search_box">
     <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
@@ -13,7 +13,7 @@
       </div>
 
       <div class="d-flex flex-column align-items-center align-items-lg-center justify-content-lg-around flex-lg-row col-12 my-3">
-        <div class="input_box col-4 col-12-sm flex-fill mb-2">
+        <div class="input_box col-4 col-12-sm flex-fill my-2">
           <input class="form-control rounded-0" id="range" type="number" name="range" value="" placeholder="Distance in Km">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
@@ -28,7 +28,7 @@
         <div class="input_box col-4 col-12-sm flex-fill my-2">
           <input class="form-control rounded-0" id="square_m" type="number" name="square_m" value="" placeholder="Square Meters">
         </div>
-        <div class="input_box col-4 col-12-sm flex-fill mt-2">
+        <div class="input_box col-4 col-12-sm flex-fill my-2">
           <select class="custom-select rounded-0" id="price" name="price">
             <option value="0" selected="selected"> Price </option>
             <option value="30"> < 30€ </option>
@@ -87,24 +87,18 @@
 
   </div>
 
-
-    <div class="container-fluid cont_suites_cards">
+    <div class="container-fluid container_suites_cards mb-5">
       <div class="row">
-
-        <div class="col-6 suites-cards">
-          <div class="suites_cards_promo" style="color:red">
+        <div class="col-lg-6 col-12 suites_cards">
+          <div class="suites_cards_promo">
             {{-- div per le card in evidenza --}}
           </div>
-
-
           <div class="suites_cards_noPromo">
             {{-- div per le card non in evidenza --}}
-
           </div>
         </div>
-
-        <div class="col-6 my_maps">
-          <div id="map" style="height:250px"></div>
+        <div class="d-none d-lg-block d-xl-block col-lg-6 my_maps">
+          <div id="map"></div>
         </div>
 
       </div>
@@ -115,7 +109,6 @@
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
-<<<<<<< Updated upstream
         <div class="entry col-12 d-flex">
           <div class="col-5">
             <img src="@{{main_image}}" alt="@{{title}}">
@@ -124,17 +117,8 @@
             <h2>@{{title}}</h2>
             <h3>@{{address}}</h3>
             <h3>@{{price}}€</h3>
+            <p>@{{id}}</p>
           </div>
-=======
-      <div class="entry col-12 d-flex">
-        <div class="col-5">
-          <img src="@{{main_image}}" alt="@{{title}}">
-        </div>
-        <div class="body col-7">
-          <h2>@{{title}}</h2>
-          <h3>@{{address}}</h3>
-          <h3>@{{price}}€</h3>
->>>>>>> Stashed changes
         </div>
       </div>
     </script>

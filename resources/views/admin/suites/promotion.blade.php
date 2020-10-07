@@ -30,31 +30,38 @@
       @csrf
       @method("POST")
       <h3>Scegli la modalitá di sponsorizzazione:</h3>
-      <div>
-        <input type="radio" name="type" value="24"> 2,99 per 24 ore di sponsorizzazione
-      </input>
-      <div>
-        <input type="radio" name="type" value="72"> 5,99 per 72 ore di sponsorizzazione
-      </div>
-      <div>
-        <input type="radio" name="type" value="144"> 9,99 per 144 ore di sponsorizzazione
-      </div>
-      <br>
+      <table border="1" class="text-center">
+        <tr>
+          <th>Tipo</th>
+          <th>Prezzo</th>
+          <th>Ore</th>
+          <th>Seleziona</th>
+        </tr>
 
-      <div class="bt-drop-in-wrapper container col-sm-12 col-md-12 col-lg-6 mt-2">
+          @foreach ($highlights as $highlight)
+          <tr>
+            <td>{{$highlight->name}}</td>
+            <td>{{$highlight->price}}</td>
+            <td>{{$highlight->type}}</td>
+            <td><input type="radio" name="type" value="{{$highlight->type}}"></td>
+          </tr>
+          @endforeach
 
-          <div id="bt-dropin"></div>
+      </table>
 
-          <input id="nonce" name="payment_method_nonce" type="hidden"/>
+      <div class="col-sm-12 col-md-12 col-lg-6">
 
-          <div class="paybutton mt-5 mb-5 mx-auto">
-              <button class="left-side" type="submit">
-                  <div class="card">
-                      <div class="card-line"></div>
-                      <div class="buttons">Paga ora</div>
-                  </div>
-              </button>
-          </div>
+        <div id="bt-dropin"></div>
+
+        <input id="nonce" name="payment_method_nonce" type="hidden"/>
+
+        <div>
+          <button class="left-side" type="submit">
+            <div class="card">
+              <div class="btn standard">Paga ora</div>
+            </div>
+          </button>
+        </div>
 
       </div>
     </form> <?php

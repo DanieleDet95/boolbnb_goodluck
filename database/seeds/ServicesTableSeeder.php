@@ -21,9 +21,25 @@ class ServicesTableSeeder extends Seeder
         'sauna',
       ];
 
-      foreach ($services as $service) {
+      $icons = [
+        'fas fa-swimmer',
+        'fas fa-wifi',
+        'fas fa-paw',
+        'fas fa-parking',
+        'fas fa-music',
+        'fas fa-hot-tub',
+      ];
+
+      // foreach ($services as $service) {
+      //   $new_service = new Service();
+      //   $new_service->supplements = $service;
+      //   $new_service->icon = $icons;
+      //   $new_service->save();
+      // }
+      for ($i=0; $i < 6; $i++) {
         $new_service = new Service();
-        $new_service->supplements = $service;
+        $new_service->supplements = $services[$i];
+        $new_service->icon = $icons[$i];
         $new_service->save();
       }
     }

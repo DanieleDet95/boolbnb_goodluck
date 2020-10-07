@@ -3,13 +3,13 @@ const Handlebars = require("handlebars");
 $(document).ready(function() {
   // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  // $(".input_box input:not('#submit')").val('');
-  // // set all checkboxes value as false
-  // $('input[type="checkbox"]').prop('checked', false);
+  $("#search_box input:not('#submit')").val('');
+  // set all checkboxes value as false
+  $('input[type="checkbox"]').prop('checked', false);
 
   // toggle chechbox values on click
-  $('input[type="checkbox"]').on('click', function(event) {
-    checked($(this).val());
+  $('#search_box input[type="checkbox"]').on('click', function(event) {
+    checked($(this));
   })
 
   // **DEFAULT MAP**
@@ -85,9 +85,9 @@ $(document).ready(function() {
 
 function checked(event) {
   if($(event).prop('checked')) {
-    $(event).val();
+    $(event).val('true');
   }else{
-    $(event).val();
+    $(event).val('false');
   }
 }
 
@@ -120,7 +120,7 @@ function ajaxCall(params) {
           },
 
     success: function(suites){
-      // console.log(suites);
+      console.log(suites);
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source);
 
@@ -128,7 +128,6 @@ function ajaxCall(params) {
       $('.suites_cards_promo').html('');
 
       // console.log(suites.noPromo);
-
       var maPins = []
 
       for (var i = 0; i < suites.promo.length; i++) {
@@ -184,7 +183,7 @@ function loadMap(maPins) {
 
   // // refresh map
   $('#map').remove();
-  $('.my_maps').html('<div id="map" style="height:250px"></div>');
+  $('.my_maps').html('<div id="map"></div>');
 
   // take values from searchbar
   var latlng = {

@@ -129,15 +129,26 @@ main {
       }
       .body_mail{
         padding: 0 10px;
-        min-width: 900px;
-        max-width: 900px;
+        min-width: 850px;
+        max-width: 850px;
         float: left;
       }
       .chiaro{
         color: #000;
       }
+      .modal-content{
+        border: 1px solid #cf4532;
+        border-radius: 5px;
+        box-shadow: 15px 15px 20px 0px rgba(0,0,0,0.5);
+        .modal-header{
+          background: #cf4532;
+          color: #F6F4F2;
+          span{
+            color: #F6F4F2;
+          }
+        }
+      }
     }
-
   }
   /* Fine impostazione lista mail */
 
@@ -152,96 +163,54 @@ main {
       color: #F6F4F2;
     }
     td{
-      padding: 10px;
+      min-width: 150px;
+      min-height: 150px;
+      max-width: 150px;
+      max-height: 150px;
+    }
+    .controlli{
+      .btn{
+        background: #cf4532;
+        min-width: 100px;
+        min-height: 35px;
+        padding: 5px;
+        margin-top: 4px;
+        a{
+          color: #F6F4F2;
+          text-decoration: none;
+        }
+        &:hover{
+          background: #8b0000;
+        }
+      }
+    }
+  }
+
+  // VIEW PROMOTIONS
+  .braintree-sheet__header{
+    background: #cf4532;
+  }
+  .card{
+    .standard{
+      background: #cf4532;
+      padding: 5px;
+      color:  #F6F4F2;
+      &:hover{
+        background: #8b0000;
+      }
+    }
+  }
+
+  // VIEW NEW SUITES
+  .invia{
+    .btn{
+      background: #cf4532;
+      padding: 10px 20px;
+      color:  #F6F4F2;
+      &:hover{
+        background: #8b0000;
+      }
     }
   }
   // FINE HOME
-
-  // SEARCH
-  // Stili al form di Ricerca
-  .search_location {
-    input {
-      &:focus {
-        border-color: $secondary_background;
-        box-shadow: 0 0 0;
-        outline: 0 none;
-      }
-    }
-  }
-  .input_box>input {
-    &:focus {
-      border-color: $secondary_background;
-      box-shadow: 0 0 0;
-      outline: 0 none;
-    }
-  }
-  // Tasto Submit di Ricerca
-  .submit_search {
-    line-height: 60px;
-    .input_search {
-      background-color: $secondary_text_color;
-      border: none;
-      padding:0 30px;
-      margin-right: 0;
-      color: $primary_text_color;
-      font-family: $primary_font;
-      font-size: $small_text_size;
-      text-transform: capitalize;
-      font-weight: bold;
-      &:hover {
-        background-color: $quinternary_background;
-      }
-    }
-  }
-  // Stili checkbox
-  .checkbox {
-    @include text_checkbox;
-    font-family: $primary_font;
-    color: $quinternary_text_color;
-    font-size: $paragraph_text_size;
-
-    /* Customize the label (the container) */
-    .container_checkbox {
-       @include container_checkbox;
-       margin: 10px 0 30px 0;
-    }
-
-    /* Hide the browser's default radio button */
-    .container_checkbox input {
-       @include default_radio_button;
-    }
-
-    /* Create a custom radio button */
-    .checkmark {
-       @include custom_radio_button;
-    }
-
-    /* When the radio button is checked, add a background */
-    .container_checkbox input:checked ~ .checkmark {
-      background-color: $secondary_text_color;
-    }
-
-    /* Create the indicator (the dot/circle - hidden when not checked) */
-    .checkmark:after {
-       @include checkmark_after;
-    }
-
-    /* Show the indicator (dot/circle) when checked */
-    .container_checkbox input:checked ~ .checkmark:after {
-      display: block;
-    }
-
-    /* Style the indicator */
-    .container_checkbox .checkmark:after {
-      @include style_indicator;
-    }
-  }
-  // Contenitore card e mappa
-  .cont_suites_cards {
-    min-height: 600px;
-  }
-  .entry {
-    border: 1px solid black;
-  }
-  // FINE SEARCH
 }

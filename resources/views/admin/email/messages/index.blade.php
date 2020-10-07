@@ -8,7 +8,7 @@
       <div class="col-12">
 
       <h2 class="titolo_mail">Mail arrivate per i tuoi appartamenti:</h2>
-      @foreach ($messages as $message)
+      @foreach ($messages->reverse() as $message)
         @if (!is_null($message->suite))
 
           @if ($message->suite->user_id == $user->id)
@@ -23,7 +23,7 @@
                   </div>
 
                   <div class="body_mail">
-                    <?php $testo = substr($message->body,0,130); ?>
+                    <?php $testo = substr($message->body,0,110); ?>
                     <span class="chiaro">{{ $testo }}...</span>
                   </div>
                 </a>
@@ -81,7 +81,7 @@
           @endif
         @endif
       @endforeach
-      
+
       <div>
         <a href="{{ route("suites.index")}}"> Torna a Index</a>
       </div>

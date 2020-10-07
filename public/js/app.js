@@ -52909,22 +52909,12 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 $(document).ready(function () {
   // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  // $(".input_box input:not('#submit')").val('');
-  // // set all checkboxes value as false
-  // $('input[type="checkbox"]').prop('checked', false);
-  // toggle chechbox values on click
-  $('input[type="checkbox"]').on('click', function (event) {
-    checked($(this).val());
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-=======
+  $("#search_box input:not('#submit')").val(''); // set all checkboxes value as false
+
+  $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
+
+  $('#search_box input[type="checkbox"]').on('click', function (event) {
     checked($(this));
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
->>>>>>> master
-=======
->>>>>>> Stashed changes
   }); // **DEFAULT MAP**
   // set map
 
@@ -52985,9 +52975,9 @@ $(document).ready(function () {
 
 function checked(event) {
   if ($(event).prop('checked')) {
-    $(event).val();
+    $(event).val('true');
   } else {
-    $(event).val();
+    $(event).val('false');
   }
 }
 
@@ -53014,7 +53004,7 @@ function ajaxCall(params) {
       longitude: params.longitude
     },
     success: function success(suites) {
-      // console.log(suites);
+      console.log(suites);
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source); // refresh html before a new search
 
@@ -53065,7 +53055,7 @@ function ajaxCall(params) {
 function loadMap(maPins) {
   // // refresh map
   $('#map').remove();
-  $('.my_maps').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
+  $('.my_maps').html('<div id="map"></div>'); // take values from searchbar
 
   var latlng = {
     lat: $('#address-input').attr('data-lat'),
@@ -53215,33 +53205,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-<<<<<<< Updated upstream
-__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-<<<<<<< Updated upstream
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
 __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> Stashed changes
->>>>>>> Stashed changes
->>>>>>> master
-=======
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> Stashed changes
 
 
 /***/ }),

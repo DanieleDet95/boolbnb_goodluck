@@ -52915,21 +52915,6 @@ $(document).ready(function () {
   // toggle chechbox values on click
   $('input[type="checkbox"]').on('click', function (event) {
     checked($(this).val());
-<<<<<<< HEAD
-  }); // **DEFAULT MAP**
-  // set map
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-=======
-=======
-    checked($(this));
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
->>>>>>> master
->>>>>>> master
-=======
->>>>>>> Stashed changes
   }); // **DEFAULT MAP**
   // set map
 
@@ -53220,39 +53205,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-<<<<<<< Updated upstream
-<<<<<<< HEAD
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-<<<<<<< Updated upstream
-__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-<<<<<<< Updated upstream
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> Stashed changes
->>>>>>> Stashed changes
->>>>>>> master
-=======
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
->>>>>>> Stashed changes
->>>>>>> master
 
 
 /***/ }),

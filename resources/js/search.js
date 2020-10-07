@@ -183,7 +183,7 @@ function loadMap(maPins) {
 
   // // refresh map
   $('#map').remove();
-  $('.my_maps').html('<div id="map" style="height:250px"></div>');
+  $('.my_maps').html('<div id="map"></div>');
 
   // take values from searchbar
   var latlng = {

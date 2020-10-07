@@ -312,6 +312,97 @@ main table td {
   padding: 10px;
 }
 
+footer {
+  margin-top: 30px;
+  background-color: #2d3f53;
+}
+
+footer hr {
+  background-color: #95afbf;
+}
+
+footer .footer_list a {
+  font-family: "Poppins", sans-serif;
+  color: #95afbf;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+footer .footer_list a:hover {
+  color: #cf4532;
+  cursor: pointer;
+}
+
+footer .social_list a {
+  font-family: "Poppins", sans-serif;
+  color: #95afbf;
+  font-size: 14px;
+  font-size: 30px;
+}
+
+footer .social_list a:hover {
+  color: #cf4532;
+  cursor: pointer;
+}
+
+main section.jumbo_custom {
+  background-size: 1200px auto;
+  width: 100%;
+  height: 480px;
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  color: #f6f4f2;
+  font-size: 20px;
+}
+
+main section.jumbo_custom .carousel {
+  height: 480px;
+  width: 100%;
+  position: absolute;
+}
+
+main section.jumbo_custom .carousel .carousel-inner > .carousel-item > img {
+  height: 480px;
+}
+
+main section.jumbo_custom > .jumbo_container {
+  height: 100%;
+  width: 100%;
+  padding-top: 100px;
+}
+
+main section.jumbo_custom > .jumbo_container .jumbo_title > .jumbo_top_title {
+  font-family: "Quando", serif;
+  font-size: 44px;
+  margin-bottom: 20px;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group {
+  margin-top: 20px;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn {
+  background-color: #cf4532;
+  color: #f6f4f2;
+  padding: 0 15px;
+  border: 0;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn:hover {
+  background-color: #a73727;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group > .form-control {
+  border: 0;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group > .form-control:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
 main .search_location input:focus {
   border-color: #272728;
   box-shadow: 0 0 0;
@@ -413,103 +504,24 @@ main .checkbox .container_checkbox .checkmark:after {
   transform: rotate(45deg);
 }
 
-main .cont_suites_cards {
-  min-height: 600px;
+main .container_suites_cards {
+  min-height: 500px;
+}
+
+main .container_suites_cards .suites_cards .suites_cards_promo {
+  color: red;
+}
+
+main .container_suites_cards .suites_cards .suites_cards_promo.suites_cards_noPromo {
+  color: black;
+}
+
+main .container_suites_cards .my_maps #map {
+  height: 500px;
 }
 
 main .entry {
   border: 1px solid black;
-}
-
-footer {
-  margin-top: 30px;
-  background-color: #2d3f53;
-}
-
-footer hr {
-  background-color: #95afbf;
-}
-
-footer .footer_list a {
-  font-family: "Poppins", sans-serif;
-  color: #95afbf;
-  font-size: 14px;
-  text-transform: capitalize;
-  font-weight: bold;
-}
-
-footer .footer_list a:hover {
-  color: #cf4532;
-  cursor: pointer;
-}
-
-footer .social_list a {
-  font-family: "Poppins", sans-serif;
-  color: #95afbf;
-  font-size: 14px;
-  font-size: 30px;
-}
-
-footer .social_list a:hover {
-  color: #cf4532;
-  cursor: pointer;
-}
-
-main section.jumbo_custom {
-  background-size: 1200px auto;
-  width: 100%;
-  height: 480px;
-  position: relative;
-  font-family: "Poppins", sans-serif;
-  color: #f6f4f2;
-  font-size: 20px;
-}
-
-main section.jumbo_custom .carousel {
-  height: 480px;
-  width: 100%;
-  position: absolute;
-}
-
-main section.jumbo_custom .carousel .carousel-inner > .carousel-item > img {
-  height: 480px;
-}
-
-main section.jumbo_custom > .jumbo_container {
-  height: 100%;
-  width: 100%;
-  padding-top: 100px;
-}
-
-main section.jumbo_custom > .jumbo_container .jumbo_title > .jumbo_top_title {
-  font-family: "Quando", serif;
-  font-size: 44px;
-  margin-bottom: 20px;
-}
-
-main section.jumbo_custom > .jumbo_container .input-group {
-  margin-top: 20px;
-}
-
-main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn {
-  background-color: #cf4532;
-  color: #f6f4f2;
-  padding: 0 15px;
-  border: 0;
-}
-
-main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn:hover {
-  background-color: #a73727;
-}
-
-main section.jumbo_custom > .jumbo_container .input-group > .form-control {
-  border: 0;
-}
-
-main section.jumbo_custom > .jumbo_container .input-group > .form-control:focus {
-  border-color: #272728;
-  box-shadow: 0 0 0;
-  outline: 0 none;
 }
 
 main .common_form .form_title .top_title > h4 {

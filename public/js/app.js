@@ -52915,11 +52915,23 @@ $(document).ready(function () {
   // toggle chechbox values on click
   $('input[type="checkbox"]').on('click', function (event) {
     checked($(this).val());
+<<<<<<< HEAD
   }); // **DEFAULT MAP**
   // set map
 =======
-  }); // set map
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+=======
+=======
+    checked($(this));
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
+>>>>>>> master
+>>>>>>> master
+=======
+>>>>>>> Stashed changes
+  }); // **DEFAULT MAP**
+  // set map
 
   var mymap = L.map('map', {
     scrollWheelZoom: true,
@@ -52931,7 +52943,6 @@ $(document).ready(function () {
     maxZoom: 50
   }).addTo(mymap); // set the view
 
-<<<<<<< Updated upstream
   mymap.setView([41.90, 12.47], 10); // **ALGOLIA AUTOCOMPLETE**
   // set algolia search-bar autocomplete in home view
   // var places = require('places.js');
@@ -52941,9 +52952,6 @@ $(document).ready(function () {
   //   container: document.querySelector('#search-home')
   // });
   // set algolia search-bar autocomplete in search view
-=======
-  mymap.setView([41.90, 12.47], 10); // set algolia search-bar autocomplete
->>>>>>> Stashed changes
 
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
@@ -53015,11 +53023,7 @@ function ajaxCall(params) {
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source); // refresh html before a new search
 
-<<<<<<< Updated upstream
       $('.suites_cards_promo').html(''); // console.log(suites.noPromo);
-=======
-      $('.suites-cards-promo').html(''); // console.log(suites.noPromo);
->>>>>>> Stashed changes
 
       var maPins = [];
 
@@ -53033,7 +53037,6 @@ function ajaxCall(params) {
         pin.title = suite.title; // push pin into the array
 
         maPins.push(pin); // set html with handlebars
-<<<<<<< Updated upstream
 
         var html = template(suite);
         $('.suites_cards_promo').append(html);
@@ -53056,30 +53059,6 @@ function ajaxCall(params) {
         $('.suites_cards_noPromo').append(html);
       }
 
-=======
-
-        var html = template(suite);
-        $('.suites-cards-promo').append(html);
-      }
-
-      $('.suites-cards-noPromo').html('');
-
-      for (var i = 0; i < suites.noPromo.length; i++) {
-        // set an array of pins
-        var pin = {};
-        var suite = suites.noPromo[i]; // set pin
-
-        pin.lat = suite.latitude;
-        pin.lng = suite.longitude;
-        pin.title = suite.title; // push pin into the array
-
-        maPins.push(pin); // set html with handlebars
-
-        var html = template(suite);
-        $('.suites-cards-noPromo').append(html);
-      }
-
->>>>>>> Stashed changes
       loadMap(maPins);
     },
     error: function error(_error) {
@@ -53091,11 +53070,7 @@ function ajaxCall(params) {
 function loadMap(maPins) {
   // // refresh map
   $('#map').remove();
-<<<<<<< Updated upstream
   $('.my_maps').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
-=======
-  $('.map-wrapper').html('<div id="map" style="height:250px"></div>'); // take values from searchbar
->>>>>>> Stashed changes
 
   var latlng = {
     lat: $('#address-input').attr('data-lat'),
@@ -53234,7 +53209,7 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n  ╷\n5 │   padding-top: $menu_height;\r\n  │                            ^\n  ╵\n  resources\\sass\\partials\\_main.scss 5:28  @import\n  E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\resources\\sass\\app.scss 11:9                               root stylesheet\n    at E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:88844:16)\n    at _render_closure1.call$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:78084:12)\n    at _RootZone.runBinary$3$3 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:26377:18)\n    at _RootZone.runBinary$3 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:26381:19)\n    at _FutureListener.handleError$1 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24870:19)\n    at _Future__propagateToListeners_handleError.call$0 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:25162:49)\n    at Object._Future__propagateToListeners (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:4489:77)\n    at _Future._completeError$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24996:9)\n    at _AsyncAwaitCompleter.completeError$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24358:12)\n    at Object._asyncRethrow (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:4238:17)\n    at E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:14330:20\n    at _wrapJsFunctionForAsync_closure.$protected (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:4263:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24379:12)\n    at _awaitOnObject_closure0.call$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24371:25)\n    at _RootZone.runBinary$3$3 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:26377:18)\n    at _RootZone.runBinary$3 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:26381:19)\n    at _FutureListener.handleError$1 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24870:19)\n    at _Future__propagateToListeners_handleError.call$0 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:25162:49)\n    at Object._Future__propagateToListeners (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:4489:77)\n    at _Future._completeError$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24996:9)\n    at _AsyncAwaitCompleter.completeError$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24358:12)\n    at Object._asyncRethrow (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:4238:17)\n    at E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:16928:20\n    at _wrapJsFunctionForAsync_closure.$protected (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:4263:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24379:12)\n    at _awaitOnObject_closure0.call$2 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24371:25)\n    at _RootZone.runBinary$3$3 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:26377:18)\n    at _RootZone.runBinary$3 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:26381:19)\n    at _FutureListener.handleError$1 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:24870:19)\n    at _Future__propagateToListeners_handleError.call$0 (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:25162:49)\n    at Object._Future__propagateToListeners (E:\\GitHub_Repositories\\MAMP-htdocs\\boolbnb_goodluck\\node_modules\\sass\\sass.dart.js:4489:77)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -53245,9 +53220,39 @@ throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< Updated upstream
+<<<<<<< HEAD
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< Updated upstream
+__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /Users/Ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< Updated upstream
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
+>>>>>>> master
+=======
+__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> Stashed changes
+>>>>>>> master
 
 
 /***/ }),

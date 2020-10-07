@@ -512,7 +512,7 @@ main .container_suites_cards .suites_cards .suites_cards_promo {
   color: red;
 }
 
-main .container_suites_cards .suites_cards .suites_cards_promo.suites_cards_noPromo {
+main .container_suites_cards .suites_cards .suites_cards_noPromo {
   color: black;
 }
 

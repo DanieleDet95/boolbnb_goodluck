@@ -5,7 +5,7 @@
 @section("content")
 
   {{-- inizio pagina ricerca --}}
-  <div class="container-fluid container-md" id="search_box">
+  <div class="container-fluid container-md main_search" id="search_box">
     <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
@@ -87,19 +87,24 @@
 
   </div>
 
-
     <div class="container-fluid container_suites_cards mb-5">
       <div class="row">
         <div class="col-lg-6 col-12 suites_cards">
-          <div class="suites_cards_promo suites_cards_noPromo">
+          <div class="suites_cards_promo">
             {{-- div per le card in evidenza --}}
+          </div>
+          <div class="suites_cards_noPromo">
+            {{-- div per le card non in evidenza --}}
           </div>
         </div>
         <div class="d-none d-lg-block d-xl-block col-lg-6 my_maps">
           <div id="map"></div>
         </div>
+
       </div>
     </div>
+
+
 
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}

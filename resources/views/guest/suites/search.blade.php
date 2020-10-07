@@ -91,8 +91,11 @@
     <div class="container-fluid container_suites_cards mb-5">
       <div class="row">
         <div class="col-lg-6 col-12 suites_cards">
-          <div class="suites_cards_promo suites_cards_noPromo">
+          <div class="suites_cards_promo">
             {{-- div per le card in evidenza --}}
+          </div>
+          <div class="suites_cards_noPromo">
+            {{-- div per le card non in evidenza --}}
           </div>
         </div>
         <div class="d-none d-lg-block d-xl-block col-lg-6 my_maps">

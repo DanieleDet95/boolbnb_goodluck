@@ -27,9 +27,6 @@
 
     </div>
   </div>
-  <div>
-    <a href="{{ route("suites.index")}}"> Torna a Index</a>
-  </div>
 
   <div id="suite" hidden>{{ $suite->id }}</div>
 

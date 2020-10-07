@@ -54,10 +54,7 @@
     </div>
   @endforeach
 
-  {{-- l'admin può inviare un messaggio quando NON è proprietario dell'appartamento selezionato  --}}
-  {{-- @php
-    dd(!is_null($user));
-  @endphp --}}
+  {{-- l'admin può inviare un messaggio quando NON è proprietario dell'appartamento selezionato --}}
 
   @if (!is_null($user))
 
@@ -97,22 +94,6 @@
         </form>
       </div>
 
-    @else
-
-      <div>
-        <a href="{{ route("admin.suites.edit", $suite)}}"> Modifica appartamento</a>
-      </div>
-      <div>
-        <a href="{{ route("admin.suites.static", $suite)}}"> Statistiche appartamento</a>
-      </div>
-      <div>
-        <a href="{{ route("admin.promotion", $suite)}}"> Sponzorizza appartamento</a>
-      </div>
-      <form class="" action="{{ route('admin.suites.destroy', $suite)}}" method="post">
-                    @csrf
-                    @method('DELETE')
-                    <input class="btn btn-danger left m-1" type="submit" value="Elimina">
-                  </form>
     @endif
 
   @else
@@ -152,9 +133,5 @@
       </div>
 
   @endif
-
-  <div>
-    <a href="{{ route("suites.index")}}"> Torna a Index</a>
-  </div>
 
 @endsection

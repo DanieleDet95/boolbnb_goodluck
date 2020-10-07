@@ -87,9 +87,9 @@ main {
     .suites_cards {
       .suites_cards_promo {
         color: red;
-      }
-      .suites_cards_noPromo {
-        color: black;
+        &.suites_cards_noPromo {
+          color: black;
+        }
       }
     }
     .my_maps {

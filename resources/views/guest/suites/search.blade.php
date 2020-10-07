@@ -5,7 +5,7 @@
 @section("content")
 
   {{-- inizio pagina ricerca --}}
-  <div class="container-fluid container-md">
+  <div class="container-fluid container-md main_search">
     <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
@@ -115,17 +115,6 @@
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
-<<<<<<< Updated upstream
-        <div class="entry col-12 d-flex">
-          <div class="col-5">
-            <img src="@{{main_image}}" alt="@{{title}}">
-          </div>
-          <div class="body col-7">
-            <h2>@{{title}}</h2>
-            <h3>@{{address}}</h3>
-            <h3>@{{price}}€</h3>
-          </div>
-=======
       <div class="entry col-12 d-flex">
         <div class="col-5">
           <img src="@{{main_image}}" alt="@{{title}}">
@@ -134,7 +123,6 @@
           <h2>@{{title}}</h2>
           <h3>@{{address}}</h3>
           <h3>@{{price}}€</h3>
->>>>>>> Stashed changes
         </div>
       </div>
     </script>

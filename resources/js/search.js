@@ -3,9 +3,9 @@ const Handlebars = require("handlebars");
 $(document).ready(function() {
   // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  // $(".input_box input:not('#submit')").val('');
-  // // set all checkboxes value as false
-  // $('input[type="checkbox"]').prop('checked', false);
+  $(".main_search .input_box input:not('#submit')").val('');
+  // set all checkboxes value as false
+  $('input[type="checkbox"]').prop('checked', false);
 
   // toggle chechbox values on click
   $('input[type="checkbox"]').on('click', function(event) {
@@ -51,6 +51,7 @@ $(document).ready(function() {
     $('#address-input').attr('data-lat', e.suggestion['latlng']['lat']),
     $('#address-input').attr('data-lng',e.suggestion['latlng']['lng'])
   ));
+  $('#beds').val(4);
 
   // **SEARCH**
   // on click take all values from the form and store them into params object
@@ -97,8 +98,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 

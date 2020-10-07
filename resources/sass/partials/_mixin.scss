@@ -78,7 +78,7 @@
    border: 1px solid $secondary_text_color;
 }
 
-/* Create the indicator (the dot/circle - hidden when not checked) */
+/* Create the indicator (hidden when not checked) */
 @mixin checkmark_after {
    content: "";
    position: absolute;

@@ -11,7 +11,7 @@
     <div class="row justify-content-center">
 
       {{-- Login-register --}}
-      <div class="register common_form login_register_wrapper col-8">
+      <div class="register common_form login_register_wrapper col-10 col-md-8 col-lg-6">
 
         {{-- Form title --}}
         <div class="form_title text-center">
@@ -220,9 +220,9 @@
           {{-- end Password advice --}}
 
           {{-- Submit Login --}}
-          <div class="login_submit form-group row justify-content-center row">
+          <div class="form_submit form-group justify-content-center row">
             <div class="col-12">
-              <div class="button_login">
+              <div class="button_submit">
                 <button type="submit" class="custom_button">
                   {{ __('Register') }}
                 </button>

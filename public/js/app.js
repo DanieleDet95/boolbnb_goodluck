@@ -52848,7 +52848,10 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 __webpack_require__(/*! ./search */ "./resources/js/search.js"); // include Statistiche
 
 
-__webpack_require__(/*! ./static */ "./resources/js/static.js");
+__webpack_require__(/*! ./static */ "./resources/js/static.js"); // include create
+
+
+__webpack_require__(/*! ./create_update */ "./resources/js/create_update.js");
 
 /***/ }),
 
@@ -52897,6 +52900,33 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/create_update.js":
+/*!***************************************!*\
+  !*** ./resources/js/create_update.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// include places
+var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+$(document).ready(function () {
+  if ($('#address_create').length) {
+    var createAutocomplete = places({
+      appId: 'pl4XRMWU2BCA',
+      apiKey: '0c0d759444ce91afdb966e427ac5e837',
+      container: document.querySelector('#address_create')
+    });
+    createAutocomplete.on('change', function (e) {
+      return $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
+    });
+  }
+
+  $('#stanza').val(6);
+});
+
+/***/ }),
+
 /***/ "./resources/js/search.js":
 /*!********************************!*\
   !*** ./resources/js/search.js ***!
@@ -52907,9 +52937,31 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  // **DEFAULT INPUT VALUE**
+  // check if home is on screen
+  if ($('#home_search').length) {
+    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+    var homeAutocomplete = places({
+      appId: 'pl4XRMWU2BCA',
+      apiKey: '0c0d759444ce91afdb966e427ac5e837',
+      container: document.querySelector('#home_search')
+    });
+    homeAutocomplete.on('change', function (e) {
+      return $('#key').val(e.suggestion.value), $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
+    });
+  }
+
+  if ($('#address-input').attr('data-lat') && $('#address-input').attr('data-lng')) {
+    var params = {
+      'lat': $('#address-input').attr('data-lat'),
+      'lng': $('#address-input').attr('data-lng')
+    };
+    ajaxCall(params);
+  } // **DEFAULT INPUT VALUE**
   // erase all values from all inputs in .search-wrapper except for #submit
-  $("#search_box input:not('#submit')").val(''); // set all checkboxes value as false
+  // $("#search_box input:not('#submit')").val('');
+  // set all checkboxes value as false
+
 
   $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
 
@@ -52929,13 +52981,6 @@ $(document).ready(function () {
   }).addTo(mymap); // set the view
 
   mymap.setView([41.90, 12.47], 10); // **ALGOLIA AUTOCOMPLETE**
-  // set algolia search-bar autocomplete in home view
-  // var places = require('places.js');
-  // var placesAutocomplete = places({
-  //   appId: 'pl4XRMWU2BCA',
-  //   apiKey: '0c0d759444ce91afdb966e427ac5e837',
-  //   container: document.querySelector('#search-home')
-  // });
   // set algolia search-bar autocomplete in search view
 
   var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");

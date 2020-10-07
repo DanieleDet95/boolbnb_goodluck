@@ -8,3 +8,5 @@ const Handlebars = require("handlebars");
 require('./search');
 // include Statistiche
 require('./static');
+// include create
+require('./create_update');

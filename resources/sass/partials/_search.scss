@@ -99,7 +99,19 @@ main {
     }
   }
   .entry {
-    border: 1px solid black;
+    .image_main_card {
+      border-radius: 50%;
+    }
+    .body_card {
+      h4 {
+        font-size: $h4_text_size;
+        color: $quinternary_text_color;
+      }
+      h6 {
+        font-size: $h6_text_size;
+        color: $qaternary_text_color;
+      }
+    }
   }
   // FINE SEARCH
 }

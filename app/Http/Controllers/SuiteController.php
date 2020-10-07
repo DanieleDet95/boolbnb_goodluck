@@ -10,6 +10,7 @@ use App\Message;
 use App\Highlight;
 use App\Visit;
 use Carbon\Carbon;
+use App\Image;
 
 // Import Mail model
 use Illuminate\Support\Facades\Mail;
@@ -93,7 +94,8 @@ class SuiteController extends Controller
   public function search()
   {
     $suites = Suite::all();
-
+    // $images = Image::all();
+    // $images->select('path')->where('suite_id','=','id')
     return view('guest.suites.search',compact('suites'));
   }
 

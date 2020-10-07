@@ -100,8 +100,38 @@
         <div class="d-none d-lg-block d-xl-block col-lg-6 my_maps">
           <div id="map"></div>
         </div>
-
       </div>
+
+      {{-- Prova carousel --}}
+      {{-- <div class="row">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
+            </div>
+            <div class="carousel-item">
+              @foreach ($suite->images as $image)
+                  @if (isset($image->path))
+                    @if (strpos($image->path, 'lorempixel') == false)
+                      <img src="{{ asset('storage') . "/" . $image->path}}" class="d-block w-100" alt="{{$suite->title}}">
+                     @else
+                      <img src="{{ $image->path }}" class="d-block w-100" alt="{{ $suite->title }}">
+                    @endif
+                  @endif
+              @endforeach
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div> --}}
+
     </div>
 
 
@@ -110,16 +140,49 @@
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
         <div class="entry col-12 d-flex">
-          <div class="col-5">
-            <img src="@{{main_image}}" alt="@{{title}}">
+          <div class="image_main_card col-6">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
+                </div>
+                @foreach ($suites as $suite)
+                <div class="carousel-item">
+                  @for ($i=0; $i < 10; $i++)
+
+                  @endfor
+                  @php
+                    dd($suite->images);
+                  @endphp
+                    @if (isset($image->path))
+                      @if (strpos($image->path, 'lorempixel') == false)
+                        <img src="{{ asset('storage') . "/" . $image->path}}" class="d-block w-100" alt="">
+                       @else
+                        <img src="{{ $image->path }}" class="d-block w-100" alt="">
+                      @endif
+                    @endif
+                </div>
+                @endforeach
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+            <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
           </div>
-          <div class="body col-7">
-            <h2>@{{title}}</h2>
-            <h3>@{{address}}</h3>
-            <h3>@{{price}}€</h3>
+          <div class="body_card col-6">
+            <h4>@{{title}}</h4>
+            <h6>@{{address}}</h6>
+            <h6>@{{price}}€ a notte</h6>
             <p>@{{id}}</p>
           </div>
         </div>
+        <hr>
       </div>
     </script>
 

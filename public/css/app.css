@@ -579,8 +579,18 @@ main .container_suites_cards .my_maps #map {
   height: 500px;
 }
 
-main .entry {
-  border: 1px solid black;
+main .entry .image_main_card {
+  border-radius: 50%;
+}
+
+main .entry .body_card h4 {
+  font-size: 24px;
+  color: #272728;
+}
+
+main .entry .body_card h6 {
+  font-size: 20px;
+  color: #606060;
 }
 
 main .common_form .form_title .top_title > h4 {

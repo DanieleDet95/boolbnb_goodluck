@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 // Import model
 use App\Suite;
@@ -54,6 +55,14 @@ class SuiteController extends Controller
         }
       }
     }
+
+    // smooth code
+    // $highlights_suites_active = Suite::query();
+    //
+    // $highlights_suites_active->has('highlights')
+    // ->with('highlights')
+    // ->orderBy('created_at', 'asc')
+    // ->take(6)->get();
 
     return view('guest.suites.index', compact('suites', 'highlights_suites_active'));
   }

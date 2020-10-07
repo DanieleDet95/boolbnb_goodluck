@@ -56,6 +56,9 @@ class SearchController extends Controller
 
       $queryPromo->has('highlights')->with('highlights');
 
+      $queryPromo->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
+      $queryPromo->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
+
       $queryPromo->selectRaw(
         "*,
         ( 6371 * acos( cos( radians(?))
@@ -125,6 +128,9 @@ class SearchController extends Controller
       $promo = $queryPromo->get();
 
       $querySuite = Suite::query();
+
+      $querySuite->whereBetween('latitude', [$params['minLat'], $params['maxLat']]);
+      $querySuite->whereBetween('longitude', [$params['minLng'], $params['maxLng']]);
 
       $querySuite->selectRaw(
         "*,

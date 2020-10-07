@@ -16,7 +16,7 @@ class SuitesTableSeeder extends Seeder
     public function run(Faker $faker)
     {
 
-        for ($i_suites=0; $i_suites < 1500; $i_suites++) {
+        for ($i_suites=0; $i_suites < 500; $i_suites++) {
           $new_suite = new Suite();
 
           $new_suite->user_id = rand(1,12);

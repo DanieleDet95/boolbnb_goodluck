@@ -8,7 +8,7 @@
     <div class="row">
 
       {{-- Navigation --}}
-      <nav class="navbar navbar-expand-md fixed-top navbar-custom">
+      <nav class="navbar navbar-expand-xl fixed-top navbar-custom">
 
         {{-- Logo --}}
         <a class="navbar-brand" href="#">

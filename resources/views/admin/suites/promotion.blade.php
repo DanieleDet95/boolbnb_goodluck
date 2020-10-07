@@ -107,8 +107,4 @@
       });
   </script>
 
-  <div>
-    <a href="{{ route("suites.index")}}"> Torna a Index</a>
-  </div>
-
 @endsection

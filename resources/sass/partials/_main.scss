@@ -153,42 +153,81 @@ main {
   /* Fine impostazione lista mail */
 
   /* VIEW MY SUITES */
-  table{
-    margin: 20px 0;
-    min-width: 500px;
-    max-width: 500px;
-    th{
-      padding: 10px;
-      background: #cf4532;
-      color: #F6F4F2;
-    }
-    td{
-      min-width: 150px;
-      min-height: 150px;
-      max-width: 150px;
-      max-height: 150px;
-    }
-    .controlli{
-      .btn{
+  .wrapper_mysuites{
+    position: relative;
+    height: 100%;
+    table{
+      margin: 20px 0;
+      min-width: 500px;
+      max-width: 500px;
+      th{
+        padding: 10px;
         background: #cf4532;
-        min-width: 100px;
-        min-height: 35px;
-        padding: 5px;
-        margin-top: 4px;
-        a{
-          color: #F6F4F2;
-          text-decoration: none;
+        color: #F6F4F2;
+      }
+      td{
+        min-width: 150px;
+        min-height: 120px;
+        max-width: 150px;
+        max-height: 120px;
+        img{
+          min-width: 150px;
+          min-height: 120px;
+          max-width: 150px;
+          max-height: 120px;
         }
-        &:hover{
-          background: #8b0000;
+      }
+      .controlli{
+        .btn{
+          background: #cf4532;
+          min-width: 100px;
+          min-height: 35px;
+          padding: 5px;
+          margin-top: 4px;
+          a{
+            color: #F6F4F2;
+            text-decoration: none;
+          }
+          &:hover{
+            background: #8b0000;
+          }
         }
       }
     }
+    .vuoto{
+      background: #cf4532;
+      padding: 20px;
+      text-align: center;
+      margin-top: 50px;
+      color: #F6F4F2;
+    }
   }
 
+
   // VIEW PROMOTIONS
+
   .braintree-sheet__header{
     background: #cf4532;
+  }
+  form#payment-form{
+    table{
+      margin: 20px 0;
+      th{
+        padding: 10px;
+        background: #cf4532;
+        color: #F6F4F2;
+      }
+      td{
+        padding: 10px;
+      }
+    }
+  }
+  .messaggio{
+    background: #cf4532;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+    color: #F6F4F2;
   }
   .card{
     .standard{

@@ -33,4 +33,12 @@ footer {
       }
     }
   }
+  .my_presentation{
+    width: 300px;
+    margin: 0 auto;
+    color: $tertiary_text_color;
+    .rounded-circle{
+      width: 36px;
+    }
+  }
 }

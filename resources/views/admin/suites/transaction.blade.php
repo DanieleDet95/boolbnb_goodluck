@@ -2,6 +2,8 @@
 
 @section('content')
     @foreach ($suite->highlights as $highlight)
-        <h2>la promo {{ $highlight->name }} è stata attivata sull'appartamento {{ $suite->title }}</h2>
+      <div class="messaggio">
+        <h2>La promo {{ $highlight->name }} è stata attivata sull'appartamento {{ $suite->title }}</h2>
+      </div>
     @endforeach
 @endsection

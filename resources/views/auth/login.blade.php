@@ -11,7 +11,7 @@
   <div class="row justify-content-center">
 
     {{-- Login-register --}}
-    <div class="login common_form login_register_wrapper col-8">
+    <div class="login common_form login_register_wrapper col-10 col-md-8 col-lg-6">
 
       {{-- Form title --}}
       <div class="form_title text-center">
@@ -23,6 +23,7 @@
           <h3>Fill out the fields below</h3>
         </div>
       <div>
+      {{-- end Form title --}}
 
       {{-- Form Login --}}
       <form method="POST" action="{{ route('login') }}">
@@ -88,7 +89,7 @@
 
               {{-- Checkbox --}}
               <label class="container_checkbox" for="remember">{{ __('Remember me') }}
-                <input type="checkbox" checked="checked" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                 <span class="checkmark"></span>
               </label>
               {{-- end Checkbox --}}
@@ -99,9 +100,9 @@
         {{-- end Remember me --}}
 
         {{-- Submit Login --}}
-        <div class="login_submit form-group justify-content-center row">
+        <div class="form_submit form-group justify-content-center row">
           <div class="col-12">
-            <div class="button_login">
+            <div class="button_submit">
 
               {{-- Button --}}
               <button type="submit" class="custom_button">

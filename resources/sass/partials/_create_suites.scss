@@ -1,0 +1,73 @@
+// partials/_create_suites.scss
+
+main {
+
+  // Create suite wrapper
+  .create_suite_wrapper {
+    padding: $main_padding 0px;
+
+    // Price-Cover file image
+    .create_price_cover {
+      .custom-file {
+        text-align: left;
+
+        & > .custom-file-label {
+          border: 0;
+          border-right: 0;
+          color: $placeholder_text_color;
+        }
+
+        & > .custom-file-input:focus ~ .custom-file-label {
+          border-color: $secondary_background;
+          box-shadow: 0 0 0;
+        }
+
+        & > .custom-file-label::after {
+          background-color: $secondary_text_color;
+          font-family: $primary_font;
+          color: $primary_text_color;
+          font-size: $small_text_size;
+          border-radius: 0;
+        }
+
+        &:hover {
+          .custom-file-label::after {
+            background-color: $quinternary_background;
+          }
+        }
+      }
+    }
+
+    // Submit Button
+    .form_submit .button_submit {
+      margin-top: 20px;
+    }
+
+    // Services checkbox
+    .checkbox {
+      font-size: $small_text_size;
+
+      /* Customize the label (the container) */
+      .container_checkbox {
+        padding-left: 23px;
+        background-color: yellow;
+      }
+
+      @media all and (max-width: 720px) {
+        .container_checkbox {
+          padding-left: 23px;
+          flex-wrap: nowrap;
+          width: 100px;
+          border: 1px solid black;
+        }
+      }
+
+      /* Create a custom radio button */
+      .checkmark {
+        top: 5px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+}

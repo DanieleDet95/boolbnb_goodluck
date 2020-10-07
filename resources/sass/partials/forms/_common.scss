@@ -25,7 +25,20 @@ main {
     }
 
     // Input Forms style
-    .input_box > input.form-control {
+    .input_box > .form-control {
+
+      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $placeholder_text_color;
+        opacity: 1; /* Firefox */
+      }
+
+      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: $qaternary_text_color;
+      }
+
+      &::-ms-input-placeholder { /* Microsoft Edge */
+        color: $qaternary_text_color;
+      }
 
       &:focus {
         border-color: $secondary_background;
@@ -49,10 +62,10 @@ main {
     }
 
     // Button submit Login
-    .login_submit.form-group {
+    .form_submit.form-group {
       margin: 0;
 
-      .button_login > .custom_button {
+      .button_submit > .custom_button {
         background-color: $secondary_text_color;
         font-family: $primary_font;
         color: $primary_text_color;

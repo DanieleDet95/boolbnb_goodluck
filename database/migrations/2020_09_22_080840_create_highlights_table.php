@@ -15,6 +15,7 @@ class CreateHighlightsTable extends Migration
     {
         Schema::create('highlights', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->integer('type');
             $table->float("price", 4, 2);
             $table->timestamps();

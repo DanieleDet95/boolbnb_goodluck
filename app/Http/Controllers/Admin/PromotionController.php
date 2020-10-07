@@ -71,7 +71,7 @@ class PromotionController extends Controller
             $transaction = $result->transaction;
 
             if (isset($highlight)) {
-                
+
                 $start = Carbon::now('Europe/Rome');
                 if ($highlight == '24') {
                   $suite->highlights()->attach(1,

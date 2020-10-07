@@ -26,7 +26,7 @@
     @if (!$suite->services->isEmpty())
       <h3>Servizi disponibili:</h3>
       @foreach ($suite->services as $service)
-        <li>{{ $service->supplements }}</li>
+        <li><i class="{{ $service->icon }}"></i> {{ $service->supplements }}</li>
       @endforeach
     @endif
     <li>

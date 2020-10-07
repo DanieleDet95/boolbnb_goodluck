@@ -58,13 +58,23 @@
       <textarea name="description" rows="8" cols="80">{{old('description')}}</textarea>
     </div>
     <div class="chekboxes">
-      <h3>Lista servizi</h3>
-      @foreach ($services as $service)
-          <input type="checkbox" name="services[]" value="{{ $service->id }}">
-          <label>{{ $service->supplements }}</label>
-      @endforeach
+      <table border="1" class="text-center">
+        <tr>
+          <th colspan="6">Lista servizi</th>
+        </tr>
+        <tr>
+          @foreach ($services as $service)
+            <td class="pt-2">
+              <i class="{{ $service->icon }}"></i>
+              <label>{{ $service->supplements }}</label>
+              <input type="checkbox" name="services[]" value="{{ $service->id }}">
+            </td>
+          @endforeach
+        </tr>
+      </table>
     </div>
-      <input type="submit" value="submit">
+    <div class="invia">
+      <input type="submit" class="btn" value="Crea">
     </div>
   </form>
 

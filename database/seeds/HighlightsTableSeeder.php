@@ -24,10 +24,16 @@ class HighlightsTableSeeder extends Seeder
           5.99,
           9.99,
         ];
+        $name = [
+          'Basic',
+          'Medium',
+          'Premium',
+        ];
 
         for ($i=0; $i < 3; $i++) {
           $new_highlight = new Highlight();
           $new_highlight->id = $i + 1;
+          $new_highlight->name = $name[$i];
           $new_highlight->type = $type[$i];
           $new_highlight->price = $price[$i];
           $new_highlight->save();

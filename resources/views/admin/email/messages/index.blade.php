@@ -7,6 +7,7 @@
     <div class="row">
       <div class="col-12">
 
+      {{-- Controllo se ci sono messaggi presenti per gli appartamenti dell'utente --}}
       @php
         $presenti = false;
       @endphp
@@ -19,6 +20,7 @@
         @endif
       @endforeach
 
+      {{-- Visualizzo i messaggi ricevuti --}}
       @if ($presenti)
         <h2 class="titolo_mail">Mail arrivate per i tuoi appartamenti:</h2>
         @foreach ($messages->reverse() as $message)
@@ -32,18 +34,22 @@
                 <div class="mail">
 
                   <a href="#" data-toggle="modal" data-target="{{"#".$message->name}}">
+                    {{-- Email --}}
                     <div class="nome_mail">
                       <span><strong>{{$message->email}}</strong></span>
                     </div>
 
+                    {{-- Body --}}
                     <div class="body_mail">
                       <?php $testo = substr($message->body,0,110); ?>
                       <span class="chiaro">{{ $testo }}...</span>
                     </div>
                   </a>
 
+                  {{-- Collegamento alla suite --}}
                   <span><a href="{{route('suites.show',  $message->suite_id)}}">Suite: {{$message->name}}</a></span>
 
+                  {{-- Orario/data ricevuto messaggio --}}
                   <div class="orario">
                     @php
                     $ore = '';
@@ -71,7 +77,7 @@
                       @endif
                     </span>
 
-                    <!-- Modal -->
+                    <!-- Modal visualizzato al click del messaggio -->
                     <div class="modal fade" id="{{$message->name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -96,6 +102,8 @@
           @endif
         @endforeach
       @else
+
+        {{-- Se non ci sono messaggi per l'utente --}}
         <h2 class="titolo_mail">Non ci sono mail per i tuoi appartamenti</h2>
         <!-- Apertura lista mail -->
         <div class="lista_mail">

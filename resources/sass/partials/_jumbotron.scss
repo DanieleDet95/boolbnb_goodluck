@@ -9,6 +9,7 @@ main {
     color: $primary_text_color;
     font-size: $jumbo_paragraph;
 
+    // Carousel
     .carousel {
       height: 480px;
       width: 100%;
@@ -16,6 +17,12 @@ main {
 
       .carousel-inner > .carousel-item > img {
         height: 480px;
+      }
+
+      @media all and (max-width: 720px) {
+        .carousel-control-next {
+          display: none;
+        }
       }
     }
 

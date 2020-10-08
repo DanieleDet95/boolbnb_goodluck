@@ -61,20 +61,24 @@
           <div class="create_address form-group row">
             <div class="col-12">
               <div class="input_box">
-
-                {{-- <input
+                <input
                   id="latitude"
-                  class="form-control rounded-0 d-none"
                   type="text"
                   name="latitude"
-                  value="{{old('latitude')}}">
+                  value="{{old('latitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
 
                 <input
                   id="longitude"
-                  class="form-control rounded-0 d-none"
                   type="text"
                   name="longitude"
-                  value="{{old('longitude')}}"> --}}
+                  value="{{old('longitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
+
 
                 <input
                   id="address_create"

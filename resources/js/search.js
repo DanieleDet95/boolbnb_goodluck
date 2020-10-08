@@ -98,7 +98,7 @@ L.tileLayer(
 }).addTo(mymap);
 
 // set the view
-mymap.setView([41.90, 12.47], 10);
+mymap.setView([42.455111, 12.512467], 6);
 
 
 /*
@@ -280,7 +280,7 @@ function loadMap(maPins) {
   }
 
   // set the view
-  mymap.setView([latlng.lat, latlng.lng], 8);
+  mymap.setView([latlng.lat, latlng.lng], 14);
 
 }
 

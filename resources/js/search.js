@@ -150,18 +150,12 @@ $(document).ready(function() {
  } // close the search-on-screen block
 })  // close the d.ready function
 
+
+
+
 // DEFINITIONs
 
-function checked(event) {
-  if($(event).prop('checked')) {
-    $(event).val('true');
-  }else{
-    $(event).val('false');
-  }
-}
-
-
-
+// search call
 function ajaxCall(params) {
 
   $.ajax
@@ -248,6 +242,7 @@ function ajaxCall(params) {
   });
 }
 
+// load the map
 function loadMap(maPins) {
 
   // // refresh map
@@ -284,6 +279,16 @@ function loadMap(maPins) {
 
 }
 
+// attach pins to the map
 function pinSuiteToMap(pin, mymap) {
   L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
+}
+
+// toggle checkbox values
+function checked(event) {
+  if($(event).prop('checked')) {
+    $(event).val('true');
+  }else{
+    $(event).val('false');
+  }
 }

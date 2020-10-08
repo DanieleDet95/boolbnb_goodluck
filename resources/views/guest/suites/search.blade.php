@@ -18,19 +18,19 @@
 
       <div class="d-flex flex-column align-items-center align-items-lg-center justify-content-lg-around flex-lg-row col-12 my-3">
         <div class="input_box col-4 col-12-sm flex-fill my-2">
-          <input class="form-control rounded-0" id="range" type="number" name="range" value="" placeholder="Distance in Km">
+          <input class="form-control rounded-0" id="range" type="number" min="0" name="range" value="" placeholder="Distance in Km">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
-          <input class="form-control rounded-0" id="rooms" type="number" name="rooms" value="" placeholder="Rooms">
+          <input class="form-control rounded-0" id="rooms" type="number" min="1" name="rooms" value="" placeholder="Rooms">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
-          <input id="bed" class="form-control rounded-0" id="beds" type="number" name="beds" value="" placeholder="Beds">
+          <input id="bed" class="form-control rounded-0" id="beds" min="1" type="number" name="beds" value="" placeholder="Beds">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
-          <input class="form-control rounded-0" id="baths" type="number" name="baths" value="" placeholder="Baths">
+          <input class="form-control rounded-0" id="baths" type="number" min="1" name="baths" value="" placeholder="Baths">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
-          <input class="form-control rounded-0" id="square_m" type="number" name="square_m" value="" placeholder="Square Meters">
+          <input class="form-control rounded-0" id="square_m" type="number" min="15" name="square_m" value="" placeholder="Square Meters">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
           <select class="custom-select rounded-0" id="price" name="price">

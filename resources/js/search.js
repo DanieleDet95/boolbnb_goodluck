@@ -24,7 +24,6 @@ if($('#home_search').length){
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
       container: document.querySelector('#home_search'),
-      style: false,
     })
 
     homeAutocomplete.on('change', e => (
@@ -33,6 +32,8 @@ if($('#home_search').length){
       $('#longitude').val(e.suggestion['latlng']['lng'])
     ))
   }
+
+
 
 
 
@@ -113,13 +114,11 @@ var placesAutocomplete = places({
   container: document.querySelector('#address_input'),
 });
 
-  var places = require('places.js');
-  var placesAutocomplete = places({
-    appId: 'pl4XRMWU2BCA',
-    apiKey: '0c0d759444ce91afdb966e427ac5e837',
-    container: document.querySelector('#address_input'),
-    style: false,
-  });
+// take lat/lng value from algolia's response and store them into data-att of #adress-input
+placesAutocomplete.on('change', e => (
+  $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']),
+  $('#address_input').attr('data-lng',e.suggestion['latlng']['lng'])
+));
 
 /*
 **********************
@@ -166,8 +165,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -297,4 +296,4 @@ function checked(event) {
   }else{
     $(event).val('false');
   }
-};
+}

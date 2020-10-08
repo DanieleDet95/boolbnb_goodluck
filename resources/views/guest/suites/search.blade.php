@@ -110,10 +110,10 @@
           <div class="image_main_card col-12 col-sm-6">
             <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
           </div>
-          <div class="body_card d-flex flex-column align-items-start mb-3 col-12 col-sm-6">
+          <div class="body_card d-flex flex-column align-items-start col-12 col-sm-6">
             <h6>@{{title}}</h6>
             <p>@{{address}}</p>
-            <h6>@{{price}}€ / night</h6>
+            <h6>@{{price}}€/ night</h6>
           </div>
             <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
         </div>

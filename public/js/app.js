@@ -52945,8 +52945,8 @@ $(document).ready(function () {
   /*
   ###########################
   ###########################
-   check if home is on screen
-   ###########################
+    check if home is on screen
+    ###########################
   ###########################
   */
   if ($('#home_search').length) {
@@ -52965,8 +52965,8 @@ $(document).ready(function () {
   /*
   ############################
   ############################
-   check if search is on screen
-   ############################
+    check if search is on screen
+    ############################
   ############################
   */
 
@@ -53024,7 +53024,8 @@ $(document).ready(function () {
     var placesAutocomplete = places({
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#address_input')
+      container: document.querySelector('#address_input'),
+      style: false
     }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
 
     placesAutocomplete.on('change', function (e) {
@@ -53293,9 +53294,15 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
 __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> BranchNicola2
 
 
 /***/ }),

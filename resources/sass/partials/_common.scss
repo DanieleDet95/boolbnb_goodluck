@@ -26,7 +26,14 @@ button:active {
 
 button:focus {
   outline: 0;
+  box-shadow: 0 0 0 0;
 }
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
 button.btn-home{
   background: #cf4532;
   color: #F6F4F2;
@@ -36,6 +43,7 @@ button.btn-home{
   &:hover{
     background: #8b0000;
   }
+
   a{
     color: #F6F4F2;
     text-decoration: none;

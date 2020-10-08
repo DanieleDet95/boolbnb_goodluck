@@ -36,6 +36,12 @@ button:active {
 
 button:focus {
   outline: 0;
+  box-shadow: 0 0 0 0;
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 button.btn-home {
@@ -445,6 +451,32 @@ footer .my_presentation .rounded-circle {
   width: 36px;
 }
 
+#algolia_form input:focus,
+#input-styling-address input:active {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: none;
+}
+
+#algolia_form .ap-nostyle-input-icon {
+  display: none;
+  background: none;
+  border: none;
+}
+
+#algolia_form .algolia-places-nostyle {
+  flex-grow: 1;
+}
+
+#algolia_form .ap-nostyle-dropdown-menu {
+  background-color: #fff;
+  color: #272728;
+  width: 99.8%;
+  padding: 6px 12px;
+  font-style: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
 main section.jumbo_custom {
   background-size: 1200px auto;
   width: 100%;
@@ -490,6 +522,11 @@ main section.jumbo_custom > .jumbo_container .input-group .input-group-append > 
 
 main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn:hover {
   background-color: #a73727;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn.btn-outline-secondary:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 main section.jumbo_custom > .jumbo_container .input-group > .form-control {

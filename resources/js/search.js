@@ -23,12 +23,14 @@ if($('#home_search').length){
       container: document.querySelector('#home_search'),
     })
 
-    homeAutocomplete.on('change', e => (
-      $('#key').val(e.suggestion.value),
-      $('#latitude').val(e.suggestion['latlng']['lat']),
-      $('#longitude').val(e.suggestion['latlng']['lng'])
-    ))
-  }
+  if($('#home_search').length){
+      var places = require('places.js');
+      var homeAutocomplete = places({
+        appId: 'pl4XRMWU2BCA',
+        apiKey: '0c0d759444ce91afdb966e427ac5e837',
+        container: document.querySelector('#home_search'),
+        style: false,
+      })
 
 
 
@@ -111,11 +113,13 @@ var placesAutocomplete = places({
   container: document.querySelector('#address_input'),
 });
 
-// take lat/lng value from algolia's response and store them into data-att of #adress-input
-placesAutocomplete.on('change', e => (
-  $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']),
-  $('#address_input').attr('data-lng',e.suggestion['latlng']['lng'])
-));
+  var places = require('places.js');
+  var placesAutocomplete = places({
+    appId: 'pl4XRMWU2BCA',
+    apiKey: '0c0d759444ce91afdb966e427ac5e837',
+    container: document.querySelector('#address_input'),
+    style: false,
+  });
 
 /*
 **********************

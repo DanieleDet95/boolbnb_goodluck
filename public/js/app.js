@@ -52848,7 +52848,12 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 __webpack_require__(/*! ./search */ "./resources/js/search.js"); // include Statistiche
 
 
-__webpack_require__(/*! ./static */ "./resources/js/static.js");
+__webpack_require__(/*! ./static */ "./resources/js/static.js"); // Create suites file main_image upload
+
+
+$('#create_main_image').on('change', function () {
+  $('.custom-file-label').text("File Loaded");
+});
 
 /***/ }),
 

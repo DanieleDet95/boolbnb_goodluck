@@ -134,13 +134,9 @@ class SuiteController extends Controller
         $new_suite->save();
 
         if (isset($request_data['services'])) {
-            // dd($request_data['services']);
+
             $new_suite->services()->sync($request_data['services']);
         }
-        // aggiunta di più immagini alla suite
-        // $new_image = new Image();
-        // $new_image->suite_id = $request_data['suite_id'];
-        // $new_image->suite_id = $request_data['suite_id'];
       }
 
       return redirect()->route('admin.suites.show', $new_suite);

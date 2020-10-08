@@ -158,51 +158,18 @@ header .navbar button.custom-toggler.navbar-toggler .hamburger_icon i {
 
 main {
   padding-top: 60px;
-  min-height: 261px;
   /* VIEW MESSAGES */
   /* Fine impostazione lista mail */
   /* VIEW MY SUITES */
 }
 
-main .my_jumbotron {
-  position: relative;
-}
-
-main .my_jumbotron .title_jumbo {
-  width: 350px;
-  position: absolute;
-  top: 40%;
-  left: 5%;
-}
-
-main .my_jumbotron .title_jumbo h2 {
-  font-size: 44px;
-  color: #EAE2D2;
-}
-
-main .my_jumbotron .title_jumbo p {
-  font-size: 15px;
-  color: #EAE2D2;
-}
-
-main .my_jumbotron .input_jumbo {
-  width: 350px;
-  position: absolute;
-  top: 60%;
-  left: 5%;
-}
-
-main .my_jumbotron .input_jumbo button {
-  background-color: #F6F4F2;
-}
-
-main .section_suites_cards .link_card {
+main section.suites_cards .link_card {
   display: flex;
   justify-content: center;
   text-decoration: none;
 }
 
-main .section_suites_cards .link_card .item {
+main section.suites_cards .link_card .item {
   display: inline-block;
   margin-top: 2rem;
   filter: grayscale(100%);
@@ -210,41 +177,41 @@ main .section_suites_cards .link_card .item {
   transition: all 0.35s;
 }
 
-main .section_suites_cards .link_card .item .polaroid {
+main section.suites_cards .link_card .item .polaroid {
   height: 500px;
   background: #fff;
   padding: 1rem;
   box-shadow: 0 0.2rem 1.2rem rgba(0, 0, 0, 0.2);
 }
 
-main .section_suites_cards .link_card .item .polaroid img {
+main section.suites_cards .link_card .item .polaroid img {
   max-width: 100%;
   height: auto;
 }
 
-main .section_suites_cards .link_card .item .polaroid .caption {
+main section.suites_cards .link_card .item .polaroid .caption {
   text-align: center;
 }
 
-main .section_suites_cards .link_card .item .polaroid .caption h5 {
+main section.suites_cards .link_card .item .polaroid .caption h5 {
   font-size: 20px;
   text-transform: uppercase;
   margin-top: 80px;
 }
 
-main .section_suites_cards .link_card .item .polaroid .caption p {
+main section.suites_cards .link_card .item .polaroid .caption p {
   font-size: 15px;
   margin: 0px;
 }
 
-main .section_suites_cards .link_card .item .polaroid:before {
+main section.suites_cards .link_card .item .polaroid:before {
   content: "";
   position: absolute;
   z-index: -1;
   transition: all 0.35s;
 }
 
-main .section_suites_cards .link_card .item .item .polaroid:before {
+main section.suites_cards .link_card .item .item .polaroid:before {
   transform: rotate(6deg);
   height: 20%;
   width: 47%;
@@ -253,13 +220,13 @@ main .section_suites_cards .link_card .item .item .polaroid:before {
   box-shadow: 0 2.1rem 2rem rgba(0, 0, 0, 0.4);
 }
 
-main .section_suites_cards .link_card .item:hover {
+main section.suites_cards .link_card .item:hover {
   filter: none;
   transform: scale(1, 1) rotate(0deg) !important;
   transition: all 0.35s;
 }
 
-main .section_suites_cards .link_card .item:hover .polaroid:before {
+main section.suites_cards .link_card .item:hover .polaroid:before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -874,28 +841,29 @@ main .create_suite_wrapper .form_submit .button_submit {
 
 main .create_suite_wrapper .checkbox {
   font-size: 14px;
+  text-align: left;
   /* Customize the label (the container) */
   /* Create a custom radio button */
+  /* Style the indicator */
 }
 
 main .create_suite_wrapper .checkbox .container_checkbox {
-  padding-left: 23px;
-  background-color: yellow;
-}
-
-@media all and (max-width: 720px) {
-  main .create_suite_wrapper .checkbox .container_checkbox {
-    padding-left: 23px;
-    flex-wrap: nowrap;
-    width: 100px;
-    border: 1px solid black;
-  }
+  padding-left: 25px;
+  font-size: 25px;
+  color: #272728;
 }
 
 main .create_suite_wrapper .checkbox .checkmark {
-  top: 5px;
+  top: 12px;
   height: 16px;
   width: 16px;
+}
+
+main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
+  left: 5.5px;
+  top: 2px;
+  width: 3.5px;
+  height: 8px;
 }
 
 /*!

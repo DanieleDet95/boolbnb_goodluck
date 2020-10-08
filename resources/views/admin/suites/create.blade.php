@@ -36,7 +36,7 @@
         {{-- end Form Title --}}
 
         {{-- Form Create --}}
-        <form  action="{{route('admin.suites.store')}}" method="post" enctype="multipart/form-data">
+        <form  action="{{ route('admin.suites.store') }}" method="post" enctype="multipart/form-data">
           @csrf
           @method('POST')
 
@@ -169,6 +169,7 @@
             <div class="create_cover right_input col-6">
               <div class="input_box custom-file">
                 <input
+                  id="create_main_image"
                   type="file"
                   name="main_image"
                   value="{{old('main_image')}}"
@@ -200,137 +201,42 @@
           {{-- Create Services --}}
           <div class="create_services row">
             <div class="col-12">
-              <div class="checkbox d-flex justify-content-between">
-                {{-- <h3>Lista servizi</h3> --}}
+              <div class="checkbox">
+                <div class="row">
+                  {{-- <h3>Lista servizi</h3> --}}
 
-                {{-- Checkbox --}}
-                @foreach ($services as $service)
-                <label class="container_checkbox">{{ $service->supplements }}
-                  <input type="checkbox" name="services[]" value="{{ $service->id }}" {{ old('remember') ? 'checked' : '' }}>
-                  <span class="checkmark"></span>
-                </label>
-                @endforeach
-                {{-- end Checkbox --}}
+                  {{-- Checkbox --}}
+                  @foreach ($services as $service)
+                  <div class="col-4 col-lg-2 text-center">
+                    <label class="container_checkbox"><i class="{{ $service->icon }}"></i>
+                      <input type="checkbox" name="services[]" value="{{ $service->id }}" {{ old('remember') ? 'checked' : '' }}>
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  @endforeach
+                  {{-- end Checkbox --}}
 
+                </div>
               </div>
             </div>
           </div>
           {{-- end Create Services --}}
 
-        </form>
-        {{-- end Form Create --}}
-
-        {{-- Submit Login --}}
-        <div class="form_submit form-group justify-content-center row">
-          <div class="col-12">
-            <div class="button_submit">
-              <button type="submit" class="custom_button">
-                {{ __('Register') }}
-              </button>
+          {{-- Submit Login --}}
+          <div class="form_submit form-group justify-content-center row">
+            <div class="col-12">
+              <div class="button_submit">
+                <button type="submit" class="custom_button">Create</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      {{-- end Create suite --}}
+        {{-- end Create suite --}}
+
+      </form>
+      {{-- end Form Create --}}
 
     </div>
-    <div>
-      <label>Indirizzo:</label>
-      <input type="text" name="address" value="{{old('address')}}">
-    </div>
-    <div>
-      <label>Stanze:</label>
-      <input type="number" name="rooms" value="{{old('rooms')}}">
-    </div>
-    <div>
-      <label>Letti:</label>
-      <input type="number" name="beds" value="{{old('beds')}}">
-    </div>
-    <div>
-      <label>Bagni:</label>
-      <input type="number" name="baths" value="{{old('baths')}}">
-    </div>
-    <div>
-      <label>Metri quadri:</label>
-      <input type="number" name="square_m" value="{{old('square_m')}}">
-    </div>
-    <div>
-      <label>Copertina:</label>
-      <input type="file" name="main_image" accept="image/*">
-    </div>
-    <div>
-      <label>Prezzo:</label>
-      <input type="number" step="any" name="price" value="{{old('price')}}">
-    </div>
-    <div>
-      <label>Descrizione:</label>
-      <textarea name="description" rows="8" cols="80">{{old('description')}}</textarea>
-    </div>
-    <div class="chekboxes">
-      <table border="1" class="text-center">
-        <tr>
-          <th colspan="6">Lista servizi</th>
-        </tr>
-        <tr>
-          @foreach ($services as $service)
-            <td class="pt-2">
-              <i class="{{ $service->icon }}"></i>
-              <label>{{ $service->supplements }}</label>
-              <input type="checkbox" name="services[]" value="{{ $service->id }}">
-            </td>
-          @endforeach
-        </tr>
-      </table>
-    </div>
-    <div class="invia">
-      <input type="submit" class="btn" value="Crea">
-    </div>
-  </form>
-
+  </div>
+  {{-- end Bootstrap --}}
 @endsection
-
-{{-- <div>
-  <label>Titolo:</label>
-  <input type="text" name="title" value="{{old('title')}}">
-</div>
-<div>
-  <label>Indirizzo:</label>
-  <input type="text" name="address" value="{{old('address')}}">
-</div>
-<div>
-  <label>Stanze:</label>
-  <input type="number" name="rooms" value="{{old('rooms')}}">
-</div>
-<div>
-  <label>Letti:</label>
-  <input type="number" name="beds" value="{{old('beds')}}">
-</div>
-<div>
-  <label>Bagni:</label>
-  <input type="number" name="baths" value="{{old('baths')}}">
-</div>
-<div>
-  <label>Metri quadri:</label>
-  <input type="number" name="square_m" value="{{old('square_m')}}">
-</div>
-<div>
-  <label>Copertina:</label>
-  <input type="file" name="main_image" accept="image/*">
-</div>
-<div>
-  <label>Prezzo:</label>
-  <input type="number" step="any" name="price" value="{{old('price')}}">
-</div>
-<div>
-  <label>Descrizione:</label>
-  <textarea name="description" rows="8" cols="80">{{old('description')}}</textarea>
-</div>
-<div class="chekboxes">
-  <h3>Lista servizi</h3>
-  @foreach ($services as $service)
-      <input type="checkbox" name="services[]" value="{{ $service->id }}">
-      <label>{{ $service->supplements }}</label>
-  @endforeach
-</div>
-  <input type="submit" value="submit">
-</div> --}}

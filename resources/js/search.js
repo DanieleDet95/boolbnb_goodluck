@@ -24,7 +24,7 @@ if($('#home_search').length){
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
       container: document.querySelector('#home_search'),
-      style:false,
+      style: false,
     })
 
     homeAutocomplete.on('change', e => (

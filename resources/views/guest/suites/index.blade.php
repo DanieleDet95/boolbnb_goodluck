@@ -56,22 +56,28 @@
       {{-- Jumbotron Search input --}}
       <div class="row">
         <div class="col-12 col-xl-6">
-          <form class="" action="{{route('suites.search.submit')}}" method="post">
-
+          <form class="form_search_bar form" action="{{route('suites.search.submit')}}" method="post">
             @csrf
-
             @method('get')
 
-              <div class="input-group flex-nowrap">
+              {{-- Input group search bar --}}
+              <div id="algolia_form" class="input-group">
 
-                <input type="search" id="home_search" class="form-control rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2" value="">
-                <input id="key" type="text" name="key" class="d-none" value="">
-                <input id="latitude" type="text" name="latitude" class="d-none" value="">
-                <input id="longitude" type="text" name="longitude" class="d-none" value="">
+                {{-- Algolia input --}}
+                <input type="search" id="home_search" class="form-control border-0 rounded-0 algolia-places-nostyle" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input id="key" type="text" name="key" class="form-control rounded-0 border-0 algolia-places-nostyle d-none">
+                <input id="latitude" type="text" name="latitude" class="form-control rounded-0 border-0 algolia-places-nostyle d-none">
+                <input id="longitude" type="text" name="longitude" class="form-control rounded-0 border-0 algolia-places-nostyle d-none">
+                {{-- end Algolia input --}}
+
+                {{-- Button --}}
                 <div class="input-group-append">
-                  <input id="button-addon2" class="search_button btn btn-outline-secondary rounded-0" type="submit" />
+                  <button class="btn btn-outline-secondary rounded-0" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
                 </div>
+                {{-- end Button --}}
+
               </div>
+              {{-- end Input group search bar --}}
 
           </form>
         </div>

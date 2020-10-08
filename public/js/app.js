@@ -52945,8 +52945,8 @@ $(document).ready(function () {
   /*
   ###########################
   ###########################
-   check if home is on screen
-   ###########################
+    check if home is on screen
+    ###########################
   ###########################
   */
   if ($('#home_search').length) {
@@ -52955,7 +52955,8 @@ $(document).ready(function () {
     var homeAutocomplete = places({
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#home_search')
+      container: document.querySelector('#home_search'),
+      style: false
     });
     homeAutocomplete.on('change', function (e) {
       return $('#key').val(e.suggestion.value), $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
@@ -52964,8 +52965,8 @@ $(document).ready(function () {
   /*
   ############################
   ############################
-   check if search is on screen
-   ############################
+    check if search is on screen
+    ############################
   ############################
   */
 
@@ -53023,7 +53024,8 @@ $(document).ready(function () {
     var placesAutocomplete = places({
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#address_input')
+      container: document.querySelector('#address_input'),
+      style: false
     }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
 
     placesAutocomplete.on('change', function (e) {
@@ -53072,9 +53074,8 @@ function checked(event) {
 
 function ajaxCall(params) {
   $.ajax({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search",
-    //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -53188,9 +53189,8 @@ $(document).ready(function () {
 
   function printStatics() {
     $.ajax({
-      // url: "http://boolbnb_goodluck.loc/api/statics",
-      url: 'http://127.0.0.1:8000/api/statics',
-      //per i comuni mortali
+      url: "http://boolbnb_goodluck.loc/api/statics",
+      // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
       data: {
         suite: $('#suite').text()
       },
@@ -53294,9 +53294,15 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+<<<<<<< HEAD
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> BranchNicola2
 
 
 /***/ }),

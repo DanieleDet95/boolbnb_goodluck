@@ -36,8 +36,6 @@ if($('#home_search').length){
 
 
 
-
-
 /*
 ############################
 ############################
@@ -299,4 +297,4 @@ function checked(event) {
   }else{
     $(event).val('false');
   }
-}
+};

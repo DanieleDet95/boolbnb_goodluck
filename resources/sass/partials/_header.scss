@@ -55,7 +55,9 @@ header {
     }
 
     &:hover {
-      color:$secondary_text_color;
+      & > span {
+        color: $secondary_text_color;
+      }
     }
   }
 

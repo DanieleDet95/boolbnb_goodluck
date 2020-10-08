@@ -305,12 +305,16 @@ main .lista_mail .mail .modal-content .modal-header span {
   color: #F6F4F2;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites {
   position: relative;
   height: 100%;
 }
 
 main .wrapper_mysuites table {
+=======
+main table {
+>>>>>>> ivan-search-cards
   margin: 20px 0;
   min-width: 500px;
   max-width: 500px;
@@ -322,6 +326,7 @@ main .wrapper_mysuites table th {
   color: #F6F4F2;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites table td {
   min-width: 150px;
   min-height: 120px;
@@ -337,6 +342,16 @@ main .wrapper_mysuites table td img {
 }
 
 main .wrapper_mysuites table .controlli .btn {
+=======
+main table td {
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+main table .controlli .btn {
+>>>>>>> ivan-search-cards
   background: #cf4532;
   min-width: 100px;
   min-height: 35px;
@@ -344,11 +359,16 @@ main .wrapper_mysuites table .controlli .btn {
   margin-top: 4px;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites table .controlli .btn a {
+=======
+main table .controlli .btn a {
+>>>>>>> ivan-search-cards
   color: #F6F4F2;
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites table .controlli .btn:hover {
   background: #8b0000;
 }
@@ -361,10 +381,17 @@ main .wrapper_mysuites .vuoto {
   color: #F6F4F2;
 }
 
+=======
+main table .controlli .btn:hover {
+  background: #8b0000;
+}
+
+>>>>>>> ivan-search-cards
 main .braintree-sheet__header {
   background: #cf4532;
 }
 
+<<<<<<< HEAD
 main form#payment-form table {
   margin: 20px 0;
 }
@@ -387,6 +414,8 @@ main .messaggio {
   color: #F6F4F2;
 }
 
+=======
+>>>>>>> ivan-search-cards
 main .card .standard {
   background: #cf4532;
   padding: 5px;
@@ -689,14 +718,32 @@ main .entry .image_main_card {
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
 main .entry .body_card h4 {
   font-size: 24px;
   color: #272728;
+=======
+main .entry .body_card {
+  height: 100%;
+>>>>>>> ivan-search-cards
 }
 
 main .entry .body_card h6 {
   font-size: 20px;
+<<<<<<< HEAD
   color: #606060;
+=======
+  color: #272728;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+main .entry .body_card p {
+  font-size: 18px;
+  color: #606060;
+  letter-spacing: 0;
+  line-height: 20px;
+>>>>>>> ivan-search-cards
 }
 
 main .common_form .form_title .top_title > h4 {
@@ -931,6 +978,7 @@ main .create_suite_wrapper .form_submit .button_submit {
 
 main .create_suite_wrapper .checkbox {
   font-size: 14px;
+<<<<<<< HEAD
   text-align: left;
   /* Customize the label (the container) */
   /* Create a custom radio button */
@@ -945,10 +993,33 @@ main .create_suite_wrapper .checkbox .container_checkbox {
 
 main .create_suite_wrapper .checkbox .checkmark {
   top: 12px;
+=======
+  /* Customize the label (the container) */
+  /* Create a custom radio button */
+}
+
+main .create_suite_wrapper .checkbox .container_checkbox {
+  padding-left: 23px;
+  background-color: yellow;
+}
+
+@media all and (max-width: 720px) {
+  main .create_suite_wrapper .checkbox .container_checkbox {
+    padding-left: 23px;
+    flex-wrap: nowrap;
+    width: 100px;
+    border: 1px solid black;
+  }
+}
+
+main .create_suite_wrapper .checkbox .checkmark {
+  top: 5px;
+>>>>>>> ivan-search-cards
   height: 16px;
   width: 16px;
 }
 
+<<<<<<< HEAD
 main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
   left: 5.5px;
   top: 2px;
@@ -956,6 +1027,8 @@ main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
   height: 8px;
 }
 
+=======
+>>>>>>> ivan-search-cards
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

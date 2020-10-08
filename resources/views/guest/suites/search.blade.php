@@ -10,9 +10,9 @@
 
       <div class="search_location col-12 mt-5 mb-3">
         @if (isSet($key))
-          <input class="col-12 form-control rounded-0" type="search" id="address-input" data-lat="{{$lat}}" data-lng="{{$lng}}" placeholder="Where are we going?" value="{{$key}}">
+          <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="{{$lat}}" data-lng="{{$lng}}" placeholder="Where are we going?" value="{{$key}}">
         @else
-          <input class="col-12 form-control rounded-0" type="search" id="address-input" data-lat="" data-lng="" placeholder="Where are we going?" />
+          <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="" data-lng="" placeholder="Where are we going?" />
         @endif
       </div>
 

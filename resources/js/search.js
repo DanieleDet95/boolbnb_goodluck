@@ -2,7 +2,16 @@ const Handlebars = require("handlebars");
 
 $(document).ready(function() {
 
-  // check if home is on screen
+  /*
+  ###########################
+  ###########################
+
+  check if home is on screen
+
+  ###########################
+  ###########################
+  */
+
   if($('#home_search').length){
       var places = require('places.js');
       var homeAutocomplete = places({
@@ -18,18 +27,44 @@ $(document).ready(function() {
       ))
     }
 
-  if ($('#address-input').attr('data-lat') && $('#address-input').attr('data-lng')) {
-    var params = {
-      'lat': $('#address-input').attr('data-lat'),
-      'lng': $('#address-input').attr('data-lng')
-    }
-    ajaxCall(params);
-  }
 
+
+
+
+  /*
+  ############################
+  ############################
+
+  check if search is on screen
+
+  ############################
+  ############################
+  */
+
+  if($('#address_input').length) {
+    // check a previous search from home
+
+    console.log($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng'));
+    if ($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng')) {
+      $('#range').val(20);  //set a default range
+
+      var params = {
+        'lat': $('#address_input').attr('data-lat'),
+        'lng': $('#address_input').attr('data-lng'),
+        'range': $('#range').val()
+      }
+
+      console.log(params);
+      
+      ajaxCall(params);
+
+    } else {
+
+      // erase all values from all inputs in .search-wrapper except for #submit
+      $("#search_box input:not('#submit')").val('');
+    }
 
   // **DEFAULT INPUT VALUE**
-  // erase all values from all inputs in .search-wrapper except for #submit
-  // $("#search_box input:not('#submit')").val('');
   // set all checkboxes value as false
   $('input[type="checkbox"]').prop('checked', false);
 
@@ -38,8 +73,13 @@ $(document).ready(function() {
     checked($(this));
   })
 
-  // **DEFAULT MAP**
-  // set map
+
+  /*
+  **********************
+  MAP LEAFLEAT
+  **********************
+  */
+
   var mymap = L.map('map', {
     scrollWheelZoom: true,
     zoomControl: true
@@ -55,13 +95,18 @@ $(document).ready(function() {
   // set the view
   mymap.setView([41.90, 12.47], 10);
 
-  // **ALGOLIA AUTOCOMPLETE**
-  // set algolia search-bar autocomplete in search view
+
+  /*
+  **********************
+  ALGOLIA AUTOCOMPLEATE
+  **********************
+  */
+
   var places = require('places.js');
   var placesAutocomplete = places({
     appId: 'pl4XRMWU2BCA',
     apiKey: '0c0d759444ce91afdb966e427ac5e837',
-    container: document.querySelector('#address-input'),
+    container: document.querySelector('#address_input'),
   });
 
   // take lat/lng value from algolia's response and store them into data-att of #adress-input
@@ -70,7 +115,11 @@ $(document).ready(function() {
     $('#address-input').attr('data-lng',e.suggestion['latlng']['lng'])
   ));
 
-  // **SEARCH**
+  /*
+  **********************
+  SEARCH FUNCTION
+  **********************
+  */
   // on click take all values from the form and store them into params object
   $('#submit').on('click', function() {
 
@@ -97,7 +146,8 @@ $(document).ready(function() {
 
   });
 
-})
+ } // close the search-on-screen block
+})  // close the d.ready function
 
 // DEFINITIONs
 

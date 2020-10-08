@@ -1,5 +1,14 @@
-$( document ).ready(function() {
+/*
+####################
+####################
 
+CHARTS IS ON SCREEN
+
+####################
+####################
+*/
+
+if($('#bar_visual').length) {
   printStatics();
 
   function printStatics(){
@@ -98,4 +107,4 @@ $( document ).ready(function() {
     });
   }
 
-});
+} //close the charts-on-screen

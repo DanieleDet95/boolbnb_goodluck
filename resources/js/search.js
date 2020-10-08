@@ -13,12 +13,18 @@ $(document).ready(function() {
   */
 
   if($('#home_search').length){
+      // refresh value 0
+      $('#home_search').val('');
+      $('#key').val('');
+      $('#latitude').val('');
+      $('#longitude').val('');
+
+      // set algolia autocompleate
       var places = require('places.js');
       var homeAutocomplete = places({
         appId: 'pl4XRMWU2BCA',
         apiKey: '0c0d759444ce91afdb966e427ac5e837',
         container: document.querySelector('#home_search'),
-        style: false
       })
 
       homeAutocomplete.on('change', e => (

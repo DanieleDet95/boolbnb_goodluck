@@ -149,7 +149,7 @@
           {{-- Create Price-Cover meters --}}
           <div class="create_price_cover double_input form-group row">
 
-            {{-- Create Baths --}}
+            {{-- Create Price --}}
             <div class="create_price left_input col-6">
               <div class="input_box">
                 <input
@@ -163,7 +163,7 @@
                   placeholder="Price">
               </div>
             </div>
-            {{-- end Create Baths --}}
+            {{-- end Create Price --}}
 
             {{-- Create Cover image --}}
             <div class="create_cover right_input col-6">
@@ -171,17 +171,102 @@
                 <input
                   id="create_main_image"
                   type="file"
+                  accept="image/*"
                   name="main_image"
+                  onchange="loadFile(event)"
                   value="{{old('main_image')}}"
                   class="custom-file-input"
                   required>
-                <label class="custom-file-label rounded-0">Choose file...</label>
+                <label for="file" class="custom-file-label rounded-0">Choose cover...</label>
               </div>
             </div>
+
+            <div class="col-12">
+              <div class="anteprima m-3">
+                <p>Immagine caricata per la cover: </p>
+                <img id="output" width="200" />
+              </div>
+            </div>
+
             {{-- end Create Cover image --}}
 
+            {{-- Create images --}}
+            <div class="create_images left_input col-4">
+              <div class="input_box custom-file">
+                <input
+                  id="create_image1"
+                  type="file"
+                  accept="image/*"
+                  name="image1"
+                  onchange="loadFile1(event)"
+                  class="custom-file-input">
+                <label class="custom-file-label rounded-3">Image 1</label>
+              </div>
+            </div>
+
+            <div class="create_images center_input col-4">
+              <div class="input_box custom-file">
+                <input
+                  id="create_image2"
+                  type="file"
+                  accept="image/*"
+                  name="image2"
+                  onchange="loadFile2(event)"
+                  class="custom-file-input">
+                <label class="custom-file-label rounded-0">Image 2</label>
+              </div>
+            </div>
+
+            <div class="create_images right_input col-4">
+              <div class="input_box custom-file">
+                <input
+                  id="create_image1"
+                  type="file"
+                  accept="image/*"
+                  name="image3"
+                  onchange="loadFile3(event)"
+                  class="custom-file-input">
+                <label class="custom-file-label rounded-0">Image 3</label>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="anteprima m-3">
+                <img id="output1" width="200" />
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="anteprima m-3">
+                <img id="output2" width="200" />
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="anteprima m-3">
+                <img id="output3" width="200" />
+              </div>
+            </div>
+
+            <script>
+            var loadFile = function(event) {
+            	var image = document.getElementById('output');
+            	image.src = URL.createObjectURL(event.target.files[0]);
+            };
+            var loadFile1 = function(event) {
+            	var image = document.getElementById('output1');
+            	image.src = URL.createObjectURL(event.target.files[0]);
+            };
+            var loadFile2 = function(event) {
+            	var image = document.getElementById('output2');
+            	image.src = URL.createObjectURL(event.target.files[0]);
+            };
+            var loadFile3 = function(event) {
+            	var image = document.getElementById('output3');
+            	image.src = URL.createObjectURL(event.target.files[0]);
+            };
+            </script>
+
           </div>
-          {{-- end Create Price-Cover --}}
+          {{-- end Create images --}}
 
           {{-- Create Description --}}
           <div class="create_description form-group row">
@@ -209,7 +294,7 @@
                   @foreach ($services as $service)
                   <div class="col-4 col-lg-2 text-center">
                     <label class="container_checkbox"><i class="{{ $service->icon }}"></i>
-                      <input type="checkbox" name="services[]" value="{{ $service->id }}" {{ old('remember') ? 'checked' : '' }}>
+                      <input type="checkbox" name="services[]" value="{{ $service->id }}" >
                       <span class="checkmark"></span>
                     </label>
                   </div>
@@ -232,6 +317,8 @@
           </div>
         </div>
         {{-- end Create suite --}}
+
+
 
       </form>
       {{-- end Form Create --}}

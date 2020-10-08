@@ -7,11 +7,11 @@ var places = require('places.js');
 
 $(document).ready(function() {
   // include commons
-  require('./partials/commons');
+  require('./commons');
   // include searchbar functions
-  require('./partials/search');
+  require('./search');
   // include Statistiche
-  require('./partials/static');
+  require('./static');
   // include create
-  require('./partials/create_update');
+  require('./create_update');
 })

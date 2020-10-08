@@ -52937,7 +52937,13 @@ $(document).ready(function () {
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
 $(document).ready(function () {
-  // check if home is on screen
+  /*
+  ###########################
+  ###########################
+   check if home is on screen
+   ###########################
+  ###########################
+  */
   if ($('#home_search').length) {
     var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
@@ -52950,73 +52956,106 @@ $(document).ready(function () {
       return $('#key').val(e.suggestion.value), $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
     });
   }
-
-  if ($('#address-input').attr('data-lat') && $('#address-input').attr('data-lng')) {
-    var params = {
-      'lat': $('#address-input').attr('data-lat'),
-      'lng': $('#address-input').attr('data-lng')
-    };
-    ajaxCall(params);
-  } // **DEFAULT INPUT VALUE**
-  // erase all values from all inputs in .search-wrapper except for #submit
-  // $("#search_box input:not('#submit')").val('');
-  // set all checkboxes value as false
+  /*
+  ############################
+  ############################
+   check if search is on screen
+   ############################
+  ############################
+  */
 
 
-  $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
+  if ($('#address_input').length) {
+    // check a previous search from home
+    // console.log($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng'));
+    if ($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng')) {
+      $('#range').val(20); //set a default range
 
-  $('#search_box input[type="checkbox"]').on('click', function (event) {
-    checked($(this));
-  }); // **DEFAULT MAP**
-  // set map
+      var params = {
+        latitude: $('#address_input').attr('data-lat'),
+        longitude: $('#address_input').attr('data-lng'),
+        range: $('#range').val()
+      };
+      console.log(params);
+      ajaxCall(params);
+    } else {
+      // erase all values from all inputs in .search-wrapper except for #submit
+      $("#search_box input:not('#submit')").val('');
+    } // **DEFAULT INPUT VALUE**
+    // set all checkboxes value as false
 
-  var mymap = L.map('map', {
-    scrollWheelZoom: true,
-    zoomControl: true
-  }); // set methods
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    minZoom: 1,
-    maxZoom: 50
-  }).addTo(mymap); // set the view
+    $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
 
-  mymap.setView([41.90, 12.47], 10); // **ALGOLIA AUTOCOMPLETE**
-  // set algolia search-bar autocomplete in search view
+    $('#search_box input[type="checkbox"]').on('click', function (event) {
+      checked($(this));
+    });
+    /*
+    **********************
+    MAP LEAFLEAT
+    **********************
+    */
 
-  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+    var mymap = L.map('map', {
+      scrollWheelZoom: true,
+      zoomControl: true
+    }); // set methods
 
-  var placesAutocomplete = places({
-    appId: 'pl4XRMWU2BCA',
-    apiKey: '0c0d759444ce91afdb966e427ac5e837',
-    container: document.querySelector('#address-input')
-  }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      minZoom: 1,
+      maxZoom: 50
+    }).addTo(mymap); // set the view
 
-  placesAutocomplete.on('change', function (e) {
-    return $('#address-input').attr('data-lat', e.suggestion['latlng']['lat']), $('#address-input').attr('data-lng', e.suggestion['latlng']['lng']);
-  }); // **SEARCH**
-  // on click take all values from the form and store them into params object
+    mymap.setView([41.90, 12.47], 10);
+    /*
+    **********************
+    ALGOLIA AUTOCOMPLEATE
+    **********************
+    */
 
-  $('#submit').on('click', function () {
-    var params = {
-      range: $('#range').val(),
-      beds: $('#beds').val(),
-      rooms: $('#rooms').val(),
-      baths: $('#baths').val(),
-      square_m: $('#square_m').val(),
-      price: $('#price').val(),
-      pool: $('#pool').val(),
-      wifi: $('#wifi').val(),
-      pet: $('#pet').val(),
-      parking: $('#parking').val(),
-      piano: $('#piano').val(),
-      sauna: $('#sauna').val(),
-      latitude: $('#address-input').attr('data-lat'),
-      longitude: $('#address-input').attr('data-lng')
-    }; // send params to API in Api/SearchController
+    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
-    ajaxCall(params);
-  });
-}); // DEFINITIONs
+    var placesAutocomplete = places({
+      appId: 'pl4XRMWU2BCA',
+      apiKey: '0c0d759444ce91afdb966e427ac5e837',
+      container: document.querySelector('#address_input')
+    }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
+
+    placesAutocomplete.on('change', function (e) {
+      return $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']), $('#address_input').attr('data-lng', e.suggestion['latlng']['lng']);
+    });
+    /*
+    **********************
+    SEARCH FUNCTION
+    **********************
+    */
+    // on click take all values from the form and store them into params object
+
+    $('#submit').on('click', function () {
+      var params = {
+        range: $('#range').val(),
+        beds: $('#beds').val(),
+        rooms: $('#rooms').val(),
+        baths: $('#baths').val(),
+        square_m: $('#square_m').val(),
+        price: $('#price').val(),
+        pool: $('#pool').val(),
+        wifi: $('#wifi').val(),
+        pet: $('#pet').val(),
+        parking: $('#parking').val(),
+        piano: $('#piano').val(),
+        sauna: $('#sauna').val(),
+        latitude: $('#address_input').attr('data-lat'),
+        longitude: $('#address_input').attr('data-lng')
+      };
+      console.log(params); // send params to API in Api/SearchController
+
+      ajaxCall(params);
+    });
+  } // close the search-on-screen block
+
+}); // close the d.ready function
+// DEFINITIONs
 
 function checked(event) {
   if ($(event).prop('checked')) {
@@ -53028,9 +53067,8 @@ function checked(event) {
 
 function ajaxCall(params) {
   $.ajax({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search",
-    //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -53103,8 +53141,8 @@ function loadMap(maPins) {
   $('.my_maps').html('<div id="map"></div>'); // take values from searchbar
 
   var latlng = {
-    lat: $('#address-input').attr('data-lat'),
-    lng: $('#address-input').attr('data-lng')
+    lat: $('#address_input').attr('data-lat'),
+    lng: $('#address_input').attr('data-lng')
   }; // set map
 
   var mymap = L.map('map', {
@@ -53144,9 +53182,8 @@ $(document).ready(function () {
 
   function printStatics() {
     $.ajax({
-      // url: "http://boolbnb_goodluck.loc/api/statics",
-      url: 'http://127.0.0.1:8000/api/statics',
-      //per i comuni mortali
+      url: "http://boolbnb_goodluck.loc/api/statics",
+      // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
       data: {
         suite: $('#suite').text()
       },
@@ -53250,9 +53287,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\pc\Desktop\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\Users\pc\Desktop\BoolBnB\resources\js\search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! C:\Users\pc\Desktop\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

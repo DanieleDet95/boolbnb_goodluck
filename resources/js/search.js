@@ -44,18 +44,17 @@ $(document).ready(function() {
   if($('#address_input').length) {
     // check a previous search from home
 
-    console.log($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng'));
+    // console.log($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng'));
     if ($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng')) {
       $('#range').val(20);  //set a default range
 
       var params = {
-        'lat': $('#address_input').attr('data-lat'),
-        'lng': $('#address_input').attr('data-lng'),
-        'range': $('#range').val()
+        latitude: $('#address_input').attr('data-lat'),
+        longitude: $('#address_input').attr('data-lng'),
+        range: $('#range').val()
       }
 
       console.log(params);
-      
       ajaxCall(params);
 
     } else {
@@ -111,8 +110,8 @@ $(document).ready(function() {
 
   // take lat/lng value from algolia's response and store them into data-att of #adress-input
   placesAutocomplete.on('change', e => (
-    $('#address-input').attr('data-lat', e.suggestion['latlng']['lat']),
-    $('#address-input').attr('data-lng',e.suggestion['latlng']['lng'])
+    $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']),
+    $('#address_input').attr('data-lng',e.suggestion['latlng']['lng'])
   ));
 
   /*
@@ -136,10 +135,11 @@ $(document).ready(function() {
       parking: $('#parking').val(),
       piano: $('#piano').val(),
       sauna: $('#sauna').val(),
-      latitude: $('#address-input').attr('data-lat'),
-      longitude: $('#address-input').attr('data-lng')
+      latitude: $('#address_input').attr('data-lat'),
+      longitude: $('#address_input').attr('data-lng')
     }
 
+    console.log(params);
     // send params to API in Api/SearchController
     ajaxCall(params);
 
@@ -165,8 +165,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -255,8 +255,8 @@ function loadMap(maPins) {
 
   // take values from searchbar
   var latlng = {
-    lat: $('#address-input').attr('data-lat'),
-    lng: $('#address-input').attr('data-lng')
+    lat: $('#address_input').attr('data-lat'),
+    lng: $('#address_input').attr('data-lng')
   };
 
   // set map

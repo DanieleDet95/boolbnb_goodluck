@@ -52839,23 +52839,23 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // include JQuery
 
 
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // include handlebars
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // include places
 
 
-var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js"); // include searchbar functions
+var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+$(document).ready(function () {
+  // include commons
+  __webpack_require__(/*! ./partials/commons */ "./resources/js/partials/commons.js"); // include searchbar functions
 
 
-__webpack_require__(/*! ./search */ "./resources/js/search.js"); // include Statistiche
+  __webpack_require__(/*! ./partials/search */ "./resources/js/partials/search.js"); // include Statistiche
 
 
-__webpack_require__(/*! ./static */ "./resources/js/static.js"); // include create
+  __webpack_require__(/*! ./partials/static */ "./resources/js/partials/static.js"); // include create
 
 
-__webpack_require__(/*! ./create_update */ "./resources/js/create_update.js"); // Create suites file main_image upload
-
-
-$('#create_main_image').on('change', function () {
-  $('.custom-file-label').text("File Loaded");
+  __webpack_require__(/*! ./partials/create_update */ "./resources/js/partials/create_update.js");
 });
 
 /***/ }),
@@ -52905,171 +52905,181 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/create_update.js":
-/*!***************************************!*\
-  !*** ./resources/js/create_update.js ***!
-  \***************************************/
+/***/ "./resources/js/partials/commons.js":
+/*!******************************************!*\
+  !*** ./resources/js/partials/commons.js ***!
+  \******************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-// include places
-var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-
-$(document).ready(function () {
-  if ($('#address_create').length) {
-    var createAutocomplete = places({
-      appId: 'pl4XRMWU2BCA',
-      apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#address_create')
-    });
-    createAutocomplete.on('change', function (e) {
-      return $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
-    });
-  }
-
-  $('#stanza').val(6);
+// set content to image-input
+$('#create_main_image').on('change', function () {
+  $('.custom-file-label').text("File Loaded");
 });
 
 /***/ }),
 
-/***/ "./resources/js/search.js":
-/*!********************************!*\
-  !*** ./resources/js/search.js ***!
-  \********************************/
+/***/ "./resources/js/partials/create_update.js":
+/*!************************************************!*\
+  !*** ./resources/js/partials/create_update.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if ($('#address_create').length) {
+  var createAutocomplete = places({
+    appId: 'pl4XRMWU2BCA',
+    apiKey: '0c0d759444ce91afdb966e427ac5e837',
+    container: document.querySelector('#address_create')
+  });
+  createAutocomplete.on('change', function (e) {
+    return $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
+  });
+}
+
+$('#stanza').val(6);
+
+/***/ }),
+
+/***/ "./resources/js/partials/search.js":
+/*!*****************************************!*\
+  !*** ./resources/js/partials/search.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+/*
+###########################
+###########################
+
+check if home is on screen
+
+###########################
+###########################
+*/
+// include handlebars
 var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
-$(document).ready(function () {
-  /*
-  ###########################
-  ###########################
-   check if home is on screen
-   ###########################
-  ###########################
-  */
-  if ($('#home_search').length) {
-    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+if ($('#home_search').length) {
+  // refresh value 0
+  $('#home_search').val('');
+  $('#key').val('');
+  $('#latitude').val('');
+  $('#longitude').val(''); // set algolia autocompleate
 
-    var homeAutocomplete = places({
-      appId: 'pl4XRMWU2BCA',
-      apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#home_search'),
-      style: false
-    });
-    homeAutocomplete.on('change', function (e) {
-      return $('#key').val(e.suggestion.value), $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
-    });
-  }
-  /*
-  ############################
-  ############################
-   check if search is on screen
-   ############################
-  ############################
-  */
+  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 
-
-  if ($('#address_input').length) {
-    // check a previous search from home
-    // console.log($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng'));
-    if ($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng')) {
-      $('#range').val(20); //set a default range
-
-      var params = {
-        latitude: $('#address_input').attr('data-lat'),
-        longitude: $('#address_input').attr('data-lng'),
-        range: $('#range').val()
-      };
-      console.log(params);
-      ajaxCall(params);
-    } else {
-      // erase all values from all inputs in .search-wrapper except for #submit
-      $("#search_box input:not('#submit')").val('');
-    } // **DEFAULT INPUT VALUE**
-    // set all checkboxes value as false
-
-
-    $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
-
-    $('#search_box input[type="checkbox"]').on('click', function (event) {
-      checked($(this));
-    });
-    /*
-    **********************
-    MAP LEAFLEAT
-    **********************
-    */
-
-    var mymap = L.map('map', {
-      scrollWheelZoom: true,
-      zoomControl: true
-    }); // set methods
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      minZoom: 1,
-      maxZoom: 50
-    }).addTo(mymap); // set the view
-
-    mymap.setView([41.90, 12.47], 10);
-    /*
-    **********************
-    ALGOLIA AUTOCOMPLEATE
-    **********************
-    */
-
-    var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-
-    var placesAutocomplete = places({
-      appId: 'pl4XRMWU2BCA',
-      apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#address_input')
-    }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
-
-    placesAutocomplete.on('change', function (e) {
-      return $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']), $('#address_input').attr('data-lng', e.suggestion['latlng']['lng']);
-    });
-    /*
-    **********************
-    SEARCH FUNCTION
-    **********************
-    */
-    // on click take all values from the form and store them into params object
-
-    $('#submit').on('click', function () {
-      var params = {
-        range: $('#range').val(),
-        beds: $('#beds').val(),
-        rooms: $('#rooms').val(),
-        baths: $('#baths').val(),
-        square_m: $('#square_m').val(),
-        price: $('#price').val(),
-        pool: $('#pool').val(),
-        wifi: $('#wifi').val(),
-        pet: $('#pet').val(),
-        parking: $('#parking').val(),
-        piano: $('#piano').val(),
-        sauna: $('#sauna').val(),
-        latitude: $('#address_input').attr('data-lat'),
-        longitude: $('#address_input').attr('data-lng')
-      };
-      console.log(params); // send params to API in Api/SearchController
-
-      ajaxCall(params);
-    });
-  } // close the search-on-screen block
-
-}); // close the d.ready function
-// DEFINITIONs
-
-function checked(event) {
-  if ($(event).prop('checked')) {
-    $(event).val('true');
-  } else {
-    $(event).val('false');
-  }
+  var homeAutocomplete = places({
+    appId: 'pl4XRMWU2BCA',
+    apiKey: '0c0d759444ce91afdb966e427ac5e837',
+    container: document.querySelector('#home_search')
+  });
+  homeAutocomplete.on('change', function (e) {
+    return $('#key').val(e.suggestion.value), $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
+  });
 }
+/*
+############################
+############################
+
+check if search is on screen
+
+############################
+############################
+*/
+
+
+if ($('#address_input').length) {
+  // check a previous search from home
+  // console.log($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng'));
+  if ($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng')) {
+    $('#range').val(20); //set a default range
+
+    var params = {
+      latitude: $('#address_input').attr('data-lat'),
+      longitude: $('#address_input').attr('data-lng'),
+      range: $('#range').val()
+    };
+    console.log(params);
+    ajaxCall(params);
+  } else {
+    // erase all values from all inputs in .search-wrapper except for #submit
+    $("#search_box input:not('#submit')").val('');
+  } // **DEFAULT INPUT VALUE**
+  // set all checkboxes value as false
+
+
+  $('input[type="checkbox"]').prop('checked', false); // toggle chechbox values on click
+
+  $('#search_box input[type="checkbox"]').on('click', function (event) {
+    checked($(this));
+  });
+  /*
+  **********************
+  MAP LEAFLEAT
+  **********************
+  */
+
+  var mymap = L.map('map', {
+    scrollWheelZoom: true,
+    zoomControl: true
+  }); // set methods
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    minZoom: 1,
+    maxZoom: 50
+  }).addTo(mymap); // set the view
+
+  mymap.setView([41.90, 12.47], 10);
+  /*
+  **********************
+  ALGOLIA AUTOCOMPLEATE
+  **********************
+  */
+
+  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
+  var placesAutocomplete = places({
+    appId: 'pl4XRMWU2BCA',
+    apiKey: '0c0d759444ce91afdb966e427ac5e837',
+    container: document.querySelector('#address_input')
+  }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
+
+  placesAutocomplete.on('change', function (e) {
+    return $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']), $('#address_input').attr('data-lng', e.suggestion['latlng']['lng']);
+  });
+  /*
+  **********************
+  SEARCH FUNCTION
+  **********************
+  */
+  // on click take all values from the form and store them into params object
+
+  $('#submit').on('click', function () {
+    var params = {
+      range: $('#range').val(),
+      beds: $('#beds').val(),
+      rooms: $('#rooms').val(),
+      baths: $('#baths').val(),
+      square_m: $('#square_m').val(),
+      price: $('#price').val(),
+      pool: $('#pool').val(),
+      wifi: $('#wifi').val(),
+      pet: $('#pet').val(),
+      parking: $('#parking').val(),
+      piano: $('#piano').val(),
+      sauna: $('#sauna').val(),
+      latitude: $('#address_input').attr('data-lat'),
+      longitude: $('#address_input').attr('data-lng')
+    };
+    console.log(params); // send params to API in Api/SearchController
+
+    ajaxCall(params);
+  });
+} // close the search-on-screen block
+// DEFINITIONs
+// search call
+
 
 function ajaxCall(params) {
   $.ajax({
@@ -53139,7 +53149,8 @@ function ajaxCall(params) {
       console.log(_error);
     }
   });
-}
+} // load the map
+
 
 function loadMap(maPins) {
   // // refresh map
@@ -53168,25 +53179,42 @@ function loadMap(maPins) {
 
 
   mymap.setView([latlng.lat, latlng.lng], 8);
-}
+} // attach pins to the map
+
 
 function pinSuiteToMap(pin, mymap) {
   L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
+} // toggle checkbox values
+
+
+function checked(event) {
+  if ($(event).prop('checked')) {
+    $(event).val('true');
+  } else {
+    $(event).val('false');
+  }
 }
 
 /***/ }),
 
-/***/ "./resources/js/static.js":
-/*!********************************!*\
-  !*** ./resources/js/static.js ***!
-  \********************************/
+/***/ "./resources/js/partials/static.js":
+/*!*****************************************!*\
+  !*** ./resources/js/partials/static.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(document).ready(function () {
-  printStatics();
+/*
+####################
+####################
 
-  function printStatics() {
+CHARTS IS ON SCREEN
+
+####################
+####################
+*/
+if ($('#bar_visual').length) {
+  var printStatics = function printStatics() {
     $.ajax({
       url: "http://boolbnb_goodluck.loc/api/statics",
       // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
@@ -53270,8 +53298,10 @@ $(document).ready(function () {
         alert('error');
       }
     });
-  }
-});
+  };
+
+  printStatics();
+} //close the charts-on-screen
 
 /***/ }),
 
@@ -53287,14 +53317,13 @@ $(document).ready(function () {
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/search.js ./resources/sass/app.scss ***!
-  \**************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
 
 

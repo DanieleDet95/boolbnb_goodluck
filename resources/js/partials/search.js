@@ -8,6 +8,9 @@ check if home is on screen
 ###########################
 */
 
+// include handlebars
+const Handlebars = require("handlebars");
+
 if($('#home_search').length){
     // refresh value 0
     $('#home_search').val('');

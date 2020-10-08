@@ -360,6 +360,15 @@ main form#payment-form table {
 }
 
 main form#payment-form table th {
+<<<<<<< HEAD
+=======
+  padding: 10px;
+  background: #cf4532;
+  color: #F6F4F2;
+}
+
+main form#payment-form table td {
+>>>>>>> master
   padding: 10px;
   background: #cf4532;
   color: #F6F4F2;
@@ -367,6 +376,34 @@ main form#payment-form table th {
 
 main form#payment-form table td {
   padding: 10px;
+}
+
+main .messaggio {
+  background: #cf4532;
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+  color: #F6F4F2;
+}
+
+main .card .standard {
+  background: #cf4532;
+  padding: 5px;
+  color: #F6F4F2;
+}
+
+main .card .standard:hover {
+  background: #8b0000;
+}
+
+main .invia .btn {
+  background: #cf4532;
+  padding: 10px 20px;
+  color: #F6F4F2;
+}
+
+main .invia .btn:hover {
+  background: #8b0000;
 }
 
 main .messaggio {
@@ -841,6 +878,7 @@ main .create_suite_wrapper .form_submit .button_submit {
 
 main .create_suite_wrapper .checkbox {
   font-size: 14px;
+<<<<<<< HEAD
   text-align: left;
   /* Customize the label (the container) */
   /* Create a custom radio button */
@@ -855,10 +893,33 @@ main .create_suite_wrapper .checkbox .container_checkbox {
 
 main .create_suite_wrapper .checkbox .checkmark {
   top: 12px;
+=======
+  /* Customize the label (the container) */
+  /* Create a custom radio button */
+}
+
+main .create_suite_wrapper .checkbox .container_checkbox {
+  padding-left: 23px;
+  background-color: yellow;
+}
+
+@media all and (max-width: 720px) {
+  main .create_suite_wrapper .checkbox .container_checkbox {
+    padding-left: 23px;
+    flex-wrap: nowrap;
+    width: 100px;
+    border: 1px solid black;
+  }
+}
+
+main .create_suite_wrapper .checkbox .checkmark {
+  top: 5px;
+>>>>>>> master
   height: 16px;
   width: 16px;
 }
 
+<<<<<<< HEAD
 main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
   left: 5.5px;
   top: 2px;
@@ -866,6 +927,8 @@ main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
   height: 8px;
 }
 
+=======
+>>>>>>> master
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

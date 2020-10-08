@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 // Import model
 use App\Suite;
@@ -55,6 +56,14 @@ class SuiteController extends Controller
       }
     }
 
+    // smooth code
+    // $highlights_suites_active = Suite::query();
+    //
+    // $highlights_suites_active->has('highlights')
+    // ->with('highlights')
+    // ->orderBy('created_at', 'asc')
+    // ->take(6)->get();
+
     return view('guest.suites.index', compact('suites', 'highlights_suites_active'));
   }
 
@@ -88,13 +97,22 @@ class SuiteController extends Controller
     return redirect()->route('suites.show', $suite);
   }
 
+  public function homesearch(Request $request)
+  {
+    $search = $request->all();
+    $key = $search['key'];
+    $lat = $search['latitude'];
+    $lng = $search['longitude'];
 
+    return view('guest.suites.search', compact('key', 'lat', 'lng'));
+  }
 
   public function search()
   {
+
     $suites = Suite::all();
 
-    return view('guest.suites.search',compact('suites'));
+    return view('guest.suites.search', compact('suites'));
   }
 
 

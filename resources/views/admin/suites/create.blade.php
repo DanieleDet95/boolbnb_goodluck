@@ -32,7 +32,7 @@
           <div class="sub_title">
             <h3>Publish your suites</h3>
           </div>
-        <div>
+        </div>
         {{-- end Form Title --}}
 
         {{-- Form Create --}}
@@ -62,7 +62,7 @@
             <div class="col-12">
               <div class="input_box">
 
-                <input
+                {{-- <input
                   id="latitude"
                   class="form-control rounded-0 d-none"
                   required autocomplete="address"
@@ -76,7 +76,7 @@
                   required autocomplete="address"
                   autofocus type="text"
                   name="longitude"
-                  value="{{old('longitude')}}">
+                  value="{{old('longitude')}}"> --}}
 
                 <input
                   id="address_create"
@@ -333,13 +333,14 @@
               </div>
             </div>
           </div>
-        </div>
         {{-- end Create suite --}}
 
 
 
       </form>
       {{-- end Form Create --}}
+
+    </div>
 
     </div>
   </div>

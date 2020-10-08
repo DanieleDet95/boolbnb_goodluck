@@ -65,6 +65,10 @@ img {
   margin: 0 auto;
 }
 
+.ap-input {
+  background-color: red;
+}
+
 header {
   width: 1200px;
 }

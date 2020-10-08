@@ -64,7 +64,7 @@
 
               <div class="input-group flex-nowrap">
 
-                <input type="search" id="home_search" class="form-control rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2" value="">
+                <input type="search" id="home_search" class="form-control rounded-0 ap-input" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2" value="">
                 <input id="key" type="text" name="key" class="d-none" value="">
                 <input id="latitude" type="text" name="latitude" class="d-none" value="">
                 <input id="longitude" type="text" name="longitude" class="d-none" value="">

@@ -52,3 +52,7 @@ img {
 .main_wrapper {
   @include main_wrapper;
 }
+
+.ap-input {
+  background-color: red;
+}

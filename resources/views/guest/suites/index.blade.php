@@ -72,15 +72,18 @@
 
 
   {{-- Suites cards --}}
-  <section class="section_suites_cards">
-    <div class="container">
-      <div class="row row-cols-xs-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 p-3 justify-content-center">
+  <section class="suites_cards">
+
+    {{-- Bootsrap --}}
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+
       {{-- Foreach suite with a promotion --}}
       @foreach ($highlights_suites_active as $highlight_suite_active)
         <a class="link_card" href={{ route("suites.show", $highlight_suite_active->id)}}>
           <div class="example-row item">
             <div class="example-content-main mx-3 polaroid d-flex flex-column justify-content-beetween">
-              {{-- cambio path della main_image a seconda dalla provenienza(faker o storage)  --}}
+              {{-- Change path della main_image a seconda dalla provenienza(faker o storage)  --}}
               {{-- Main Image --}}
               @if (isset($highlight_suite_active->main_image))
                 @if (strpos($highlight_suite_active->main_image, 'lorempixel') == false)
@@ -101,6 +104,8 @@
       @endforeach
       </div>
     </div>
+    {{-- end Bootsrap --}}
+
   </section>
   {{-- end Suites cards --}}
 @endsection

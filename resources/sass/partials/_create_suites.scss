@@ -46,27 +46,41 @@ main {
     // Services checkbox
     .checkbox {
       font-size: $small_text_size;
+      text-align: left;
+
+      // @media all and (max-width: 800px)  {
+      //   & {
+      //     flex-direction: row;
+      //     flex-wrap: wrap;
+      //     width: 100%;
+      //
+      //     /* Customize the label (the container) */
+      //     & > .container_checkbox {
+      //       padding: 50px;
+      //     }
+      //   }
+      // }
 
       /* Customize the label (the container) */
       .container_checkbox {
-        padding-left: 23px;
-        background-color: yellow;
-      }
-
-      @media all and (max-width: 720px) {
-        .container_checkbox {
-          padding-left: 23px;
-          flex-wrap: nowrap;
-          width: 100px;
-          border: 1px solid black;
-        }
+        padding-left: 25px;
+        font-size: 25px;
+        color: $secondary_background;
       }
 
       /* Create a custom radio button */
       .checkmark {
-        top: 5px;
+        top: 12px;
         height: 16px;
         width: 16px;
+      }
+
+      /* Style the indicator */
+      .container_checkbox .checkmark:after {
+        left: 5.5px;
+        top: 2px;
+        width: 3.5px;
+        height: 8px;
       }
     }
   }

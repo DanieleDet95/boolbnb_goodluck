@@ -583,14 +583,22 @@ main .entry .image_main_card {
   border-radius: 50%;
 }
 
-main .entry .body_card h4 {
-  font-size: 24px;
-  color: #272728;
+main .entry .body_card {
+  height: 100%;
 }
 
 main .entry .body_card h6 {
   font-size: 20px;
+  color: #272728;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+main .entry .body_card p {
+  font-size: 18px;
   color: #606060;
+  letter-spacing: 0;
+  line-height: 20px;
 }
 
 main .common_form .form_title .top_title > h4 {

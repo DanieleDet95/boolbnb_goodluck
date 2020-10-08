@@ -9,7 +9,11 @@
     <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
-        <input class="col-12 form-control rounded-0" type="search" id="address-input" data-lat="" data-lng="{{old('searchbar')}}" placeholder="Where are we going?">
+        @if (isSet($key))
+          <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="{{$lat}}" data-lng="{{$lng}}" placeholder="Where are we going?" value="{{$key}}">
+        @else
+          <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="" data-lng="" placeholder="Where are we going?" />
+        @endif
       </div>
 
       <div class="d-flex flex-column align-items-center align-items-lg-center justify-content-lg-around flex-lg-row col-12 my-3">
@@ -20,7 +24,7 @@
           <input class="form-control rounded-0" id="rooms" type="number" name="rooms" value="" placeholder="Rooms">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
-          <input class="form-control rounded-0" id="beds" type="number" name="beds" value="" placeholder="Beds">
+          <input id="bed" class="form-control rounded-0" id="beds" type="number" name="beds" value="" placeholder="Beds">
         </div>
         <div class="input_box col-4 col-12-sm flex-fill my-2">
           <input class="form-control rounded-0" id="baths" type="number" name="baths" value="" placeholder="Baths">

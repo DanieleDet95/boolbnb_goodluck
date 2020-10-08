@@ -12,7 +12,7 @@ main {
       }
     }
   }
-  .input_box>input {
+  .input_box > input {
     &:focus {
       border-color: $secondary_background;
       box-shadow: 0 0 0;

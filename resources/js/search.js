@@ -18,6 +18,7 @@ $(document).ready(function() {
         appId: 'pl4XRMWU2BCA',
         apiKey: '0c0d759444ce91afdb966e427ac5e837',
         container: document.querySelector('#home_search'),
+        style: false,
       })
 
       homeAutocomplete.on('change', e => (
@@ -106,6 +107,7 @@ $(document).ready(function() {
     appId: 'pl4XRMWU2BCA',
     apiKey: '0c0d759444ce91afdb966e427ac5e837',
     container: document.querySelector('#address_input'),
+    style: false,
   });
 
   // take lat/lng value from algolia's response and store them into data-att of #adress-input

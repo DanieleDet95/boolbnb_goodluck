@@ -52848,19 +52848,15 @@ var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebar
 __webpack_require__(/*! ./search */ "./resources/js/search.js"); // include Statistiche
 
 
-<<<<<<< HEAD
-__webpack_require__(/*! ./static */ "./resources/js/static.js"); // Create suites file main_image upload
+__webpack_require__(/*! ./static */ "./resources/js/static.js"); // include create
+
+
+__webpack_require__(/*! ./create_update */ "./resources/js/create_update.js"); // Create suites file main_image upload
 
 
 $('#create_main_image').on('change', function () {
   $('.custom-file-label').text("File Loaded");
 });
-=======
-__webpack_require__(/*! ./static */ "./resources/js/static.js"); // include create
-
-
-__webpack_require__(/*! ./create_update */ "./resources/js/create_update.js");
->>>>>>> master
 
 /***/ }),
 
@@ -52949,8 +52945,8 @@ $(document).ready(function () {
   /*
   ###########################
   ###########################
-   check if home is on screen
-   ###########################
+    check if home is on screen
+    ###########################
   ###########################
   */
   if ($('#home_search').length) {
@@ -52959,7 +52955,8 @@ $(document).ready(function () {
     var homeAutocomplete = places({
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#home_search')
+      container: document.querySelector('#home_search'),
+      style: false
     });
     homeAutocomplete.on('change', function (e) {
       return $('#key').val(e.suggestion.value), $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
@@ -52968,8 +52965,8 @@ $(document).ready(function () {
   /*
   ############################
   ############################
-   check if search is on screen
-   ############################
+    check if search is on screen
+    ############################
   ############################
   */
 
@@ -53027,7 +53024,8 @@ $(document).ready(function () {
     var placesAutocomplete = places({
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#address_input')
+      container: document.querySelector('#address_input'),
+      style: false
     }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
 
     placesAutocomplete.on('change', function (e) {
@@ -53298,21 +53296,9 @@ $(document).ready(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
 __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
 module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
-=======
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> master
-=======
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
->>>>>>> master
 
 
 /***/ }),

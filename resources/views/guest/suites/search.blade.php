@@ -94,7 +94,11 @@
     <div class="container-fluid container_suites_cards mb-5">
       <div class="row">
         <div class="col-lg-6 col-12 suites_cards">
+<<<<<<< HEAD
             <div class="suites_cards_promo">
+=======
+            <div class="suites_cards_promo bg-light">
+>>>>>>> ivan-search-cards
               {{-- div per le card in evidenza --}}
             </div>
             <div class="suites_cards_noPromo">
@@ -110,6 +114,7 @@
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
+<<<<<<< HEAD
         <div class="entry col-12 d-flex flex-column flex-sm-row">
           <div class="image_main_card col-12 col-sm-6">
             <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
@@ -123,6 +128,20 @@
             <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
         </div>
       <hr>
+=======
+        <div class="entry py-3 col-12 d-flex align-items-center flex-column flex-sm-row">
+          <div class="image_main_card col-12 col-sm-6">
+            <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
+          </div>
+          <div class="body_card d-flex flex-column align-items-start col-12 col-sm-6">
+            <h6>@{{title}}</h6>
+            <p>@{{address}}</p>
+            <h6>@{{price}}€/ night</h6>
+          </div>
+            <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
+        </div>
+      <hr class="my-0">
+>>>>>>> ivan-search-cards
     </script>
 
 @endsection

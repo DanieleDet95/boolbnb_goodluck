@@ -283,13 +283,20 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
           {{-- end Submit Login --}}
+=======
+        {{-- end Create suite --}}
+
+>>>>>>> Branch-Daniele
 
         </form>
         {{-- end Form Create --}}
 
       </div>
       {{-- end Create suite --}}
+
+    </div>
 
     </div>
   </div>

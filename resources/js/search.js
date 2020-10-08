@@ -8,6 +8,9 @@ check if home is on screen
 ###########################
 */
 
+// include handlebars
+const Handlebars = require("handlebars");
+
 if($('#home_search').length){
     // refresh value 0
     $('#home_search').val('');
@@ -21,16 +24,15 @@ if($('#home_search').length){
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
       container: document.querySelector('#home_search'),
+      style: false,
     })
 
-  if($('#home_search').length){
-      var places = require('places.js');
-      var homeAutocomplete = places({
-        appId: 'pl4XRMWU2BCA',
-        apiKey: '0c0d759444ce91afdb966e427ac5e837',
-        container: document.querySelector('#home_search'),
-        style: false,
-      })
+    homeAutocomplete.on('change', e => (
+      $('#key').val(e.suggestion.value),
+      $('#latitude').val(e.suggestion['latlng']['lat']),
+      $('#longitude').val(e.suggestion['latlng']['lng'])
+    ))
+  }
 
 
 
@@ -166,8 +168,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 

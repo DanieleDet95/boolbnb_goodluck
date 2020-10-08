@@ -72,7 +72,7 @@
 
                 {{-- Button --}}
                 <div class="input-group-append">
-                  <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                  <button class="btn btn-outline-secondary rounded-0" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
                 </div>
                 {{-- end Button --}}
 

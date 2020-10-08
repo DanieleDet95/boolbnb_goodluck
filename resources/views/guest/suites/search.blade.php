@@ -94,37 +94,35 @@
     <div class="container-fluid container_suites_cards mb-5">
       <div class="row">
         <div class="col-lg-6 col-12 suites_cards">
-          <div class="suites_cards_promo">
-            {{-- div per le card in evidenza --}}
-          </div>
-          <div class="suites_cards_noPromo">
-            {{-- div per le card non in evidenza --}}
-          </div>
+            <div class="suites_cards_promo">
+              {{-- div per le card in evidenza --}}
+            </div>
+            <div class="suites_cards_noPromo">
+              {{-- div per le card non in evidenza --}}
+            </div>
         </div>
         <div class="d-none d-lg-block d-xl-block col-lg-6 my_maps">
           <div id="map"></div>
         </div>
-
       </div>
     </div>
-
-
 
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
-        <div class="entry col-12 d-flex">
-          <div class="col-5">
-            <img src="@{{main_image}}" alt="@{{title}}">
+        <div class="entry col-12 d-flex flex-column flex-sm-row">
+          <div class="image_main_card col-12 col-sm-6">
+            <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
           </div>
-          <div class="body col-7">
-            <h2>@{{title}}</h2>
-            <h3>@{{address}}</h3>
-            <h3>@{{price}}€</h3>
+          <div class="body_card col-12 col-sm-6">
+            <h4>@{{title}}</h4>
+            <h6>@{{address}}</h6>
+            <h6>@{{price}}€ / night</h6>
             <p>@{{id}}</p>
           </div>
+            <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
         </div>
-      </div>
+      <hr>
     </script>
 
 @endsection

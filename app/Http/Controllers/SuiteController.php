@@ -11,6 +11,7 @@ use App\Message;
 use App\Highlight;
 use App\Visit;
 use Carbon\Carbon;
+use App\Image;
 
 // Import Mail model
 use Illuminate\Support\Facades\Mail;

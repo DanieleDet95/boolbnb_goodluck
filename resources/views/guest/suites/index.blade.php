@@ -7,7 +7,7 @@
 @section("content")
 
   {{-- Jumbotron --}}
-  <section class="jumbotron mb-0 p-0 jumbotron-fluid text-xl-left text-center jumbo_custom">
+  <section class="jumbotron mb-0 p-0 jumbotron-fluid text-lg-left text-md-center text-center jumbo_custom">
 
     {{-- Carousel --}}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -45,7 +45,7 @@
 
       {{-- Jumbotron Title --}}
       <div class="row">
-        <div class="col-12 col-xl-6">
+        <div class="col-12 col-md-10 col-lg-6">
           <div class="jumbo_title">
             <h1 class="jumbo_top_title">Discover Italy</h1>
             <p class="jumbo_sub_title">Change the picture. Discover nearby accommodations to enjoy, for work or leisure.</p>
@@ -55,8 +55,8 @@
 
       {{-- Jumbotron Search input --}}
       <div class="row">
-        <div class="col-12 col-xl-6">
-          <form class="form_search_bar form" action="{{route('suites.search.submit')}}" method="post">
+        <div class="col-12 col-md-10 col-lg-6">
+          <form class="form_search_bar form" action="{{ route('suites.search.submit') }}" method="post">
             @csrf
             @method('get')
 
@@ -64,15 +64,15 @@
               <div id="algolia_form" class="input-group">
 
                 {{-- Algolia input --}}
-                <input type="search" id="home_search" class="form-control border-0 rounded-0 algolia-places-nostyle" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <input id="key" type="text" name="key" class="form-control rounded-0 border-0 algolia-places-nostyle d-none">
-                <input id="latitude" type="text" name="latitude" class="form-control rounded-0 border-0 algolia-places-nostyle d-none">
-                <input id="longitude" type="text" name="longitude" class="form-control rounded-0 border-0 algolia-places-nostyle d-none">
+                <input type="search" id="home_search" class="form-control border-0 rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input id="key" type="text" name="key" class="form-control rounded-0 border-0 d-none">
+                <input id="latitude" type="text" name="latitude" class="form-control rounded-0 border-0 d-none">
+                <input id="longitude" type="text" name="longitude" class="form-control rounded-0 border-0 d-none">
                 {{-- end Algolia input --}}
 
                 {{-- Button --}}
                 <div class="input-group-append">
-                  <button class="btn btn-outline-secondary rounded-0" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                  <button class="btn btn-outline-secondary rounded-0" type="submit" id="button-addon2"><i class="fas fa-search"></i></button>
                 </div>
                 {{-- end Button --}}
 

@@ -128,7 +128,7 @@ header .navbar .navbar-collapse .navbar-nav .nav-item .nav-link > span {
   font-weight: bold;
 }
 
-header .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+header .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover > span {
   color: #cf4532;
 }
 
@@ -452,7 +452,7 @@ footer .my_presentation .rounded-circle {
 }
 
 #algolia_form input:focus,
-#input-styling-address input:active {
+#algolia_form input:active {
   border-color: #272728;
   box-shadow: 0 0 0;
   outline: none;
@@ -477,6 +477,19 @@ footer .my_presentation .rounded-circle {
   font-size: 14px;
 }
 
+#algolia_form .ap-nostyle-dropdown-menu .ap-suggestion-icon {
+  vertical-align: super;
+}
+
+#algolia_form .ap-nostyle-suggestion {
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+#algolia_form .ap-nostyle-dropdown-menu .ap-name > em {
+  font-style: inherit;
+}
+
 main section.jumbo_custom {
   background-size: 1200px auto;
   width: 100%;
@@ -495,6 +508,12 @@ main section.jumbo_custom .carousel {
 
 main section.jumbo_custom .carousel .carousel-inner > .carousel-item > img {
   height: 480px;
+}
+
+@media all and (max-width: 720px) {
+  main section.jumbo_custom .carousel .carousel-control-next {
+    display: none;
+  }
 }
 
 main section.jumbo_custom > .jumbo_container {

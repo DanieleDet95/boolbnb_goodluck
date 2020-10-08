@@ -397,6 +397,16 @@ main .card .standard:hover {
   background: #8b0000;
 }
 
+main .anteprima #output,
+main .anteprima #output1,
+main .anteprima #output2,
+main .anteprima #output3 {
+  margin: auto;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
 main .invia .btn {
   background: #cf4532;
   padding: 10px 20px;
@@ -878,30 +888,40 @@ main .create_suite_wrapper {
   padding: 100px 0px;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file {
+main .create_suite_wrapper .create_price_cover .custom-file,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file {
   text-align: left;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label {
+main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file > .custom-file-label {
   border: 0;
   border-right: 0;
   color: #bebebe;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-input:focus ~ .custom-file-label {
+main .create_suite_wrapper .create_price_cover .custom-file .custom-file-input:lang(en) ~ .custom-file-label::after,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file .custom-file-input:lang(en) ~ .custom-file-label::after {
+  content: "Browse";
+  font-family: "Poppins", sans-serif;
+  color: #f6f4f2;
+  font-size: 14px;
+}
+
+main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-input:focus ~ .custom-file-label,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file > .custom-file-input:focus ~ .custom-file-label {
   border-color: #272728;
   box-shadow: 0 0 0;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label::after {
+main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label::after,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file > .custom-file-label::after {
   background-color: #cf4532;
-  font-family: "Poppins", sans-serif;
-  color: #f6f4f2;
-  font-size: 14px;
   border-radius: 0;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file:hover .custom-file-label::after {
+main .create_suite_wrapper .create_price_cover .custom-file:hover .custom-file-label::after,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file:hover .custom-file-label::after {
   background-color: #a73727;
 }
 

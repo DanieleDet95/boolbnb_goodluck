@@ -8,6 +8,7 @@
       <div class="col-12">
         <div class="wrapper_mysuites">
 
+        {{-- Se sono presenti appartamenti all'utente --}}
         @if (is_array($my_suites))
           <h4>Questi sono i tuoi appartamenti</h4>
           <table border="1" class="text-center">
@@ -22,6 +23,7 @@
             </tr>
           @foreach ($my_suites as $my_suite)
             <tr>
+              {{-- Immagine copertina --}}
               <td>
                 @if (strpos($my_suite->main_image, 'lorempixel') == false)
                  <img src="{{asset('storage').'/'.$my_suite->main_image}}" alt="{{$my_suite->title}}">
@@ -29,10 +31,16 @@
                  <img src="{{ $my_suite->main_image }}" alt="{{ $my_suite->title }}">
                @endif
               </td>
+              {{-- Titolo --}}
               <td><a href="{{route('suites.show', $my_suite)}}">{{$my_suite->title}}</a></td>
+
+              {{-- Address --}}
               <td>{{$my_suite->address}}</td>
+
+              {{-- Price --}}
               <td>{{$my_suite->price}}€</td>
-              {{-- Messaggi --}}
+
+              {{-- Messaggi ricevuti --}}
               <td>
                 <a href="{{route('admin.email.messages.index', $my_suite)}}">
                   <?php $messagges = []; ?>
@@ -45,6 +53,7 @@
                   </div>
                 </a>
               </td>
+
               {{-- Highlights --}}
               <td>
                 @if (!$my_suite->highlights->isEmpty())
@@ -60,9 +69,10 @@
                         <a href="{{ route("admin.promotion", $my_suite)}}"> Sponzorizza</a>
                       </button>
                     </div>
-                  </div>                  
+                  </div>
                 @endif
               </td>
+
               {{-- Controlli --}}
               <td class="controlli">
                 <div>
@@ -82,8 +92,6 @@
                   @method('DELETE')
                   <input class="btn btn-danger left m-1" type="submit" value="Elimina">
                 </form>
-
-
               </td>
 
             </tr>
@@ -91,6 +99,8 @@
           </table>
 
         @else
+
+          {{-- Se non ci sono appartamenti all'utente --}}
           <div class="vuoto">
             <h3>Non hai appartamenti registrati</h3>
           </div>

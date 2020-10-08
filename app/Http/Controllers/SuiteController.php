@@ -145,12 +145,15 @@ class SuiteController extends Controller
 
   public function show(Suite $suite)
   {
-    $giorno = Carbon::now('Europe/Rome');
-    $new_visit = new Visit();
-    $new_visit->data = $giorno;
-    $new_visit->ip = 90;
-    $new_visit->suite_id = $suite['id'];
-    $new_visit->save();
+    $user = Auth::id();
+    if ($suite->user_id != $user) {
+      $giorno = Carbon::now('Europe/Rome');
+      $new_visit = new Visit();
+      $new_visit->data = $giorno;
+      $new_visit->ip = 90;
+      $new_visit->suite_id = $suite['id'];
+      $new_visit->save();
+    }
 
     $user = Auth::user();
     return view('guest.suites.show', compact('suite', 'user'));

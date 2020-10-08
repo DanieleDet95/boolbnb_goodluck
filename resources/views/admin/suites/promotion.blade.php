@@ -12,6 +12,7 @@
     foreach ($suite->highlights as $highlight) {
 
       $oggi = date('Y-m-d H:i:s');
+
       // Se la sponsorizzazione é attiva
       if ( $oggi < $highlight->pivot['end']) {
         $attivo = true;
@@ -51,6 +52,7 @@
 
       <div class="col-sm-12 col-md-12 col-lg-6">
 
+        {{-- Tabella pagamento --}}
         <div id="bt-dropin"></div>
 
         <input id="nonce" name="payment_method_nonce" type="hidden"/>

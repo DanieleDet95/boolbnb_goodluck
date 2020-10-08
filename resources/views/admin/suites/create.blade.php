@@ -61,7 +61,25 @@
           <div class="create_address form-group row">
             <div class="col-12">
               <div class="input_box">
+
                 <input
+                  id="latitude"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus type="text"
+                  name="latitude"
+                  value="{{old('latitude')}}">
+
+                <input
+                  id="longitude"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus type="text"
+                  name="longitude"
+                  value="{{old('longitude')}}">
+
+                <input
+                  id="address_create"
                   type="text"
                   name="address"
                   value="{{old('address')}}"

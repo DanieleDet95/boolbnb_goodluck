@@ -1,11 +1,20 @@
-$( document ).ready(function() {
+/*
+####################
+####################
 
+CHARTS IS ON SCREEN
+
+####################
+####################
+*/
+
+if($('#bar_visual').length) {
   printStatics();
 
   function printStatics(){
     $.ajax({
-        // url: "http://boolbnb_goodluck.loc/api/statics",
-        url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
+        url: "http://boolbnb_goodluck.loc/api/statics",
+        // url: 'http://127.0.0.1:8000/api/statics', //per i comuni mortali
         data: {
             suite: $('#suite').text(),
         },
@@ -98,4 +107,4 @@ $( document ).ready(function() {
     });
   }
 
-});
+} //close the charts-on-screen

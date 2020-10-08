@@ -48,6 +48,11 @@ main {
           &:hover {
             background-color: $quinternary_background;
           }
+
+          &.btn-outline-secondary:focus {
+            box-shadow: 0 0 0 0;
+            outline: 0;
+          }
         }
 
         // Input Style

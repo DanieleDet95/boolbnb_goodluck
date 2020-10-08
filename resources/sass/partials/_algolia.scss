@@ -1,0 +1,29 @@
+// partials/_common.scss
+
+// Search bar
+// Algolia Form Reset
+#algolia_form input:focus, #input-styling-address input:active {
+  border-color: $secondary_background;
+  box-shadow: 0 0 0;
+  outline: none;
+}
+
+// Algolia Icon
+#algolia_form .ap-nostyle-input-icon {
+  display: none;
+  background: none;
+  border: none;
+}
+
+// Algolia form bar
+#algolia_form .algolia-places-nostyle { flex-grow: 1}
+
+// Algolia dropdown menu
+#algolia_form .ap-nostyle-dropdown-menu {
+  background-color: #fff;
+  color: $secondary_background;
+  width: 99.8%;
+  padding: 6px 12px;
+  font-style: $primary_font;
+  font-size: $small_text_size;
+}

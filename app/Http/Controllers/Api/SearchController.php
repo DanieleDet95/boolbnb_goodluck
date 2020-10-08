@@ -18,7 +18,7 @@ class SearchController extends Controller
 
       $R = 6371; // raggio della Terra in km
 
-      $rad = $request->get('range');
+      $rad = ($request->get('range')) ? $request->get('range') : 20; //20km is default if range is not set
       $rooms = $request->get('rooms');
       $beds = $request->get('beds');
       $baths = $request->get('baths');

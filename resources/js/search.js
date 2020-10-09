@@ -178,6 +178,8 @@ $('#searchbar-wrapper input').on('keypress', function(e) {
     // send params to API in Api/SearchController
     ajaxCall(params);
 
+
+
     }
   })
 
@@ -192,6 +194,17 @@ $('#searchbar-wrapper input').on('keypress', function(e) {
 
 // search call
 function ajaxCall(params) {
+
+  $body = $("body");
+
+  $(document).on({
+    ajaxStart: function() {
+      $body.addClass("loading");
+    },
+     ajaxStop: function() {
+       $body.removeClass("loading");
+     }
+  });
 
   $.ajax
   ({

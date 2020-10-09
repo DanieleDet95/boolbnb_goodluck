@@ -74,7 +74,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="d-inline-block nav-link" href="#">
+              <a class="d-inline-block nav-link" href="{{route('faqs')}}">
                 <span>FAQ</span>
               </a>
             </li>

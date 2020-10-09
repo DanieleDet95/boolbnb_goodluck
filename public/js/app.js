@@ -52852,7 +52852,10 @@ $(document).ready(function () {
   __webpack_require__(/*! ./static */ "./resources/js/static.js"); // include create
 
 
-  __webpack_require__(/*! ./create_update */ "./resources/js/create_update.js");
+  __webpack_require__(/*! ./create_update */ "./resources/js/create_update.js"); // include create
+
+
+  __webpack_require__(/*! ./show */ "./resources/js/show.js");
 });
 
 /***/ }),
@@ -53111,10 +53114,18 @@ if ($('#address_input').length) {
 
 
 function ajaxCall(params) {
+  $body = $("body");
+  $(document).on({
+    ajaxStart: function ajaxStart() {
+      $body.addClass("loading");
+    },
+    ajaxStop: function ajaxStop() {
+      $body.removeClass("loading");
+    }
+  });
   $.ajax({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search",
-    //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -53137,8 +53148,7 @@ function ajaxCall(params) {
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source); // refresh html before a new search
 
-      $('.suites_cards_promo').html(''); // console.log(suites.noPromo);
-
+      $('.suites_cards_promo').html('');
       var maPins = [];
 
       for (var i = 0; i < suites.promo.length; i++) {
@@ -53223,6 +53233,26 @@ function checked(event) {
   } else {
     $(event).val('false');
   }
+}
+
+/***/ }),
+
+/***/ "./resources/js/show.js":
+/*!******************************!*\
+  !*** ./resources/js/show.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if ($('#show_map').length) {
+  var lat = $('#show_map').attr('data-lat');
+  var lng = $('#show_map').attr('data-lng');
+  var showMap = L.map('show_map').setView([lat, lng], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    minZoom: 5
+  }).addTo(showMap);
+  L.marker([lat, lng]).addTo(showMap);
 }
 
 /***/ }),
@@ -53354,8 +53384,8 @@ if ($('#bar_visual').length) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/ivan/Documents/Boolean/mamp-htdocs/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

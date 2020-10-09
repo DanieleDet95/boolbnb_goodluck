@@ -17,8 +17,17 @@ main {
       outline: 0 none;
     }
   }
+  .row_message {
+    .my_landowner_info {
+      h3 {
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+  }
   .row_info {
-    .list_infos, .list_services > *{
+    .list_infos, .list_services > * {
       list-style-type: none;
     }
   }

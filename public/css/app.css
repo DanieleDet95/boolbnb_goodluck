@@ -719,6 +719,10 @@ main .input_box > textarea:focus {
   outline: 0 none;
 }
 
+main .row_message .my_landowner_info h3 span {
+  font-weight: bold;
+}
+
 main .row_info .list_infos,
 main .row_info .list_services > * {
   list-style-type: none;

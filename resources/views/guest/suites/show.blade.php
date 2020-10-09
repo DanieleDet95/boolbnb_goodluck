@@ -57,7 +57,7 @@
           <li>Beds: {{$suite->beds}}</li>
           <li>Baths: {{$suite->baths}}</li>
           <li>Square Meters: {{$suite->square_m}}</li>
-          <li>Price: {{$suite->price}} €/ night</li>
+          <li>Price: {{$suite->price}} €/night</li>
         </ul>
       </div>
 
@@ -79,12 +79,14 @@
       <div class="mb-3 message_to_landowner">
         <div class="mx-3 my_landowner_info">
           <h3>Write to owner
-            @if (!empty($suite->user->name))
-              {{$suite->user->name}}
-            @endif
-            @if (!empty($suite->user->lastname))
-              {{$suite->user->lastname}}
-            @endif
+            <span>
+              @if (!empty($suite->user->name))
+                {{$suite->user->name}}
+              @endif
+              @if (!empty($suite->user->lastname))
+                {{$suite->user->lastname}}
+              @endif
+            </span>
           </h3>
         </div>
       </div>

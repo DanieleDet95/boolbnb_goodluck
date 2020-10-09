@@ -5,9 +5,9 @@
 @section("content")
   <div class="container-fluid container-md">
     {{-- Row Title Images --}}
-    <div class="row flex-column flex-nowrap row_title_img">
+    <div class="row flex-column flex-nowrap mt-3 row_title_img">
       {{-- Prima riga fatta da titolo e indirizzo --}}
-      <div class="title_show">
+      <div class="mx-3 title_show">
         <h2>{{$suite->title}}</h2>
         <h6>{{$suite->address}}</h6>
       </div>
@@ -45,39 +45,54 @@
     {{-- Fine Row Tile Images --}}
     {{-- Row Details --}}
     <div class="row row_info">
-      <div class="description_suite">
+      <div class="col-12 my_suite_description">
         <p>{{$suite->description}}</p>
+      </div>
+      <hr>
+      <div class="col-6 my_suite_info">
+        <h4>Suite Info</h4>
+        <ul class="list-group">
+          <li>Rooms: {{$suite->rooms}}</li>
+          <li>Beds: {{$suite->beds}}</li>
+          <li>Baths: {{$suite->baths}}</li>
+          <li>Square Meters: {{$suite->square_m}}</li>
+          <li>Price: {{$suite->price}}</li>
+        </ul>
+      </div>
+
+      <div class="col-6 my_suite_services">
+        @if (!$suite->services->isEmpty())
+          <h4>Suite Services</h4>
+          <ul class="list-group">
+          @foreach ($suite->services as $service)
+            <li><i class="{{ $service->icon }}"></i> {{ $service->supplements }}</li>
+          @endforeach
+          </ul>
+        @endif
       </div>
     </div>
     {{-- Fine Row Details --}}
   </div>
+  <div class="">
+    <h3>Scrivi al proprietario</h3>
+    <div class="col-12 my_landowner_info">
+      <h3>
+        @if (!empty($suite->user->name))
+          {{$suite->user->name}}
+        @endif
+        @if (!empty($suite->user->lastname))
+          {{$suite->user->lastname}}
+        @endif
+      </h3>
+      <a href="#">{{$suite->user->email}}</a>
+    </div>
+  </div>
   <ul>
-    @if (!empty($suite->user->name))
-      <li>Nome: {{$suite->user->name}}</li>
-    @endif
-    @if (!empty($suite->user->lastname))
-      <li>Cognome: {{$suite->user->lastname}}</li>
-    @endif
-    <li>Email: {{$suite->user->email}}</li>
-    <li>Stanze: {{$suite->rooms}}</li>
-    <li>Letti: {{$suite->beds}}</li>
-    <li>Bagni: {{$suite->baths}}</li>
-    <li>Metri quadri: {{$suite->square_m}}</li>
-    <li>Prezzo: {{$suite->price}}</li>
+
     {{-- <li>Latitudine: {{$suite->latitude}}</li>
     <li>Longitudine: {{$suite->longitude}}</li>
     <li>id: {{$suite->id}}</li> --}}
-    @if (!$suite->services->isEmpty())
-      <h3>Servizi disponibili:</h3>
-      @foreach ($suite->services as $service)
-        <li><i class="{{ $service->icon }}"></i> {{ $service->supplements }}</li>
-      @endforeach
-    @endif
-    <li>
-      {{-- cambio path della main_image a seconda dalla provenienza(faker o storage)  --}}
 
-    </li>
-  </ul>
 
   {{-- cambio path delle immagini della tabella images a seconda dalla provenienza(faker o storage)  --}}
 
@@ -90,7 +105,7 @@
 
       @if ($errors->any())
         <div class="alert alert-danger">
-          <ul>
+          <ul class="list-group">
             @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
             @endforeach

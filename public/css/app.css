@@ -707,6 +707,43 @@ main .entry .body_card p {
   line-height: 20px;
 }
 
+main .input_box > input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .input_box > textarea:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .row_info .list_infos,
+main .row_info .list_services > * {
+  list-style-type: none;
+}
+
+main .submit_message {
+  line-height: 60px;
+}
+
+main .submit_message .send_message {
+  background-color: #cf4532;
+  border: none;
+  padding: 0 30px;
+  margin-right: 0;
+  color: #f6f4f2;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+main .submit_message .send_message:hover {
+  background-color: #a73727;
+}
+
 main .common_form .form_title .top_title > h4 {
   font-family: "Poppins", sans-serif;
   color: #272728;

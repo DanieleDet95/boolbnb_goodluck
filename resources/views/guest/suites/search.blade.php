@@ -94,11 +94,9 @@
     <div class="container-fluid container_suites_cards mb-5">
       <div class="row">
         <div class="col-lg-6 col-12 suites_cards">
-<<<<<<< HEAD
-            <div class="suites_cards_promo">
-=======
+
             <div class="suites_cards_promo bg-light">
->>>>>>> ivan-search-cards
+
               {{-- div per le card in evidenza --}}
             </div>
             <div class="suites_cards_noPromo">

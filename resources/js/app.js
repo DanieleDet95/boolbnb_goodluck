@@ -12,4 +12,6 @@ $(document).ready(function() {
   require('./static');
   // include create
   require('./create_update');
+  // include create
+  require('./show');
 })

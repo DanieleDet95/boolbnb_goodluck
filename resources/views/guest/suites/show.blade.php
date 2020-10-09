@@ -171,7 +171,7 @@
         @endif
       </div>
       <div class="col-6">
-        <div id="map"></div>
+        <div id="show_map" data-lat="{{$suite->latitude}}" data-lng="{{$suite->longitude}}" style="height: 100%">#</div>
       </div>
 
     </div>

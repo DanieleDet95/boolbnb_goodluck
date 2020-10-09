@@ -195,8 +195,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -225,7 +225,6 @@ function ajaxCall(params) {
       // refresh html before a new search
       $('.suites_cards_promo').html('');
 
-      // console.log(suites.noPromo);
       var maPins = []
 
       for (var i = 0; i < suites.promo.length; i++) {

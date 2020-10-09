@@ -73,10 +73,9 @@
     </div>
     {{-- Fine Row Details --}}
   </div>
-  <div class="">
-    <h3>Scrivi al proprietario</h3>
+  <div class="message_to_landowner">
     <div class="col-12 my_landowner_info">
-      <h3>
+      <h3>Write to owner
         @if (!empty($suite->user->name))
           {{$suite->user->name}}
         @endif

@@ -29,7 +29,7 @@ class SuitesTableSeeder extends Seeder
           $new_suite->latitude = rand(45, 40); //lat min-max approssimative dell'italia
           $new_suite->longitude = rand(12, 15); //lng min-max approssimative dell'italia
           $new_suite->price = $faker->randomFloat($nbMaxDecimals = 2, $min = 15, $max = 160.00);
-          $new_suite->description = $faker->text(3000);
+          $new_suite->description = $faker->text(1000);
           $new_suite->main_image = $faker->imageUrl($width = 150, $height = 100);
           $new_suite->save();
 

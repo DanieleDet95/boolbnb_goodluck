@@ -1,4 +1,6 @@
 if($('#address_create').length) {
+  // include places
+  var places = require('places.js');
   var createAutocomplete = places({
     appId: 'pl4XRMWU2BCA',
     apiKey: '0c0d759444ce91afdb966e427ac5e837',
@@ -10,5 +12,3 @@ if($('#address_create').length) {
     $('#longitude').val(e.suggestion['latlng']['lng'])
   ));
 }
-
-$('#stanza').val(6);

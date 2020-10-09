@@ -32,7 +32,7 @@
           <div class="sub_title">
             <h3>Publish your suites</h3>
           </div>
-        <div>
+        </div>
         {{-- end Form Title --}}
 
         {{-- Form Create --}}
@@ -61,22 +61,24 @@
           <div class="create_address form-group row">
             <div class="col-12">
               <div class="input_box">
-
                 <input
                   id="latitude"
+                  type="text"
+                  name="latitude"
+                  value="{{old('latitude')}}"
                   class="form-control rounded-0 d-none"
                   required autocomplete="address"
-                  autofocus type="text"
-                  name="latitude"
-                  value="{{old('latitude')}}">
+                  autofocus>
 
                 <input
                   id="longitude"
+                  type="text"
+                  name="longitude"
+                  value="{{old('longitude')}}"
                   class="form-control rounded-0 d-none"
                   required autocomplete="address"
-                  autofocus type="text"
-                  name="longitude"
-                  value="{{old('longitude')}}">
+                  autofocus>
+
 
                 <input
                   id="address_create"
@@ -195,93 +197,46 @@
                   value="{{old('main_image')}}"
                   class="custom-file-input"
                   required>
-                <label for="file" class="custom-file-label rounded-0">Choose cover...</label>
+                <label for="file" class="custom-file-label rounded-0 imgcover">Choose cover...</label>
               </div>
             </div>
+          </div>
+          {{-- end Create Cover image --}}
 
-            <div class="col-12">
-              <div class="anteprima m-3">
-                <p>Immagine caricata per la cover: </p>
-                <img id="output" width="200" />
-              </div>
-            </div>
+          {{-- Create more images --}}
+          <div class="create_firstimg_secondimg double_input form-group row">
 
-            {{-- end Create Cover image --}}
-
-            {{-- Create images --}}
-            <div class="create_images left_input col-4">
+            {{-- Create first img --}}
+            <div class="create_images left_input col-6">
               <div class="input_box custom-file">
                 <input
-                  id="create_image1"
+                  id="create_firstimg"
                   type="file"
                   accept="image/*"
                   name="image1"
                   onchange="loadFile1(event)"
+                  value="{{old('image1')}}"
                   class="custom-file-input">
-                <label class="custom-file-label rounded-3">Image 1</label>
+                <label class="custom-file-label rounded-0 img1">Choose File...</label>
               </div>
             </div>
+            {{-- end Create first img --}}
 
-            <div class="create_images center_input col-4">
+            {{-- Create second img --}}
+            <div class="create_images right_input col-6">
               <div class="input_box custom-file">
                 <input
-                  id="create_image2"
-                  type="file"
-                  accept="image/*"
-                  name="image2"
-                  onchange="loadFile2(event)"
-                  class="custom-file-input">
-                <label class="custom-file-label rounded-0">Image 2</label>
-              </div>
-            </div>
-
-            <div class="create_images right_input col-4">
-              <div class="input_box custom-file">
-                <input
-                  id="create_image1"
+                  id="create_secondimg"
                   type="file"
                   accept="image/*"
                   name="image3"
-                  onchange="loadFile3(event)"
+                  onchange="loadFile2(event)"
+                  value="{{old('image2')}}"
                   class="custom-file-input">
-                <label class="custom-file-label rounded-0">Image 3</label>
+                <label class="custom-file-label rounded-0 img2">Choose File...</label>
               </div>
             </div>
-
-            <div class="col-4">
-              <div class="anteprima m-3">
-                <img id="output1" width="200" />
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="anteprima m-3">
-                <img id="output2" width="200" />
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="anteprima m-3">
-                <img id="output3" width="200" />
-              </div>
-            </div>
-
-            <script>
-            var loadFile = function(event) {
-            	var image = document.getElementById('output');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            var loadFile1 = function(event) {
-            	var image = document.getElementById('output1');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            var loadFile2 = function(event) {
-            	var image = document.getElementById('output2');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            var loadFile3 = function(event) {
-            	var image = document.getElementById('output3');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            </script>
+            {{-- end Create second img --}}
 
           </div>
           {{-- end Create images --}}
@@ -306,7 +261,6 @@
             <div class="col-12">
               <div class="checkbox">
                 <div class="row">
-                  {{-- <h3>Lista servizi</h3> --}}
 
                   {{-- Checkbox --}}
                   @foreach ($services as $service)
@@ -326,20 +280,24 @@
           {{-- end Create Services --}}
 
           {{-- Submit Login --}}
-          <div class="form_submit form-group justify-content-center row">
-            <div class="col-12">
+          <div class="form_submit form-group row">
+            <div class="col-12 text-center">
               <div class="button_submit">
                 <button type="submit" class="custom_button">Create</button>
               </div>
             </div>
           </div>
-        </div>
+          {{-- end Submit Login --}}
+
         {{-- end Create suite --}}
 
+        </form>
+        {{-- end Form Create --}}
 
+      </div>
+      {{-- end Create suite --}}
 
-      </form>
-      {{-- end Form Create --}}
+    </div>
 
     </div>
   </div>

@@ -106,8 +106,8 @@ class SuiteController extends Controller
         'beds'=> 'required|min:1',
         'baths'=> 'required|min:1',
         'square_m'=> 'required|min:1',
-        // 'latitude'=> 'required|min:-90|max:90',
-        // 'longitude'=> 'required|min:-180|max:180',
+        'latitude'=> 'required|min:-90|max:90',
+        'longitude'=> 'required|min:-180|max:180',
         'price'=> 'required|min:1|max:9999,99',
         'description'=> 'required',
         'main_image'=> 'required|image',
@@ -125,10 +125,8 @@ class SuiteController extends Controller
         $new_suite->beds = $request_data['beds'];
         $new_suite->baths = $request_data['baths'];
         $new_suite->square_m = $request_data['square_m'];
-        // $new_suite->latitude = $request_data['latitude'];
-        // $new_suite->longitude = $request_data['longitude'];
-        $new_suite->latitude = 0;
-        $new_suite->longitude = 0;
+        $new_suite->latitude = $request_data['latitude'];
+        $new_suite->longitude = $request_data['longitude'];
         $new_suite->price = $request_data['price'];
         $new_suite->description = $request_data['description'];
         $new_suite->main_image = $path_image;
@@ -210,8 +208,8 @@ class SuiteController extends Controller
         'beds'=> 'required|min:1',
         'baths'=> 'required|min:1',
         'square_m'=> 'required|min:1',
-        // 'latitude'=> 'required|min:-90|max:90',
-        // 'longitude'=> 'required|min:-180|max:180',
+        'latitude'=> 'required|min:-90|max:90',
+        'longitude'=> 'required|min:-180|max:180',
         'price'=> 'required|min:1|max:9999,99',
         'description'=> 'required',
       ]);
@@ -223,14 +221,13 @@ class SuiteController extends Controller
       $suite->rooms = $data['rooms'];
       $suite->square_m = $data['square_m'];
       $suite->address = $data['address'];
-      // $suite->latitude = $data['latitude'];
-      // $suite->longitude = $data['longitude'];
-      $suite->latitude = 0;
-      $suite->longitude = 0;
+      $suite->latitude = $data['latitude'];
+      $suite->longitude = $data['longitude'];
       $suite->price = $data['price'];
       $suite->description = $data['description'];
 
-      if (!is_null($request->file)) {
+      // dd($request->file('main_image'));
+      if (!is_null($request->file('main_image'))) {
         $path_image = $request->file('main_image')->store('images', 'public');
       }else {
         $path_image = $suite->main_image;
@@ -243,12 +240,12 @@ class SuiteController extends Controller
 
           $suite->images[0]->suite_id = $suite->id;
 
-          if (!is_null($request->file)) {
+          if (!is_null($request->file('image1'))) {
             $path_image = $request->file('image1')->store('images', 'public');
           }else {
             $path_image = $suite->images[0]->path;
           }
-
+          // dd($path_image);
           $suite->images[0]->path = $path_image;
           $suite->images[0]->update();
       }
@@ -257,7 +254,7 @@ class SuiteController extends Controller
 
           $suite->images[1]->suite_id = $suite->id;
 
-          if (!is_null($request->file)) {
+          if (!is_null($request->file('image2'))) {
             $path_image = $request->file('image2')->store('images', 'public');
           }else {
             $path_image = $suite->images[1]->path;
@@ -267,19 +264,6 @@ class SuiteController extends Controller
           $suite->images[1]->update();
       }
 
-      if (isset($data['image3'])) {
-
-          $suite->images[2]->suite_id = $suite->id;
-
-          if (!is_null($request->file)) {
-            $path_image = $request->file('image3')->store('images', 'public');
-          }else {
-            $path_image = $suite->images[2]->path;
-          }
-
-          $suite->images[2]->path = $path_image;
-          $suite->images[2]->update();
-      }
 
       if (isset($data['services'])) {
             $suite->services()->sync($data['services']);

@@ -6,7 +6,7 @@
 
   {{-- inizio pagina ricerca --}}
   <div class="container-fluid container-md main_search" id="search_box">
-    <div class="row flex-column col-12">
+    <div id="searchbar-wrapper" class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
         @if (isSet($key))
@@ -94,7 +94,9 @@
     <div class="container-fluid container_suites_cards mb-5">
       <div class="row">
         <div class="col-lg-6 col-12 suites_cards">
+
             <div class="suites_cards_promo bg-light">
+
               {{-- div per le card in evidenza --}}
             </div>
             <div class="suites_cards_noPromo">

@@ -60,7 +60,27 @@
           <div class="create_address form-group row">
             <div class="col-12">
               <div class="input_box">
+
                 <input
+                  id="latitude"
+                  type="text"
+                  name="latitude"
+                  value="{{old('latitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
+
+                <input
+                  id="longitude"
+                  type="text"
+                  name="longitude"
+                  value="{{old('longitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
+
+                <input
+                  id="address_create"
                   type="text"
                   name="address"
                   value="{{old('address')}}"
@@ -191,96 +211,122 @@
             {{-- end Edit Cover image --}}
 
             {{-- Create images --}}
-            <div class="create_images left_input col-4">
-              <div class="input_box custom-file">
-                <input
-                  id="create_image1"
-                  type="file"
-                  accept="image/*"
-                  name="image1"
-                  onchange="loadFile1(event)"
-                  class="custom-file-input">
-                <label class="custom-file-label rounded-3">Image 1</label>
+            @if ((isset($images[0])) && (isset($images[1])))
+              <div class="create_images left_input col-6">
+                <div class="input_box custom-file">
+                  <input
+                    id="create_image1"
+                    type="file"
+                    accept="image/*"
+                    name="image1"
+                    onchange="loadFile1(event)"
+                    class="custom-file-input">
+                  <label class="custom-file-label rounded-0">Image 1</label>
+                </div>
               </div>
-            </div>
 
-            <div class="create_images center_input col-4">
-              <div class="input_box custom-file">
-                <input
-                  id="create_image2"
-                  type="file"
-                  accept="image/*"
-                  name="image2"
-                  onchange="loadFile2(event)"
-                  class="custom-file-input">
-                <label class="custom-file-label rounded-0">Image 2</label>
+              <div class="create_images right_input col-6">
+                <div class="input_box custom-file">
+                  <input
+                    id="create_image2"
+                    type="file"
+                    accept="image/*"
+                    name="image2"
+                    onchange="loadFile2(event)"
+                    class="custom-file-input">
+                  <label class="custom-file-label rounded-0">Image 2</label>
+                </div>
               </div>
-            </div>
 
-            <div class="create_images right_input col-4">
-              <div class="input_box custom-file">
-                <input
-                  id="create_image1"
-                  type="file"
-                  accept="image/*"
-                  name="image3"
-                  onchange="loadFile3(event)"
-                  class="custom-file-input">
-                <label class="custom-file-label rounded-0">Image 3</label>
+              <div class="col-6">
+                <div class="anteprima m-3">
+                  @if (isset($images[0]))
+                    @if (strpos($suite->main_image, 'lorempixel') == false)
+                      <img id="output1" src="{{ asset('storage') . "/" . $images[0]->path}}" alt="{{$suite->title}}">
+                     @else
+                     <img id="output1" src="{{ $images[0]->path }}" alt="{{ $suite->title }}">
+                    @endif
+                  @endif
+                </div>
               </div>
-            </div>
 
-            <div class="col-4">
-              <div class="anteprima m-3">
-                @if (isset($images[0]))
-                  @if (strpos($suite->main_image, 'lorempixel') == false)
-                    <img id="output1" src="{{ asset('storage') . "/" . $images[0]->path}}" alt="{{$suite->title}}">
-                   @else
-                   <img id="output1" src="{{ $images[0]->path }}" alt="{{ $suite->title }}">
+              <div class="col-6">
+                <div class="anteprima m-3">
+                  @if (isset($images[1]))
+                    @if (strpos($suite->main_image, 'lorempixel') == false)
+                      <img id="output2" src="{{ asset('storage') . "/" . $images[1]->path}}" alt="{{$suite->title}}">
+                     @else
+                     <img id="output2" src="{{ $images[1]->path }}" alt="{{ $suite->title }}">
+                    @endif
                   @endif
-                @endif
+                </div>
               </div>
-            </div>
-            <div class="col-4">
-              <div class="anteprima m-3">
-                @if (isset($images[1]))
-                  @if (strpos($suite->main_image, 'lorempixel') == false)
-                    <img id="output2" src="{{ asset('storage') . "/" . $images[1]->path}}" alt="{{$suite->title}}">
-                   @else
-                   <img id="output2" src="{{ $images[1]->path }}" alt="{{ $suite->title }}">
+            @elseif (isset($images[0]))
+              <div class="create_images left_input col-12">
+                <div class="input_box custom-file">
+                  <input
+                    id="create_image1"
+                    type="file"
+                    accept="image/*"
+                    name="image1"
+                    onchange="loadFile1(event)"
+                    class="custom-file-input">
+                  <label class="custom-file-label rounded-0">Image 1</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="anteprima m-3">
+                  @if (isset($images[0]))
+                    @if (strpos($suite->main_image, 'lorempixel') == false)
+                      <img id="output1" src="{{ asset('storage') . "/" . $images[0]->path}}" alt="{{$suite->title}}">
+                     @else
+                     <img id="output1" src="{{ $images[0]->path }}" alt="{{ $suite->title }}">
+                    @endif
                   @endif
-                @endif
+                </div>
               </div>
-            </div>
-            <div class="col-4">
-              <div class="anteprima m-3">
-                @if (isset($images[2]))
-                  @if (strpos($suite->main_image, 'lorempixel') == false)
-                    <img id="output3" src="{{ asset('storage') . "/" . $images[2]->path}}" alt="{{$suite->title}}">
-                   @else
-                   <img id="output3" src="{{ $images[2]->path }}" alt="{{ $suite->title }}">
+
+            @elseif (isset($images[1]))
+              <div class="create_images right_input col-12">
+                <div class="input_box custom-file">
+                  <input
+                    id="create_image2"
+                    type="file"
+                    accept="image/*"
+                    name="image2"
+                    onchange="loadFile2(event)"
+                    class="custom-file-input">
+                  <label class="custom-file-label rounded-0">Image 2</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="anteprima m-3">
+                  @if (isset($images[1]))
+                    @if (strpos($suite->main_image, 'lorempixel') == false)
+                      <img id="output2" src="{{ asset('storage') . "/" . $images[1]->path}}" alt="{{$suite->title}}">
+                     @else
+                     <img id="output2" src="{{ $images[1]->path }}" alt="{{ $suite->title }}">
+                    @endif
                   @endif
-                @endif
+                </div>
               </div>
-            </div>
+            @endif
 
             <script>
-            var loadFile = function(event) {
-            	var image = document.getElementById('output');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            var loadFile1 = function(event) {
-            	var image = document.getElementById('output1');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            var loadFile2 = function(event) {
-            	var image = document.getElementById('output2');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
-            var loadFile3 = function(event) {
-            	var image = document.getElementById('output3');
-            	image.src = URL.createObjectURL(event.target.files[0]);
-            };
+              var loadFile = function(event) {
+              	var image = document.getElementById('output');
+              	image.src = URL.createObjectURL(event.target.files[0]);
+              };
+              var loadFile1 = function(event) {
+              	var image = document.getElementById('output1');
+              	image.src = URL.createObjectURL(event.target.files[0]);
+              };
+              var loadFile2 = function(event) {
+              	var image = document.getElementById('output2');
+              	image.src = URL.createObjectURL(event.target.files[0]);
+              };
             </script>
             {{-- end Edit images --}}
 
@@ -344,8 +390,8 @@
   </div>
   {{-- end Bootstrap --}}
 
-      <input type="search" id="address_create" name="address" value="{{old('address')}}" placeholder="Dove si trova?" />
+      {{-- <input type="search" id="address_create" name="address" value="{{old('address')}}" placeholder="Dove si trova?" />
       <input class="d-none" id="latitude" type="text" name="latitude" value="{{old('latitude')}}">
-      <input class="d-none" id="longitude" type="text" name="longitude" value="{{old('longitude')}}">
+      <input class="d-none" id="longitude" type="text" name="longitude" value="{{old('longitude')}}"> --}}
 
 @endsection

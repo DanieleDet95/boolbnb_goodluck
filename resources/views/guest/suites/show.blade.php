@@ -51,7 +51,7 @@
       </div>
 
       <div class="col-6 my_suite_info">
-        <h4>Suite Info</h4>
+        <h4>Suite Infos</h4>
         <ul class="list_infos mb-0">
           <li>Rooms: {{$suite->rooms}}</li>
           <li>Beds: {{$suite->beds}}</li>
@@ -76,8 +76,8 @@
     {{-- Fine Row Details --}}
     {{-- Row Message --}}
     <div class="row row_message">
-      <div class="message_to_landowner">
-        <div class="col-12 my_landowner_info">
+      <div class="mb-3 message_to_landowner">
+        <div class="mx-3 my_landowner_info">
           <h3>Write to owner
             @if (!empty($suite->user->name))
               {{$suite->user->name}}
@@ -92,47 +92,47 @@
     {{-- Fine Row Message --}}
     {{-- Row Form --}}
     <div class="row row_form">
-      @if (!is_null($user))
+      <div class="col-6">
+        @if (!is_null($user))
 
-        @if (!($suite->user_id === $user->id))
+          @if (!($suite->user_id === $user->id))
 
-          @if ($errors->any())
-            <div class="alert alert-danger">
-              <ul class="list-group">
-                @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-              </ul>
-            </div>
-          @endif
+            @if ($errors->any())
+              <div class="alert alert-danger">
+                <ul class="list-group">
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+              </div>
+            @endif
 
-          {{-- <div> --}}
             <form action="{{route("suites.store_message", $suite)}}" method="post">
               @csrf
               @method("POST")
 
-              <div class="mail">
-                <label></label>
-                <input type="email" name="email" value="{{ old("email") }}" placeholder="Enter your email">
+              <div class="form-group input_box email_message">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="email" value="{{ old("email") }}" placeholder="name@example.com">
               </div>
-              <div class="name">
-                <label>Inserisci il nome</label>
-                <input type="text" name="name" value="{{ old("name") }}">
+              <div class="form-group input_box name_message">
+                <label for="exampleFormControlInput1">Insert your name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{ old("name") }}" placeholder="Mario Rossi">
               </div>
-              <div class="body">
-                <label>Inserisci Contenuto</label>
-                <textarea name="body" rows="8" cols="80">{{ old("body") }}</textarea>
+              <div class="mb-3 input_box body_message">
+                <label for="validationTextarea">Write your email</label>
+                <textarea class="form-control" id="validationTextarea" name="body" rows="4" cols="80" placeholder="..." required>{{ old("body") }}</textarea>
               </div>
-              <div class="mail">
-                <label>Inserisci Mail</label>
-                <input type="submit" value="submit">
+
+              <div class="submit_message mail">
+                <input class="send_message" id="submit" type="submit" value="Send">
               </div>
+
             </form>
-          {{-- </div> --}}
 
-        @endif
+          @endif
 
-      @else
+        @else
 
           @if ($errors->any())
             <div class="alert alert-danger">
@@ -144,31 +144,36 @@
             </div>
           @endif
 
-          <div>
+            {{-- <div> --}}
             <form action="{{route("suites.store_message", $suite)}}" method="post">
               @csrf
               @method("POST")
 
-              <div class="mail">
-                <label>Inserisci Mail</label>
-                <input type="email" name="email" value="{{ old("email") }}">
+              <div class="form-group input_box email_message">
+                <label for="exampleFormControlInput1">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="email" value="{{ old("email") }}" placeholder="name@example.com">
               </div>
-              <div class="name">
-                <label>Inserisci il nome</label>
-                <input type="text" name="name" value="{{ old("name") }}">
+              <div class="form-group input_box name_message">
+                <label for="exampleFormControlInput1">Insert your name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{ old("name") }}" placeholder="Mario Rossi">
               </div>
-              <div class="body">
-                <label>Inserisci Contenuto</label>
-                <textarea name="body" rows="8" cols="80">{{ old("body") }}</textarea>
+              <div class="mb-3 input_box body_message">
+                <label for="validationTextarea">Write your email</label>
+                <textarea class="form-control" id="validationTextarea" name="body" rows="4" cols="80" placeholder="..." required>{{ old("body") }}</textarea>
               </div>
-              <div class="mail">
-                <label>Inserisci Mail</label>
-                <input type="submit" value="submit">
-              </div>
-            </form>
-          </div>
 
-      @endif
+              <div class="submit_message mail">
+                <input class="send_message" id="submit" type="submit" value="Send">
+              </div>
+
+            </form>
+
+        @endif
+      </div>
+      <div class="col-6">
+        <div id="map"></div>
+      </div>
+
     </div>
     {{-- Fine Row Form --}}
   </div>

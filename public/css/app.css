@@ -707,6 +707,11 @@ main .entry .body_card p {
   line-height: 20px;
 }
 
+main .row_info .list_infos,
+main .row_info .list_services > * {
+  list-style-type: none;
+}
+
 main .common_form .form_title .top_title > h4 {
   font-family: "Poppins", sans-serif;
   color: #272728;

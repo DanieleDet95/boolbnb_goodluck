@@ -2,5 +2,9 @@
 
 main {
   // SHOW
-
+  .row_info {
+    .list_infos, .list_services > *{
+      list-style-type: none;
+    }
+  }
 }

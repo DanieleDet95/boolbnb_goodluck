@@ -96,6 +96,7 @@
         <div class="col-lg-6 col-12 suites_cards">
 
             <div class="suites_cards_promo bg-light">
+
               {{-- div per le card in evidenza --}}
             </div>
             <div class="suites_cards_noPromo">

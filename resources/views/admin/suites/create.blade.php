@@ -289,6 +289,8 @@
           </div>
           {{-- end Submit Login --}}
 
+        {{-- end Create suite --}}
+
         </form>
         {{-- end Form Create --}}
 

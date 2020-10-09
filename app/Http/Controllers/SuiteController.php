@@ -101,12 +101,13 @@ class SuiteController extends Controller
 
   public function homesearch(Request $request)
   {
+    $services = Service::all();
     $search = $request->all();
     $key = $search['key'];
     $lat = $search['latitude'];
     $lng = $search['longitude'];
 
-    return view('guest.suites.search', compact('key', 'lat', 'lng'));
+    return view('guest.suites.search', compact('key', 'lat', 'lng','services'));
   }
 
   public function search()

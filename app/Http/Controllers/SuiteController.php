@@ -145,6 +145,9 @@ class SuiteController extends Controller
 
   public function show(Suite $suite)
   {
+    $user = Auth::id();
+    $user = Auth::user();
+
     $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 
     if(!$pageWasRefreshed ) {
@@ -158,8 +161,6 @@ class SuiteController extends Controller
       }
     }
 
-    $user = Auth::id();
-    $user = Auth::user();
     return view('guest.suites.show', compact('suite', 'user'));
   }
 

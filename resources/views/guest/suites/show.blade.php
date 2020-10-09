@@ -3,8 +3,54 @@
 
 {{-- Yeld Main Content --}}
 @section("content")
-  <h1>show generale</h1>
-
+  <div class="container-fluid container-md">
+    {{-- Row Title Images --}}
+    <div class="row flex-column flex-nowrap row_title_img">
+      {{-- Prima riga fatta da titolo e indirizzo --}}
+      <div class="title_show">
+        <h2>{{$suite->title}}</h2>
+        <h6>{{$suite->address}}</h6>
+      </div>
+      <hr>
+      {{-- Seconda riga fatta dalle immagini e dalla main image --}}
+      <div class="img_show d-flex flex-wrap">
+        {{-- Immagine copertina --}}
+        <div class="main_image_show col-5">
+          @if (isset($suite->main_image))
+            @if (strpos($suite->main_image, 'lorempixel') == false)
+              <img class="rounded mx-auto d-block" src="{{ asset('storage') . "/" . $suite->main_image}}" alt="{{$suite->title}}">
+             @else
+             <img class="rounded mx-auto d-block" src="{{ $suite->main_image }}" alt="{{ $suite->title }}">
+            @endif
+          @endif
+        </div>
+        {{-- Immagini di supporto --}}
+        <div class="images_show d-flex flex-wrap col-7">
+          @foreach ($suite->images as $image)
+            <div class="col-6">
+              @if (isset($image->path))
+                @if (strpos($image->path, 'lorempixel') == false)
+                  <img class="rounded mx-auto d-block" src="{{ asset('storage') . "/" . $image->path}}" alt="{{$suite->title}}">
+                 @else
+                  <img class="rounded mx-auto d-block" src="{{ $image->path }}" alt="{{ $suite->title }}">
+                @endif
+              @endif
+            </div>
+          @endforeach
+        </div>
+      </div>
+      {{-- Fine seconda riga di immagini --}}
+      <hr>
+    </div>
+    {{-- Fine Row Tile Images --}}
+    {{-- Row Details --}}
+    <div class="row row_info">
+      <div class="description_suite">
+        <p>{{$suite->description}}</p>
+      </div>
+    </div>
+    {{-- Fine Row Details --}}
+  </div>
   <ul>
     @if (!empty($suite->user->name))
       <li>Nome: {{$suite->user->name}}</li>
@@ -16,13 +62,11 @@
     <li>Stanze: {{$suite->rooms}}</li>
     <li>Letti: {{$suite->beds}}</li>
     <li>Bagni: {{$suite->baths}}</li>
-    <li>Indirizzo: {{$suite->address}}</li>
     <li>Metri quadri: {{$suite->square_m}}</li>
     <li>Prezzo: {{$suite->price}}</li>
-    <li>Latitudine: {{$suite->latitude}}</li>
+    {{-- <li>Latitudine: {{$suite->latitude}}</li>
     <li>Longitudine: {{$suite->longitude}}</li>
-    <li>Descrizione: {{$suite->description}}</li>
-    <li>id: {{$suite->id}}</li>
+    <li>id: {{$suite->id}}</li> --}}
     @if (!$suite->services->isEmpty())
       <h3>Servizi disponibili:</h3>
       @foreach ($suite->services as $service)
@@ -31,28 +75,12 @@
     @endif
     <li>
       {{-- cambio path della main_image a seconda dalla provenienza(faker o storage)  --}}
-      @if (isset($suite->main_image))
-        @if (strpos($suite->main_image, 'lorempixel') == false)
-          <img src="{{ asset('storage') . "/" . $suite->main_image}}" alt="{{$suite->title}}">
-         @else
-         <img src="{{ $suite->main_image }}" alt="{{ $suite->title }}">
-        @endif
-      @endif
+
     </li>
   </ul>
 
   {{-- cambio path delle immagini della tabella images a seconda dalla provenienza(faker o storage)  --}}
-  @foreach ($suite->images as $image)
-    <div>
-      @if (isset($image->path))
-        @if (strpos($image->path, 'lorempixel') == false)
-          <img src="{{ asset('storage') . "/" . $image->path}}" alt="{{$suite->title}}">
-         @else
-          <img src="{{ $image->path }}" alt="{{ $suite->title }}">
-        @endif
-      @endif
-    </div>
-  @endforeach
+
 
   {{-- l'admin può inviare un messaggio quando NON è proprietario dell'appartamento selezionato --}}
 

@@ -6,6 +6,19 @@
   margin: 0 auto;
 }
 
+// Main Title
+@mixin main_top_title {
+  text-transform: capitalize;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+@mixin main_sub_title {
+  text-transform: capitalize;
+  margin: 0;
+}
+
 // Jumbotron
 @mixin jumbotron_text {
   font-size: 48px;

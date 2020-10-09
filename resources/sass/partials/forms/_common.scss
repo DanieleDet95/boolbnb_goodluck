@@ -18,7 +18,7 @@ main {
       // Sub title
       .sub_title > h3 {
         font-family: $secondary_font;
-        color: $quinternary_text_color;
+        color: $qaternary_background;
         font-size: $h3_text_size;
         @include form_sub_title;
       }

@@ -1,44 +1,145 @@
 // partials/_footer.scss
 
 footer {
-  margin-top: 30px;
-  background-color: $qaternary_background;
-  hr {
-    background-color: $tertiary_text_color;
+
+  // Section Footer menu
+  section.footer_menu {
+    background-color: $qaternary_background;
+    width: 100%;
+    padding: 20px 0 6px 0;
+
+    nav > ul {
+      // width: 200px;
+      margin: 0 auto;
+
+      // Socials icons
+      & > .menu_item {
+        padding: 0 10px;
+        border-right: 1.5px solid $primary_text_color;
+        line-height: 10px;
+
+        &:last-child {
+          border: 0;
+        }
+
+        & > a {
+          text-decoration: none;
+
+          // Icons style
+          & > span {
+            font-family: $primary_font;
+            text-transform: uppercase;
+            color: $primary_text_color;
+            font-size: 11px;
+          }
+
+          &:hover {
+            & > span {
+              color: $secondary_text_color;
+            }
+          }
+        }
+      }
+    }
   }
-  .footer_list {
-    a {
-      font-family: $primary_font;
-      color: $tertiary_text_color;
-      font-size: $small_text_size;
+
+  // Section presentation
+  section.my_presentation {
+    background-color: $qaternary_background;
+    height: 120px;
+
+    // Carousel
+    .carousel-item {
       text-transform: capitalize;
-      font-weight: bold;
 
-      &:hover {
-        color:$secondary_text_color;
-        cursor: pointer;
+      // fake image/div that gives height to carousel
+      & .height_title {
+        height: 120px;
+        display: none;
+      }
+    }
+
+    // Carousel caption title and paragraph
+    .carousel-caption {
+      bottom: -5px;
+
+      & > a {
+        text-decoration: none;
+
+        & > h5 {
+          bottom: 150px;
+          color: $primary_text_color;
+          font-family: $secondary_font;
+          font-size: 15px;
+          margin: 0;
+
+          &:hover {
+            color: $secondary_text_color;
+          }
+        }
+
+        & > p {
+          font-family: $primary_font;
+          color: $primary_text_color;
+          font-size: 10px;
+          margin:5px 0 0 0;
+
+          &:hover {
+            color: $secondary_text_color;
+          }
+        }
+      }
+    }
+
+    // Carousel - hide rectangular slide indicators
+    .carousel-indicators {
+      bottom: 90px;
+
+      & > li {
+        height: 0;
+        border: 0;
+        margin: 0 5px;
+        width: 35px;
+        background-color: $qaternary_background;
       }
     }
   }
-  .social_list {
-    a {
+
+  // Section Socials
+  section.footer_socials {
+    background-color: $secondary_text_color;
+    width: 100%;
+    padding: 15px 0;
+
+    nav > ul {
+      width: 200px;
+      margin: 0 auto;
+
+      // Socials icons
+      & .socials_item {
+
+        & > a {
+          // Icons style
+          & > i {
+            color: $primary_text_color;
+            font-size: 23px;
+          }
+
+          &:hover {
+            & > i {
+              color: $qaternary_background;
+            }
+          }
+        }
+      }
+    }
+
+    // Copyrights
+    .copyrights {
       font-family: $primary_font;
-      color: $tertiary_text_color;
-      font-size: $small_text_size;
-      font-size: 30px;
-
-      &:hover {
-        color:$secondary_text_color;
-        cursor: pointer;
-      }
-    }
-  }
-  .my_presentation{
-    width: 300px;
-    margin: 0 auto;
-    color: $tertiary_text_color;
-    .rounded-circle{
-      width: 36px;
+      color: $qaternary_background;
+      font-size: 11px;
+      margin: 10px 0 0 0;
     }
   }
 }

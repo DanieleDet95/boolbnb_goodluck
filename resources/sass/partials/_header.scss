@@ -80,6 +80,15 @@ header {
     }
   }
 
+  // User User greeting
+  span.user_greeting {
+    text-transform: uppercase;
+  }
+
+  span.user_name {
+    color: $secondary_text_color;
+  }
+
   // Hamburger menu
   .navbar button.custom-toggler.navbar-toggler {
     background-color: $secondary_text_color;

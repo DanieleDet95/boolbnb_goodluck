@@ -113,7 +113,7 @@ var placesAutocomplete = places({
   appId: 'pl4XRMWU2BCA',
   apiKey: '0c0d759444ce91afdb966e427ac5e837',
   container: document.querySelector('#address_input'),
-  style:false
+  // style:false
 });
 
 // take lat/lng value from algolia's response and store them into data-att of #adress-input
@@ -178,6 +178,8 @@ $('#searchbar-wrapper input').on('keypress', function(e) {
     // send params to API in Api/SearchController
     ajaxCall(params);
 
+
+
     }
   })
 
@@ -192,6 +194,17 @@ $('#searchbar-wrapper input').on('keypress', function(e) {
 
 // search call
 function ajaxCall(params) {
+
+  $body = $("body");
+
+  $(document).on({
+    ajaxStart: function() {
+      $body.addClass("loading");
+    },
+     ajaxStop: function() {
+       $body.removeClass("loading");
+     }
+  });
 
   $.ajax
   ({

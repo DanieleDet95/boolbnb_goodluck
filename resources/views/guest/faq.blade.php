@@ -14,6 +14,7 @@
         Se nemmeno questo dovesse aiutarti ricorda che dove non arriviamo noi arriva Dio!
       </p>
     </div>
+  </div>
     <div class="accordion" id="accordionExample">
       @foreach ($faqs as $faq)
         @if ($faq->id === 1)
@@ -52,7 +53,7 @@
 
       @endforeach
     </div>
-  </div>
+
 
 
 @endsection

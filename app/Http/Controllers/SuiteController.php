@@ -12,6 +12,7 @@ use App\Highlight;
 use App\Visit;
 use Carbon\Carbon;
 use App\Image;
+use App\Service;
 
 // Import Mail model
 use Illuminate\Support\Facades\Mail;
@@ -110,10 +111,11 @@ class SuiteController extends Controller
 
   public function search()
   {
-
+    $services = Service::all();
     $suites = Suite::all();
+    $images = Image::all();
 
-    return view('guest.suites.search', compact('suites'));
+    return view('guest.suites.search', compact('suites','services','images'));
   }
 
 
@@ -145,10 +147,13 @@ class SuiteController extends Controller
 
   public function show(Suite $suite)
   {
+    $user_id = Auth::id();
+    $user = Auth::user();
+
     $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
 
     if(!$pageWasRefreshed ) {
-      if ($suite->user_id != $user) {
+      if ($suite->user_id != $user_id) {
         $giorno = Carbon::now('Europe/Rome');
         $new_visit = new Visit();
         $new_visit->data = $giorno;
@@ -158,8 +163,6 @@ class SuiteController extends Controller
       }
     }
 
-    $user = Auth::id();
-    $user = Auth::user();
     return view('guest.suites.show', compact('suite', 'user'));
   }
 

@@ -113,7 +113,7 @@ var placesAutocomplete = places({
   appId: 'pl4XRMWU2BCA',
   apiKey: '0c0d759444ce91afdb966e427ac5e837',
   container: document.querySelector('#address_input'),
-  style:false
+  // style:false
 });
 
 // take lat/lng value from algolia's response and store them into data-att of #adress-input
@@ -195,8 +195,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 

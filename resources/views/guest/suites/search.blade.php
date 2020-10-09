@@ -6,7 +6,7 @@
 
   {{-- inizio pagina ricerca --}}
   <div class="container-fluid container-md main_search" id="search_box">
-    <div id="searchbar-wrapper" class="row flex-column col-12">
+    <div class="row flex-column col-12">
 
       <div class="search_location col-12 mt-5 mb-3">
         @if (isSet($key))
@@ -44,42 +44,14 @@
       </div>
 
       <div class="d-flex justify-content-around col-12 form-check my-3">
-        <div class="checkbox col-2">
-          <label class="container_checkbox">Pool
-          <input id="pool" type="checkbox" name="pool" value="false">
-          <span class="checkmark"></span>
-          </label>
-        </div>
-        <div class="checkbox col-2">
-          <label class="container_checkbox">WiFi
-          <input id="wifi" type="checkbox" name="wifi" value="false">
-          <span class="checkmark"></span>
-          </label>
-        </div>
-        <div class="checkbox col-2">
-          <label class="container_checkbox">Pets
-          <input id="pet" type="checkbox" name="pet" value="false">
-          <span class="checkmark"></span>
-          </label>
-        </div>
-        <div class="checkbox col-2">
-          <label class="container_checkbox">Parking
-          <input id="parking" type="checkbox" name="parking" value="false">
-          <span class="checkmark"></span>
-          </label>
-        </div>
-        <div class="checkbox col-2">
-          <label class="container_checkbox">Piano
-          <input id="piano" type="checkbox" name="piano" value="false">
-          <span class="checkmark"></span>
-          </label>
-        </div>
-        <div class="checkbox col-2">
-          <label class="container_checkbox">Sauna
-          <input id="sauna" type="checkbox" name="sauna" value="false">
-          <span class="checkmark"></span>
-          </label>
-        </div>
+        @foreach ($services as $service)
+          <div class="checkbox col-2">
+            <label class="container_checkbox" title="{{ $service->supplements }}"><i class="{{ $service->icon }}"></i>
+            <input id="{{ $service->supplements }}" type="checkbox" name="{{ $service->supplements }}" value="false">
+            <span class="checkmark"></span>
+            </label>
+          </div>
+        @endforeach
       </div>
 
       <div class="row justify-content-center mt-3 mb-5">
@@ -95,35 +67,49 @@
       <div class="row">
         <div class="col-lg-6 col-12 suites_cards">
 
-            <div class="suites_cards_promo bg-light">
+          {{-- div per le card in evidenza --}}
+          <div class="suites_cards_promo bg-light"></div>
 
-              {{-- div per le card in evidenza --}}
-            </div>
-            <div class="suites_cards_noPromo">
-              {{-- div per le card non in evidenza --}}
-            </div>
+          {{-- div per le card non in evidenza --}}
+          <div class="suites_cards_noPromo"></div>
+
         </div>
+
+        {{-- Mappa --}}
         <div class="d-none d-lg-block d-xl-block col-lg-6 my_maps">
           <div id="map"></div>
         </div>
+
       </div>
     </div>
 
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
+
         <div class="entry py-3 col-12 d-flex align-items-center flex-column flex-sm-row">
           <div class="image_main_card col-12 col-sm-6">
-            <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
+            
+            @if (strpos("@{{main_image}}", 'lorempixel') == false)
+              <img
+              src="{{ asset('storage') }}/@{{main_image}}"
+              class="d-block w-100" alt="@{{title}}">
+             @else
+             <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
+            @endif
+
+            <!-- <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}"> -->
           </div>
           <div class="body_card d-flex flex-column align-items-start col-12 col-sm-6">
             <h6>@{{title}}</h6>
             <p>@{{address}}</p>
             <h6>@{{price}}€/ night</h6>
+
           </div>
-            <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
+          <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
         </div>
       <hr class="my-0">
+
     </script>
 
 @endsection

@@ -358,7 +358,7 @@
                   {{-- Checkbox --}}
                   @foreach ($services as $service)
                   <div class="col-4 col-lg-2 text-center">
-                    <label class="container_checkbox"><i class="{{ $service->icon }}"></i>
+                    <label class="container_checkbox"title="{{ $service->supplements }}"><i class="{{ $service->icon }}"></i>
                       <input type="checkbox" name="services[]" value="{{ $service->id }}" {{ ($suite->services->contains($service)) ? "checked" : '' }}>
                       <span class="checkmark"></span>
                     </label>

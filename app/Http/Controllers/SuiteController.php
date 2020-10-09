@@ -31,6 +31,7 @@ class SuiteController extends Controller
 
   public function index()
   {
+    $services = Service::all();
     $suites = Suite::all();
 
     $highlights_suites = DB::table('highlights')->join('highlight_suite', function($join)
@@ -66,7 +67,7 @@ class SuiteController extends Controller
     // ->orderBy('created_at', 'asc')
     // ->take(6)->get();
 
-    return view('guest.suites.index', compact('suites', 'highlights_suites_active'));
+    return view('guest.suites.index', compact('suites', 'highlights_suites_active','services'));
   }
 
 
@@ -101,12 +102,13 @@ class SuiteController extends Controller
 
   public function homesearch(Request $request)
   {
+    $services = Service::all();
     $search = $request->all();
     $key = $search['key'];
     $lat = $search['latitude'];
     $lng = $search['longitude'];
 
-    return view('guest.suites.search', compact('key', 'lat', 'lng'));
+    return view('guest.suites.search', compact('key', 'lat', 'lng','services'));
   }
 
   public function search()

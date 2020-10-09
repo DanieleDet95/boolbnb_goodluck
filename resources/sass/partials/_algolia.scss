@@ -1,0 +1,47 @@
+// partials/_algolia.scss
+
+// Algolia Form
+// Search bar
+#algolia_form input:focus, #algolia_form input:active {
+  border-color: $secondary_background;
+  box-shadow: 0 0 0;
+  outline: none;
+}
+
+// Algolia Icon
+#algolia_form .ap-nostyle-input-icon {
+  display: none;
+  background: none;
+  border: none;
+}
+
+// Algolia form bar
+#algolia_form .algolia-places-nostyle {
+  flex-grow: 1
+}
+
+// Algolia dropdown menu
+#algolia_form .ap-nostyle-dropdown-menu {
+  background-color: #fff;
+  color: $secondary_background;
+  width: 99.8%;
+  padding: 6px 12px;
+  font-style: $primary_font;
+  font-size: $small_text_size;
+}
+
+// Algolia suggestion icon dropdown menu
+#algolia_form .ap-nostyle-dropdown-menu .ap-suggestion-icon {
+  vertical-align: super;
+}
+
+// Algolia suggestion dropdown menu
+#algolia_form .ap-nostyle-suggestion {
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+// Algolia suggestion name of city
+#algolia_form .ap-nostyle-dropdown-menu .ap-name > em {
+  font-style: inherit;
+}

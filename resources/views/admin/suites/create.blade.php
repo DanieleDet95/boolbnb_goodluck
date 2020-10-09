@@ -32,7 +32,7 @@
           <div class="sub_title">
             <h3>Publish your suites</h3>
           </div>
-        <div>
+        </div>
         {{-- end Form Title --}}
 
         {{-- Form Create --}}
@@ -61,22 +61,24 @@
           <div class="create_address form-group row">
             <div class="col-12">
               <div class="input_box">
-
                 <input
                   id="latitude"
+                  type="text"
+                  name="latitude"
+                  value="{{old('latitude')}}"
                   class="form-control rounded-0 d-none"
                   required autocomplete="address"
-                  autofocus type="text"
-                  name="latitude"
-                  value="{{old('latitude')}}">
+                  autofocus>
 
                 <input
                   id="longitude"
+                  type="text"
+                  name="longitude"
+                  value="{{old('longitude')}}"
                   class="form-control rounded-0 d-none"
                   required autocomplete="address"
-                  autofocus type="text"
-                  name="longitude"
-                  value="{{old('longitude')}}">
+                  autofocus>
+
 
                 <input
                   id="address_create"
@@ -167,7 +169,7 @@
           {{-- Create Price-Cover meters --}}
           <div class="create_price_cover double_input form-group row">
 
-            {{-- Create Baths --}}
+            {{-- Create Price --}}
             <div class="create_price left_input col-6">
               <div class="input_box">
                 <input
@@ -181,7 +183,7 @@
                   placeholder="Price">
               </div>
             </div>
-            {{-- end Create Baths --}}
+            {{-- end Create Price --}}
 
             {{-- Create Cover image --}}
             <div class="create_cover right_input col-6">
@@ -189,17 +191,55 @@
                 <input
                   id="create_main_image"
                   type="file"
+                  accept="image/*"
                   name="main_image"
+                  onchange="loadFile(event)"
                   value="{{old('main_image')}}"
                   class="custom-file-input"
                   required>
-                <label class="custom-file-label rounded-0">Choose file...</label>
+                <label for="file" class="custom-file-label rounded-0 imgcover">Choose cover...</label>
               </div>
             </div>
-            {{-- end Create Cover image --}}
+          </div>
+          {{-- end Create Cover image --}}
+
+          {{-- Create more images --}}
+          <div class="create_firstimg_secondimg double_input form-group row">
+
+            {{-- Create first img --}}
+            <div class="create_images left_input col-6">
+              <div class="input_box custom-file">
+                <input
+                  id="create_firstimg"
+                  type="file"
+                  accept="image/*"
+                  name="image1"
+                  onchange="loadFile1(event)"
+                  value="{{old('image1')}}"
+                  class="custom-file-input">
+                <label class="custom-file-label rounded-0 img1">Choose File...</label>
+              </div>
+            </div>
+            {{-- end Create first img --}}
+
+            {{-- Create second img --}}
+            <div class="create_images right_input col-6">
+              <div class="input_box custom-file">
+                <input
+                  id="create_secondimg"
+                  type="file"
+                  accept="image/*"
+                  name="image3"
+                  onchange="loadFile2(event)"
+                  value="{{old('image2')}}"
+                  class="custom-file-input">
+                <label class="custom-file-label rounded-0 img2">Choose File...</label>
+              </div>
+            </div>
+            {{-- end Create second img --}}
 
           </div>
-          {{-- end Create Price-Cover --}}
+          {{-- end Create images --}}
 
           {{-- Create Description --}}
           <div class="create_description form-group row">
@@ -221,13 +261,12 @@
             <div class="col-12">
               <div class="checkbox">
                 <div class="row">
-                  {{-- <h3>Lista servizi</h3> --}}
 
                   {{-- Checkbox --}}
                   @foreach ($services as $service)
                   <div class="col-4 col-lg-2 text-center">
                     <label class="container_checkbox"><i class="{{ $service->icon }}"></i>
-                      <input type="checkbox" name="services[]" value="{{ $service->id }}" {{ old('remember') ? 'checked' : '' }}>
+                      <input type="checkbox" name="services[]" value="{{ $service->id }}" >
                       <span class="checkmark"></span>
                     </label>
                   </div>
@@ -241,18 +280,22 @@
           {{-- end Create Services --}}
 
           {{-- Submit Login --}}
-          <div class="form_submit form-group justify-content-center row">
-            <div class="col-12">
+          <div class="form_submit form-group row">
+            <div class="col-12 text-center">
               <div class="button_submit">
                 <button type="submit" class="custom_button">Create</button>
               </div>
             </div>
           </div>
-        </div>
-        {{-- end Create suite --}}
+          {{-- end Submit Login --}}
 
-      </form>
-      {{-- end Form Create --}}
+        </form>
+        {{-- end Form Create --}}
+
+      </div>
+      {{-- end Create suite --}}
+
+    </div>
 
     </div>
   </div>

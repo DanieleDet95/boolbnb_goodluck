@@ -36,6 +36,12 @@ button:active {
 
 button:focus {
   outline: 0;
+  box-shadow: 0 0 0 0;
+}
+
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 button.btn-home {
@@ -122,7 +128,7 @@ header .navbar .navbar-collapse .navbar-nav .nav-item .nav-link > span {
   font-weight: bold;
 }
 
-header .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover {
+header .navbar .navbar-collapse .navbar-nav .nav-item .nav-link:hover > span {
   color: #cf4532;
 }
 
@@ -299,12 +305,16 @@ main .lista_mail .mail .modal-content .modal-header span {
   color: #F6F4F2;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites {
   position: relative;
   height: 100%;
 }
 
 main .wrapper_mysuites table {
+=======
+main table {
+>>>>>>> ivan-search-cards
   margin: 20px 0;
   min-width: 500px;
   max-width: 500px;
@@ -316,6 +326,7 @@ main .wrapper_mysuites table th {
   color: #F6F4F2;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites table td {
   min-width: 150px;
   min-height: 120px;
@@ -331,6 +342,16 @@ main .wrapper_mysuites table td img {
 }
 
 main .wrapper_mysuites table .controlli .btn {
+=======
+main table td {
+  min-width: 150px;
+  min-height: 150px;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+main table .controlli .btn {
+>>>>>>> ivan-search-cards
   background: #cf4532;
   min-width: 100px;
   min-height: 35px;
@@ -338,11 +359,16 @@ main .wrapper_mysuites table .controlli .btn {
   margin-top: 4px;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites table .controlli .btn a {
+=======
+main table .controlli .btn a {
+>>>>>>> ivan-search-cards
   color: #F6F4F2;
   text-decoration: none;
 }
 
+<<<<<<< HEAD
 main .wrapper_mysuites table .controlli .btn:hover {
   background: #8b0000;
 }
@@ -355,10 +381,17 @@ main .wrapper_mysuites .vuoto {
   color: #F6F4F2;
 }
 
+=======
+main table .controlli .btn:hover {
+  background: #8b0000;
+}
+
+>>>>>>> ivan-search-cards
 main .braintree-sheet__header {
   background: #cf4532;
 }
 
+<<<<<<< HEAD
 main form#payment-form table {
   margin: 20px 0;
 }
@@ -381,6 +414,8 @@ main .messaggio {
   color: #F6F4F2;
 }
 
+=======
+>>>>>>> ivan-search-cards
 main .card .standard {
   background: #cf4532;
   padding: 5px;
@@ -389,6 +424,16 @@ main .card .standard {
 
 main .card .standard:hover {
   background: #8b0000;
+}
+
+main .anteprima #output,
+main .anteprima #output1,
+main .anteprima #output2,
+main .anteprima #output3 {
+  margin: auto;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
 }
 
 main .invia .btn {
@@ -445,6 +490,45 @@ footer .my_presentation .rounded-circle {
   width: 36px;
 }
 
+#algolia_form input:focus,
+#algolia_form input:active {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: none;
+}
+
+#algolia_form .ap-nostyle-input-icon {
+  display: none;
+  background: none;
+  border: none;
+}
+
+#algolia_form .algolia-places-nostyle {
+  flex-grow: 1;
+}
+
+#algolia_form .ap-nostyle-dropdown-menu {
+  background-color: #fff;
+  color: #272728;
+  width: 99.8%;
+  padding: 6px 12px;
+  font-style: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+#algolia_form .ap-nostyle-dropdown-menu .ap-suggestion-icon {
+  vertical-align: super;
+}
+
+#algolia_form .ap-nostyle-suggestion {
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+#algolia_form .ap-nostyle-dropdown-menu .ap-name > em {
+  font-style: inherit;
+}
+
 main section.jumbo_custom {
   background-size: 1200px auto;
   width: 100%;
@@ -463,6 +547,12 @@ main section.jumbo_custom .carousel {
 
 main section.jumbo_custom .carousel .carousel-inner > .carousel-item > img {
   height: 480px;
+}
+
+@media all and (max-width: 720px) {
+  main section.jumbo_custom .carousel .carousel-control-next {
+    display: none;
+  }
 }
 
 main section.jumbo_custom > .jumbo_container {
@@ -490,6 +580,11 @@ main section.jumbo_custom > .jumbo_container .input-group .input-group-append > 
 
 main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn:hover {
   background-color: #a73727;
+}
+
+main section.jumbo_custom > .jumbo_container .input-group .input-group-append > .btn.btn-outline-secondary:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
 }
 
 main section.jumbo_custom > .jumbo_container .input-group > .form-control {
@@ -623,14 +718,32 @@ main .entry .image_main_card {
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
 main .entry .body_card h4 {
   font-size: 24px;
   color: #272728;
+=======
+main .entry .body_card {
+  height: 100%;
+>>>>>>> ivan-search-cards
 }
 
 main .entry .body_card h6 {
   font-size: 20px;
+<<<<<<< HEAD
   color: #606060;
+=======
+  color: #272728;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+main .entry .body_card p {
+  font-size: 18px;
+  color: #606060;
+  letter-spacing: 0;
+  line-height: 20px;
+>>>>>>> ivan-search-cards
 }
 
 main .common_form .form_title .top_title > h4 {
@@ -822,30 +935,40 @@ main .create_suite_wrapper {
   padding: 100px 0px;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file {
+main .create_suite_wrapper .create_price_cover .custom-file,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file {
   text-align: left;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label {
+main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file > .custom-file-label {
   border: 0;
   border-right: 0;
   color: #bebebe;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-input:focus ~ .custom-file-label {
+main .create_suite_wrapper .create_price_cover .custom-file .custom-file-input:lang(en) ~ .custom-file-label::after,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file .custom-file-input:lang(en) ~ .custom-file-label::after {
+  content: "Browse";
+  font-family: "Poppins", sans-serif;
+  color: #f6f4f2;
+  font-size: 14px;
+}
+
+main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-input:focus ~ .custom-file-label,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file > .custom-file-input:focus ~ .custom-file-label {
   border-color: #272728;
   box-shadow: 0 0 0;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label::after {
+main .create_suite_wrapper .create_price_cover .custom-file > .custom-file-label::after,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file > .custom-file-label::after {
   background-color: #cf4532;
-  font-family: "Poppins", sans-serif;
-  color: #f6f4f2;
-  font-size: 14px;
   border-radius: 0;
 }
 
-main .create_suite_wrapper .create_price_cover .custom-file:hover .custom-file-label::after {
+main .create_suite_wrapper .create_price_cover .custom-file:hover .custom-file-label::after,
+main .create_suite_wrapper .create_firstimg_secondimg .custom-file:hover .custom-file-label::after {
   background-color: #a73727;
 }
 
@@ -855,6 +978,7 @@ main .create_suite_wrapper .form_submit .button_submit {
 
 main .create_suite_wrapper .checkbox {
   font-size: 14px;
+<<<<<<< HEAD
   text-align: left;
   /* Customize the label (the container) */
   /* Create a custom radio button */
@@ -869,10 +993,33 @@ main .create_suite_wrapper .checkbox .container_checkbox {
 
 main .create_suite_wrapper .checkbox .checkmark {
   top: 12px;
+=======
+  /* Customize the label (the container) */
+  /* Create a custom radio button */
+}
+
+main .create_suite_wrapper .checkbox .container_checkbox {
+  padding-left: 23px;
+  background-color: yellow;
+}
+
+@media all and (max-width: 720px) {
+  main .create_suite_wrapper .checkbox .container_checkbox {
+    padding-left: 23px;
+    flex-wrap: nowrap;
+    width: 100px;
+    border: 1px solid black;
+  }
+}
+
+main .create_suite_wrapper .checkbox .checkmark {
+  top: 5px;
+>>>>>>> ivan-search-cards
   height: 16px;
   width: 16px;
 }
 
+<<<<<<< HEAD
 main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
   left: 5.5px;
   top: 2px;
@@ -880,6 +1027,8 @@ main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
   height: 8px;
 }
 
+=======
+>>>>>>> ivan-search-cards
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

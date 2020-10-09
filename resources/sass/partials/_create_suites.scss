@@ -7,7 +7,7 @@ main {
     padding: $main_padding 0px;
 
     // Price-Cover file image
-    .create_price_cover {
+    .create_price_cover, .create_firstimg_secondimg {
       .custom-file {
         text-align: left;
 
@@ -17,6 +17,13 @@ main {
           color: $placeholder_text_color;
         }
 
+        & .custom-file-input:lang(en) ~ .custom-file-label::after {
+          content: "Browse";
+          font-family: $primary_font;
+          color: $primary_text_color;
+          font-size: $small_text_size;
+        }
+
         & > .custom-file-input:focus ~ .custom-file-label {
           border-color: $secondary_background;
           box-shadow: 0 0 0;
@@ -24,9 +31,6 @@ main {
 
         & > .custom-file-label::after {
           background-color: $secondary_text_color;
-          font-family: $primary_font;
-          color: $primary_text_color;
-          font-size: $small_text_size;
           border-radius: 0;
         }
 
@@ -47,19 +51,6 @@ main {
     .checkbox {
       font-size: $small_text_size;
       text-align: left;
-
-      // @media all and (max-width: 800px)  {
-      //   & {
-      //     flex-direction: row;
-      //     flex-wrap: wrap;
-      //     width: 100%;
-      //
-      //     /* Customize the label (the container) */
-      //     & > .container_checkbox {
-      //       padding: 50px;
-      //     }
-      //   }
-      // }
 
       /* Customize the label (the container) */
       .container_checkbox {

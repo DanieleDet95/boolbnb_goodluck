@@ -2,8 +2,6 @@
 require('./bootstrap');
 // include JQuery
 var $ = require( "jquery" );
-// include places
-var places = require('places.js');
 
 $(document).ready(function() {
   // include commons

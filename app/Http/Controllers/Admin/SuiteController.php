@@ -117,7 +117,6 @@ class SuiteController extends Controller
         $request_data = $request->all();
 
         $path_image = $request->file('main_image')->store('images', 'public');
-        // $user = Auth::user();  // da rivedere
         $new_suite = new Suite();
         $new_suite->user_id = Auth::id();
         $new_suite->title = $request_data['title'];
@@ -133,10 +132,33 @@ class SuiteController extends Controller
         $new_suite->main_image = $path_image;
         $new_suite->save();
 
+        if (isset($request_data['image1'])) {
+            $new_image = new Image();
+            $new_image->suite_id = $new_suite->id;
+            $path_image = $request->file('image1')->store('images', 'public');
+            $new_image->path = $path_image;
+            $new_image->save();
+        }
+        if (isset($request_data['image2'])) {
+            $new_image = new Image();
+            $new_image->suite_id = $new_suite->id;
+            $path_image = $request->file('image2')->store('images', 'public');
+            $new_image->path = $path_image;
+            $new_image->save();
+        }
+        if (isset($request_data['image3'])) {
+            $new_image = new Image();
+            $new_image->suite_id = $new_suite->id;
+            $path_image = $request->file('image3')->store('images', 'public');
+            $new_image->path = $path_image;
+            $new_image->save();
+        }
+
         if (isset($request_data['services'])) {
 
             $new_suite->services()->sync($request_data['services']);
         }
+
       }
 
       return redirect()->route('admin.suites.show', $new_suite);
@@ -158,8 +180,16 @@ class SuiteController extends Controller
      */
     public function edit(Suite $suite)
     {
+      $images = [];
+      $all_images = Image::all();
+      foreach ($all_images as $image) {
+        if ($image->suite_id == $suite->id) {
+          $images[] = $image;
+        }
+      }
+
       $services = Service::all();
-      return view('admin.suites.edit', compact('suite','services'));
+      return view('admin.suites.edit', compact('suite','services','images'));
     }
 
     /**
@@ -182,7 +212,6 @@ class SuiteController extends Controller
         'longitude'=> 'required|min:-180|max:180',
         'price'=> 'required|min:1|max:9999,99',
         'description'=> 'required',
-        'main_image'=> 'required|image',
       ]);
       $data = $request->all();
       $suite->user_id = Auth::id();
@@ -196,9 +225,46 @@ class SuiteController extends Controller
       $suite->longitude = $data['longitude'];
       $suite->price = $data['price'];
       $suite->description = $data['description'];
-      $path_image = $request->file('main_image')->store('images', 'public');
+
+      // dd($request->file('main_image'));
+      if (!is_null($request->file('main_image'))) {
+        $path_image = $request->file('main_image')->store('images', 'public');
+      }else {
+        $path_image = $suite->main_image;
+      }
+
       $suite->main_image = $path_image;
       $suite->update();
+
+      if (isset($data['image1'])) {
+
+          $suite->images[0]->suite_id = $suite->id;
+
+          if (!is_null($request->file('image1'))) {
+            $path_image = $request->file('image1')->store('images', 'public');
+          }else {
+            $path_image = $suite->images[0]->path;
+          }
+          // dd($path_image);
+          $suite->images[0]->path = $path_image;
+          $suite->images[0]->update();
+      }
+
+      if (isset($data['image2'])) {
+
+          $suite->images[1]->suite_id = $suite->id;
+
+          if (!is_null($request->file('image2'))) {
+            $path_image = $request->file('image2')->store('images', 'public');
+          }else {
+            $path_image = $suite->images[1]->path;
+          }
+
+          $suite->images[1]->path = $path_image;
+          $suite->images[1]->update();
+      }
+
+
       if (isset($data['services'])) {
             $suite->services()->sync($data['services']);
         } else {
@@ -220,7 +286,7 @@ class SuiteController extends Controller
 
         $suite->delete();
 
-        return redirect()->route('suites.index');
+        return redirect()->route('admin.suites.mysuites');
 
     }
 

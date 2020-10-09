@@ -12,7 +12,7 @@ main {
       }
     }
   }
-  .input_box>input {
+  .input_box > input {
     &:focus {
       border-color: $secondary_background;
       box-shadow: 0 0 0;
@@ -103,13 +103,18 @@ main {
       border-radius: 50%;
     }
     .body_card {
-      h4 {
-        font-size: $h4_text_size;
-        color: $quinternary_text_color;
-      }
+      height: 100%;
       h6 {
-        font-size: $h6_text_size;
+        font-size: 20px;
+        color: $quinternary_text_color;
+        letter-spacing: 0;
+        line-height: 20px;
+      }
+      p {
+        font-size: 18px;
         color: $qaternary_text_color;
+        letter-spacing: 0;
+        line-height: 20px;
       }
     }
   }

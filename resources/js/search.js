@@ -24,6 +24,7 @@ if($('#home_search').length){
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
       container: document.querySelector('#home_search'),
+      style:false
     })
 
     homeAutocomplete.on('change', e => (
@@ -98,7 +99,7 @@ L.tileLayer(
 }).addTo(mymap);
 
 // set the view
-mymap.setView([41.90, 12.47], 10);
+mymap.setView([42.455111, 12.512467], 6);
 
 
 /*
@@ -112,6 +113,7 @@ var placesAutocomplete = places({
   appId: 'pl4XRMWU2BCA',
   apiKey: '0c0d759444ce91afdb966e427ac5e837',
   container: document.querySelector('#address_input'),
+  style:false
 });
 
 // take lat/lng value from algolia's response and store them into data-att of #adress-input
@@ -151,6 +153,34 @@ $('#submit').on('click', function() {
 
 
 });
+
+$('#searchbar-wrapper input').on('keypress', function(e) {
+  if (e.keyCode === 13) {
+
+    var params = {
+      range: $('#range').val(),
+      beds: $('#beds').val(),
+      rooms: $('#rooms').val(),
+      baths: $('#baths').val(),
+      square_m: $('#square_m').val(),
+      price: $('#price').val(),
+      pool: $('#pool').val(),
+      wifi: $('#wifi').val(),
+      pet: $('#pet').val(),
+      parking: $('#parking').val(),
+      piano: $('#piano').val(),
+      sauna: $('#sauna').val(),
+      latitude: $('#address_input').attr('data-lat'),
+      longitude: $('#address_input').attr('data-lng')
+    }
+
+    console.log(params);
+    // send params to API in Api/SearchController
+    ajaxCall(params);
+
+    }
+  })
+
 
 } // close the search-on-screen block
 
@@ -280,7 +310,7 @@ function loadMap(maPins) {
   }
 
   // set the view
-  mymap.setView([latlng.lat, latlng.lng], 8);
+  mymap.setView([latlng.lat, latlng.lng], 14);
 
 }
 

@@ -9,6 +9,7 @@ main {
     color: $primary_text_color;
     font-size: $jumbo_paragraph;
 
+    // Carousel
     .carousel {
       height: 480px;
       width: 100%;
@@ -16,6 +17,12 @@ main {
 
       .carousel-inner > .carousel-item > img {
         height: 480px;
+      }
+
+      @media all and (max-width: 720px) {
+        .carousel-control-next {
+          display: none;
+        }
       }
     }
 
@@ -47,6 +54,11 @@ main {
 
           &:hover {
             background-color: $quinternary_background;
+          }
+
+          &.btn-outline-secondary:focus {
+            box-shadow: 0 0 0 0;
+            outline: 0;
           }
         }
 

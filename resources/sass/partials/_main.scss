@@ -214,6 +214,13 @@ main {
   }
 
   // VIEW NEW SUITES
+  .anteprima{
+    #output,#output1,#output2,#output3{
+      margin: auto;
+      max-width: fit-content;
+    }
+  }
+
   .invia{
     .btn{
       background: #cf4532;

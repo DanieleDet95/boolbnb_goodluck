@@ -154,7 +154,7 @@ $('#submit').on('click', function() {
 
 });
 
-$('#searchbar-wrapper input').on('keypress', function(e) {
+$('#search_box input').on('keypress', function(e) {
   if (e.keyCode === 13) {
 
     var params = {

@@ -88,7 +88,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
     <div class="container-fluid container_suites_cards mb-5">
@@ -112,6 +111,7 @@
     {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
     se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
     <script id="suite-cards-template" type="text/x-handlebars-template">
+      <a href="{{route('suites.handle.show')}}/@{{id}}">
         <div class="entry py-3 col-12 d-flex align-items-center flex-column flex-sm-row">
           <div class="image_main_card col-12 col-sm-6">
             <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
@@ -121,9 +121,9 @@
             <p>@{{address}}</p>
             <h6>@{{price}}€/ night</h6>
           </div>
-            <!-- <img class="image_main_cards" src="@{{main_image}}" alt="@{{title}}"> -->
         </div>
-      <hr class="my-0">
+        <hr class="my-0">
+      </a>
     </script>
 
 @endsection

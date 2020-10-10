@@ -5,7 +5,7 @@
 @section("content")
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12">
+      <div class="col-12 p-0">
 
       {{-- Controllo se ci sono messaggi presenti per gli appartamenti dell'utente --}}
       @php

@@ -6,7 +6,7 @@
   margin: 0;
   box-sizing: border-box;
 }
- 
+
 // Button Reset
 button {
   border: none;
@@ -32,6 +32,13 @@ button:focus {
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus {
   box-shadow: 0 0 0 0;
   outline: 0;
+}
+
+a.badge.badge-primary:focus, a.badge.badge-primary.focus {
+  outline: 0;
+  box-shadow: 0 0 0;
+  -ms-transform: scale(0.98,0.98); /* IE 9 */
+  transform: scale(0.98,0.98); /* Standard syntax */
 }
 
 button.btn-home{

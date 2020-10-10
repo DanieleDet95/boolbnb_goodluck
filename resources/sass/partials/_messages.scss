@@ -1,0 +1,61 @@
+// partials/_messages.scss
+
+main {
+  /* VIEW MESSAGES */
+  .titolo_mail{
+    margin:80px 0 30px 0;
+    font-family: $secondary_font;
+    color: $qaternary_background;
+    font-size: $h4_text_size;
+  }
+  .lista_mail{
+    a{
+      color: #cf4532;
+    }
+    .mail{
+      font-family: $primary_font;
+      color: $quinternary_text_color;
+      font-size: $small_text_size;
+      margin-bottom: 80px;
+
+      &:hover {
+        background: #95afbf;
+      }
+      margin-top: 1px;
+      background: #F6F4F2;
+      border: 1px solid #000;
+      padding: 10px;
+      .checkbox{
+        float: left;
+        margin: 10px;
+      }
+      .nome_mail{
+        min-width: 200px;
+        max-width: 200px;
+        float: left;
+      }
+      .body_mail{
+        padding: 0 10px;
+        min-width: 850px;
+        max-width: 850px;
+        float: left;
+      }
+      .chiaro{
+        color: #000;
+      }
+      .modal-content{
+        border: 1px solid #cf4532;
+        border-radius: 5px;
+        box-shadow: 15px 15px 20px 0px rgba(0,0,0,0.5);
+        .modal-header{
+          background: #cf4532;
+          color: #F6F4F2;
+          span{
+            color: #F6F4F2;
+          }
+        }
+      }
+    }
+  }
+  /* Fine impostazione lista mail */
+}

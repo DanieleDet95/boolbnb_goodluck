@@ -8,31 +8,33 @@
   <div class="container-fluid container-md main_search" id="search_box">
     <div class="row flex-column col-12">
 
-      <div class="search_location col-12 mt-5 mb-3">
-        @if (isSet($key))
-          <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="{{$lat}}" data-lng="{{$lng}}" placeholder="Where are we going?" value="{{$key}}">
-        @else
-          <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="" data-lng="" placeholder="Where are we going?" />
-        @endif
+      <div class="common_form search_location col-12 mt-5 mb-3">
+        <div class="input_box">
+          @if (isSet($key))
+            <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="{{$lat}}" data-lng="{{$lng}}" placeholder="Where are we going?" value="{{$key}}">
+          @else
+            <input class="col-12 form-control rounded-0" type="search" id="address_input" data-lat="" data-lng="" placeholder="Where are we going?" />
+          @endif
+        </div>
       </div>
 
-      <div class="d-flex flex-column align-items-center align-items-lg-center justify-content-lg-around flex-lg-row col-12 my-3">
-        <div class="input_box col-4 col-12-sm flex-fill my-2">
+      <div class="common_form d-flex flex-column align-items-center align-items-lg-center justify-content-lg-around flex-lg-row col-12 my-3">
+        <div class="input_box col-4 col-12-sm flex-fill my-2 pl-lg-0">
           <input class="form-control rounded-0" id="range" type="number" min="0" name="range" value="" placeholder="Distance in Km">
         </div>
-        <div class="input_box col-4 col-12-sm flex-fill my-2">
+        <div class="input_box col-4 col-12-sm flex-fill my-2 pl-lg-0">
           <input class="form-control rounded-0" id="rooms" type="number" min="1" name="rooms" value="" placeholder="Rooms">
         </div>
-        <div class="input_box col-4 col-12-sm flex-fill my-2">
+        <div class="input_box col-4 col-12-sm flex-fill my-2 pl-lg-0">
           <input id="bed" class="form-control rounded-0" id="beds" min="1" type="number" name="beds" value="" placeholder="Beds">
         </div>
-        <div class="input_box col-4 col-12-sm flex-fill my-2">
+        <div class="input_box col-4 col-12-sm flex-fill my-2 pl-lg-0">
           <input class="form-control rounded-0" id="baths" type="number" min="1" name="baths" value="" placeholder="Baths">
         </div>
-        <div class="input_box col-4 col-12-sm flex-fill my-2">
+        <div class="input_box col-4 col-12-sm flex-fill my-2 pl-lg-0">
           <input class="form-control rounded-0" id="square_m" type="number" min="15" name="square_m" value="" placeholder="Square Meters">
         </div>
-        <div class="input_box col-4 col-12-sm flex-fill my-2">
+        <div class="input_box col-4 col-12-sm flex-fill my-2 pl-lg-0 pr-lg-0">
           <select class="custom-select rounded-0" id="price" name="price">
             <option value="0" selected="selected"> Price </option>
             <option value="30"> < 30€ </option>
@@ -45,7 +47,7 @@
 
       <div class="d-flex justify-content-around col-12 form-check my-3">
         @foreach ($services as $service)
-          <div class="checkbox col-2">
+          <div class="checkbox col-2 pl-lg-0">
             <label class="container_checkbox" title="{{ $service->supplements }}"><i class="{{ $service->icon }}"></i>
             <input id="{{ $service->supplements }}" type="checkbox" name="{{ $service->supplements }}" value="false">
             <span class="checkmark"></span>
@@ -89,7 +91,7 @@
       <a href="{{route('suites.handle.show')}}/@{{id}}">
         <div class="entry py-3 col-12 d-flex align-items-center flex-column flex-sm-row">
           <div class="image_main_card col-12 col-sm-6">
-            
+
             @if (strpos("@{{main_image}}", 'lorempixel') == false)
               <img
               src="{{ asset('storage') }}/@{{main_image}}"

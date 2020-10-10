@@ -40,7 +40,7 @@ class SuiteController extends Controller
     })->join('suites', function($join)
     {
       $join->on('highlight_suite.suite_id', '=', 'suites.id');
-    })->get();
+    })->orderBy('highlight_suite.start', 'DESC')->get();
 
 
     // Se l'appartamento ha almeno un abbonamento

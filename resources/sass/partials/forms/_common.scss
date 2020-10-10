@@ -25,7 +25,7 @@ main {
     }
 
     // Input Forms style
-    .input_box > .form-control {
+    .input_box > .form-control, .input_box > .custom-select {
 
       &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: $placeholder_text_color;
@@ -33,17 +33,26 @@ main {
       }
 
       &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: $qaternary_text_color;
+        color: $placeholder_text_color;
       }
 
       &::-ms-input-placeholder { /* Microsoft Edge */
-        color: $qaternary_text_color;
+        color: $placeholder_text_color;
       }
 
       &:focus {
         border-color: $secondary_background;
         box-shadow: 0 0 0;
         outline: 0 none;
+      }
+    }
+
+    // Select / Option Placeholder
+    select.custom-select {
+      color: $placeholder_text_color;
+
+      option {
+        color: $placeholder_text_color;
       }
     }
 
@@ -74,6 +83,12 @@ main {
 
         &:hover {
           background-color: $quinternary_background;
+        }
+
+        &:focus {
+          outline: 0;
+          -ms-transform: scale(0.98,0.98); /* IE 9 */
+          transform: scale(0.98,0.98); /* Standard syntax */
         }
       }
     }

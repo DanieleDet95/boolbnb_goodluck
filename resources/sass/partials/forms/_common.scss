@@ -25,7 +25,11 @@ main {
     }
 
     // Input Forms style
-    .input_box > .form-control, .input_box > .custom-select {
+    & input, select, option {
+      font-family: $primary_font;
+    }
+
+    .input_box .form-control, .input_box .custom-select {
 
       &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: $placeholder_text_color;

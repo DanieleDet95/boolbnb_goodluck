@@ -45,3 +45,22 @@
 #algolia_form .ap-nostyle-dropdown-menu .ap-name > em {
   font-style: inherit;
 }
+
+// Algolia Style reset
+.ap-input {
+  &::placeholder {
+    font-family: $primary_font;
+    color: $placeholder_text_color;
+    opacity: 1; /* Firefox */
+  }
+
+  &:focus, &:active {
+    border-color: $secondary_background;
+    outline: 0;
+    box-shadow: 0 0 0;
+  }
+}
+
+.ap-input-icon.ap-icon-clear {
+  display: none;
+}

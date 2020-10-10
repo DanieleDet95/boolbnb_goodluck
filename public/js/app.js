@@ -52839,16 +52839,12 @@ module.exports = function(module) {
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // include JQuery
 
 
-var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); // include handlebars
-
-
-var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js"); // include places
-
-
-var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
 $(document).ready(function () {
-  console.log('ready'); // include searchbar functions
+  // include commons
+  __webpack_require__(/*! ./commons */ "./resources/js/commons.js"); // include searchbar functions
+
 
   __webpack_require__(/*! ./search */ "./resources/js/search.js"); // include Statistiche
 
@@ -52856,10 +52852,10 @@ $(document).ready(function () {
   __webpack_require__(/*! ./static */ "./resources/js/static.js"); // include create
 
 
-  __webpack_require__(/*! ./create_update */ "./resources/js/create_update.js"); // include commons
+  __webpack_require__(/*! ./create_update */ "./resources/js/create_update.js"); // include create
 
 
-  __webpack_require__(/*! ./commons */ "./resources/js/commons.js");
+  __webpack_require__(/*! ./show */ "./resources/js/show.js");
 });
 
 /***/ }),
@@ -52918,7 +52914,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 // set content to image-input
 $('#create_main_image').on('change', function () {
-  $('.custom-file-label').text("File Loaded");
+  $('.imgcover').text("File Loaded");
+});
+$('#create_firstimg').on('change', function () {
+  $('.img1').text("File Loaded");
+});
+$('#create_secondimg').on('change', function () {
+  $('.img2').text("File Loaded");
 });
 
 /***/ }),
@@ -52928,9 +52930,12 @@ $('#create_main_image').on('change', function () {
   !*** ./resources/js/create_update.js ***!
   \***************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 if ($('#address_create').length) {
+  // include places
+  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+
   var createAutocomplete = places({
     appId: 'pl4XRMWU2BCA',
     apiKey: '0c0d759444ce91afdb966e427ac5e837',
@@ -52940,8 +52945,6 @@ if ($('#address_create').length) {
     return $('#latitude').val(e.suggestion['latlng']['lat']), $('#longitude').val(e.suggestion['latlng']['lng']);
   });
 }
-
-$('#stanza').val(6);
 
 /***/ }),
 
@@ -53035,7 +53038,7 @@ if ($('#address_input').length) {
     maxZoom: 50
   }).addTo(mymap); // set the view
 
-  mymap.setView([41.90, 12.47], 10);
+  mymap.setView([42.455111, 12.512467], 6);
   /*
   **********************
   ALGOLIA AUTOCOMPLEATE
@@ -53047,16 +53050,12 @@ if ($('#address_input').length) {
   var placesAutocomplete = places({
     appId: 'pl4XRMWU2BCA',
     apiKey: '0c0d759444ce91afdb966e427ac5e837',
-    container: document.querySelector('#address_input')
-  });
+    container: document.querySelector('#address_input') // style:false
 
-  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+  }); // take lat/lng value from algolia's response and store them into data-att of #adress-input
 
-  var placesAutocomplete = places({
-    appId: 'pl4XRMWU2BCA',
-    apiKey: '0c0d759444ce91afdb966e427ac5e837',
-    container: document.querySelector('#address_input'),
-    style: false
+  placesAutocomplete.on('change', function (e) {
+    return $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']), $('#address_input').attr('data-lng', e.suggestion['latlng']['lng']);
   });
   /*
   **********************
@@ -53086,16 +53085,47 @@ if ($('#address_input').length) {
 
     ajaxCall(params);
   });
+  $('#searchbar-wrapper input').on('keypress', function (e) {
+    if (e.keyCode === 13) {
+      var params = {
+        range: $('#range').val(),
+        beds: $('#beds').val(),
+        rooms: $('#rooms').val(),
+        baths: $('#baths').val(),
+        square_m: $('#square_m').val(),
+        price: $('#price').val(),
+        pool: $('#pool').val(),
+        wifi: $('#wifi').val(),
+        pet: $('#pet').val(),
+        parking: $('#parking').val(),
+        piano: $('#piano').val(),
+        sauna: $('#sauna').val(),
+        latitude: $('#address_input').attr('data-lat'),
+        longitude: $('#address_input').attr('data-lng')
+      };
+      console.log(params); // send params to API in Api/SearchController
+
+      ajaxCall(params);
+    }
+  });
 } // close the search-on-screen block
 // DEFINITIONs
 // search call
 
 
 function ajaxCall(params) {
+  $body = $("body");
+  $(document).on({
+    ajaxStart: function ajaxStart() {
+      $body.addClass("loading");
+    },
+    ajaxStop: function ajaxStop() {
+      $body.removeClass("loading");
+    }
+  });
   $.ajax({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search",
-    //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
     method: "GET",
     data: {
       range: params.range,
@@ -53118,8 +53148,7 @@ function ajaxCall(params) {
       var source = $('#suite-cards-template').html();
       var template = Handlebars.compile(source); // refresh html before a new search
 
-      $('.suites_cards_promo').html(''); // console.log(suites.noPromo);
-
+      $('.suites_cards_promo').html('');
       var maPins = [];
 
       for (var i = 0; i < suites.promo.length; i++) {
@@ -53189,7 +53218,7 @@ function loadMap(maPins) {
   } // set the view
 
 
-  mymap.setView([latlng.lat, latlng.lng], 8);
+  mymap.setView([latlng.lat, latlng.lng], 14);
 } // attach pins to the map
 
 
@@ -53206,7 +53235,25 @@ function checked(event) {
   }
 }
 
-;
+/***/ }),
+
+/***/ "./resources/js/show.js":
+/*!******************************!*\
+  !*** ./resources/js/show.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+if ($('#show_map').length) {
+  var lat = $('#show_map').attr('data-lat');
+  var lng = $('#show_map').attr('data-lng');
+  var showMap = L.map('show_map').setView([lat, lng], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    minZoom: 5
+  }).addTo(showMap);
+  L.marker([lat, lng]).addTo(showMap);
+}
 
 /***/ }),
 
@@ -53331,15 +53378,14 @@ if ($('#bar_visual').length) {
 /***/ }),
 
 /***/ 0:
-/*!**************************************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/js/search.js ./resources/sass/app.scss ***!
-  \**************************************************************************************/
+/*!*************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
+  \*************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\js\search.js */"./resources/js/search.js");
-module.exports = __webpack_require__(/*! E:\GitHub_Repositories\MAMP-htdocs\boolbnb_goodluck\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/andreadebrest/devilbox/data/www/boolbnb_goodluck/boolbnb_goodluck/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

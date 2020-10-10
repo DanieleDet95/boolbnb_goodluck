@@ -61,20 +61,24 @@
           <div class="create_address form-group row">
             <div class="col-12">
               <div class="input_box">
-
-                {{-- <input
+                <input
                   id="latitude"
-                  class="form-control rounded-0 d-none"
                   type="text"
                   name="latitude"
-                  value="{{old('latitude')}}">
+                  value="{{old('latitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
 
                 <input
                   id="longitude"
-                  class="form-control rounded-0 d-none"
                   type="text"
                   name="longitude"
-                  value="{{old('longitude')}}"> --}}
+                  value="{{old('longitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
+
 
                 <input
                   id="address_create"
@@ -193,7 +197,7 @@
                   value="{{old('main_image')}}"
                   class="custom-file-input"
                   required>
-                <label for="file" class="custom-file-label rounded-0">Choose cover...</label>
+                <label for="file" class="custom-file-label rounded-0 imgcover">Choose cover...</label>
               </div>
             </div>
           </div>
@@ -261,7 +265,7 @@
                   {{-- Checkbox --}}
                   @foreach ($services as $service)
                   <div class="col-4 col-lg-2 text-center">
-                    <label class="container_checkbox"><i class="{{ $service->icon }}"></i>
+                    <label class="container_checkbox"title="{{ $service->supplements }}"><i class="{{ $service->icon }}"></i>
                       <input type="checkbox" name="services[]" value="{{ $service->id }}" >
                       <span class="checkmark"></span>
                     </label>

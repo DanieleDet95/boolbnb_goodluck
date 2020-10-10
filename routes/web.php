@@ -45,3 +45,7 @@ Route::get('suites/{suite}', 'SuiteController@show')->name('suites.show');
 Route::post('suites/{suite}', 'SuiteController@store')->name('suites.store');
 // guest route to store_message
 Route::post('suites/{suite}', 'SuiteController@store_message')->name('suites.store_message');
+//route to FAQs
+Route::get('/faqs', 'FaqController@index')->name('faqs');
+// join handlebars with blade, to show
+Route::get('/suites', 'SuiteController@show')->name('suites.handle.show');

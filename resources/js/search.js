@@ -24,7 +24,7 @@ if($('#home_search').length){
       appId: 'pl4XRMWU2BCA',
       apiKey: '0c0d759444ce91afdb966e427ac5e837',
       container: document.querySelector('#home_search'),
-      style: false,
+      style:false
     })
 
     homeAutocomplete.on('change', e => (
@@ -33,6 +33,8 @@ if($('#home_search').length){
       $('#longitude').val(e.suggestion['latlng']['lng'])
     ))
   }
+
+
 
 
 
@@ -97,7 +99,7 @@ L.tileLayer(
 }).addTo(mymap);
 
 // set the view
-mymap.setView([41.90, 12.47], 10);
+mymap.setView([42.455111, 12.512467], 6);
 
 
 /*
@@ -111,15 +113,14 @@ var placesAutocomplete = places({
   appId: 'pl4XRMWU2BCA',
   apiKey: '0c0d759444ce91afdb966e427ac5e837',
   container: document.querySelector('#address_input'),
+  // style:false
 });
 
-  var places = require('places.js');
-  var placesAutocomplete = places({
-    appId: 'pl4XRMWU2BCA',
-    apiKey: '0c0d759444ce91afdb966e427ac5e837',
-    container: document.querySelector('#address_input'),
-    style: false,
-  });
+// take lat/lng value from algolia's response and store them into data-att of #adress-input
+placesAutocomplete.on('change', e => (
+  $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']),
+  $('#address_input').attr('data-lng',e.suggestion['latlng']['lng'])
+));
 
 /*
 **********************
@@ -153,6 +154,36 @@ $('#submit').on('click', function() {
 
 });
 
+$('#search_box input').on('keypress', function(e) {
+  if (e.keyCode === 13) {
+
+    var params = {
+      range: $('#range').val(),
+      beds: $('#beds').val(),
+      rooms: $('#rooms').val(),
+      baths: $('#baths').val(),
+      square_m: $('#square_m').val(),
+      price: $('#price').val(),
+      pool: $('#pool').val(),
+      wifi: $('#wifi').val(),
+      pet: $('#pet').val(),
+      parking: $('#parking').val(),
+      piano: $('#piano').val(),
+      sauna: $('#sauna').val(),
+      latitude: $('#address_input').attr('data-lat'),
+      longitude: $('#address_input').attr('data-lng')
+    }
+
+    console.log(params);
+    // send params to API in Api/SearchController
+    ajaxCall(params);
+
+
+
+    }
+  })
+
+
 } // close the search-on-screen block
 
 
@@ -164,10 +195,21 @@ $('#submit').on('click', function() {
 // search call
 function ajaxCall(params) {
 
+  $body = $("body");
+
+  $(document).on({
+    ajaxStart: function() {
+      $body.addClass("loading");
+    },
+     ajaxStop: function() {
+       $body.removeClass("loading");
+     }
+  });
+
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -196,7 +238,6 @@ function ajaxCall(params) {
       // refresh html before a new search
       $('.suites_cards_promo').html('');
 
-      // console.log(suites.noPromo);
       var maPins = []
 
       for (var i = 0; i < suites.promo.length; i++) {
@@ -281,7 +322,7 @@ function loadMap(maPins) {
   }
 
   // set the view
-  mymap.setView([latlng.lat, latlng.lng], 8);
+  mymap.setView([latlng.lat, latlng.lng], 14);
 
 }
 
@@ -297,4 +338,4 @@ function checked(event) {
   }else{
     $(event).val('false');
   }
-};
+}

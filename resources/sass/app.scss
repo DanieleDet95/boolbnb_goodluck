@@ -20,8 +20,9 @@
 // Search
 @import 'partials/_search';
 
-// Algolia style
-@import 'partials/_suites_cards';
+// Show
+@import 'partials/_show';
+
 
 // Form partials
 @import 'partials/forms/_common';
@@ -32,6 +33,8 @@
 // Create suites
 @import 'partials/_create_suites';
 
+// FAQs
+@import 'partials/_faq';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

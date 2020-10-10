@@ -75,6 +75,32 @@ img {
   background-color: red;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 50%;
+  width: 50%;
+  background: rgba(255, 255, 255, 0.8) url("https://flevix.com/wp-content/uploads/2019/07/Q-Loading.gif") 50% 50% no-repeat;
+  background-size: 40%;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+
+body.loading .modal {
+  overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+
+body.loading .modal {
+  display: block;
+}
+
 header {
   width: 1200px;
 }
@@ -700,12 +726,32 @@ main .container_suites_cards .suites_cards .suites_cards_promo {
   color: red;
 }
 
+main .container_suites_cards .suites_cards .suites_cards_promo .carousel-item img {
+  height: 150px;
+}
+
 main .container_suites_cards .suites_cards .suites_cards_noPromo {
   color: black;
 }
 
+main .container_suites_cards .suites_cards .suites_cards_noPromo .carousel-item img {
+  height: 150px;
+}
+
+main .container_suites_cards .my_maps {
+  height: 100vh;
+  padding-top: 60px;
+  margin-top: -60px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  left: 100%;
+}
+
 main .container_suites_cards .my_maps #map {
-  height: 500px;
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 main .entry .image_main_card {
@@ -730,6 +776,7 @@ main .entry .body_card p {
   line-height: 20px;
 }
 
+<<<<<<< HEAD
 main section.suites_cards {
   padding: 80px 0;
 }
@@ -786,6 +833,42 @@ main section.suites_cards .card-deck .card .card-body .suite_show_link > a {
 }
 
 main section.suites_cards .card-deck .card .card-body .suite_show_link > a:hover {
+=======
+main .input_box > input:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .input_box > textarea:focus {
+  border-color: #272728;
+  box-shadow: 0 0 0;
+  outline: 0 none;
+}
+
+main .row_info .list_infos,
+main .row_info .list_services > * {
+  list-style-type: none;
+}
+
+main .submit_message {
+  line-height: 60px;
+}
+
+main .submit_message .send_message {
+  background-color: #cf4532;
+  border: none;
+  padding: 0 30px;
+  margin-right: 0;
+  color: #f6f4f2;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+main .submit_message .send_message:hover {
+>>>>>>> master
   background-color: #a73727;
 }
 
@@ -1046,6 +1129,14 @@ main .create_suite_wrapper .checkbox .container_checkbox .checkmark:after {
   height: 8px;
 }
 
+<<<<<<< HEAD
+=======
+.faq-title-wrapper {
+  padding: 50px 0;
+  min-height: 200px;
+}
+
+>>>>>>> master
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors

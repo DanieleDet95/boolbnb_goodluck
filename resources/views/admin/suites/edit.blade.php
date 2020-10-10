@@ -60,7 +60,27 @@
           <div class="create_address form-group row">
             <div class="col-12">
               <div class="input_box">
+
                 <input
+                  id="latitude"
+                  type="text"
+                  name="latitude"
+                  value="{{old('latitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
+
+                <input
+                  id="longitude"
+                  type="text"
+                  name="longitude"
+                  value="{{old('longitude')}}"
+                  class="form-control rounded-0 d-none"
+                  required autocomplete="address"
+                  autofocus>
+
+                <input
+                  id="address_create"
                   type="text"
                   name="address"
                   value="{{old('address')}}"
@@ -338,7 +358,7 @@
                   {{-- Checkbox --}}
                   @foreach ($services as $service)
                   <div class="col-4 col-lg-2 text-center">
-                    <label class="container_checkbox"><i class="{{ $service->icon }}"></i>
+                    <label class="container_checkbox"title="{{ $service->supplements }}"><i class="{{ $service->icon }}"></i>
                       <input type="checkbox" name="services[]" value="{{ $service->id }}" {{ ($suite->services->contains($service)) ? "checked" : '' }}>
                       <span class="checkmark"></span>
                     </label>

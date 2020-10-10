@@ -94,20 +94,22 @@ class SuiteController extends Controller
 
   public function homesearch(Request $request)
   {
+    $services = Service::all();
     $search = $request->all();
     $key = $search['key'];
     $lat = $search['latitude'];
     $lng = $search['longitude'];
 
-    return view('guest.suites.search', compact('key', 'lat', 'lng'));
+    return view('guest.suites.search', compact('key', 'lat', 'lng','services'));
   }
 
   public function search()
   {
-
+    $services = Service::all();
     $suites = Suite::all();
+    $images = Image::all();
 
-    return view('guest.suites.search', compact('suites'));
+    return view('guest.suites.search', compact('suites','services','images'));
   }
 
 
@@ -139,17 +141,22 @@ class SuiteController extends Controller
 
   public function show(Suite $suite)
   {
-    $user = Auth::id();
-    if ($suite->user_id != $user) {
-      $giorno = Carbon::now('Europe/Rome');
-      $new_visit = new Visit();
-      $new_visit->data = $giorno;
-      $new_visit->ip = 90;
-      $new_visit->suite_id = $suite['id'];
-      $new_visit->save();
+    $user_id = Auth::id();
+    $user = Auth::user();
+
+    $pageWasRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0';
+
+    if(!$pageWasRefreshed ) {
+      if ($suite->user_id != $user_id) {
+        $giorno = Carbon::now('Europe/Rome');
+        $new_visit = new Visit();
+        $new_visit->data = $giorno;
+        $new_visit->ip = 90;
+        $new_visit->suite_id = $suite['id'];
+        $new_visit->save();
+      }
     }
 
-    $user = Auth::user();
     return view('guest.suites.show', compact('suite', 'user'));
   }
 

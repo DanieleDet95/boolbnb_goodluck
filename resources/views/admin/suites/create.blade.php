@@ -229,7 +229,7 @@
                   id="create_secondimg"
                   type="file"
                   accept="image/*"
-                  name="image3"
+                  name="image2"
                   onchange="loadFile2(event)"
                   value="{{old('image2')}}"
                   class="custom-file-input">

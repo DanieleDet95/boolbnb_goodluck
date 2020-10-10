@@ -151,7 +151,7 @@
                       <div class="services d-flex justify-content-start">
                         @foreach ($suites as $suite)
                           @if ($suite->id === $highlight_suite_active->id)
-                            @if (empty($suite->services))
+                            @if ($suite->services->count() === 0)
                               <i class="fas fa-not-equal"></i>
                             @else
                               @foreach ($suite->services as $suite_service)

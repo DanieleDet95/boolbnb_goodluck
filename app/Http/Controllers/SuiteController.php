@@ -12,6 +12,7 @@ use App\Highlight;
 use App\Visit;
 use Carbon\Carbon;
 use App\Image;
+use App\Service;
 
 // Import Mail model
 use Illuminate\Support\Facades\Mail;
@@ -31,15 +32,15 @@ class SuiteController extends Controller
   public function index()
   {
     $suites = Suite::all();
+    $services = Service::all();
 
     $highlights_suites = DB::table('highlights')->join('highlight_suite', function($join)
     {
       $join->on('highlight_suite.highlight_id', '=', 'highlights.id');
     })->join('suites', function($join)
     {
-      $join->on('suites.id', '=', 'highlight_suite.suite_id');
+      $join->on('highlight_suite.suite_id', '=', 'suites.id');
     })->get();
-
 
 
     // Se l'appartamento ha almeno un abbonamento
@@ -51,21 +52,14 @@ class SuiteController extends Controller
 
         // Se la sponsorizzazione é attiva
         if ( $oggi < $highlight_suite->end) {
-          if(count($highlights_suites_active) < 6)
+          if(count($highlights_suites_active) < 6) {
           $highlights_suites_active[] = $highlight_suite;
+          }
         }
       }
     }
 
-    // smooth code
-    // $highlights_suites_active = Suite::query();
-    //
-    // $highlights_suites_active->has('highlights')
-    // ->with('highlights')
-    // ->orderBy('created_at', 'asc')
-    // ->take(6)->get();
-
-    return view('guest.suites.index', compact('suites', 'highlights_suites_active'));
+    return view('guest.suites.index', compact('suites', 'highlights_suites_active', 'services'));
   }
 
 

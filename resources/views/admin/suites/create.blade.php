@@ -213,7 +213,7 @@
                   onchange="loadFile1(event)"
                   value="{{old('image1')}}"
                   class="custom-file-input">
-                <label class="custom-file-label rounded-0">Choose File...</label>
+                <label class="custom-file-label rounded-0">Choose file...</label>
               </div>
             </div>
             {{-- end Create first img --}}
@@ -229,7 +229,7 @@
                   onchange="loadFile2(event)"
                   value="{{old('image2')}}"
                   class="custom-file-input">
-                <label class="custom-file-label rounded-0">Choose File...</label>
+                <label class="custom-file-label rounded-0">Choose file...</label>
               </div>
             </div>
             {{-- end Create second img --}}
@@ -283,13 +283,6 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-          {{-- end Submit Login --}}
-=======
-        {{-- end Create suite --}}
-
->>>>>>> Branch-Daniele
-
         </form>
         {{-- end Form Create --}}
 

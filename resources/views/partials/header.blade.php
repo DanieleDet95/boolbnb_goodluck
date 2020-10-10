@@ -80,18 +80,16 @@
                 </li>
             @else
               <li class="nav-item nav_before_log">
-                <a class="nav-link" href="#">
-                  <span class="user_greeting">Hi </span>
-                  <span class="user_name">{{ Auth::user()->name }}</span>
+                <span class="user_greeting">Hi</span>
+                <span class="user_name">{{ Auth::user()->name }}!</span>
+              </li>
+              <li class="nav-item nav_login_logout">
+                <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                  <span>{{ __('Logout') }}</span>
                 </a>
-                <li class="nav-item nav_login_logout">
-                  <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                    <span>{{ __('Logout') }}</span>
-                  </a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                  </form>
-                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                  @csrf
+                </form>
               </li>
             @endguest
             {{-- end Register & Login --}}

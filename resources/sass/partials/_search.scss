@@ -81,6 +81,12 @@ main {
   .container_suites_cards {
     min-height: 500px;
     .suites_cards {
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: none;
+        }
+      }
       .suites_cards_promo {
         color: red;
         .carousel-item{

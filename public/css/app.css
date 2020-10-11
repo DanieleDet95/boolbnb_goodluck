@@ -587,6 +587,14 @@ main .container_suites_cards {
   min-height: 500px;
 }
 
+main .container_suites_cards .suites_cards a {
+  text-decoration: none;
+}
+
+main .container_suites_cards .suites_cards a:hover {
+  text-decoration: none;
+}
+
 main .container_suites_cards .suites_cards .suites_cards_promo {
   color: red;
 }
@@ -643,6 +651,10 @@ main .entry .body_card p {
 
 main section.suites_cards {
   padding: 80px 0;
+}
+
+main section.suites_cards .card-deck {
+  height: 410px;
 }
 
 main section.suites_cards .card-deck .card {

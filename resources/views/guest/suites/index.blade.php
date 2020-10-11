@@ -143,12 +143,12 @@
                     {{-- end Change Main Image path If Faker Or Storage --}}
 
                     {{-- Card Text --}}
-                    <div class="card-body p-3">
-                      <h5 class="card-title">{{ $highlight_suite_active->title }}</h5>
-                      <p class="card-text">{{ $highlight_suite_active->address }}</p>
+                    <div class="card-body d-flex flex-column justify-content-around p-3">
+                      <h5 class="card-title flex-grow-0">{{ $highlight_suite_active->title }}</h5>
+                      <p class="card-text flex-grow-0">{{ $highlight_suite_active->address }}</p>
 
                       {{-- Services --}}
-                      <div class="services d-flex justify-content-start">
+                      <div class="services d-flex flex-grow-1 justify-content-start">
                         @foreach ($suites as $suite)
                           @if ($suite->id === $highlight_suite_active->id)
                             @if ($suite->services->count() === 0)
@@ -164,7 +164,7 @@
                       {{-- end Services --}}
 
                       {{-- Price & Show button --}}
-                      <div class="price_show d-flex justify-content-between align-items-center">
+                      <div class="price_show flex-grow-0 d-flex justify-content-between align-items-center">
                         <div class="price d-flex justify-content-start">
                           <span>{{ $highlight_suite_active->price }} €/night</span>
                         </div>

@@ -67,7 +67,7 @@ if($('#address_input').length) {
   } else {
 
     // erase all values from all inputs in .search-wrapper except for #submit
-    $("#search_box input:not('#submit')").val('');
+    $(".search_wrapper input:not('#submit')").val('');
   }
 
 // **DEFAULT INPUT VALUE**
@@ -75,7 +75,7 @@ if($('#address_input').length) {
 $('input[type="checkbox"]').prop('checked', false);
 
 // toggle chechbox values on click
-$('#search_box input[type="checkbox"]').on('click', function(event) {
+$('.checkbox input[type="checkbox"]').on('click', function(event) {
   checked($(this));
 })
 
@@ -154,8 +154,9 @@ $('#submit').on('click', function() {
 
 });
 
-$('#search_box input').on('keypress', function(e) {
+$('.search_wrapper input').on('keypress', function(e) {
   if (e.keyCode === 13) {
+    console.log('premuto')
 
     var params = {
       range: $('#range').val(),
@@ -208,8 +209,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 

@@ -157,7 +157,6 @@
             <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
            @endif
 
-           <!-- <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}"> -->
          </div>
          <div class="body_card d-flex flex-column align-items-start col-12 col-sm-6">
            <h6>@{{title}}</h6>

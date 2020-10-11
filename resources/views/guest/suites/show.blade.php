@@ -77,6 +77,13 @@
 
     {{-- Row Form --}}
     <div class="row row_form mb-4">
+
+      {{-- Mappa appartamento --}}
+      <div class="col-6">
+        <div id="show_map" data-lat="{{$suite->latitude}}" data-lng="{{$suite->longitude}}" >#</div>
+      </div>
+
+      {{-- Form messaggio da inviare al proprietario --}}
       <div class="col-6">
         @if (!is_null($user))
 
@@ -115,11 +122,11 @@
 
               <div class="form-group input_box email_message">
                 <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" name="email" value="{{ old("email") }}" placeholder="name@example.com">
+                <input type="email" class="form-control" id="exampleFormControlInput1" name="email" value="{{$user->email ? $user->email : old("email") }}" placeholder="name@example.com">
               </div>
               <div class="form-group input_box name_message">
                 <label for="exampleFormControlInput1">Insert your name</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{ old("name") }}" placeholder="John Doe">
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{$user->name ? $user->name : old("name") }}" placeholder="John Doe">
               </div>
               <div class="mb-3 input_box body_message">
                 <label for="validationTextarea">Write your email</label>
@@ -171,9 +178,6 @@
             </form>
 
         @endif
-      </div>
-      <div class="col-6">
-        <div id="show_map" data-lat="{{$suite->latitude}}" data-lng="{{$suite->longitude}}" style="height: 100%">#</div>
       </div>
 
     </div>

@@ -197,7 +197,7 @@
                   value="{{old('main_image')}}"
                   class="custom-file-input"
                   required>
-                <label for="file" class="custom-file-label rounded-0 imgcover">Choose cover...</label>
+                <label for="file" class="uno custom-file-label rounded-0 imgcover">Choose cover...</label>
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@
                   onchange="loadFile1(event)"
                   value="{{old('image1')}}"
                   class="custom-file-input">
-                <label class="custom-file-label rounded-0">Choose file...</label>
+                <label class="due custom-file-label rounded-0">Choose file...</label>
               </div>
             </div>
             {{-- end Create first img --}}
@@ -233,7 +233,7 @@
                   onchange="loadFile2(event)"
                   value="{{old('image2')}}"
                   class="custom-file-input">
-                <label class="custom-file-label rounded-0">Choose file...</label>
+                <label class="tre custom-file-label rounded-0">Choose file...</label>
               </div>
             </div>
             {{-- end Create second img --}}

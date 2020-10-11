@@ -217,12 +217,12 @@
 
 {{-- Card Text --}}
 {{-- <div class="card-body p-3">
-  <h5 class="card-title">{{$highlight_suite_active->title}}</h5>
-  <p class="card-text">{{$highlight_suite_active->address}}</p>
+  <h5 class="card-title">{{$highlight_suite_active ?? ''->title}}</h5>
+  <p class="card-text">{{$highlight_suite_active ?? ''->address}}</p>
   <div class="services_and_show d-flex justify-content-between align-items-center">
     <div class="services d-flex justify-content-start">
       @foreach ($suites as $suite)
-        @if ($suite->id === $highlight_suite_active->id)
+        @if ($suite->id === $highlight_suite_active ?? ''->id)
           @foreach ($suite->services as $suite_service)
             <i class="{{ $suite_service->icon }} pr-2"></i>
           @endforeach

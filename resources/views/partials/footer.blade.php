@@ -88,7 +88,7 @@
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/daniele-detommaso-234682178/" target="_blank">
                         <h5>Daniele Detommaso</h5>
-                        <p>Full-Stack web developer</p>
+                        <p>Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>
@@ -99,8 +99,8 @@
                     <div class="d-none d-block height_title"></div>
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/ivanmonfrini/" target="_blank">
-                        <h5>Ivan Monfrini</h5>
-                        <p>Full-Stack web developer</p>
+                        <h5>Andrea Cinieri</h5>
+                        <p>Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>
@@ -111,8 +111,8 @@
                     <div class="d-none d-block height_title"></div>
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/andrea-cinieri/" target="_blank">
-                        <h5>Andrea Cinieri</h5>
-                        <p>Full-Stack web developer</p>
+                        <h5>Ivan Monfrini</h5>
+                        <p>Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>
@@ -124,7 +124,7 @@
                     <div class="carousel-caption d-none d-block">
                       <a href="https://www.linkedin.com/in/nicola-valente-339a0010a/?originalSubdomain=it" target="_blank">
                         <h5>Nicola Valente</h5>
-                        <p>Full-Stack web developer</p>
+                        <p>Full-Stack Web Developer</p>
                       </a>
                     </div>
                   </div>

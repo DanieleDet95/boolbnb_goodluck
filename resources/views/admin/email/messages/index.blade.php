@@ -47,7 +47,7 @@
                   </a>
 
                   {{-- Collegamento alla suite --}}
-                  <span><a href="{{route('suites.show',  $message->suite_id)}}">Suite: {{$message->name}}</a></span>
+                  <span><a href="{{route('suites.show',  $message->suite_id)}}">Link suite</a></span>
 
                   {{-- Orario/data ricevuto messaggio --}}
                   <div class="orario">

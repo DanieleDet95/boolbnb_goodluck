@@ -37,12 +37,12 @@
 
               <div class="carousel-item">
                 <h3>IVAN MONFRINI</h3>
-                <small>Back-end developer</small>
+                <small>Front-end developer</small>
               </div>
 
               <div class="carousel-item">
                 <h3>NICOLA VALENTE</h3>
-                <small>Back-end developer</small>
+                <small>Front-end developer</small>
               </div>
 
             </div>

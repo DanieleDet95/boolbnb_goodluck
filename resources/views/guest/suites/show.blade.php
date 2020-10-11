@@ -6,7 +6,7 @@
   {{-- Container-fluid --}}
   <div class="container-fluid container-md">
     {{-- Row Title Images --}}
-    <div class="row flex-column flex-nowrap mt-3 row_title_img">
+    <div class="row flex-column flex-nowrap mt-4 row_title_img">
       {{-- Prima riga fatta da titolo e indirizzo --}}
       <div class="mx-3 title_show">
         <h2>{{$suite->title}}</h2>
@@ -91,7 +91,7 @@
     </div>
     {{-- Fine Row Message --}}
     {{-- Row Form --}}
-    <div class="row row_form">
+    <div class="row row_form mb-4">
       <div class="col-6">
         @if (!is_null($user))
 

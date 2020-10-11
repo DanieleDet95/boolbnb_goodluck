@@ -166,7 +166,7 @@
                       {{-- Price & Show button --}}
                       <div class="price_show d-flex justify-content-between align-items-center">
                         <div class="price d-flex justify-content-start">
-                          <span>{{ $highlight_suite_active->price }} $</span>
+                          <span>{{ $highlight_suite_active->price }} €/night</span>
                         </div>
                         <div class="suite_show_link">
                           <a href="{{ route("suites.show", $highlight_suite_active->id) }}" class="badge badge-primary border-0 rounded-0">

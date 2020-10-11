@@ -117,7 +117,7 @@
               </div>
               <div class="form-group input_box name_message">
                 <label for="exampleFormControlInput1">Insert your name</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{ old("name") }}" placeholder="Mario Rossi">
+                <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="{{ old("name") }}" placeholder="John Doe">
               </div>
               <div class="mb-3 input_box body_message">
                 <label for="validationTextarea">Write your email</label>

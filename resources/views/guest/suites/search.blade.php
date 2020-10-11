@@ -162,7 +162,7 @@
          <div class="body_card d-flex flex-column align-items-start col-12 col-sm-6">
            <h6>@{{title}}</h6>
            <p>@{{address}}</p>
-           <h6>@{{price}}€/ night</h6>
+           <h6>@{{price}} €/night</h6>
 
          </div>
        </div>

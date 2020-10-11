@@ -182,7 +182,7 @@
                   </div>
                 </div>
               </div>
-            {{-- end Card --}}
+              {{-- end Card --}}
             @endforeach
 
           </div>

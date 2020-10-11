@@ -4,7 +4,7 @@
 {{-- Yeld Main Content --}}
 @section("content")
 
-  {{-- Bootstrap --}}
+  {{-- Bootstrap Container Search Bar --}}
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
       <div class="col-10">
@@ -108,66 +108,108 @@
       </div>
     </div>
   </div>
-  {{-- end Bootstrap --}}
+  {{-- end Bootstrap Container Search Bar --}}
 
-  {{-- Bootsrap --}}
+  {{-- Bootsrap Container Cards --}}
    <div class="container-fluid container_suites_cards mb-5">
      <div class="row d-flex justify-content-center">
       <div class="col-10 mt-5">
         <div class="row">
 
           {{-- Suites Cards --}}
-          <div class="col-lg-6 col-12 suites_cards">
+          <div class="col-6">
 
-            {{-- div per le card in evidenza --}}
-            <div class="suites_cards_promo bg-light"></div>
+            {{-- Highlights suites --}}
+            <div class="suites_cards_promo bg-light">
+              {{-- Foreach suite with a promotion --}}
+              @foreach ($highlights_suites_active as $highlight_suite_active)
+                {{-- Card --}}
+                <div class="card mb-3">
+                  <div class="row no-gutters">
 
-            {{-- div per le card non in evidenza --}}
-            <div class="suites_cards_noPromo"></div>
+                    <!-- Images -->
+                    <div class="col-6 p-0">
+                      <div class="postion-relative img_container">
+                        <img src="{{ $highlight_suite_active->main_image }}" class="img-fake position-absolute image-fluid">
+                        <img src="{{ asset('storage') . "/" . $highlight_suite_active->main_image }}" class="img-asset position-absolute image-fluid">
+                      </div>
+                    </div>
+                    <!-- end Images -->
 
-          </div>
+                    <!-- Text -->
+                    <div class="col-6 p-0">
+                      <div class="card-body p-0 pl-1">
+                        <h6 class="card-title">{{ $highlight_suite_active->title }}</h6>
+                        <p class="card-text">{{ $highlight_suite_active->address }}</p>
+                        <h6 class="card-text">{{ $highlight_suite_active->price }} $</h6>
+                        <div class="suite_show_link">
+                          <a href="{{ route("suites.show", $highlight_suite_active->id) }}" class="badge badge-primary border-0 rounded-0">
+                            <span>Show</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- end Text -->
+
+                  </div>
+                </div>
+                {{-- end Card --}}
+              @endforeach
+            </div>
+            {{-- end Highlights suites --}}
+
+            {{-- Others suites --}}
+            <div class="suites_cards_noPromo">
+            </div>
+            {{-- end Others suites --}}
+
+            </div>
           {{-- end Suites Cards --}}
 
           {{-- Mappa --}}
-          <div class="d-none d-lg-block col-lg-6 d-xl-block col-xl-6 my_maps">
+          <div class="col-6 my_maps">
             <div id="map"></div>
           </div>
           {{-- end Mappa --}}
 
+          </div>
         </div>
       </div>
      </div>
-   </div>
-  {{-- end Bootsrap --}}
+  {{-- end Bootsrap Container Cards --}}
 
-   <div class="modal"><!-- Place at bottom of page --></div>
 
-   {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
-   se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
-   <script id="suite-cards-template" type="text/x-handlebars-template">
-     <a href="{{route('suites.handle.show')}}/@{{id}}">
-       <div class="entry py-3 col-12 d-flex align-items-center flex-column flex-sm-row">
-         <div class="image_main_card col-12 col-sm-6">
 
-           @if (strpos("@{{main_image}}", 'lorempixel') == false)
-             <img
-             src="{{ asset('storage') }}/@{{main_image}}"
-             class="d-block w-100" alt="@{{title}}">
-            @else
-            <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}">
-           @endif
+{{-- Modal --}}
+<div class="modal"><!-- Place at bottom of page --></div>
 
-           <!-- <img src="@{{main_image}}" class="d-block w-100" alt="@{{title}}"> -->
-         </div>
-         <div class="body_card d-flex flex-column align-items-start col-12 col-sm-6">
-           <h6>@{{title}}</h6>
-           <p>@{{address}}</p>
-           <h6>@{{price}}€/ night</h6>
+{{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
+se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
+<script id="suite-cards-template" type="text/x-handlebars-template">
+  <div class="card mb-3">
+    <div class="row no-gutters">
 
-         </div>
-       </div>
-       <hr class="my-0">
-     </a>
-   </script>
+      <!-- Images -->
+      <div class="col-6 p-0">
+        <div class="postion-relative img_container">
+          <img src="@{{{main_image}}}" class="img-fake position-absolute" onerror="this.style.display='none'">
+          <img src="{{ asset('storage') }}/@{{{main_image}}}" class="img-asset position-absolute" onerror="this.style.display='none'">
+        </div>
+      </div>
+      <!-- end Images -->
 
+      <!-- Text -->
+      <div class="col-6 p-0">
+        <div class="card-body">
+          <h6 class="card-title">@{{title}}</h6>
+          <p class="card-text">@{{address}}</p>
+          <h6 class="card-text">@{{price}}€/ night</h6>
+          <a href="{{route('suites.handle.show')}}/@{{id}}" class="badge badge-primary">Primary</a>
+        </div>
+      </div>
+      <!-- end Text -->
+
+    </div>
+  </div>
+</script>
 @endsection

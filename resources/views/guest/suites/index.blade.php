@@ -90,40 +90,24 @@
 
 
   {{-- Suites cards --}}
-    <section class="suites_cards">
+  <section class="suites_cards">
 
-      {{-- Bootsrap --}}
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-10 p-0">
+    {{-- Bootsrap --}}
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-10 p-0">
 
-            {{-- Suites Cards title --}}
-            <div class="main_title text-center">
-              <div class="top_title">
-                <h4>Highlights Suites</h4>
-              </div>
+          {{-- Suites Cards title --}}
+          <div class="main_title text-center">
+            <div class="top_title">
+              <h4>Highlights Suites</h4>
+            </div>
 
+              {{-- Sub Title --}}
               <div class="sub_title">
                 <h3>Choose your suite</h3>
-                @foreach ($highlights_suites_active as $highlight_suite_active)
-                  @foreach ($suites as $suite)
-                      @if ($suite->id == $highlight_suite_active->id)
-                        @for ($i=0; $i < 5; $i++)
-                          @if (isset($suite->services[$i]))
-                            {{-- <p>{{ $suite->services[$i]->supplements }} <i class="{{ $suite->services[$i]->icon }}"></i></p> --}}
-                          @endif
-                        @endfor
-                      @endif
-                  @endforeach
-                @endforeach
-
-
-                {{-- End Main Image --}}
-                <div class="example-content-secondary caption flex-grow-1 d-flex flex-column">
-                  {{-- <h5 class="flex-grow-1">{{$highlight_suite_active->title}}</h5>
-                  <p>{{$highlight_suite_active->address}}</p> --}}
-                </div>
               </div>
+              {{-- Sub Title --}}
             </div>
             {{-- end Suites Cards Title --}}
 

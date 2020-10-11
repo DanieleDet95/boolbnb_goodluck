@@ -40,6 +40,7 @@ class SuiteController extends Controller
     //   }
     // }
 
+    // Sql Query Join Highligts -> Suites
     $highlights_suites = DB::table('highlights')->join('highlight_suite', function($join)
     {
       $join->on('highlight_suite.highlight_id', '=', 'highlights.id');
@@ -49,15 +50,15 @@ class SuiteController extends Controller
     })->orderBy('highlight_suite.start', 'DESC')->get();
 
 
-    // Se l'appartamento ha almeno un abbonamento
+    // If suite has highlight
     if (isset($highlights_suites)) {
       $highlights_suites_active = [];
 
       foreach ($highlights_suites as $highlight_suite) {
-        $oggi = date('Y-m-d H:i:s');
+        $today = date('Y-m-d H:i:s');
 
-        // Se la sponsorizzazione é attiva
-        if ( $oggi < $highlight_suite->end) {
+        // If highlight is active (24H, 72H or 144H from start)
+        if ( $today < $highlight_suite->end) {
           if(count($highlights_suites_active) < 6) {
           $highlights_suites_active[] = $highlight_suite;
           }
@@ -115,7 +116,33 @@ class SuiteController extends Controller
     $suites = Suite::all();
     $images = Image::all();
 
-    return view('guest.suites.search', compact('suites','services','images'));
+    // Sql Query Join Highligts -> Suites
+    $highlights_suites = DB::table('highlights')->join('highlight_suite', function($join)
+    {
+      $join->on('highlight_suite.highlight_id', '=', 'highlights.id');
+    })->join('suites', function($join)
+    {
+      $join->on('highlight_suite.suite_id', '=', 'suites.id');
+    })->orderBy('highlight_suite.start', 'DESC')->get();
+
+
+    // If suite has highlight
+    if (isset($highlights_suites)) {
+      $highlights_suites_active = [];
+
+      foreach ($highlights_suites as $highlight_suite) {
+        $today = date('Y-m-d H:i:s');
+
+        // If highlight is active (24H, 72H or 144H from start)
+        if ( $today < $highlight_suite->end) {
+          if(count($highlights_suites_active) < 6) {
+          $highlights_suites_active[] = $highlight_suite;
+          }
+        }
+      }
+    }
+
+    return view('guest.suites.search', compact('suites','services','images', 'highlights_suites_active'));
   }
 
 

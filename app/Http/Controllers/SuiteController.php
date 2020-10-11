@@ -33,7 +33,12 @@ class SuiteController extends Controller
   {
     $services = Service::all();
     $suites = Suite::all();
-    $services = Service::all();
+
+    // foreach ($suites as $suite) {
+    //   if (!$suite->highlights->isEmpty()) {
+    //     $highlights_suites_active[] = $suite;
+    //   }
+    // }
 
     $highlights_suites = DB::table('highlights')->join('highlight_suite', function($join)
     {

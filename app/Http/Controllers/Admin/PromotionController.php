@@ -52,7 +52,18 @@ class PromotionController extends Controller
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-        $amount = $request->type;
+
+        // Calcolo del prezzo in base alla promozione
+        if ($request->type == '24') {
+          $costo = 2.99;
+        }elseif ($request->type == '72') {
+          $costo = 5.99;
+        }else {
+          $costo = 9.99;
+        }
+        $amount = $costo;
+
+        // Metodo di pagamento
         $nonce = $request->payment_method_nonce;
 
         $highlight = $request->type;

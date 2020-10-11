@@ -31,6 +31,7 @@ class SuiteController extends Controller
 
   public function index()
   {
+    $services = Service::all();
     $suites = Suite::all();
     $services = Service::all();
 

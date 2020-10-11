@@ -1,6 +1,5 @@
-@extends('layouts.app')
-
-@section('content')
+<h2>Mail arrivata:</h2>
+@foreach ($messages as $message)
 
   <div class="container">
     <div class="row">
@@ -10,4 +9,4 @@
     </div>
   </div>
 
-@endsection
+@endforeach

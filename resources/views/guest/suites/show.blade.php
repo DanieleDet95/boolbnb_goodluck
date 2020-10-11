@@ -74,28 +74,30 @@
       <hr class="w-100">
     </div>
     {{-- Fine Row Details --}}
-    {{-- Row Message --}}
-    <div class="row row_message">
-      <div class="mb-3 message_to_landowner">
-        <div class="mx-3 my_landowner_info">
-          <h3>Write to owner
-            @if (!empty($suite->user->name))
-              {{$suite->user->name}}
-            @endif
-            @if (!empty($suite->user->lastname))
-              {{$suite->user->lastname}}
-            @endif
-          </h3>
-        </div>
-      </div>
-    </div>
-    {{-- Fine Row Message --}}
+
     {{-- Row Form --}}
     <div class="row row_form mb-4">
       <div class="col-6">
         @if (!is_null($user))
 
           @if (!($suite->user_id === $user->id))
+
+            {{-- Row Message --}}
+            <div class="row row_message">
+              <div class="mb-3 message_to_landowner">
+                <div class="mx-3 my_landowner_info">
+                  <h3>Write to owner
+                    @if (!empty($suite->user->name))
+                      {{$suite->user->name}}
+                    @endif
+                    @if (!empty($suite->user->lastname))
+                      {{$suite->user->lastname}}
+                    @endif
+                  </h3>
+                </div>
+              </div>
+            </div>
+            {{-- Fine Row Message --}}
 
             @if ($errors->any())
               <div class="alert alert-danger">

@@ -90,150 +90,109 @@
 
 
   {{-- Suites cards --}}
-    <section class="suites_cards">
+  <section class="suites_cards">
 
-      {{-- Bootsrap --}}
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-10 p-0">
+    {{-- Bootsrap --}}
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-10 p-0">
 
-            {{-- Suites Cards title --}}
-            <div class="main_title text-center">
-              <div class="top_title">
-                <h4>Highlights Suites</h4>
-              </div>
-
-              <div class="sub_title">
-                <h3>Choose your suite</h3>
-                @foreach ($highlights_suites_active as $highlight_suite_active)
-                  @foreach ($suites as $suite)
-                      @if ($suite->id == $highlight_suite_active->id)
-                        @for ($i=0; $i < 5; $i++)
-                          @if (isset($suite->services[$i]))
-                            {{-- <p>{{ $suite->services[$i]->supplements }} <i class="{{ $suite->services[$i]->icon }}"></i></p> --}}
-                          @endif
-                        @endfor
-                      @endif
-                  @endforeach
-                @endforeach
-
-
-                {{-- End Main Image --}}
-                <div class="example-content-secondary caption flex-grow-1 d-flex flex-column">
-                  {{-- <h5 class="flex-grow-1">{{$highlight_suite_active->title}}</h5>
-                  <p>{{$highlight_suite_active->address}}</p> --}}
-                </div>
-              </div>
+          {{-- Suites Cards title --}}
+          <div class="main_title text-center">
+            <div class="top_title">
+              <h4>Highlights Suites</h4>
             </div>
-            {{-- end Suites Cards Title --}}
 
-            <div class="row">
+            <div class="sub_title">
+              <h3>Choose your suite</h3>
+            </div>
+          </div>
+          {{-- end Suites Cards Title --}}
 
-              {{-- Foreach suite with a promotion --}}
-              @foreach ($highlights_suites_active as $highlight_suite_active)
-                {{-- Card --}}
-                <div class="col-lg-4 col-md-6 col-sm-12 pb-2 p-2">
-                  <div class="card-deck">
-                    <div class="card single_card border-0 rounded-0">
+          <div class="row">
 
-                      {{-- Change Main Image path If Faker Or Storage --}}
-                      @if (isset($highlight_suite_active->main_image))
-                        @if (strpos($highlight_suite_active->main_image, 'lorempixel') == false)
+            {{-- Foreach suite with a promotion --}}
+            @foreach ($highlights_suites_active as $highlight_suite_active)
+              {{-- Card --}}
+              <div class="col-lg-4 col-md-6 col-sm-12 pb-2 p-2">
+                <div class="card-deck">
+                  <div class="card single_card border-0 rounded-0">
 
-                          {{-- Main Image storage --}}
-                          <img
-                            class="card-img-top border-0 rounded-0"
-                            src="{{ asset('storage') . "/" . $highlight_suite_active->main_image }}"
-                            alt="{{ $highlight_suite_active->title }}">
-                          {{-- end Main Image storage --}}
+                    {{-- Change Main Image path If Faker Or Storage --}}
+                    @if (isset($highlight_suite_active->main_image))
+                      @if (strpos($highlight_suite_active->main_image, 'lorempixel') == false)
 
-                         @else
+                        {{-- Main Image storage --}}
+                        <img
+                          class="card-img-top border-0 rounded-0"
+                          src="{{ asset('storage') . "/" . $highlight_suite_active->main_image }}"
+                          alt="{{ $highlight_suite_active->title }}">
+                        {{-- end Main Image storage --}}
 
-                           {{-- Main Image faker --}}
-                           <img
-                             class="card-img-top"
-                             src="{{ $highlight_suite_active->main_image }}"
-                             alt="{{ $highlight_suite_active->title }}">
-                           {{-- end Main Image faker --}}
+                       @else
 
-                        @endif
+                         {{-- Main Image faker --}}
+                         <img
+                           class="card-img-top"
+                           src="{{ $highlight_suite_active->main_image }}"
+                           alt="{{ $highlight_suite_active->title }}">
+                         {{-- end Main Image faker --}}
+
                       @endif
-                      {{-- end Change Main Image path If Faker Or Storage --}}
+                    @endif
+                    {{-- end Change Main Image path If Faker Or Storage --}}
 
-                      {{-- Card Text --}}
-                      <div class="card-body d-flex flex-column justify-content-around p-3">
-                        <h5 class="card-title flex-grow-0">{{ $highlight_suite_active->title }}</h5>
-                        <p class="card-text flex-grow-0">{{ $highlight_suite_active->address }}</p>
-
-                        {{-- Services --}}
-                        <div class="services d-flex flex-grow-1 justify-content-start">
-                          @foreach ($suites as $suite)
-                            @if ($suite->id === $highlight_suite_active->id)
-                              @if ($suite->services->count() === 0)
-                                <i class="fas fa-not-equal"></i>
-                              @else
-                                @foreach ($suite->services as $suite_service)
-                                  <i class="{{ $suite_service->icon }} pr-3"></i>
-                                @endforeach
-                              @endif
-                            @endif
-                          @endforeach
-                        </div>
-                        {{-- end Services --}}
-
-                        {{-- Price & Show button --}}
-                        <div class="price_show flex-grow-0 d-flex justify-content-between align-items-center">
-                          <div class="price d-flex justify-content-start">
-                            <span>{{ $highlight_suite_active->price }} €/night</span>
-                          </div>
-                          <div class="suite_show_link">
-                            <a href="{{ route("suites.show", $highlight_suite_active->id) }}" class="badge badge-primary border-0 rounded-0">
-                              <span>Show</span>
-                            </a>
-                          </div>
-                        </div>
-                        {{-- Price & Show button --}}
-
+                    {{-- Card Text --}}
+                    <div class="card-body p-3 d-flex flex-column justify-content-between">
+                      <div class="title_address">
+                        <h5 class="card-title">{{ $highlight_suite_active->title }}</h5>
+                        <p class="card-text">{{ $highlight_suite_active->address }}</p>
                       </div>
-                      {{-- end Card Text --}}
+
+                      {{-- Services --}}
+                      <div class="services d-flex justify-content-start">
+                        @foreach ($suites as $suite)
+                          @if ($suite->id === $highlight_suite_active->id)
+                            @if (empty($suite->services))
+                              <i class="fas fa-not-equal"></i>
+                            @else
+                              @foreach ($suite->services as $suite_service)
+                                <i class="{{ $suite_service->icon }} pr-3"></i>
+                              @endforeach
+                            @endif
+                          @endif
+                        @endforeach
+                      </div>
+                      {{-- end Services --}}
+
+                      {{-- Price & Show button --}}
+                      <div class="price_show d-flex justify-content-between align-items-center">
+                        <div class="price d-flex justify-content-start">
+                          <span>{{ $highlight_suite_active->price }} $</span>
+                        </div>
+                        <div class="suite_show_link">
+                          <a href="{{ route("suites.show", $highlight_suite_active->id) }}" class="badge badge-primary border-0 rounded-0">
+                            <span>Show</span>
+                          </a>
+                        </div>
+                      </div>
+                      {{-- Price & Show button --}}
 
                     </div>
+                    {{-- end Card Text --}}
+
                   </div>
                 </div>
-              {{-- end Card --}}
-              @endforeach
+              </div>
+            {{-- end Card --}}
+            @endforeach
 
-            </div>
           </div>
         </div>
       </div>
-      {{-- end Bootsrap --}}
-
-    </section>
-  {{-- end Suites cards --}}
-
-@endsection
-
-
-{{-- Card Text --}}
-{{-- <div class="card-body p-3">
-  <h5 class="card-title">{{$highlight_suite_active ?? ''->title}}</h5>
-  <p class="card-text">{{$highlight_suite_active ?? ''->address}}</p>
-  <div class="services_and_show d-flex justify-content-between align-items-center">
-    <div class="services d-flex justify-content-start">
-      @foreach ($suites as $suite)
-        @if ($suite->id === $highlight_suite_active ?? ''->id)
-          @foreach ($suite->services as $suite_service)
-            <i class="{{ $suite_service->icon }} pr-2"></i>
-          @endforeach
-        @endif
-      @endforeach
     </div>
-  <div class="suite_show_link">
-    <a href="#" class="badge badge-primary border-0 rounded-0">
-      <span>Show</span>
-    </a>
-  </div>
-</div>
-</div> --}}
-{{-- end Card Text --}}
+    {{-- end Bootsrap --}}
+
+  </section>
+  {{-- end Suites cards --}}
+@endsection

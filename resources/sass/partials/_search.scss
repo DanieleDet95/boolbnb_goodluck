@@ -1,109 +1,166 @@
 // partials/_search.scss
 
 main {
+  .main_wrapper_search {
+    padding-bottom: 80px;
 
-  //Search Wrapper
-  .search_wrapper {
-    margin-top: 80px;
+    //Search Bar wrapper
+    .search_bar_wrapper {
+      margin-top: 80px;
 
-    // Hr Style
-    hr {
-      border:0;
-      background-color: $placeholder_text_color;
-      opacity: 0.5;
-      margin:0;
-      height:1px;
-    }
-
-    @media screen and (max-width: 992px) {
+      // Hr Style
       hr {
-        height: 0;
-      }
-    }
-
-    // Services checkbox
-    .checkbox {
-      font-size: $small_text_size;
-      text-align: left;
-
-      /* Customize the label (the container) */
-      .container_checkbox {
-        padding-left: 25px;
-        font-size: 20px;
-        color: $qaternary_background;
+        border:0;
+        background-color: $placeholder_text_color;
+        opacity: 0.5;
+        margin:0;
+        height:1px;
       }
 
-      /* Create a custom radio button */
-      .checkmark {
-        top: 12px;
-        height: 16px;
-        width: 16px;
+      @media screen and (max-width: 992px) {
+        hr {
+          height: 0;
+        }
       }
 
-      /* Style the indicator */
-      .container_checkbox .checkmark:after {
-        left: 0.5px;
-        top: 2px;
-        width: 3.5px;
-        height: 8px;
-      }
-    }
-
-    // Button Search
-    .btn_search {
-
-      .input_search {
-        background-color: $secondary_text_color;
-        border: none;
-        width: 100%;
-        padding: 10px 0;
-        margin-right: 0;
-        color: $primary_text_color;
-        font-family: $primary_font;
+      // Services checkbox
+      .checkbox {
         font-size: $small_text_size;
-        text-transform: capitalize;
-        font-weight: bold;
+        text-align: left;
 
-        &:hover {
-          background-color: $quinternary_background;
+        /* Customize the label (the container) */
+        .container_checkbox {
+          padding-left: 25px;
+          font-size: 20px;
+          color: $qaternary_background;
         }
 
-        &:focus, &:active {
-          box-shadow: 0 0 0 0;
-          outline: 0;
-          border: 0;
+        /* Create a custom radio button */
+        .checkmark {
+          top: 12px;
+          height: 16px;
+          width: 16px;
         }
-      }
-    }
-  }
 
-  // Contenitore card e mappa
-  .container_suites_cards {
-    min-height: 500px;
-    .suites_cards {
-      a {
-        text-decoration: none;
-        &:hover {
-          text-decoration: none;
+        /* Style the indicator */
+        .container_checkbox .checkmark:after {
+          left: 0.5px;
+          top: 2px;
+          width: 3.5px;
+          height: 8px;
         }
       }
-      .suites_cards_promo {
-        color: red;
-        .carousel-item{
-          img{
-            height: 150px;
+
+      // Button Search
+      .btn_search {
+
+        .input_search {
+          background-color: $secondary_text_color;
+          border: none;
+          width: 100%;
+          padding: 10px 0;
+          margin-right: 0;
+          color: $primary_text_color;
+          font-family: $primary_font;
+          font-size: $small_text_size;
+          text-transform: capitalize;
+          font-weight: bold;
+
+          &:hover {
+            background-color: $quinternary_background;
+          }
+
+          &:focus, &:active {
+            box-shadow: 0 0 0 0;
+            outline: 0;
+            border: 0;
           }
         }
       }
-      .suites_cards_noPromo {
-        color: black;
-        .carousel-item{
-          img{
-            height: 150px;
+    }
+
+    .suites_cards_noPromo {
+      background-color: red;
+    }
+
+    // Cards and Maps
+    .card {
+      background-color: $primary_text_color;
+      padding: 15px;
+
+      .img_container {
+        min-height: 130px;
+        width: 100%;
+        background-color: red;
+
+        img {
+          text-indent:-9999px;
+          white-space: nowrap;
+          bottom: -5000px;
+          left: -5000px;
+          margin: auto;
+          min-height: 100%;
+          min-width: 100%;
+          position: absolute;
+          right: -5000px;
+          top: -5000px;
+        }
+      }
+
+      .card-body {
+        font-family: $primary_font;
+        color: $quinternary_text_color;
+        text-transform: lowercase;
+        padding: 0 0 0 15px;
+        height: 100%;
+
+        // Card Title
+        .card-title {
+          font-family: $secondary_font;
+          font-size: $small_text_size;
+          text-transform: capitalize;
+          margin:0 0 5px 0;
+        }
+
+        // Card Address
+        .card-text {
+          font-size: 10px;
+          margin: 0 0 10px 0;
+        }
+
+        // Card Price
+        .price > span {
+          font-weight: bold;
+          font-size: $small_text_size;
+          text-transform: capitalize;
+        }
+
+        // .services {
+        //   margin: 0 0 40px 0;
+        //   color: $qaternary_background;
+        //   font-size: $paragraph_text_size;
+        //   padding-right: 40px;
+        // }
+
+        // Card button to show
+        .suite_show_link {
+          & > a {
+            background-color: $secondary_text_color;
+            font-family: $primary_font;
+            font-size: 10px;
+            font-weight: normal;
+            text-transform: capitalize;
+            padding: 10px 20px;
+
+            &:hover {
+              background-color: $quinternary_background;
+            }
           }
         }
       }
     }
+
+
     .my_maps{
       height: 100vh;
       padding-top: 60px;
@@ -115,26 +172,6 @@ main {
         position: relative;
         width: 100%;
         height: 100%;
-      }
-    }
-  }
-  .entry {
-    .image_main_card {
-      border-radius: 50%;
-    }
-    .body_card {
-      height: 100%;
-      h6 {
-        font-size: 20px;
-        color: $quinternary_text_color;
-        letter-spacing: 0;
-        line-height: 20px;
-      }
-      p {
-        font-size: 18px;
-        color: $qaternary_text_color;
-        letter-spacing: 0;
-        line-height: 20px;
       }
     }
   }

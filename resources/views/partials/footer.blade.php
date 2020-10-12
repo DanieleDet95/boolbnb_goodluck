@@ -98,7 +98,7 @@
                   <div class="carousel-item">
                     <div class="d-none d-block height_title"></div>
                     <div class="carousel-caption d-none d-block">
-                      <a href="https://www.linkedin.com/in/ivanmonfrini/" target="_blank">
+                      <a href="https://www.linkedin.com/in/andrea-cinieri/" target="_blank">
                         <h5>Andrea Cinieri</h5>
                         <p>Full-Stack Web Developer</p>
                       </a>
@@ -110,7 +110,7 @@
                   <div class="carousel-item">
                     <div class="d-none d-block height_title"></div>
                     <div class="carousel-caption d-none d-block">
-                      <a href="https://www.linkedin.com/in/andrea-cinieri/" target="_blank">
+                      <a href="https://www.linkedin.com/in/ivanmonfrini/" target="_blank">
                         <h5>Ivan Monfrini</h5>
                         <p>Full-Stack Web Developer</p>
                       </a>

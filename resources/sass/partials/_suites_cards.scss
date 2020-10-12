@@ -7,9 +7,9 @@ main {
     padding: 80px 0;
 
     .card-deck {
-      height: 410px;
+
       .card {
-        background-color: $bg_suites_card_color;
+        background-color: $primary_text_color;
 
         .card-img-top {
           width: 100%;
@@ -21,6 +21,7 @@ main {
           font-family: $primary_font;
           color: $quinternary_text_color;
           text-transform: lowercase;
+          height: 200px;
 
           // Card Title
           .card-title {

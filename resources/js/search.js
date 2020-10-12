@@ -179,8 +179,6 @@ $('.search_wrapper input').on('keypress', function(e) {
     // send params to API in Api/SearchController
     ajaxCall(params);
 
-
-
     }
   })
 

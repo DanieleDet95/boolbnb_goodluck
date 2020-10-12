@@ -3,7 +3,7 @@
 
 {{-- Yeld Main Content --}}
 @section("content")
-  <div class="container-fluid">
+  <div class="container-fluid cont-messeggio">
     <div class="row">
       <div class="col-12 p-0">
 

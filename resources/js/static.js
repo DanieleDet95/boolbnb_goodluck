@@ -48,7 +48,7 @@ if($('#bar_visual').length) {
             var v_settembre = dataResponse.v_settembre;
             var v_ottobre = dataResponse.v_ottobre;
             var v_novembre = dataResponse.v_novembre;
-            var v_dicembre = dataResponse.v_dicembrev
+            var v_dicembre = dataResponse.v_dicembre;
 
             var ctx = document.getElementById('bar_visual').getContext('2d');
             var myChart = new Chart(ctx, {

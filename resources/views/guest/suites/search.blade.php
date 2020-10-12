@@ -118,55 +118,8 @@
             {{-- Suites Cards --}}
             <div class="col-6">
 
-              {{-- Database Highlights suites --}}
-              <div class="suites_cards_promo">
-
-                {{-- Foreach suite with a promotion --}}
-                @foreach ($highlights_suites_active as $highlight_suite_active)
-
-                  {{-- Database Cards --}}
-                  <div class="card mb-3 border-0 rounded-0">
-                    <div class="row no-gutters">
-
-                      <!-- Images -->
-                      <div class="col-6 p-0 overflow-hidden">
-                        <div class="postion-relative img_container">
-                          <img src="{{ $highlight_suite_active->main_image }}" class="img-fake position-absolute">
-                          <img src="{{ asset('storage') . "/" . $highlight_suite_active->main_image }}" class="img-asset position-absolute">
-                        </div>
-                      </div>
-                      <!-- end Images -->
-
-                      <!-- Text -->
-                      <div class="col-6 p-0">
-                        <div class="card-body d-flex flex-column justify-content-between">
-                          <div class="title_address">
-                            <h6 class="card-title">{{ $highlight_suite_active->title }}</h6>
-                            <p class="card-text">{{ $highlight_suite_active->address }}</p>
-                          </div>
-
-                          {{-- Price & Show button --}}
-                          <div class="price_show d-flex justify-content-between align-items-center">
-                            <div class="price d-flex justify-content-start">
-                              <span>{{ $highlight_suite_active->price }} $</span>
-                            </div>
-                            <div class="suite_show_link">
-                              <a href="{{ route("suites.show", $highlight_suite_active->id) }}" class="badge badge-primary border-0 rounded-0">
-                                <span>Show</span>
-                              </a>
-                            </div>
-                          </div>
-                          {{-- Price & Show button --}}
-
-                        </div>
-                      </div>
-                      <!-- end Text -->
-
-                  </div>
-                </div>
-                {{-- end Database Card --}}
-
-              @endforeach
+            {{-- Database Highlights suites --}}
+            <div class="suites_cards_promo">
             </div>
             {{-- end Database Highlights suites --}}
 
@@ -224,10 +177,10 @@ se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}
           {{-- Price & Show button --}}
           <div class="price_show d-flex justify-content-between align-items-center">
             <div class="price d-flex justify-content-start">
-              <span>{{ $highlight_suite_active->price }} $</span>
+              <span>@{{price}}$</span>
             </div>
             <div class="suite_show_link">
-              <a href="{{ route("suites.show", $highlight_suite_active->id) }}" class="badge badge-primary border-0 rounded-0">
+              <a href="{{route('suites.handle.show')}}/@{{id}}" class="badge badge-primary border-0 rounded-0">
                 <span>Show</span>
               </a>
             </div>

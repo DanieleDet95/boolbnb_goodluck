@@ -117,7 +117,7 @@
 
             {{-- Suites Cards --}}
             <div class="col-6">
-
+            
             {{-- Database Highlights suites --}}
             <div class="suites_cards_promo">
             </div>

@@ -67,7 +67,7 @@ if($('#address_input').length) {
   } else {
 
     // erase all values from all inputs in .search-wrapper except for #submit
-    $(".search_wrapper input:not('#submit')").val('');
+    $(".search_bar_wrapper input:not('#submit')").val('');
   }
 
 // **DEFAULT INPUT VALUE**
@@ -85,7 +85,7 @@ $('.checkbox input[type="checkbox"]').on('click', function(event) {
 MAP LEAFLEAT
 **********************
 */
-// 
+//
 // var mymap = L.map('map', {
 //   scrollWheelZoom: true,
 //   zoomControl: true
@@ -154,7 +154,7 @@ $('#submit').on('click', function() {
 
 });
 
-$('.search_wrapper input').on('keypress', function(e) {
+$('.search_bar_wrapper input').on('keypress', function(e) {
   if (e.keyCode === 13) {
     console.log('premuto')
 

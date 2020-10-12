@@ -143,9 +143,11 @@
                     {{-- end Change Main Image path If Faker Or Storage --}}
 
                     {{-- Card Text --}}
-                    <div class="card-body p-3">
-                      <h5 class="card-title">{{ $highlight_suite_active->title }}</h5>
-                      <p class="card-text">{{ $highlight_suite_active->address }}</p>
+                    <div class="card-body p-3 d-flex flex-column justify-content-between">
+                      <div class="title_address">
+                        <h5 class="card-title">{{ $highlight_suite_active->title }}</h5>
+                        <p class="card-text">{{ $highlight_suite_active->address }}</p>
+                      </div>
 
                       {{-- Services --}}
                       <div class="services d-flex justify-content-start">

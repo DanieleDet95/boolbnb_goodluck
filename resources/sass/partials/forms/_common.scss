@@ -29,25 +29,32 @@ main {
       font-family: $primary_font;
     }
 
-    .input_box .form-control, .input_box .custom-select {
+    .input_box {
 
-      &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-        color: $placeholder_text_color;
-        opacity: 1; /* Firefox */
-      }
+      & .form-control,
+      & .input_box .custom-select,
+      & label {
+        color: $quinternary_text_color;
+        font-family: $primary_font;
 
-      &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: $placeholder_text_color;
-      }
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: $placeholder_text_color;
+          opacity: 1; /* Firefox */
+        }
 
-      &::-ms-input-placeholder { /* Microsoft Edge */
-        color: $placeholder_text_color;
-      }
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+          color: $placeholder_text_color;
+        }
 
-      &:focus {
-        border-color: $secondary_background;
-        box-shadow: 0 0 0;
-        outline: 0 none;
+        &::-ms-input-placeholder { /* Microsoft Edge */
+          color: $placeholder_text_color;
+        }
+
+        &:focus {
+          border-color: $secondary_background;
+          box-shadow: 0 0 0;
+          outline: 0 none;
+        }
       }
     }
 
@@ -56,7 +63,8 @@ main {
       color: $placeholder_text_color;
 
       option {
-        color: $placeholder_text_color;
+        color: $quinternary_text_color;
+        font-family: $primary_font;
       }
     }
 

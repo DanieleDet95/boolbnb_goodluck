@@ -1,7 +1,6 @@
 // partials/_algolia.scss
 
-// Algolia Form
-// Search bar
+// Algolia Index Search bar
 #algolia_form input:focus, #algolia_form input:active {
   border-color: $secondary_background;
   box-shadow: 0 0 0;
@@ -26,7 +25,7 @@
   color: $secondary_background;
   width: 99.8%;
   padding: 6px 12px;
-  font-style: $primary_font;
+  font-family: $primary_font;
   font-size: $small_text_size;
 }
 
@@ -44,6 +43,7 @@
 // Algolia suggestion name of city
 #algolia_form .ap-nostyle-dropdown-menu .ap-name > em {
   font-style: inherit;
+  font-weight: bold;
 }
 
 // Algolia Style reset
@@ -61,6 +61,39 @@
   }
 }
 
+// Algolia X icon
 .ap-input-icon.ap-icon-clear {
   display: none;
+}
+
+// Algolia Footer
+.ap-footer {
+  display: none;
+}
+
+.ap-dropdown-menu.ap-with-places {
+  box-shadow: 0 0 0;
+  border: 1px solid $secondary_background;
+  border-top: 0;
+  border-radius: 0;
+  top: 90% !important;
+
+  .ap-suggestions {
+    color: $secondary_background;
+    font-family: $primary_font;
+    font-size: $small_text_size;
+
+    .ap-suggestion {
+      height: inherit;
+    }
+
+    .ap-name > em {
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+}
+
+.ap-suggestion-icon {
+  vertical-align: super;
 }

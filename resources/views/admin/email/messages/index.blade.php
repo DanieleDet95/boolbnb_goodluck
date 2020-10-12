@@ -5,7 +5,7 @@
 @section("content")
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 p-0">
+      <div class="col-12">
 
       {{-- Controllo se ci sono messaggi presenti per gli appartamenti dell'utente --}}
       @php
@@ -22,7 +22,7 @@
 
       {{-- Visualizzo i messaggi ricevuti --}}
       @if ($presenti)
-        <h2 class="titolo_mail">Mail arrivate per i tuoi appartamenti:</h2>
+        <h2 class="titolo_mail">Mail arriving for your apartments:</h2>
         @foreach ($messages->reverse() as $message)
           @if (!is_null($message->suite))
 
@@ -104,9 +104,11 @@
       @else
 
         {{-- Se non ci sono messaggi per l'utente --}}
-        <h2 class="titolo_mail">Non ci sono mail per i tuoi appartamenti</h2>
+        <div class="titolo_mail mt-5 mb-3">
+          <h3 class="mb-0">There are no emails for your apartments</h3>
+        </div>
         <!-- Apertura lista mail -->
-        <div class="lista_mail">
+        <div class="lista_mail mb-5">
           <!-- Singola mail -->
           <div class="mail">
 
@@ -115,7 +117,7 @@
             </div>
 
             <div class="body_mail">
-              Non ci sono messaggi
+              <p>There are no messages</p>
             </div>
             <br>
             <div class="orario">

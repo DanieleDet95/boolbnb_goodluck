@@ -85,22 +85,22 @@ $('.checkbox input[type="checkbox"]').on('click', function(event) {
 MAP LEAFLEAT
 **********************
 */
-
-var mymap = L.map('map', {
-  scrollWheelZoom: true,
-  zoomControl: true
-});
-
-// set methods
-L.tileLayer(
-  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  minZoom: 1,
-  maxZoom: 50,
-}).addTo(mymap);
-
-// set the view
-mymap.setView([42.455111, 12.512467], 6);
-
+// 
+// var mymap = L.map('map', {
+//   scrollWheelZoom: true,
+//   zoomControl: true
+// });
+//
+// // set methods
+// L.tileLayer(
+//   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//   minZoom: 1,
+//   maxZoom: 50,
+// }).addTo(mymap);
+//
+// // set the view
+// mymap.setView([42.455111, 12.512467], 6);
+//
 
 /*
 **********************

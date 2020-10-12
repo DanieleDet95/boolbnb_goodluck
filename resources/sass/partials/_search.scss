@@ -33,18 +33,19 @@ main {
           padding-left: 25px;
           font-size: 20px;
           color: $qaternary_background;
+          width: 50px;
         }
 
         /* Create a custom radio button */
         .checkmark {
-          top: 12px;
+          top: 9px;
           height: 16px;
           width: 16px;
         }
 
         /* Style the indicator */
         .container_checkbox .checkmark:after {
-          left: 0.5px;
+          left: 5.5px;
           top: 2px;
           width: 3.5px;
           height: 8px;
@@ -77,10 +78,6 @@ main {
           }
         }
       }
-    }
-
-    .suites_cards_noPromo {
-      background-color: red;
     }
 
     // Cards and Maps
@@ -135,13 +132,6 @@ main {
           text-transform: capitalize;
         }
 
-        // .services {
-        //   margin: 0 0 40px 0;
-        //   color: $qaternary_background;
-        //   font-size: $paragraph_text_size;
-        //   padding-right: 40px;
-        // }
-
         // Card button to show
         .suite_show_link {
           & > a {
@@ -156,6 +146,21 @@ main {
               background-color: $quinternary_background;
             }
           }
+        }
+      }
+    }
+
+    .suites_cards_noPromo {
+      .card {
+        background-color: #C6D2D9;
+        padding: 15px;
+
+        .card-body {
+          font-family: $primary_font;
+          color: $qaternary_background;
+          text-transform: lowercase;
+          padding: 0 0 0 15px;
+          height: 100%;
         }
       }
     }

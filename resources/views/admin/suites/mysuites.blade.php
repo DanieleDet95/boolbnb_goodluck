@@ -5,8 +5,8 @@
 @section("content")
   <div class="container-fluid">
     <div class="row">
-      <div class="col-12 p-0">
-        <div class="wrapper_mysuites">
+      <div class="col-12">
+        <div class="wrapper_mysuites my-5">
 
         {{-- Se sono presenti appartamenti all'utente --}}
         @if (is_array($my_suites))
@@ -91,7 +91,7 @@
                   <form action="{{ route('admin.suites.destroy', $my_suite)}}" method="post">
                     @csrf
                     @method('DELETE')
-                    <input class="btn btn-danger left m-1" type="submit" value="Elimina">
+                    <input class="btn btn-danger left m-1" type="submit" value="Delete">
                   </form>
                 </td>
 
@@ -104,7 +104,7 @@
 
           {{-- Se non ci sono appartamenti all'utente --}}
           <div class="vuoto">
-            <h3>You have not suites</h3>
+            <h3 class="mb-0">You have not suites</h3>
           </div>
         @endif
 

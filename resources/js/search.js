@@ -67,7 +67,7 @@ if($('#address_input').length) {
   } else {
 
     // erase all values from all inputs in .search-wrapper except for #submit
-    $(".search_bar_wrapper input:not('#submit')").val('');
+    $(".search_wrapper input:not('#submit')").val('');
   }
 
 // **DEFAULT INPUT VALUE**
@@ -194,7 +194,7 @@ $('.search_bar_wrapper input').on('keypress', function(e) {
 // search call
 function ajaxCall(params) {
 
-  $body = $("body");
+  $body = $(".main_wrapper_search");
 
   $(document).on({
     ajaxStart: function() {

@@ -131,7 +131,7 @@ class SuiteController extends Controller
       $highlights_suites_active = [];
 
       foreach ($highlights_suites as $highlight_suite) {
-        $today = date('Y-m-d H:i:s');
+        $today = date('Y-m-d H:i:s'); 
 
         // If highlight is active (24H, 72H or 144H from start)
         if ( $today < $highlight_suite->end) {

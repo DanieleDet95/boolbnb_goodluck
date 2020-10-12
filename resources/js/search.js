@@ -179,8 +179,6 @@ $('.search_wrapper input').on('keypress', function(e) {
     // send params to API in Api/SearchController
     ajaxCall(params);
 
-
-
     }
   })
 
@@ -209,8 +207,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 

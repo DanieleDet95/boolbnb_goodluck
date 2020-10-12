@@ -10,17 +10,17 @@
 
         {{-- Se sono presenti appartamenti all'utente --}}
         @if (is_array($my_suites))
-          <h4>Questi sono i tuoi appartamenti</h4>
+          <h4>These are your suites.</h4>
           <div class="container_table d-flex justify-content-center">
             <table border="1" class="text-center">
               <tr>
-                <th>Copertina</th>
-                <th>Titolo</th>
-                <th>Indirizzo</th>
-                <th>Prezzo</th>
-                <th>Messaggi</th>
-                <th>Sponsorizzazione</th>
-                <th>Controlli</th>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Address</th>
+                <th>Price</th>
+                <th>Messages</th>
+                <th>Sponsorship</th>
+                <th>Controls</th>
               </tr>
             @foreach ($my_suites as $my_suite)
               <tr>
@@ -67,7 +67,7 @@
                       Nessuna
                       <div>
                         <button type="button" class="btn">
-                          <a href="{{ route("admin.promotion", $my_suite)}}"> Sponzorizza</a>
+                          <a href="{{ route("admin.promotion", $my_suite)}}"> Sponsor</a>
                         </button>
                       </div>
                     </div>
@@ -78,13 +78,13 @@
                 <td class="controlli">
                   <div>
                     <button type="button" class="btn">
-                      <a href="{{ route("admin.suites.edit", $my_suite)}}"> Modifica</a>
+                      <a href="{{ route("admin.suites.edit", $my_suite)}}"> Change</a>
                     </button>
                   </div>
 
                   <div>
                     <button type="button" class="btn">
-                      <a href="{{ route("admin.suites.static", $my_suite)}}"> Statistiche</a>
+                      <a href="{{ route("admin.suites.static", $my_suite)}}"> Statistics</a>
                     </button>
                   </div>
 
@@ -104,7 +104,7 @@
 
           {{-- Se non ci sono appartamenti all'utente --}}
           <div class="vuoto">
-            <h3>Non hai appartamenti registrati</h3>
+            <h3>You have not suites</h3>
           </div>
         @endif
 

@@ -81,7 +81,7 @@
                     {{-- Checkbox --}}
                     @foreach ($services as $service)
                     <div class="col-4 col-lg-2 text-center d-flex justify-content-center">
-                      <label class="container_checkbox d-flex align-items-middle" title="{{ $service->supplements }}"><i class="{{ $service->icon }}"></i>
+                      <label class="container_checkbox" title="{{ $service->supplements }}"><i class="{{ $service->icon }}"></i>
                         <input id="{{ $service->supplements }}" type="checkbox" name="{{ $service->supplements }}" value="false">
                         <span class="checkmark"></span>
                       </label>
@@ -132,7 +132,7 @@
             {{-- end Suites Cards --}}
 
             {{-- Mappa --}}
-            <div class="col-6 my_maps">
+            <div class="col-6 my_maps mb-3">
               <div id="map"></div>
             </div>
             {{-- end Mappa --}}

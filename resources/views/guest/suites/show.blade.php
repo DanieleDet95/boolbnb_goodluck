@@ -57,7 +57,7 @@
           <li>Beds: {{$suite->beds}}</li>
           <li>Baths: {{$suite->baths}}</li>
           <li>Square Meters: {{$suite->square_m}}</li>
-          <li>Price: {{$suite->price}} €/night</li>
+          <li>Price: {{$suite->price}} $</li>
         </ul>
       </div>
 

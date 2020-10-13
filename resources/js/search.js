@@ -55,8 +55,6 @@ if($('#search_wrapper').length) {
   if ($('#algolia_input').attr('data-lat') && $('#algolia_input').attr('data-lng'))
   {
 
-    $('#range').val(20);
-
     var params = setParams();
     ajaxCall(params);
 
@@ -175,13 +173,13 @@ function ajaxCall(params)
 
 // append cards and map
 function success(suites) {
+  var map_pins = [];
+  var range = $('#range').val() ? $('#range').val() : 20;
   var source = $('#suite-cards-template').html();
   var template = Handlebars.compile(source);
 
   // refresh html before a new search
   $('.suites_cards_promo').html('');
-
-  var map_pins = []
 
   for (var i = 0; i < suites.promo.length; i++)
   {
@@ -225,12 +223,12 @@ function success(suites) {
 
   }
 
-    loadMap(map_pins);
+    loadMap(map_pins, range);
 }
 
 
 // load the map
-function loadMap(map_pins)
+function loadMap(map_pins, range)
 {
 
   // // refresh map
@@ -268,7 +266,13 @@ function loadMap(map_pins)
   }
 
   // set the view
-  mymap.setView([latlng.lat, latlng.lng], 14);
+  if(range <= 5) {
+    mymap.setView([latlng.lat, latlng.lng], 12.5);
+  } else if (range <= 20) {
+    mymap.setView([latlng.lat, latlng.lng], 11.5);
+  } else {
+    mymap.setView([latlng.lat, latlng.lng], 10);
+  }
 
 }
 

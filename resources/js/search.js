@@ -114,8 +114,14 @@ if($('#search_wrapper').length) {
 
 
 
+/*
+*-..-*-..-*-..-*-..-*-..-*-..-*
+        DEFINITIONs
+*-..-*-..-*-..-*-..-*-..-*-..-*
+*/
 
-// DEFINITIONs
+
+
 // ajax call
 function ajaxCall(params)
 {
@@ -169,6 +175,7 @@ function ajaxCall(params)
     }
   });
 }
+
 
 
 // append cards and map
@@ -227,6 +234,7 @@ function success(suites) {
 }
 
 
+
 // load the map
 function loadMap(map_pins, range)
 {
@@ -277,6 +285,7 @@ function loadMap(map_pins, range)
 }
 
 
+
 // attach pins to the map
 function pinSuiteToMap(pin, mymap)
 {
@@ -284,6 +293,7 @@ function pinSuiteToMap(pin, mymap)
   L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
 
 }
+
 
 
 // set params
@@ -308,6 +318,7 @@ function setParams()
   }
 
 }
+
 
 
 // toggle checkbox values

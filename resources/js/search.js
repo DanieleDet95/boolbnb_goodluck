@@ -1,198 +1,126 @@
-/*
-###########################
-###########################
-
-check if home is on screen
-
-###########################
-###########################
-*/
-
 // include handlebars
 const Handlebars = require("handlebars");
 
-if($('#home_search').length){
-    // refresh value 0
-    $('#home_search').val('');
+/*
+*-..-*-..-*-..-*
+  set Algolia
+*-..-*-..-*-..-*
+*/
+if($('#algolia_input').length)
+{
+  // erase values after home refresh
+  if($('.form_search_bar').length)
+  {
+    $('#algolia_input').val('');
     $('#key').val('');
     $('#latitude').val('');
     $('#longitude').val('');
-
-    // set algolia autocompleate
-    var places = require('places.js');
-    var homeAutocomplete = places({
-      appId: 'pl4XRMWU2BCA',
-      apiKey: '0c0d759444ce91afdb966e427ac5e837',
-      container: document.querySelector('#home_search'),
-      style:false
-    })
-
-    homeAutocomplete.on('change', e => (
-      $('#key').val(e.suggestion.value),
-      $('#latitude').val(e.suggestion['latlng']['lat']),
-      $('#longitude').val(e.suggestion['latlng']['lng'])
-    ))
   }
 
+  var places = require('places.js');
+  var searchAutocomplete = places
+  ({
+    appId: 'pl4XRMWU2BCA',
+    apiKey: '0c0d759444ce91afdb966e427ac5e837',
+    container: document.querySelector('#algolia_input'),
+    style:($('.form_search_bar').length) ? false : true
+  })
 
+  searchAutocomplete.on('change', e =>
+  (
+    ($('.form_search_bar').length) ? $('#key').val(e.suggestion.value) : null,
+    ($('.form_search_bar').length) ? $('#latitude').val(e.suggestion['latlng']['lat']) : $('#algolia_input').attr('data-lat', e.suggestion['latlng']['lat']),
+    ($('.form_search_bar').length) ? $('#longitude').val(e.suggestion['latlng']['lng']) : $('#algolia_input').attr('data-lng',e.suggestion['latlng']['lng'])
+  ))
+
+}
 
 
 
 /*
-############################
-############################
-
-check if search is on screen
-
-############################
-############################
+*-..-*-..-*-..-*-..-*-..-*-..-*
+  check if search is on screen
+*-..-*-..-*-..-*-..-*-..-*-..-*
 */
 
-if($('#address_input').length) {
-  // check a previous search from home
-
-  // console.log($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng'));
-  if ($('#address_input').attr('data-lat') && $('#address_input').attr('data-lng')) {
-    $('#range').val(20);  //set a default range
-
-    var params = {
-      latitude: $('#address_input').attr('data-lat'),
-      longitude: $('#address_input').attr('data-lng'),
-      range: $('#range').val()
-    }
-
-    console.log(params);
-    ajaxCall(params);
-
-  } else {
-
-    // erase all values from all inputs in .search-wrapper except for #submit
-    $(".search_wrapper input:not('#submit')").val('');
-  }
-
-// **DEFAULT INPUT VALUE**
-// set all checkboxes value as false
-$('input[type="checkbox"]').prop('checked', false);
-
-// toggle chechbox values on click
-$('.checkbox input[type="checkbox"]').on('click', function(event) {
-  checked($(this));
+// erase session storage on click
+$('#navbarNav a').on('click', function()
+{
+  sessionStorage.removeItem('data');
 })
 
+if($('#search_wrapper').length) {
 
-/*
-**********************
-MAP LEAFLEAT
-**********************
-*/
-//
-// var mymap = L.map('map', {
-//   scrollWheelZoom: true,
-//   zoomControl: true
-// });
-//
-// // set methods
-// L.tileLayer(
-//   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//   minZoom: 1,
-//   maxZoom: 50,
-// }).addTo(mymap);
-//
-// // set the view
-// mymap.setView([42.455111, 12.512467], 6);
-//
+  // check a previous search from home
+  if ($('#algolia_input').attr('data-lat') && $('#algolia_input').attr('data-lng'))
+  {
 
-/*
-**********************
-ALGOLIA AUTOCOMPLEATE
-**********************
-*/
+    $('#range').val(20);
 
-var places = require('places.js');
-var placesAutocomplete = places({
-  appId: 'pl4XRMWU2BCA',
-  apiKey: '0c0d759444ce91afdb966e427ac5e837',
-  container: document.querySelector('#address_input'),
-  // style:false
-});
-
-// take lat/lng value from algolia's response and store them into data-att of #adress-input
-placesAutocomplete.on('change', e => (
-  $('#address_input').attr('data-lat', e.suggestion['latlng']['lat']),
-  $('#address_input').attr('data-lng',e.suggestion['latlng']['lng'])
-));
-
-/*
-**********************
-SEARCH FUNCTION
-**********************
-*/
-// on click take all values from the form and store them into params object
-$('#submit').on('click', function() {
-
-  var params = {
-    range: $('#range').val(),
-    beds: $('#beds').val(),
-    rooms: $('#rooms').val(),
-    baths: $('#baths').val(),
-    square_m: $('#square_m').val(),
-    price: $('#price').val(),
-    pool: $('#pool').val(),
-    wifi: $('#wifi').val(),
-    pet: $('#pet').val(),
-    parking: $('#parking').val(),
-    piano: $('#piano').val(),
-    sauna: $('#sauna').val(),
-    latitude: $('#address_input').attr('data-lat'),
-    longitude: $('#address_input').attr('data-lng')
-  }
-
-  console.log(params);
-  // send params to API in Api/SearchController
-  ajaxCall(params);
-
-
-});
-
-$('.search_bar_wrapper input').on('keypress', function(e) {
-  if (e.keyCode === 13) {
-    console.log('premuto')
-
-    var params = {
-      range: $('#range').val(),
-      beds: $('#beds').val(),
-      rooms: $('#rooms').val(),
-      baths: $('#baths').val(),
-      square_m: $('#square_m').val(),
-      price: $('#price').val(),
-      pool: $('#pool').val(),
-      wifi: $('#wifi').val(),
-      pet: $('#pet').val(),
-      parking: $('#parking').val(),
-      piano: $('#piano').val(),
-      sauna: $('#sauna').val(),
-      latitude: $('#address_input').attr('data-lat'),
-      longitude: $('#address_input').attr('data-lng')
-    }
-
-    console.log(params);
-    // send params to API in Api/SearchController
+    var params = setParams();
     ajaxCall(params);
 
-    }
+  }
+  // check if a previous search is stored
+  else if (sessionStorage.data)
+  {
+
+    var response = JSON.parse(sessionStorage.data);
+    success(response);
+
+  }
+  // erase all values from all inputs in #search_wrapper except for #submit
+  else
+  {
+
+    $("#search_wrapper input:not('#submit')").val('');
+
+  }
+
+  // set checkbox as false
+  $('input[type="checkbox"]').prop('checked', false);
+
+  // toggle chechbox on click
+  $('.checkbox input[type="checkbox"]').on('click', function(event)
+  {
+    checked($(this));
   })
 
 
-} // close the search-on-screen block
+
+  // search on click
+  $('#submit').on('click', function()
+  {
+
+    var params = setParams();
+    // send params to API in Api/SearchController
+    ajaxCall(params);
+
+  });
+
+  // search on keypress
+  $('#search_wrapper input').on('keypress', function(e)
+  {
+    if (e.keyCode === 13) {
+
+      var params = setParams();
+      // send params to API in Api/SearchController
+      ajaxCall(params);
+
+    }
+  })
+}
+
+
 
 
 
 
 
 // DEFINITIONs
-
-// search call
-function ajaxCall(params) {
+// ajax call
+function ajaxCall(params)
+{
 
   $body = $(".main_wrapper_search");
 
@@ -207,8 +135,8 @@ function ajaxCall(params) {
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -229,56 +157,12 @@ function ajaxCall(params) {
             longitude: params.longitude,
           },
 
-    success: function(suites){
-      console.log(suites);
-      var source = $('#suite-cards-template').html();
-      var template = Handlebars.compile(source);
+    success: function(suites)
+    {
+      // store results in sessionStorage
+      sessionStorage.setItem('data', JSON.stringify(suites));
+      success(suites)
 
-      // refresh html before a new search
-      $('.suites_cards_promo').html('');
-
-      var maPins = []
-
-      for (var i = 0; i < suites.promo.length; i++) {
-
-        var suite = suites.promo[i];
-
-        // set an array of pins
-        var pin = {}
-
-        // set pin
-        pin.lat = suite.latitude;
-        pin.lng = suite.longitude;
-        pin.title = suite.title;
-        // push pin into the array
-        maPins.push(pin);
-
-        // set html with handlebars
-        var html = template(suite);
-        $('.suites_cards_promo').append(html);
-      }
-
-      $('.suites_cards_noPromo').html('');
-
-      for (var i = 0; i < suites.noPromo.length; i++) {
-
-        // set an array of pins
-        var pin = {}
-        var suite = suites.noPromo[i];
-
-        // set pin
-        pin.lat = suite.latitude;
-        pin.lng = suite.longitude;
-        pin.title = suite.title;
-        // push pin into the array
-        maPins.push(pin);
-
-        // set html with handlebars
-        var html = template(suite);
-        $('.suites_cards_noPromo').append(html);
-      }
-
-        loadMap(maPins);
 
     },
 
@@ -288,36 +172,99 @@ function ajaxCall(params) {
   });
 }
 
+
+// append cards and map
+function success(suites) {
+  var source = $('#suite-cards-template').html();
+  var template = Handlebars.compile(source);
+
+  // refresh html before a new search
+  $('.suites_cards_promo').html('');
+
+  var map_pins = []
+
+  for (var i = 0; i < suites.promo.length; i++)
+  {
+
+    var suite = suites.promo[i];
+
+    // set an array of pins
+    var pin = {}
+
+    // set pin
+    pin.lat = suite.latitude;
+    pin.lng = suite.longitude;
+    pin.title = suite.title;
+    // push pin into the array
+    map_pins.push(pin);
+
+    // set html with handlebars
+    var html = template(suite);
+    $('.suites_cards_promo').append(html);
+  }
+
+  $('.suites_cards_noPromo').html('');
+
+  for (var i = 0; i < suites.noPromo.length; i++)
+  {
+
+    // set an array of pins
+    var pin = {}
+    var suite = suites.noPromo[i];
+
+    // set pin
+    pin.lat = suite.latitude;
+    pin.lng = suite.longitude;
+    pin.title = suite.title;
+    // push pin into the array
+    map_pins.push(pin);
+
+    // set html with handlebars
+    var html = template(suite);
+    $('.suites_cards_noPromo').append(html);
+
+  }
+
+    loadMap(map_pins);
+}
+
+
 // load the map
-function loadMap(maPins) {
+function loadMap(map_pins)
+{
 
   // // refresh map
   $('#map').remove();
   $('.my_maps').html('<div id="map"></div>');
 
   // take values from searchbar
-  var latlng = {
-    lat: $('#address_input').attr('data-lat'),
-    lng: $('#address_input').attr('data-lng')
+  var latlng =
+  {
+    lat: $('#algolia_input').attr('data-lat'),
+    lng: $('#algolia_input').attr('data-lng')
   };
 
   // set map
-  var mymap = L.map('map', {
+  var mymap = L.map('map',
+  {
     scrollWheelZoom: true,
     zoomControl: true
   });
 
-  // set methods
   L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
     minZoom: 1,
     maxZoom: 50,
-  }).addTo(mymap);
+    }).addTo(mymap);
 
-  // loop all pins and pins to the map
-  for (var i = 0; i < maPins.length; i++) {
-    var pin = maPins[i];
+  // loop all pins
+  for (var i = 0; i < map_pins.length; i++)
+  {
+
+    var pin = map_pins[i];
     pinSuiteToMap(pin, mymap);
+
   }
 
   // set the view
@@ -325,16 +272,51 @@ function loadMap(maPins) {
 
 }
 
+
 // attach pins to the map
-function pinSuiteToMap(pin, mymap) {
+function pinSuiteToMap(pin, mymap)
+{
+
   L.marker([pin.lat, pin.lng]).bindPopup(pin.title).openPopup().addTo(mymap);
+
 }
 
+
+// set params
+function setParams()
+{
+
+  return {
+    range: $('#range').val(),
+    beds: $('#beds').val(),
+    rooms: $('#rooms').val(),
+    baths: $('#baths').val(),
+    square_m: $('#square_m').val(),
+    price: $('#price').val(),
+    pool: $('#pool').val(),
+    wifi: $('#wifi').val(),
+    pet: $('#pet').val(),
+    parking: $('#parking').val(),
+    piano: $('#piano').val(),
+    sauna: $('#sauna').val(),
+    latitude: $('#algolia_input').attr('data-lat'),
+    longitude: $('#algolia_input').attr('data-lng')
+  }
+
+}
+
+
 // toggle checkbox values
-function checked(event) {
-  if($(event).prop('checked')) {
+function checked(event)
+{
+
+  if($(event).prop('checked'))
+  {
     $(event).val('true');
-  }else{
+  }
+  else
+  {
     $(event).val('false');
   }
+
 }

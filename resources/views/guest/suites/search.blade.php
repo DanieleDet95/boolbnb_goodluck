@@ -13,7 +13,7 @@
       {{-- Search bar Wrapper --}}
       <div class="row d-flex justify-content-center">
         <div class="col-10">
-          <div class="search_bar_wrapper common_form">
+          <div id="search_wrapper" class="search_bar_wrapper common_form">
 
             {{-- Form title --}}
             <div class="form_title text-center">
@@ -32,9 +32,9 @@
             <div class="common_form search_location col-12">
               <div id="search_box" class="input_box">
                 @if (isSet($key))
-                  <input class="form-control rounded-0" type="search" id="address_input" data-lat="{{$lat}}" data-lng="{{$lng}}" placeholder="Where are we going?" value="{{$key}}">
+                  <input class="form-control rounded-0" type="search" id="algolia_input" data-lat="{{$lat}}" data-lng="{{$lng}}" placeholder="Where are we going?" value="{{$key}}">
                 @else
-                  <input class="form-control rounded-0" type="search" id="address_input" data-lat="" data-lng="" placeholder="Where are we going?" />
+                  <input class="form-control rounded-0" type="search" id="algolia_input" data-lat="" data-lng="" placeholder="Where are we going?" />
                 @endif
               </div>
             </div>

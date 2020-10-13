@@ -64,7 +64,7 @@
               <div id="algolia_form" class="input-group">
 
                 {{-- Algolia input --}}
-                <input type="search" id="home_search" class="form-control border-0 rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <input type="search" id="algolia_input" class="form-control border-0 rounded-0" placeholder="Where do you want to go?" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <input id="key" type="text" name="key" class="form-control rounded-0 border-0 d-none">
                 <input id="latitude" type="text" name="latitude" class="form-control rounded-0 border-0 d-none">
                 <input id="longitude" type="text" name="longitude" class="form-control rounded-0 border-0 d-none">

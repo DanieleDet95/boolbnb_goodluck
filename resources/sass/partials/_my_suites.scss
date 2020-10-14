@@ -1,6 +1,12 @@
 // partials/_my_suites.scss
 
 main {
+  .my_thead {
+    border: 1px solid black;
+    background-color: $secondary_text_color;
+    color: $primary_text_color;
+  }
+
   /* VIEW MY SUITES */
   .wrapper_mysuites{
     position: relative;

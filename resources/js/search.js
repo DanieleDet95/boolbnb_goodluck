@@ -66,9 +66,9 @@ if($('#search_wrapper').length) {
   {
 
     var response = JSON.parse(sessionStorage.data);
-    var lat = sessionStorage.lat;
-    var lng = sessionStorage.lng;
-    success(response, lat, lng);
+    var filters = JSON.parse(sessionStorage.filters);
+
+    success(response, filters);
 
   }
   // erase all values from all inputs in #search_wrapper except for #submit
@@ -77,10 +77,10 @@ if($('#search_wrapper').length) {
 
     $("#search_wrapper input:not('#submit')").val('');
 
+    $('input[type="checkbox"]').prop('checked', false);
   }
 
-  // set checkbox as false
-  $('input[type="checkbox"]').prop('checked', false);
+
 
   // toggle chechbox on click
   $('.checkbox input[type="checkbox"]').on('click', function(event)
@@ -143,8 +143,8 @@ function ajaxCall(params)
 
   $.ajax
   ({
-    // url: "http://boolbnb_goodluck.loc/api/search",
-    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    url: "http://boolbnb_goodluck.loc/api/search",
+    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -168,9 +168,26 @@ function ajaxCall(params)
     success: function(suites)
     {
 
+      // set object with all filters
+      var filters = {
+        lat: $('#algolia_input').attr('data-lat'),
+        lng: $('#algolia_input').attr('data-lng'),
+        range: $('#range').val(),
+        beds: $('#beds').val(),
+        rooms: $('#rooms').val(),
+        baths: $('#baths').val(),
+        square_m: $('#square_m').val(),
+        price: $('#price').val(),
+        pool: $('#pool').val(),
+        wifi: $('#wifi').val(),
+        pet: $('#pet').val(),
+        parking: $('#parking').val(),
+        piano: $('#piano').val(),
+        sauna: $('#sauna').val(),
+
+      }
       // store results in sessionStorage
-      sessionStorage.setItem('lat', $('#algolia_input').attr('data-lat'));
-      sessionStorage.setItem('lng', $('#algolia_input').attr('data-lng'));
+      sessionStorage.setItem('filters', JSON.stringify(filters));
       sessionStorage.setItem('data', JSON.stringify(suites));
       success(suites);
 
@@ -185,12 +202,28 @@ function ajaxCall(params)
 
 
 // append cards and map
-function success(suites, lat = 0, lng = 0)
+function success(suites, filters = 0)
 {
 
-  if(lat && lng) {
-    $('#algolia_input').attr('data-lat', lat)
-    $('#algolia_input').attr('data-lng', lng)
+  // set old filters
+  if(filters)
+  {
+
+    $('#algolia_input').attr('data-lat', filters.lat)
+    $('#algolia_input').attr('data-lng', filters.lng)
+    $('#range').val(filters.range)
+    $('#beds').val(filters.beds)
+    $('#rooms').val(filters.rooms)
+    $('#baths').val(filters.bath)
+    $('#square_m').val(filters.square_m)
+    $('#price').val(filters.price)
+    $('#pool').val(filters.pool)
+    $('#wifi').val(filters.wifi)
+    $('#pet').val(filters.pet)
+    $('#parking').val(filters.parking)
+    $('#piano').val(filters.piano)
+    $('#sauna').val(filters.sauna)
+
   }
 
   console.log(suites);

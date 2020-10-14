@@ -13,19 +13,23 @@ class StaticController extends Controller
 {
   public function index(Request $request) {
 
-    // ////////////////////////////// MESSAGGI //////////////////////////////////////////////////
+    // ////////////////////////////////////// MESSAGGI /////////////////////////////////////////////
 
-    // Inizializzazione array di mesi per messaggi
+    // Inizializzazione array dei mesi per messaggi
     $gennaio_m=[];$febbraio_m=[];$marzo_m=[];$aprile_m=[];$maggio_m=[];$giugno_m=[];$luglio_m=[];$agosto_m=[];$settembre_m=[];$ottobre_m=[];$novembre_m=[];$dicembre_m=[];
 
     // Creazione variabile con tutti i messaggi
     $messages = Message::all();
+
     // Ricavare id della suite
     $id = $request->get('suite');
-    // Filtrare per tutti i messaggi
+
+    // Filtrare per tutti i messaggi presenti sul database
     foreach ($messages as $message) {
+
       // Se l'id della suite combacia con l'id della suite del messaggio per ogni mese aggiungere il messaggio
       if ($id == $message->suite->id) {
+
         if ($message['created_at']->format('m') == '01') {
           $gennaio_m[$id][]= $message;
         }elseif ($message['created_at']->format('m') == '02') {
@@ -53,6 +57,7 @@ class StaticController extends Controller
         }
       }
     }
+
     // Contare per ogni mese quanti messaggi sono stati ricevuti per suite
     if(!empty($gennaio_m[$id])){$n_mess_gennaio=count($gennaio_m[$id]);}else{$n_mess_gennaio=0;}
     if(!empty($febbraio_m[$id])){$n_mess_febbraio=count($febbraio_m[$id]);}else{$n_mess_febbraio=0;}
@@ -69,18 +74,20 @@ class StaticController extends Controller
     $n_mess_totali= $n_mess_gennaio+$n_mess_febbraio+$n_mess_marzo+$n_mess_aprile+$n_mess_maggio+$n_mess_giugno+$n_mess_luglio+$n_mess_agosto+$n_mess_settembre+$n_mess_ottobre+$n_mess_novembre+$n_mess_dicembre;
 
 
-    // ////////////////////////////// VISUALIZZAZIONI ////////////////////////////////////////////
+    // /////////////////////////////////// VISUALIZZAZIONI /////////////////////////////////////////
 
-    // Inizializzazione array di mesi
+    // Inizializzazione array dei mesi per messaggi
     $gennaio_v=[];$febbraio_v=[];$marzo_v=[];$aprile_v=[];$maggio_v=[];$giugno_v=[];$luglio_v=[];$agosto_v=[];$settembre_v=[];$ottobre_v=[];$novembre_v=[];$dicembre_v=[];
 
     // Creazione variabile con tutti i messaggi
     $visits = Visit::all();
-    // dd($visits);
-    // Filtrare per tutti i messaggi
+
+    // Filtrare per tutte le visite sul database
     foreach ($visits as $visit) {
-      // Se l'id della suite combacia con l'id della suite del messaggio per ogni mese aggiungere il messaggio
+
+      // Se l'id della suite combacia con l'id della suite della visita per ogni mese aggiungere la visita
       $data = Carbon::parse($visit['data']);
+
       if ($id == $visit->suite->id) {
         if ($data->month == '01') {
           $gennaio_v[$id][]= $visit;
@@ -125,6 +132,7 @@ class StaticController extends Controller
     if(!empty($dicembre_v[$id])){$n_vis_dicembre=count($dicembre_v[$id]);}else{$n_vis_dicembre=0;}
     $n_vis_totali= $n_vis_gennaio+$n_vis_febbraio+$n_vis_marzo+$n_vis_aprile+$n_vis_maggio+$n_vis_giugno+$n_vis_luglio+$n_vis_agosto+$n_vis_settembre+$n_vis_ottobre+$n_vis_novembre+$n_vis_dicembre;
 
+    // Passare tutti i dati ricavati alla chiamata ajax
     return response()->json([
         'v_gennaio' => $n_vis_gennaio,
         'v_febbraio' => $n_vis_febbraio,

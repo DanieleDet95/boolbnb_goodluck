@@ -15,23 +15,29 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-// admin route added
+// Admin route
 Route::prefix('admin')
   ->namespace('Admin')
   ->name('admin.')
   ->middleware('auth')
   ->group(function () {
+  // admin route to index/show/create/edit/destroy
   Route::resource('suites', 'SuiteController');
+  // admin route to messages
   Route::get('/messages', 'SuiteController@messages')->name('email.messages.index');
+  // admin route to mysuites
   Route::get('/mysuites', 'SuiteController@mysuites')->name('suites.mysuites');
+  // admin route to statics
   Route::get('/static/{suite}', 'SuiteController@static')->name('suites.static');
-  // PROMO
+  // admin route to promotions
   Route::get('/promotion/{suite}', 'PromotionController@index')->name('promotion');
+  // admin route to checkout
   Route::post('/promotion/{suite}/checkout', 'PromotionController@checkout')->name('checkout');
+  // admin route to transaction
   Route::get('/promotion/{suite}/transaction', 'PromotionController@transaction')->name('transaction');
 });
 
-// guest route to index
+// Guest route
 Route::get('/', 'SuiteController@index')->name('suites.index');
 // after register
 Route::get('/home', 'SuiteController@index')->name('suites.index');
@@ -45,7 +51,7 @@ Route::get('suites/{suite}', 'SuiteController@show')->name('suites.show');
 Route::post('suites/{suite}', 'SuiteController@store')->name('suites.store');
 // guest route to store_message
 Route::post('suites/{suite}', 'SuiteController@store_message')->name('suites.store_message');
-//route to FAQs
+// route to FAQs
 Route::get('/faqs', 'FaqController@index')->name('faqs');
 // join handlebars with blade, to show
 Route::get('/suites', 'SuiteController@show')->name('suites.handle.show');

@@ -35,6 +35,7 @@
     </div>
   </div>
 
+  {{-- Ricavare suite id da qui --}}
   <div id="suite" hidden>{{ $suite->id }}</div>
 
   <script src="{{asset('js/app.js')}}" ></script>

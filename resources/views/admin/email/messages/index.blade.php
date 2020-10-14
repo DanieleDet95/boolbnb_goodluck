@@ -30,6 +30,7 @@
 
               <!-- Apertura lista mail -->
               <div class="lista_mail">
+
                 <!-- Singola mail -->
                 <div class="mail">
 

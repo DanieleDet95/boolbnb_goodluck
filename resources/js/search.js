@@ -139,8 +139,8 @@ function ajaxCall(params)
 
   $.ajax
   ({
-    url: "http://boolbnb_goodluck.loc/api/search",
-    // url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
+    // url: "http://boolbnb_goodluck.loc/api/search",
+    url: "http://127.0.0.1:8000/api/search", //per i comuni mortali
 
     method: "GET",
 
@@ -277,7 +277,7 @@ function loadMap(map_pins, range)
   if(range <= 5) {
     mymap.setView([latlng.lat, latlng.lng], 12.5);
   } else if (range <= 20) {
-    mymap.setView([latlng.lat, latlng.lng], 11.5);
+    mymap.setView([latlng.lat, latlng.lng], 11.25);
   } else {
     mymap.setView([latlng.lat, latlng.lng], 10);
   }

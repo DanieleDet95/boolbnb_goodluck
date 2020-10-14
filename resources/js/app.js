@@ -14,4 +14,6 @@ $(document).ready(function() {
   require('./create_update');
   // include create
   require('./show');
+  // include avviso messagges
+  require('./avviso');
 })

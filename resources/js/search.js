@@ -47,6 +47,8 @@ if($('#algolia_input').length)
 $('#navbarNav a').on('click', function()
 {
   sessionStorage.removeItem('data');
+  sessionStorage.removeItem('lat');
+  sessionStorage.removeItem('lng');
 })
 
 if($('#search_wrapper').length) {
@@ -64,7 +66,9 @@ if($('#search_wrapper').length) {
   {
 
     var response = JSON.parse(sessionStorage.data);
-    success(response);
+    var lat = sessionStorage.lat;
+    var lng = sessionStorage.lng;
+    success(response, lat, lng);
 
   }
   // erase all values from all inputs in #search_wrapper except for #submit
@@ -163,10 +167,12 @@ function ajaxCall(params)
 
     success: function(suites)
     {
-      // store results in sessionStorage
-      sessionStorage.setItem('data', JSON.stringify(suites));
-      success(suites)
 
+      // store results in sessionStorage
+      sessionStorage.setItem('lat', $('#algolia_input').attr('data-lat'));
+      sessionStorage.setItem('lng', $('#algolia_input').attr('data-lng'));
+      sessionStorage.setItem('data', JSON.stringify(suites));
+      success(suites);
 
     },
 
@@ -179,7 +185,15 @@ function ajaxCall(params)
 
 
 // append cards and map
-function success(suites) {
+function success(suites, lat = 0, lng = 0)
+{
+
+  if(lat && lng) {
+    $('#algolia_input').attr('data-lat', lat)
+    $('#algolia_input').attr('data-lng', lng)
+  }
+
+  console.log(suites);
   var map_pins = [];
   var range = $('#range').val() ? $('#range').val() : 20;
   var source = $('#suite-cards-template').html();
@@ -274,10 +288,11 @@ function loadMap(map_pins, range)
   }
 
   // set the view
-  if(range <= 5) {
+  if(range <= 5)
+  {
     mymap.setView([latlng.lat, latlng.lng], 12.5);
   } else if (range <= 20) {
-    mymap.setView([latlng.lat, latlng.lng], 11.5);
+    mymap.setView([latlng.lat, latlng.lng], 11.25);
   } else {
     mymap.setView([latlng.lat, latlng.lng], 10);
   }

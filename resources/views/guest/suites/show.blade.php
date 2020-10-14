@@ -4,7 +4,7 @@
 {{-- Yeld Main Content --}}
 @section("content")
   {{-- Container-fluid --}}
-  <div class="container-fluid container-md">
+  <div class="container-fluid container-md" onload="document.getElementById('avviso').click()">
     {{-- Row Title Images --}}
     <div class="row flex-column flex-nowrap mt-4 row_title_img">
       {{-- Prima riga fatta da titolo e indirizzo --}}
@@ -184,4 +184,32 @@
     {{-- Fine Row Form --}}
   </div>
   {{-- Fine Container-fluid --}}
+
+  @if(session()->has('modal'))
+
+    <!-- Button HTML (to Trigger Modal) -->
+    <a id='avviso' href="#myModal" class="trigger-btn" data-toggle="modal" hidden>Modal</a>
+
+    <!-- Modal HTML -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title w-100">Inviato!</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Il messaggio è stato inviato correttamente.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parte relativa all avviso di messaggio inviato -->
+    <script src="{{asset('js/app.js')}}"></script>
+
+  @endif
+  <!-- Fine Parte relativa all avviso di messaggio inviato -->
 @endsection

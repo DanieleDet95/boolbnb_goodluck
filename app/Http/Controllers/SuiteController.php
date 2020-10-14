@@ -135,7 +135,7 @@ class SuiteController extends Controller
     Mail::to($new_message->suite->user->email)
       ->send(new SendNewMail($new_message));
 
-    return redirect()->route('suites.show', $suite);
+    return redirect()->route('suites.show', $suite)->with('modal','true');
   }
 
   // ----------------------------------------- SEARCH ----------------------------------------------

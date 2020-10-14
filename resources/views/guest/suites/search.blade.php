@@ -149,7 +149,7 @@
   {{-- end Main wrapper search --}}
 
 {{-- Modal --}}
-<div class="modal"><!-- Place at bottom of page --></div>
+<div class="loader"><!-- Place at bottom of page --></div>
 
 {{-- l'id dello script serve ad identificare il template dalla funzione ajax in search.js
 se si rende necessario modificarlo, aggiornare il riferimento in search.js --}}

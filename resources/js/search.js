@@ -130,7 +130,7 @@ if($('#search_wrapper').length) {
 function ajaxCall(params)
 {
 
-  $body = $(".main_wrapper_search");
+  $body = $("body");
 
   $(document).on({
     ajaxStart: function() {
